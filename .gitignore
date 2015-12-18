@@ -21,3 +21,11 @@ MVCBootstrap/obj/Debug/MVCBootstrap.csproj.FileListAbsolute.txt
 MVCBootstrap/obj/Debug/MVCBootstrap.csprojResolveAssemblyReference.cache
 MVCBootstrap/obj/Debug/MVCBootstrap.dll
 MVCBootstrap/obj/Debug/MVCBootstrap.pdb
+CarMarket.v12.suo
+Site/bin/CarMarketSite.dll
+Site/bin/CarMarketSite.dll.config
+Site/bin/CarMarketSite.pdb
+Site/obj/Debug/CarMarketSite.dll
+Site/obj/Debug/CarMarketSite.pdb
+Site/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Site/obj/Debug/Site.csproj.FileListAbsolute.txt
