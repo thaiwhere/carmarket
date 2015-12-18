@@ -1,0 +1,50 @@
+.sellcar-item .photo {
+    float: left;
+    width: 140px;
+    height: 104px;
+    padding-right: 10px;
+}
+.sellcar-item .info {
+    float: left;
+    width: 514px;
+}
+.opensanslistauto:visited {
+    color: #7f7f7f !important;
+}
+.opensanslistauto {
+    font-family: 'Open sans' !important;
+    font-size: 15px;
+    font-weight: bold;
+    color: #1260ab !important;
+    text-decoration: none;
+    line-height: 20px;
+}
+
+.sellcar-item .contact {
+    float: left;
+    width: 303px;
+    font: 12px 'Arial';
+    color: #267ec8;
+    margin-top: 5px;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+user agent stylesheetdiv {
+    display: block;
+}
+.sellcar-item .location a {
+    color: #fff;
+    font: bold 14px/23px 'Arial';
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+body a {
+    text-decoration: none;
+}
+user agent stylesheeta:-webkit-any-link {
+    color: -webkit-link;
+    text-decoration: underline;
+    cursor: auto;
+}
