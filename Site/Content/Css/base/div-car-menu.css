@@ -1,0 +1,41 @@
+
+#div-car-menu{
+    margin-left:-15px;
+}
+
+.dropdown-toggle{
+    color:white;
+    text-decoration:none;
+}
+
+#div-car-menu span{
+    margin-left:10px;
+    color:#FFAA2A;
+    font-size:15px;    
+}
+
+.dropdown-menu li{
+    float:left;
+    width:110px;    
+}
+
+.dropdown-menu li a{
+    color: #428bca;    
+}
+
+.dropdown{
+    width:140px;
+}
+
+.dropdown:hover .dropdown-toggle{
+    font-weight:bold;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #428bca;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    left: 136px;    
+    top: -3px;    
+}

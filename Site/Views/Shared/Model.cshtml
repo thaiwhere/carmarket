@@ -1,0 +1,12 @@
+﻿@model List<string>
+
+@foreach (var model in Model.ToList().ToArray())
+{
+    <div id="model">
+        <div>
+            <input type="checkbox" class="checkbox-inline " checked="checked" /> <label>model</label>
+        </div>
+
+    </div>
+}
+

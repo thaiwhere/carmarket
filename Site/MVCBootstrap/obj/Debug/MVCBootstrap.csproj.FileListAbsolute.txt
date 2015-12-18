@@ -1,0 +1,236 @@
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\obj\Debug\MVCBootstrap.csprojResolveAssemblyReference.cache
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\MVCBootstrap.dll.config
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\MVCBootstrap.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\MVCBootstrap.pdb
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Antlr3.Runtime.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\EntityFramework.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\EntityFramework.SqlServer.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Services.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Web.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Google.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Web.Infrastructure.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Newtonsoft.Json.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Owin.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.Helpers.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.Mvc.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.Optimization.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.Razor.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Deployment.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Razor.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\WebGrease.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Services.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Web.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.Helpers.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.Mvc.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.Optimization.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.Razor.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Deployment.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Razor.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Newtonsoft.Json.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Antlr3.Runtime.pdb
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\EntityFramework.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\EntityFramework.SqlServer.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Google.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\obj\Debug\MVCBootstrap.dll
+c:\users\jsousa\documents\visual studio 2013\Projects\MVCBootstrap\MVCBootstrap\obj\Debug\MVCBootstrap.pdb
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\MVCBootstrap.dll.config
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\MVCBootstrap.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\MVCBootstrap.pdb
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Antlr3.Runtime.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\EntityFramework.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\EntityFramework.SqlServer.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Services.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Web.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Google.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Web.Infrastructure.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Newtonsoft.Json.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Owin.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.Helpers.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.Mvc.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.Optimization.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.Razor.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Deployment.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Razor.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\WebGrease.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Services.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Web.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.Helpers.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.Mvc.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.Optimization.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.Razor.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Deployment.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Razor.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Newtonsoft.Json.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Antlr3.Runtime.pdb
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\EntityFramework.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\EntityFramework.SqlServer.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Google.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Thai\MVCBootstrap\MVCBootstrap\obj\Debug\MVCBootstrap.csprojResolveAssemblyReference.cache
+D:\Thai\MVCBootstrap\MVCBootstrap\obj\Debug\MVCBootstrap.dll
+D:\Thai\MVCBootstrap\MVCBootstrap\obj\Debug\MVCBootstrap.pdb
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\MVCBootstrap.dll.config
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\MVCBootstrap.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\MVCBootstrap.pdb
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Antlr3.Runtime.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\EntityFramework.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\EntityFramework.SqlServer.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Services.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Web.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Google.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Web.Infrastructure.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Newtonsoft.Json.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Owin.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.Helpers.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.Mvc.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.Optimization.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.Razor.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Deployment.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Razor.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\WebGrease.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Services.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Web.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.Helpers.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.Mvc.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.Optimization.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.Razor.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Deployment.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Razor.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Newtonsoft.Json.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Antlr3.Runtime.pdb
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\EntityFramework.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\EntityFramework.SqlServer.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Google.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\obj\Debug\MVCBootstrap.csprojResolveAssemblyReference.cache
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\obj\Debug\MVCBootstrap.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\obj\Debug\MVCBootstrap.pdb
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\MVCBootstrap.dll.config
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\MVCBootstrap.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\MVCBootstrap.pdb
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Antlr3.Runtime.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\EntityFramework.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\EntityFramework.SqlServer.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Services.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Web.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Google.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Web.Infrastructure.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Newtonsoft.Json.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Owin.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.Helpers.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.Mvc.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.Optimization.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.Razor.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Deployment.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Razor.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\WebGrease.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Services.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.ApplicationInsights.Telemetry.Web.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.Helpers.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.Mvc.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.Optimization.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.Razor.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Deployment.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\System.Web.WebPages.Razor.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Newtonsoft.Json.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Antlr3.Runtime.pdb
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\EntityFramework.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\EntityFramework.SqlServer.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Google.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\obj\Debug\MVCBootstrap.csprojResolveAssemblyReference.cache
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\obj\Debug\MVCBootstrap.dll
+D:\Thai\New folder\MVCBootstrap\MVCBootstrap\MVCBootstrap\obj\Debug\MVCBootstrap.pdb

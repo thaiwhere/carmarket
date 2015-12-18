@@ -1,0 +1,65 @@
+/*Menu*/
+#menu a{
+    color:#FFFFFF;
+}
+#menu a:hover{  
+  color:#FFAA55;
+  background-color:#374B64;
+}
+
+#menu .active a:hover {
+    background-color:#428bca;
+}
+
+/*Login*/
+#logo {
+    float: left;
+    background: transparent url(../../Images/icons.gif) repeat-x scroll -0px 0px;
+    width: 340px;
+    height: 80px;
+    margin-top: 5px;
+    margin-left: 8px;
+    text-indent: -999px;
+}
+
+/*Search*/
+#search{
+        float: left;
+    height: 30px;
+    background-color: #FCEDC4;
+    background: transparent url(../../Images/bar.gif) scroll -0px -80px;
+    width: 100%;
+}
+.btn-search{
+        margin-top: 1px;
+    float: right;
+    background: transparent url(../../Images/icons.gif) repeat-x scroll -2px -140px;
+    width: 78px;
+    height: 24px;
+}
+
+#txt-search{
+    width:230px;
+}
+/*Model */
+#model{
+    border-top: 1px solid #CCCCCC;    
+    background:#FFFFD4;
+    height: 50px;
+    padding:3px;
+}
+
+#model div{
+    float:left;
+    width:80px;    
+}
+
+#model label{
+    color:#2A2AFF;
+    font-weight:normal;
+}
+
+/*Advertise*/
+
+.advertise{   
+}

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Oto Viet</title>
+    @Styles.Render("~/bundles/css")
+    
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/js")
+
+    @RenderSection("Styles", required: false)
+
+</head>
+
+<body>    
+    <div id="div-parent">
+        <div id="div-header>">
+            <a id="logo" href="http://www.bonbanh.com/" title="oto, mua ban oto">
+                <h1>oto, mua ban oto</h1>
+            </a>
+
+            <div id="div-support">
+
+                <div id="div-login" style="*width:325px">
+                    <ul>
+                        <li><a href="dang-ky-thanh-vien/">Đăng ký</a></li>
+                        <li><a href="thanh-vien/" onclick="open_dialog('login-dlg','username1');return false;">Đăng nhập</a></li>
+                        <li><a href="gioi-thieu/">Hướng dẫn</a></li>
+                        <li class="ilast"><a href="lien-he/">Liên hệ</a></li> 
+                    </ul>
+                </div>
+
+                <div id="div-search">
+                    @{ Html.RenderPartial("~/Views/Shared/Search.cshtml"); }
+                </div>
+
+            </div>
+        </div>
+        <div id="div-menu">
+            @{ Html.RenderPartial("~/Views/Shared/Menu.cshtml"); }
+        </div>
+        <div id="div-content">
+            <div id="div-left" class="col-sm-2">
+                @{ Html.RenderPartial("~/Views/Shared/CarList.cshtml"); }                
+            </div>
+            <div id="div-center">
+                @RenderBody()
+            </div>
+            <div id="div-right">
+                @{ Html.RenderPartial("~/Views/Shared/AdvertiseRight.cshtml"); }
+                @{ Html.RenderPartial("~/Views/Shared/ShowRoom.cshtml"); }                
+            </div>
+        </div>
+        <div id="div-footer">
+            <p>Oto2018 Corp.</p>
+        </div>
+    </div>
+    
+
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>
