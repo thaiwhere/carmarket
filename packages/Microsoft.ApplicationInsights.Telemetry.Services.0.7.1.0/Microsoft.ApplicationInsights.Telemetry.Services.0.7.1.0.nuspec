@@ -12,7 +12,10 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Application Insights Telemetry SDK gives you insights into the KPIs of your on-premises and Windows Azure applications. With the SDK, you insert code into your server application that logs events and transactions. Application Insights service collects the data, analyzes it and presents the results in the forms of graphs and reports in your Visual Studio Online portal.</description>
     <summary>Application Insights Telemetry SDK is supported for .NET FX 3.5 SP1 and later version of .NET FX.</summary>
-    <releaseNotes />
+    <releaseNotes>New Features in 0.7.1.0
+a. Auto Configuration using the ApplicationInsights.config file
+b. Default Application Events logged automatically
+c. ComponentID added automatically if using the Application Insights Tools for Visual Studio (Extension SDK)</releaseNotes>
     <copyright>Copyright © 2013-2022, Microsoft. All rights reserved.</copyright>
     <language>en-us</language>
     <tags>Analytics Insights Telemetry ASP.NET ASMX Web Worker Azure Server Services ASPX Websites Role</tags>
