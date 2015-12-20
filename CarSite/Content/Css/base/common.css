@@ -41,23 +41,6 @@
 #txt-search{
     width:230px;
 }
-/*Model */
-#model{
-    border-top: 1px solid #CCCCCC;    
-    background:#FFFFD4;
-    height: 50px;
-    padding:3px;
-}
-
-#model div{
-    float:left;
-    width:80px;    
-}
-
-#model label{
-    color:#2A2AFF;
-    font-weight:normal;
-}
 
 /*Advertise*/
 
