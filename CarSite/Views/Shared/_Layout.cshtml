@@ -18,14 +18,12 @@
 
 <body>    
     <div id="div-parent">
-        <div id="div-header>">
+        <div id="div-header">
             <a id="logo" href="http://www.bonbanh.com/" title="oto, mua ban oto">
                 <h1>oto, mua ban oto</h1>
             </a>
-
             <div id="div-support">
-
-                <div id="div-login" style="*width:325px">
+               <div id="div-login" style="*width:325px">
                     <ul>
                         <li><a href="dang-ky-thanh-vien/">Đăng ký</a></li>
                         <li><a href="thanh-vien/" onclick="open_dialog('login-dlg','username1');return false;">Đăng nhập</a></li>
@@ -33,8 +31,7 @@
                         <li class="ilast"><a href="lien-he/">Liên hệ</a></li> 
                     </ul>
                 </div>
-
-                <div id="div-search">
+               <div id="div-search">
                     @{ Html.RenderPartial("~/Views/Shared/Search.cshtml"); }
                 </div>
 

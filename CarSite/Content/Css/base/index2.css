@@ -1,24 +1,50 @@
 .sellcar-item .photo {
-    float: left;
+    float:left;
     width: 140px;
     height: 104px;
     padding-right: 10px;
 }
-.sellcar-item .info {
-    float: left;
-    width: 514px;
+.sellcar-item .info1 {
+    float:left;
+    width: 420px;
+    padding-left: 3px;
+    
 }
-.opensanslistauto:visited {
-    color: #7f7f7f !important;
-}
-.opensanslistauto {
+.open {
     font-family: 'Open sans' !important;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     color: #1260ab !important;
     text-decoration: none;
     line-height: 20px;
 }
+.sellcar-item h3, .sellcar-item h4, .sellcar-item .sellcar {
+    width: 430px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+.opensanslistauto:visited {
+    color: #7f7f7f !important;
+}
+.sellcar-item .date1 {
+    float:right;
+    text-align: left;
+    width: 20px;
+    color: #222;
+    font: 13px/21px 'Open Sans';
+    font-style: italic;
+}
+.sellcar-item .detail {
+    float: left;
+    width: 512px;
+}
+
+
 
 .sellcar-item .contact {
     float: left;
@@ -27,24 +53,32 @@
     color: #267ec8;
     margin-top: 5px;
 }
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
-    margin: 0;
-    padding: 0;
+.sellcar-item .left {
+    float: left;
+    width: 209px;
 }
-user agent stylesheetdiv {
-    display: block;
+.sellcar-item .detail {
+    float: left;
+    width: 420px;
 }
-.sellcar-item .location a {
-    color: #fff;
-    font: bold 14px/23px 'Arial';
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.sellcar-item .left {
+    float: left;
+    width: 209px;
 }
-body a {
-    text-decoration: none;
+.sellcar-item .rowitem {
+    line-height: 15px;
+    float: left;
+    width: 225px;
 }
-user agent stylesheeta:-webkit-any-link {
-    color: -webkit-link;
-    text-decoration: underline;
-    cursor: auto;
+.sellcar-item label {
+    width: 73px;
+    float: left;
+}
+label.name {
+    float: left;
+    font-weight: normal !important;
+    font: 14px/21px 'Arial';
+    color: #222222;
+    text-align: left;
+    padding: 0 !important;
 }
