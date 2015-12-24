@@ -194,7 +194,10 @@
     <Content Include="Content\Images\bar.gif" />
     <Content Include="Content\Images\icons.gif" />
     <Content Include="Content\Images\loading.gif" />
+    <Content Include="Content\Images\people.png" />
+    <Content Include="Content\Images\phone.png" />
     <Content Include="Content\Images\pixel.gif" />
+    <Content Include="Content\Images\star.png" />
     <Content Include="Content\Images\team\pic1.jpg" />
     <Content Include="Content\Images\team\pic2.jpg" />
     <Content Include="Content\Images\team\pic3.jpg" />
@@ -203,6 +206,7 @@
     <Content Include="Content\Images\team\pic6.jpg" />
     <Content Include="Content\Images\team\pic7.jpg" />
     <Content Include="Content\Images\team\pic8.jpg" />
+    <Content Include="Content\Images\user-alt-v2.png" />
     <Content Include="Content\Scripts\bootstrap-dropdownhover.js" />
     <Content Include="Content\Scripts\bootstrap.js" />
     <Content Include="Content\Scripts\bootstrap.min.js" />

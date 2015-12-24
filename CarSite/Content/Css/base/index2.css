@@ -1,79 +1,13 @@
-.sellcar-item .photo {
-    float:left;
-    width: 140px;
-    height: 104px;
-    padding-right: 10px;
-}
-.sellcar-item .info1 {
-    float:left;
-    width: 420px;
-    padding-left: 3px;
-    
-}
-.open {
-    font-family: 'Open sans' !important;
-    font-size: 14px;
-    font-weight: bold;
-    color: #1260ab !important;
-    text-decoration: none;
-    line-height: 20px;
-}
-.sellcar-item h3, .sellcar-item h4, .sellcar-item .sellcar {
-    width: 430px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    float: left;
-}
-h1, h2, h3, h4, h5, h6 {
-    font-size: 100%;
-    font-weight: normal;
-}
-.opensanslistauto:visited {
-    color: #7f7f7f !important;
-}
-.sellcar-item .date1 {
-    float:right;
-    text-align: left;
-    width: 20px;
-    color: #222;
-    font: 13px/21px 'Open Sans';
-    font-style: italic;
-}
-.sellcar-item .detail {
-    float: left;
-    width: 512px;
-}
+﻿/*
+Copyright (c) 2014,DVSOFT All rights reserved.
+Code licensed under the BXH License:version:2.0
+*/
 
 
 
-.sellcar-item .contact {
-    float: left;
-    width: 303px;
-    font: 12px 'Arial';
-    color: #267ec8;
-    margin-top: 5px;
-}
-.sellcar-item .left {
-    float: left;
-    width: 209px;
-}
-.sellcar-item .detail {
-    float: left;
-    width: 420px;
-}
-.sellcar-item .left {
-    float: left;
-    width: 209px;
-}
-.sellcar-item .rowitem {
-    line-height: 15px;
-    float: left;
-    width: 225px;
-}
-.sellcar-item label {
-    width: 73px;
-    float: left;
-}
+
+/*****************Style General**********/
+
 label.name {
     float: left;
     font-weight: normal !important;
@@ -82,3 +16,632 @@ label.name {
     text-align: left;
     padding: 0 !important;
 }
+
+
+label.labelcontact {
+    float: left;
+    font: 12px/18px 'Arial';
+    color: #267ec8;
+    font-weight: normal !important;
+}
+
+span.contentcontact {
+    font: 12px/18px 'Arial';
+    color: #267ec8;
+    font-weight: normal !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/************************** List version 2 ***************************/
+
+.sellcar-item {
+    float: left;
+    padding-top: 10px;
+    width: 665px;
+}
+
+    .sellcar-item .line {
+        background-color: #e8e8e8;
+        float: left;
+        height: 1px;
+        width: 649px;
+        margin-top: 14px;
+    }
+
+.listcar .sellcar-item .line {
+    width: 680px !important;
+}
+
+.sellcar-item .photo {
+    float: left;
+    width: 140px;
+    height: 104px;
+    padding-right: 10px;
+}
+
+    .sellcar-item .photo img {
+        border: 1px solid #f3f3f3;
+        margin-top: 3px;
+    }
+
+.sellcar-item .info {
+    float: left;
+    width: 514px;
+}
+
+.sellcar-item h3,
+.sellcar-item h4,
+.sellcar-item .sellcar {
+    width: 430px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+}
+
+.sellcar-item .detail {
+    float: left;
+    width: 512px;
+}
+
+.sellcar-item .left {
+    float: left;
+    width: 209px;
+}
+
+.sellcar-item .rowitem {
+    line-height: 15px;
+    float: left;
+    width: 225px;
+}
+
+.sellcar-item label {
+    width: 73px;
+    float: left;
+}
+
+.sellcar-item .contentcontact {
+    width: 230px;
+    float: left;
+}
+
+.sellcar-item .detail .right {
+    float: left;
+    width: 303px;
+}
+
+    .sellcar-item .detail .right label {
+        float: left;
+        width: 67px !important;
+    }
+
+.sellcar-item .fullname {
+    background: url('../../Images/people.png')  no-repeat left;
+    padding-left: 25px;
+    float: left;
+    width: 265px;
+    font: 14px/21px 'Arial';
+    color: #222;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sellcar-item .phone {
+    background: url('../../Images/phone.png')  no-repeat left;
+    padding-left: 25px;
+    float: left;
+    width: 195px;
+    font: 14px/21px 'Arial';
+    color: #222;
+}
+
+.sellcar-item .saled {
+    float: left;
+    height: 18px;
+    line-height: 21px;
+    display: inline-block;
+}
+
+    .sellcar-item .saled img {
+        float: left;
+        margin-top: 3px;
+    }
+
+.sellcar-item .contact {
+    float: left;
+    width: 303px;
+    font: 12px 'Arial';
+    color: #267ec8;
+    margin-top: 5px;
+}
+
+.sellcar-item .date {
+    float: left;
+    text-align: left;
+    width: 70px;
+    color: #222;
+    font: 13px/21px 'Open Sans';
+    font-style: italic;
+}
+
+.sellcar-item .price {
+    background-color: #4db748;
+    border-radius: 3px;
+    color: #fff;
+    float: left;
+    font: bold 14px/23px 'Arial';
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.sellcar-item .location {
+    float: left;
+    margin-right: 10px;
+    padding-right: 6px;
+    padding-left: 6px;
+    border-radius: 3px;
+    background-color: #bbb;
+    color: #fff;
+    font: bold 14px/23px 'Arial';
+    min-width: 50px;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sellcar-item .location a
+{
+    color: #fff;
+    font: bold 14px/23px 'Arial';
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sellcar-item .save {
+    float: left;
+    margin-right: 10px;
+    padding-right: 7px;
+    padding-left: 18px;
+    border-radius: 3px;
+    background-color: #33b3fa;
+    color: #fff;
+    font: 14px/23px 'Arial';
+    cursor: pointer;
+    display: none;
+}
+
+.sellcar-item .icon {
+    background: url('../images/savev2.png') no-repeat 5px center #33b3fa;
+}
+
+.sellcar-item .iconsaved {
+    display: block !important;
+    content: "Đã lưu" !important;
+}
+
+.sellcar-item .iconremove {
+    display: block !important;
+}
+
+.sellcar-item .luuxe {
+    min-width: 47px;
+    float: left;
+    font: 13px/23px 'Arial';
+    color: #1260ab;
+    cursor: pointer;
+    margin-right: 4px;
+    display: none;
+}
+
+.sellcar-item .sosanh {
+    min-width: 47px;
+    float: left;
+    font: 13px/23px 'Arial';
+    color: #1260ab;
+    cursor: pointer;
+    display: none;
+}
+
+.itemcaractive,
+.itemcaractive .luuxe,
+.itemcaractive .sosanh {
+    display: block !important;
+}
+
+/***************Hiển thị tin vippro, vip 1, vip 2*********/
+/*Vippro:ee0e0e*/
+/*Vip1:e3921d*/
+/*Vip2:198b13*/
+.vippro .photo img {
+    /*border:2px solid #ee0e0e !important;
+    width:138px !important;
+    height:102px !important;*/
+}
+
+.vippro .line {
+    /*background-color:#ee0e0e !important;
+    height:2px !important;*/
+}
+
+.vippro .opensanslistauto,
+.vippro .opensanslistauto:visited {
+    /*text-transform:uppercase !important;*/
+    font-weight: bold;
+    color: #ee0e0e !important;
+    background: url('../images/vippro-v2.png') no-repeat !important;
+    background-position: 0px 5px !important;
+    padding-left: 21px !important;
+}
+
+.vip1 .photo img {
+    /*border:2px solid #e3921d !important;
+    width:138px !important;
+    height:102px !important;*/
+}
+
+.vip1 .line {
+    /*background-color:#e3921d !important;
+    height:2px !important;*/
+}
+
+.vip1 .opensanslistauto,
+.vip1 .opensanslistauto:visited {
+    /*text-transform:uppercase !important;*/
+    color: #ee0e0e !important;
+    font-weight: bold;
+    /*background:url('/images/icon-vip1.png') no-repeat !important;
+    padding-left:25px !important;*/
+}
+
+.vip2 .photo img {
+    /*border:2px solid #198b13 !important;
+    width:138px !important;
+    height:102px !important;*/
+}
+
+.vip2 .line {
+    /*background-color:#198b13 !important;
+    height:2px !important;*/
+}
+
+.vip2 .opensanslistauto,
+.vip2 .opensanslistauto:visited {
+    font-weight: bold;
+    color: #ee9405 !important;
+}
+
+/**************************Grid version 2**************************/
+
+.sell-car-griditem {
+    border: 1px solid #fff;
+    width: 209px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.sell-car-griditem:hover {
+    border: 1px solid #e6e6e6;
+    -moz-box-shadow: 0 10px 12px 0 #ebebeb,0px -10px 12px 0 #ebebeb;
+    -webkit-box-shadow: 0 10px 12px 0 #ebebeb,0px -10px 12px 0 #ebebeb;
+    box-shadow: 0 10px 12px 0 #ebebeb,0px -10px 12px 0 #ebebeb;
+}
+
+.sell-car-griditem .photo {
+    width: 209px;
+    height: 118px;
+    float: left;
+    position: relative;
+    border: none;
+}
+
+.sell-car-griditem .info {
+    width: 199px;
+    float: left;
+    display: inline-block;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+.sell-car-griditem .rowitem {
+    width: 199px;
+    float: left;
+    line-height: 16px;
+}
+
+.sell-car-griditem .tit {
+    width: 199px !important;
+    float: left;
+    margin-bottom: 13px;
+    padding-bottom: 0px !important;
+    border: none;
+}
+
+.sell-car-griditem label {
+    width: 80px;
+}
+
+.sell-car-griditem .price {
+    margin: 7px 9px 15px 0;
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 3px;
+    background-color: #1260ab;
+    color: #fff;
+    font: bold 14px 'Arial';
+    max-width: 86px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 23px;
+}
+
+.sell-car-griditem .location {
+    margin: 7px 0 15px;
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 3px;
+    background-color: #4db748;
+    color: #fff;
+    min-width: 50px;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font: bold 14px/23px 'Arial';
+}
+
+.sell-car-griditem .location a
+{
+    white-space: nowrap;
+    font: bold 14px/23px 'Arial';
+    color: #fff;
+}
+
+.sell-car-griditem .save {
+    float: left;
+    margin-right: 9px;
+    padding-left: 18px;
+    padding-right: 7px;
+    line-height: 23px;
+    display: inline-block;
+    border-radius: 3px;
+    background-color: #33b3fa;
+    color: #fff;
+    font-family: 'Arial';
+    font-size: 14px;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    bottom: 3px;
+    right: -5px;
+}
+
+.sell-car-griditem .icon {
+    background: url('../images/savev2.png') no-repeat 5px center #33b3fa;
+}
+
+.sell-car-griditem .fixheightinfo {
+    min-height: 75px;
+    float: left;
+}
+
+
+.itemcaractive .save {
+    display: block !important;
+    cursor: pointer;
+}
+
+.sell-car-griditem .iconsaved {
+    display: block !important;
+    content: "Đã lưu" !important;
+}
+
+.sell-car-griditem .iconremove {
+    display: block !important;
+}
+
+.sell-car-griditem .luuxe {
+    min-width: 47px;
+    float: left;
+    font: bold 13px/23px 'Arial';
+    color: #fff;
+    cursor: pointer;
+    margin-right: 4px;
+    position: absolute;
+    bottom: 3px;
+    right: 50px;
+    display: none;
+}
+
+.sell-car-griditem .sosanh {
+    min-width: 47px;
+    float: left;
+    font: bold 13px/23px 'Arial';
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+}
+
+.sell-car-griditem .saled {
+    float: left;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 76px !important;
+    height: 21px !important;
+}
+
+.clearThum {
+    width: 680px;
+    height: 1px;
+    float: left;
+}
+
+/***************Hiển thị tin vippro, vip 1, vip 2 dạng grid*********/
+/*Vippro:ee0e0e*/
+/*Vip1:e3921d*/
+/*Vip2:198b13*/
+
+.vipprogrid .opensanslistauto,
+.vipprogrid .opensanslistauto:visited {
+    font-weight: bold;
+    color: #ee0e0e !important;
+    background:url('../../Images/star.png')  no-repeat !important;
+    background-position: 0 5px !important;
+    padding-left: 21px !important;
+}
+
+.vip1grid .opensanslistauto,
+.vip1grid .opensanslistauto:visited {
+    font-weight: bold;
+    color: #ee0e0e !important;  
+}
+
+.vip2grid .opensanslistauto,
+.vip2grid .opensanslistauto:visited {
+    font-weight: bold;
+    color: #ee9405 !important;
+}
+
+
+
+/***************Tooltip*************/
+
+.inputprice {
+    width: 93px;
+    margin-right: 10px;
+    margin-right: 0\9;
+}
+
+input.textright {
+    padding-right: 3px !important;
+    text-align: right !important;
+    *padding-right: 1px !important;
+}
+
+.mytooltip {
+    background-color: #4db748;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: left;
+    font-size: 12px;
+    font-family: Arial;
+    position: absolute;
+    min-height: 20px;
+    width: 150px;
+    z-index: 2000;
+    -moz-box-shadow: 0 0 10px #000;
+    -webkit-box-shadow: 0 0 10px #000;
+}
+
+.homesearch #price-max .mytooltipsearch {
+    background-color: #4db748;
+    border: 1px solid #fff;
+    padding: 5px 15px;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+    font-size: 12px;
+    font-family: Arial;
+    position: absolute;
+    min-height: 20px;
+    min-width: 70px;
+    z-index: 2000;
+    left: 175px !important;
+}
+
+.mytooltipsearch {
+    background-color: #4db748;
+    border: 1px solid #fff;
+    padding: 5px 15px;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+    font-size: 12px;
+    font-family: Arial;
+    position: absolute;
+    min-height: 20px;
+    min-width: 70px;
+    z-index: 2000;
+}
+
+.mytooltipmanage {
+    background-color: #f9ffe5;
+    border: 1px solid #fff;
+    padding: 5px 15px;
+    color: #222;
+    text-align: left;
+    font-size: 12px;
+    font-family: Arial;
+    position: absolute;
+    min-height: 20px;
+    min-width: 70px;
+    width: 150px;
+    z-index: 2000;
+}
+
+.validatetooltip {
+    background: none repeat scroll 0 0 #ffff00;
+    color: #000000;
+    font: 12px 'Arial';
+    opacity: 0.4;
+    padding: 4px;
+    top: 5px;
+    z-index: 100;
+    position: absolute;
+    min-width: 185px;
+    display: inline !important;
+}
+
+.validatetooltipsellform {
+    background: url('../images/err.png') no-repeat left #fff;
+    color: #e58f3c;
+    font: 12px 'Arial';
+    float: left;
+    padding: 4px 4px 4px 27px;
+    z-index: 1000;
+    min-width: 185px;
+    display: inline-block !important;
+    margin-bottom: 10px;
+}
+  
+
+
+
+
+/*************************************************************Quy chuẩn font chũ**************************************************************************/
+/*Font-size: 17px*/
+
+.opensanslistauto {
+    font-family: 'Open sans' !important;
+    font-size: 15px;
+    font-weight: bold;
+    color: #1260ab !important;
+    text-decoration: none;
+    line-height: 20px;
+}
+
+ 
