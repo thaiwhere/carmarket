@@ -5,18 +5,11 @@
 @section Styles{
 
 }
-@model List<string> 
+@model List<string>
 
-<div id="div-car-list" class="car-list-box">
-
-    <div id="model">
-        @foreach (var carModel in Model.ToList().ToArray())
-        {            
-            <div>
-                <input type="checkbox" class="checkbox-inline " checked="checked" /> <label>@carModel</label>
-            </div>            
-        }
-    </div>
+<div id="div-car-firm" class="car-list-box">
+    
+    @{ Html.RenderPartial("~/Views/Shared/SearchFirm.cshtml", Model); }    
 
     <div class="car-list-header">
         <h3>Tin đăng bán xe</h3>
