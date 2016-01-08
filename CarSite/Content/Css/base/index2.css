@@ -1,12 +1,178 @@
-﻿.sellcar-item1 {
+﻿
+.car-item-all {
     float: left;
     padding-top: 10px;
-    width: 665px;
+    width: 620px;
+}
+.row-car{
+    border-bottom: 1px dotted #428bca;
+    width: 100%;
+}
+.car-photo {
+    float: left;
+    width: 150px;
+    height: 104px;
+    padding-right: 0px;
+}
+.car-type1 {
+    float: left;
+    width: 350px;
+    height: 30px;
+    font-weight:bold;
+    text-align: left;
+   
+    
+    
+}
+.car-status-left {
+    float: left;
+    width: 150px;
+    height: 20px;
+    text-align:left;
+    margin-top: 15px;
+    border-radius: 3px;
+    line-height: 15px;
+    font-weight:normal;
+    
+}
+.car-madein-left {
+    float: left;
+    width: 150px;
+    text-align:left;
+    border-radius: 3px;
+    
+}
+.car-price-middle {
+    background-color: #4db748;
+    border-radius: 3px;
+     float:left;
+     width: 80px;
+     height: 30px;
+     margin-top: 15px;
+     font: bold 14px/23px 'Arial';
+     color: #fff;
+     margin-bottom: 10px;
+     margin-right: 10px;
+     padding-right: 1px;
+     padding-left: 10px;
+   
+}
+.car-color-all {
+   color:red;
+   
 }
 
-.sellcar-item1 .photo {
+.car-price-all {
+    background-color: #4db748;
+    border-radius: 3px;
+}
+
+.car-location-right 
+{
+    background-color: #bbb;
+    border-radius: 3px;
+     float:left;
+     width: 80px;
+     height: 30px;
+     margin-top: 15px;
+     font: bold 14px/23px 'Arial';
+     color: #fff;
+     margin-bottom: 10px;
+     margin-right: 10px;
+     padding-right: 10px;
+     padding-left: 10px;
+     white-space: nowrap;
+   
+}
+
+.car-info {
     float: left;
-    width: 140px;
-    height: 104px;
-    padding-right: 10px;
+    width: 480px;
+}
+
+.car-date-right {
+    float: right;
+    text-align: left;
+    width: 70px;
+    color: #222;
+    font: 13px/21px 'Open Sans';
+    font-style: italic;
+}
+.opensanslistauto {
+    font-family: 'Open sans' !important;
+    font-size: 15px;
+    font-weight: bold;
+    color: #1260ab !important;
+    text-decoration: none;
+    line-height: 20px;
+    width:150px
+}
+
+.car-saveitem {
+    /*min-width: 47px;*/
+    float: left;
+    font: 11px/23px 'Arial';
+    color: #1260ab;
+    cursor: pointer;
+    margin-right: 4px;
+  
+}
+.car-compare {
+    min-width: 47px;
+    float: left;
+    font: 11px/23px 'Arial';
+    color: #1260ab;
+    cursor: pointer;
+    margin-right: 4px;
+  
+}
+.car-detail-left {
+    float: left;
+    width: 170px;
+    font-style:normal;
+}
+.car-km-left {
+    float: left;
+    width: 170px;
+    font-weight:normal;
+}
+.car-detail-middle {
+    float: left;
+    width: 180px;
+}
+.car-label-left {
+    float: left;
+    width: 75px;
+    font-weight:normal;
+
+}
+.car-gear-left {
+    float: left;
+    width: 160px;
+}
+.car-name-user-right {
+    background:  url('../../Images/people.png') no-repeat left; 
+    padding-left: 25px;
+    float: left;
+    width: 265px;
+    font: 14px/21px 'Arial';
+    color: #222;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.car-name-telephone-right {
+    background:  url('../../Images/phone.png') no-repeat left;
+    padding-left: 25px;
+    float: left;
+    width: 265px;
+    font: 14px/21px 'Arial';
+    color: #222;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.car-detail-right {
+    float: left;
+    width: 100px;
 }

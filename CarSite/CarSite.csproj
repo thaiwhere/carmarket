@@ -290,6 +290,7 @@
     <Content Include="Views\Shared\Model.cshtml" />
     <Content Include="Views\Shared\Search.cshtml" />
     <Content Include="Views\Shared\ShowRoom.cshtml" />
+    <Content Include="Views\Home\Index3.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
