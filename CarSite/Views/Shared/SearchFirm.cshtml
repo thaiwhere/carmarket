@@ -1,33 +1,45 @@
 ﻿@model List<string>
 
-<script src="~/Content/Scripts/Search.js"></script>
 <div id="search-car-firm">
 
     <fieldset class="the-fieldset">
-        <legend class="the-legend">Tim kiem</legend>
+        <legend class="the-legend">Tìm kiếm</legend>
 
         <div id="search_firm">
-            <label>Hang xe:</label>
+            <label>Hãng xe:</label>
             <select>
                 <option value="Acura" selected>Acura</option>
+                <option value="Audi">Audi</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Audi">Audi</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Audi">Audi</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Audi">Audi</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Audi">Audi</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Audi">Audi</option>
+                <option value="Toyota">Toyota</option>
                 <option value="Audi">Audi</option>
                 <option value="Toyota">Toyota</option>
             </select>
         </div>
 
         <div id="search_status">
-            <label>Tinh Trang:</label>
-            <input type="radio" name="search_status" value="OldStatus" checked /><span>Moi</span>
+            <label>Tình trạng:</label>
+            <input type="radio" name="search_status" value="OldStatus" checked /><span>&nbsp;Mới</span>
             <span>&nbsp;&nbsp;</span>
-            <input type="radio" name="search_status" value="NewStatus" /><span>Cu</span>
+            <input type="radio" name="search_status" value="NewStatus" /><span>&nbsp;Cũ</span>
         </div>
 
         <div id="search_place">
-            <label>Noi ban:</label>
+            <label>Nơi bán:</label>
             <select>
-                <option value="HCM" selected>Ho Chi Minh </option>
-                <option value="HN">Ha Noi</option>
-                <option value="ALL">Toan Quoc</option>
+                <option value="HCM" selected>Hồ Chí Minh</option>
+                <option value="HN">Hà Nội</option>
+                <option value="ALL">Đà Nẵng</option>
+                <option value="ALL">Toàn Quốc</option>
             </select>
         </div>
 
@@ -51,25 +63,28 @@
 
         <div id="search_price">
             <div id="search_price_option">
-                <label>Gia:</label>
-                <input type="radio" name="price" value="ALLPrice" checked /><span>Tat ca</span>
-                <span>&nbsp;&nbsp;</span>
-                <input type="radio" name="price" value="ALLPrice" onclick="function() { }" /><span>Trong khoang</span>
+                <label>Giá:</label>                
             </div>
             <div id="search_price_from">
                 <select>
-                    <option value="100" selected>100 Trieu</option>
-                    <option value="200">200 Trieu</option>
-                    <option value="300">300 Trieu</option>
+                    <option value="0" selected>Từ giá</option>
+                    <option value="100">100 Triệu</option>
+                    <option value="200">200 Triệu</option>
+                    <option value="300">300 Triệu</option>
                 </select>
             </div>
             <span style="float:left">&nbsp;&nbsp;-->&nbsp;&nbsp;</span>
             <div id="search_price_to">
                 <select>
-                    <option value="100" selected>100 Trieu</option>
-                    <option value="200">200 Trieu</option>
-                    <option value="300">300 Trieu</option>
+                    <option value="0" selected>Đến giá</option>
+                    <option value="100">100 Triệu</option>
+                    <option value="200">200 Triệu</option>
+                    <option value="300">300 Triệu</option>
                 </select>
+            </div>
+
+            <div id="searching">
+                <a href="javascript:void(null);" onclick="$('#fsearch').submit();" class="btn-search"></a>
             </div>
         </div>
 
@@ -77,3 +92,8 @@
     </fieldset>
 
 </div>
+
+@section Scripts
+{
+    
+}

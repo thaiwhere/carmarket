@@ -4,16 +4,17 @@
     border: 1px solid #CCCCCC;    
     padding:3px;
     width:100%;
-    background-color:#FFFD81;
+    background-color:#FEF2B4;
+    font-size:13px;
 }
 
 #search_firm{
-    float:left;
+    float:left;    
 }
 
 #search_status{
     float:left;
-    margin-left:20px;
+    margin-left:75px;
 }
 
 #search_place{
@@ -25,7 +26,7 @@
     border: 1px solid #CCCCCC;        
     padding:3px;
     float:left;
-    margin-left:10px;
+    margin-left:15px;
     margin-bottom:10px;
     width:90%;    
 }
@@ -37,6 +38,7 @@
 
 #search_model{    
     float:left;    
+    margin-top:10px;
     width:100%;
 }
 
@@ -46,36 +48,39 @@
 
 #search_model_box div{
     float:left;
-    margin-left:20px;
+    width:100px;
 }
 
 #check_model_all label{
-    color:#2A2AFF;
     font-weight:normal;
 }
 
 #search_model_box label{
-    color:#2A2AFF;
     font-weight:normal;
 }
 
 #search_price{
     float:left;
+    margin-top:10px;
 }
 
 #search_price_option{
-    float:left;
-    width:220px;
+    float:left;    
 }
 
 #search_price_from{
     float:left;
+    margin-left:32px;
 }
 
 #search_price_to{
     float:left;
+    margin-right:50px;
 }
 
+#searching{
+    float:right;
+}
 
 .the-legend {
     border-style: none;
@@ -89,8 +94,8 @@
 .the-fieldset {      
   padding: 5px;
   margin-bottom: 10px;
-  background-color: #f5f5f5;
-  border-color:red !important;
+  background-color: #FEF8DA;
+  border-color:orange !important;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
   

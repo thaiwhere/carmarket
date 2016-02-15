@@ -1,7 +1,4 @@
-﻿$("#select-model-all").change(
-        function()
-        {
-            aleft('hi');
-            $(".checkbox-model").attr('checked', true);
-        }
-    )
+﻿
+$("#select-model-all").change(function () {
+    $(".checkbox-model").prop('checked', $(this).prop("checked"));
+});
