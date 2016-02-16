@@ -38,12 +38,7 @@ namespace CarSite.Controllers
 
             return View(models);
         }
-
-        public ActionResult Index2()
-        {
-            return View();
-        }
-
+       
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
