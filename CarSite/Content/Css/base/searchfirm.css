@@ -81,6 +81,13 @@
 #searching{
     float:right;
 }
+#search_origin{
+   float:left; 
+}
+#search_year_product{
+   float:left; 
+    margin-left:100px;
+}
 
 .the-legend {
     border-style: none;
