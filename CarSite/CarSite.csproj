@@ -170,7 +170,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Acura.xml" />
+    <Content Include="App_Data\Acura.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\assets\icon-fonts\styles.css" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\base\searchfirm.css" />

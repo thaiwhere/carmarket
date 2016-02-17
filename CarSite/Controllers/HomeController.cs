@@ -26,6 +26,10 @@ namespace CarSite.Controllers
                     {
                         while (reader.Read())
                         {
+                            if (reader.NodeType == XmlNodeType.EndElement)
+                            {
+                                break;
+                            }
                             if (reader.NodeType == XmlNodeType.Element &&
                                 reader.Name == "model")
                             {

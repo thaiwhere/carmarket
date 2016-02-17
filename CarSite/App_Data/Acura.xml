@@ -5,15 +5,677 @@
     <model>ILX</model>
     <model>Intergra</model>
     <model>Legend</model>
-    <model>CL</model>
-    <model>EL</model>
-    <model>ILX</model>
-    <model>Intergra</model>
-    <model>Legend</model>
-    <model>CL</model>
-    <model>EL</model>
-    <model>ILX</model>
-    <model>Intergra</model>
-    <model>Legend</model>
+    <model>MDX</model>
+    <model>RDX</model>
+    <model>TL</model>
+    <model>TSX</model>
+    <model>Vigor</model>
+    <model>ZDX</model>
+    <model>Khác</model>  
   </Acura>
+  <Audi>
+    <model>100</model>
+    <model>200</model>
+    <model>80</model>
+    <model>90</model>
+    <model>A1</model>
+    <model>A2</model>
+    <model>A3</model>
+    <model>A4</model>
+    <model>A5</model>
+    <model>A6</model>
+    <model>A7</model>
+    <model>A8</model>
+    <model>Cabriolet</model>
+    <model>Coupe</model>
+    <model>Q3</model>
+    <model>Q5</model>
+    <model>Q7</model>
+    <model>Quattro</model>
+    <model>TT</model>
+    <model>V8</model>
+    <model>Khác</model>
+  </Audi>
+  <BMW>
+    <model>1 Series</model>
+    <model>2 Series</model>
+    <model>3 Series</model>
+    <model>4 Series</model>
+    <model>5 Series</model>
+    <model>6 Series</model>
+    <model>7 Series</model>
+    <model>8 Series</model>
+    <model>Alpina</model>
+    <model>i3</model>
+    <model>i8</model>
+    <model>M couper</model>
+    <model>M3</model>
+    <model>M4</model>
+    <model>M5</model>
+    <model>M6</model>
+    <model>X1</model>
+    <model>X3</model>
+    <model>X4</model>
+    <model>X5</model>
+    <model>X6</model>
+    <model>Z3</model>
+    <model>Z4</model>
+    <model>Z8</model>
+    <model>Khác</model>
+  </BMW>
+  <Chevrolet>
+    <model>Astro</model>
+    <model>Avanlanche</model>
+    <model>Aveo</model>
+    <model>Beretta</model>
+    <model>Camaro</model>
+    <model>Caprice</model>
+    <model>Captiva</model>
+    <model>Cavalier</model>
+    <model>Chevyvan</model>
+    <model>Colorado</model>
+    <model>Corsica</model>
+    <model>Corvette</model>
+    <model>Cruze</model>
+    <model>Explorer</model>
+    <model>Express</model>
+    <model>Impala</model>
+    <model>Ipanema</model>
+    <model>Kalos</model>
+    <model>Lacetti</model>
+    <model>Lumina</model>
+    <model>Malibu</model>
+    <model>Matiz</model>
+    <model>Nubira</model>
+    <model>Orlando</model>
+    <model>Prizm</model>
+    <model>S 10</model>
+    <model>Silverado</model>
+    <model>Spark</model>
+    <model>SSR</model>
+    <model>Suburban</model>
+    <model>Tracker</model>
+    <model>Venture</model>
+    <model>Vivant</model>
+    <model>Khác</model>
+  </Chevrolet>
+  <Daewoo>
+    <model>Aranos</model>
+    <model>Arcadia</model>
+    <model>Brougham</model>
+    <model>Chairman</model>
+    <model>Cielo</model>
+    <model>Damas</model>
+    <model>Espero</model>
+    <model>Evanda</model>
+    <model>Gentra</model>
+    <model>GentraX</model>
+    <model>Istana</model>
+    <model>Kalos</model>
+    <model>Karando</model>
+    <model>Labo</model>
+    <model>Lacetti</model>
+    <model>Lanos</model>
+    <model>Leganza</model>
+    <model>Lublin</model>
+    <model>Magnus</model>
+    <model>Matiz</model>
+    <model>Musso</model>
+    <model>Nubira</model>
+    <model>Polonez</model>
+    <model>Prince</model>
+    <model>Racer</model>
+    <model>Rexton</model>
+    <model>Rezzo</model>
+    <model>Tico</model>
+    <model>Winstorm</model>
+    <model>Suburban</model>
+    <model>Khác</model>
+  </Daewoo>
+  <Daihatsu>
+    <model>Charade</model>
+    <model>Citivan</model>
+    <model>Hijet</model>
+    <model>Terios</model>
+    <model>Khác</model>
+  </Daihatsu>
+  <Fiat>
+    <model>126</model>
+    <model>500</model>
+    <model>Albea</model>
+    <model>Bravo</model>
+    <model>Cinquecento</model>
+    <model>Coupe</model>
+    <model>Doblo</model>
+    <model>Ducato</model>
+    <model>Punto</model>
+    <model>Regata</model>
+    <model>Seicento</model>
+    <model>Siena</model>
+    <model>Strada</model>
+    <model>Talento</model>
+    <model>Tempra</model>
+    <model>Tipo</model>
+    <model>Uno</model>
+    <model>Khác</model>
+  </Fiat>
+  <Ford>
+    <model>Acononline</model>
+    <model>Aerostar</model>
+    <model>Aspire</model>
+    <model>Bronco</model>
+    <model>Capri</model>
+    <model>Caravan</model>
+    <model>Cargo</model>
+    <model>Club wagon</model>
+    <model>Contour</model>
+    <model>Courier</model>
+    <model>Crown victoria</model>
+    <model>EcoSport</model>
+    <model>Edge</model>
+    <model>Escape</model>
+    <model>Escort</model>
+    <model>Espedition</model>
+    <model>Everest</model>
+    <model>Explorer</model>
+    <model>Express</model>
+    <model>F 150</model>
+    <model>F 700</model>
+    <model>Fiesta</model>
+    <model>Flex</model>
+    <model>Focus</model>
+    <model>Focus C Max</model>
+    <model>Ka</model>
+    <model>Laser</model>
+    <model>Maverick</model>
+    <model>Mondeo</model>
+    <model>Mustang</model>
+    <model>Probe</model>
+    <model>Puma</model>
+    <model>Ranger</model>
+    <model>Sierra</model>
+    <model>Taurus</model>
+    <model>Express</model>
+    <model>Tempo</model>
+    <model>Transit</model>
+    <model>Wind star</model>
+    <model>Khác</model>
+  </Ford>
+  <Honda>
+    <model>Accord</model>
+    <model>City</model>
+    <model>Civic</model>
+    <model>Concerto</model>
+    <model>CR V</model>
+    <model>CR X</model>
+    <model>CR Z</model>
+    <model>Domani</model>
+    <model>Element</model>
+    <model>FIT</model>
+    <model>Insight</model>
+    <model>Integra</model>
+    <model>Jazz</model>
+    <model>Legend</model>
+    <model>Mobilo</model>
+    <model>NSX</model>
+    <model>Odyssey</model>
+    <model>Passport</model>
+    <model>Pilot</model>
+    <model>Prelude</model>
+    <model>S2000</model>
+    <model>Stream</model>
+    <model>Torneo</model>
+    <model>Vigor</model>
+    <model>Z</model>
+    <model>Khác</model>
+  </Honda>
+  <Hyundai>
+    <model>Azera</model>
+    <model>Accent</model>
+    <model>Atos</model>
+    <model>Avante</model>
+    <model>Centennial</model>
+    <model>Click</model>
+    <model>County</model>
+    <model>Coupe</model>
+    <model>Dynasty</model>
+    <model>Elantra</model>
+    <model>Eon</model>
+    <model>Equus</model>
+    <model>Excel</model>
+    <model>Galloper</model>
+    <model>Genesis</model>
+    <model>Getz</model>
+    <model>Gold</model>
+    <model>Grand Starex</model>
+    <model>Grandeur</model>
+    <model>H 1</model>
+    <model>H 100</model>
+    <model>HD</model>
+    <model>i10</model>
+    <model>i20</model>
+    <model>i30</model>
+    <model>i40</model>
+    <model>Innovation</model>
+    <model>Lantra</model>
+    <model>Lavita</model>
+    <model>Libero</model>
+    <model>Maxcruz</model>
+    <model>Pony</model>
+    <model>Porter</model>
+    <model>S coupe</model>
+    <model>Santa Fe</model>
+    <model>Sonata</model>
+    <model>Starex</model>
+    <model>Terracan</model>
+    <model>Tiburon</model>
+    <model>Trajet</model>
+    <model>Tucson</model>
+    <model>Tuscani</model>
+    <model>Universe</model>
+    <model>Universe Xpress Luxury</model>
+    <model>Veloster</model>
+    <model>Veracruz</model>
+    <model>Verna</model>
+    <model>Xcent</model>
+    <model>XG</model>
+    <model>Khác</model>
+  </Hyundai>
+  <Isuzu>
+    <model>Amigo</model>
+    <model>Ascender</model>
+    <model>Aska</model>
+    <model>D Cargo</model>
+    <model>Dmax</model>
+    <model>FVR</model>
+    <model>Gemini</model>
+    <model>Hi lander</model>
+    <model>Midi</model>
+    <model>NLR</model>
+    <model>NMR</model>
+    <model>NPR</model>
+    <model>NQR</model>
+    <model>Pick up</model>
+    <model>QKR</model>
+    <model>Rodeo</model>
+    <model>Trooper</model>
+    <model>Khác</model>
+  </Isuzu>
+  <Kia>
+    <model>Avella</model>
+    <model>Bongo</model>
+    <model>Cadenza</model>
+    <model>Carens</model>
+    <model>Carnival</model>
+    <model>Cerato</model>
+    <model>Clarus</model>
+    <model>Concord</model>
+    <model>Forte</model>
+    <model>Frontier</model>
+    <model>Jeep</model>
+    <model>Joice</model>
+    <model>K2700</model>
+    <model>K3</model>
+    <model>K3000S</model>
+    <model>K5</model>
+    <model>K7</model>
+    <model>Lotze</model>
+    <model>Magentis</model>
+    <model>Morning</model>
+    <model>Opirus</model>
+    <model>Optima</model>
+    <model>Picanto</model>
+    <model>Potentia</model>
+    <model>Pregio</model>
+    <model>Pride</model>
+    <model>Ray</model>
+    <model>Retona</model>
+    <model>Rio</model>
+    <model>Roadster</model>
+    <model>Rondo</model>
+    <model>Sedona</model>
+    <model>Sephia</model>
+    <model>Sorento</model>
+    <model>Soul</model>
+    <model>Spectra</model>
+    <model>Sportage</model>
+    <model>Visto</model>
+    <model>Khác</model>
+  </Kia>
+  <LandRover>
+    <model>Defender</model>
+    <model>Discovery</model>
+    <model>Freelander</model>
+    <model>LR2</model>
+    <model>Range rover</model>
+    <model>Khác</model>
+  </LandRover>
+  <Lexus>
+    <model>CT</model>
+    <model>ES</model>
+    <model>GS</model>
+    <model>GX</model>
+    <model>HS</model>
+    <model>IS</model>
+    <model>LS</model>
+    <model>LX</model>
+    <model>NX</model>
+    <model>RX</model>
+    <model>SC</model>
+    <model>SL</model>
+    <model>Khác</model>
+  </Lexus>
+  <Mazda>
+    <model>2</model>
+    <model>3</model>
+    <model>323</model>
+    <model>323F</model>
+    <model>5</model>
+    <model>6</model>
+    <model>626</model>
+    <model>929</model>
+    <model>Atenza</model>
+    <model>AZ</model>
+    <model>B series</model>
+    <model>BT 50</model>
+    <model>Carol</model>
+    <model>CX 5</model>
+    <model>CX 7</model>
+    <model>CX 9</model>
+    <model>Eunos</model>
+    <model>Millenia</model>
+    <model>MPV</model>
+    <model>MX 3</model>
+    <model>MX 5</model>
+    <model>MX 6</model>
+    <model>Pickup</model>
+    <model>Premacy</model>
+    <model>RX 7</model>
+    <model>RX 8</model>
+    <model>Tribute</model>
+    <model>Xedos 9</model>
+    <model>Khác</model>
+  </Mazda>
+  <MercedesBenz>
+    
+    <model>190</model>
+    <model>A class</model>
+    <model>Atego</model>
+    <model>B class</model>
+    <model>C class</model>
+    <model>CL class</model>
+    <model>CLA class</model>
+    <model>CLK class</model>
+    <model>CLS class</model>
+    <model>E class</model>
+    <model>G class</model>
+    <model>GL</model>
+    <model>GLA class</model>
+    <model>GLC</model>
+    <model>GLE Class</model>
+    <model>GLK Class</model>
+    <model>M class</model>
+    <model>MB</model>
+    <model>ML Class</model>
+    <model>R class</model>
+    <model>S class</model>
+    <model>SL class</model>
+    <model>SLK class</model>
+    <model>SLR Mclaren</model>
+    <model>Sprinter</model>
+    <model>SR class</model>
+    <model>V class</model>
+    <model>Vaneo</model>
+    <model>Viano</model>
+    <model>Vito</model>
+    <model>Khác</model>
+  </MercedesBenz>
+  
+  <Mitsubishi>
+    <model>3000GT</model>
+    <model>Airtek</model>
+    <model>Atego</model>
+    <model>Attrage</model>
+    <model>Canter</model>
+    <model>Challenger</model>
+    <model>Chariot</model>
+    <model>Colt</model>
+    <model>Diamante</model>
+    <model>Dion</model>
+    <model>Eclipse</model>
+    <model>EK wagon</model>
+    <model>Galant</model>
+    <model>Grandis</model>
+    <model>Grunder</model>
+    <model>Hover</model>
+    <model>IO</model>
+    <model>Jeep</model>
+    <model>Jolie</model>
+    <model>L200</model>
+    <model>L300</model>
+    <model>Lancer</model>
+    <model>Libero</model>
+    <model>Mirage</model>
+    <model>Montero</model>
+    <model>Outlander</model>
+    <model>Pajero</model>
+    <model>Santamo</model>
+    <model>Savrin</model>
+    <model>Sigma</model>
+    <model>Space Gear</model>
+    <model>Starion</model>
+    <model>Triton</model>
+    <model>Veryca</model>
+    <model>Zinger</model>
+    <model>Khác</model>
+  </Mitsubishi>
+  <Nissan>
+    <model>100NX</model>
+    <model>200SX</model>
+    <model>240SX</model>
+    <model>300ZX</model>
+    <model>350Z</model>
+    <model>370Z</model>
+    <model>Altima</model>
+    <model>Avenir</model>
+    <model>Bluebird</model>
+    <model>Cedric</model>
+    <model>Cefiro</model>
+    <model>Cima</model>
+    <model>Elgrand</model>
+    <model>Frontier</model>
+    <model>Gloria</model>
+    <model>Grand livina</model>
+    <model>GT R</model>
+    <model>Juke</model>
+    <model>Lago</model>
+    <model>Laurel</model>
+    <model>Leaf</model>
+    <model>Liberty</model>
+    <model>Livina</model>
+    <model>Maxima</model>
+    <model>Micra</model>
+    <model>Murano</model>
+    <model>Navara</model>
+    <model>NV</model>
+    <model>Pathfinder</model>
+    <model>Patrol</model>
+    <model>Pick up</model>
+    <model>Pixo</model>
+    <model>Prairie</model>
+    <model>Presage</model>
+    <model>President</model>
+    <model>Primastar</model>
+    <model>Primera</model>
+    <model>Pulsar</model>
+    <model>Qashqai</model>
+    <model>Quest</model>
+    <model>Rasheen</model>
+    <model>Rogue</model>
+    <model>Safari</model>
+    <model>Sentra</model>
+    <model>Serena</model>
+    <model>Silvia</model>
+    <model>Skyline</model>
+    <model>Stagea</model>
+    <model>Sunny</model>
+    <model>Teana</model>
+    <model>Terrano</model>
+    <model>Tiida</model>
+    <model>Tino</model>
+    <model>Urvan</model>
+    <model>Vanette</model>
+    <model>X Terra</model>
+    <model>X trail</model>
+      
+    <model>Khác</model>
+  </Nissan>
+  <Peugeot>
+    <model>107</model>
+    <model>205</model>
+    <model>206</model>
+    <model>207</model>
+    <model>208</model>
+    <model>3008</model>
+    <model>305</model>
+    <model>307</model>
+    <model>309</model>
+    <model>404</model>
+    <model>405</model>
+    <model>406</model>
+    <model>408</model>
+    <model>505</model>
+    <model>508</model>
+    <model>607</model>
+    <model>Boxer</model>
+    <model>J5</model>
+    <model>RCZ</model>
+    <model>Khác</model>
+  </Peugeot>
+  <Porsche>
+    <model>Boxster</model>
+    <model>Carrera</model>
+    <model>Cayenne</model>
+    <model>Cayman</model>
+    <model>Macan</model>
+    <model>Panamera</model>
+    <model>Khác</model>
+   </Porsche>
+  <Renault>
+    <model>11</model>
+    <model>19</model>
+    <model>21</model>
+    <model>25</model>
+    <model>Clio</model>
+    <model>Fluence</model>
+    <model>Kangoo</model>
+    <model>Koleos</model>
+    <model>Laguna</model>
+    <model>Latitude</model>
+    <model>Megane</model>
+    <model>Safrane</model>
+    <model>Sport Spider</model>
+    <model>Trafic</model>
+    <model>Wind</model>
+    <model>Khác</model>
+  </Renault>
+  <Ssangyong>
+    <model>Chairman</model>
+    <model>Family</model>
+    <model>Istana</model>
+    <model>Korando</model>
+    <model>Kyron</model>
+    <model>Musso</model>
+    <model>Rexton</model>
+    <model>Khác</model>
+  </Ssangyong>
+  <Suzuki>
+    <model>Aerio</model>
+    <model>Alto</model>
+    <model>APV</model>
+    <model>Balenno</model>
+    <model>Carry</model>
+    <model>Cultis wagon</model>
+    <model>Ertiga</model>
+    <model>Grand vitara</model>
+    <model>Liana</model>
+    <model>Samirai</model>
+    <model>SJ</model>
+    <model>Super Carry Truck</model>
+    <model>Super Carry Van</model>
+    <model>Swift</model>
+    <model>Twin</model>
+    <model>Vitara</model>
+    <model>Wagon R+</model>
+    <model>XL 7</model>
+    <model>Khác</model>
+  </Suzuki>
+  <Toyota>
+    <model>4 Runner</model>
+    <model>86</model>
+    <model>Allion</model>
+    <model>Alphard</model>
+    <model>Altezza</model>
+    <model>Aristo</model>
+    <model>Aurion</model>
+    <model>Avalon</model>
+    <model>Avensis</model>
+    <model>Aygo</model>
+    <model>Brevis</model>
+    <model>Caldina</model>
+    <model>Cami</model>
+    <model>Camry</model>
+    <model>Carina</model>
+    <model>Celica</model>
+    <model>Century</model>
+    <model>Chaser</model>
+    <model>Corolla</model>
+    <model>Corolla altis</model>
+    <model>Corona</model>
+    <model>Cressida</model>
+    <model>Cresta</model>
+    <model>Crown</model>
+    <model>Estima</model>
+    <model>Fj cruiser</model>
+    <model>Fortuner</model>
+    <model>Hiace</model>
+    <model>Highlander</model>
+    <model>Hilux</model>
+    <model>Innova</model>
+    <model>Ipsum</model>
+    <model>IQ</model>
+    <model>Land Cruiser</model>
+    <model>Liteace</model>
+    <model>Mark II</model>
+    <model>Matrix</model>
+    <model>MR 2</model>
+    <model>Picnic</model>
+    <model>Platz</model>
+    <model>Prado</model>
+    <model>Previa</model>
+    <model>Prius</model>
+    <model>Progres</model>
+    <model>Raum</model>
+    <model>RAV4</model>
+    <model>Sequoia</model>
+    <model>Sera</model>
+    <model>Sienna</model>
+    <model>Soarer</model>
+    <model>Solara</model>
+    <model>Starlet</model>
+    <model>Supra</model>
+    <model>Tacoma</model>
+    <model>Tercel</model>
+    <model>Townace</model>
+    <model>Tundra</model>
+    <model>Venza</model>
+    <model>Vios</model>
+    <model>Vista</model>
+    <model>Wish</model>
+    <model>XA</model>
+    <model>Yaris</model>
+    <model>Yaris Verso</model>
+    <model>Zace</model>
+    <model>Khác</model>
+  </Toyota>
 </Car>
