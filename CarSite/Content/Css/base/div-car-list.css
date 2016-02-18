@@ -126,3 +126,16 @@
     color: #0331C4;
     text-decoration: none;
 }
+
+.car-div-large{
+    display:block; 
+    position: absolute;
+    margin-top:30px;
+    margin-left:100px;
+}
+
+.car-img-large{
+    width:500px;
+    height:500px
+}
+
