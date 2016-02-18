@@ -204,6 +204,8 @@
     <Content Include="Content\images\11.jpg" />
     <Content Include="Content\images\12.jpg" />
     <Content Include="Content\images\bar.gif" />
+    <Content Include="Content\images\collapse.png" />
+    <Content Include="Content\images\expand.png" />
     <Content Include="Content\images\icons.gif" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\people.png" />

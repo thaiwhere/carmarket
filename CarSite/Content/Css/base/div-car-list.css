@@ -9,12 +9,6 @@
     color:white;
     text-decoration:none;
 }
-.car-list-box
-{
-	/*border-left:1px  solid #CCCCCC;*/
-	border-right:1px  solid #CCCCCC;
-	/*border-bottom:1px  solid #CCCCCC;		    */
-}
 
 .car-list-header{
     float: left;
