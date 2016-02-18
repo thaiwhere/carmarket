@@ -14,11 +14,12 @@
 
 #search_status{
     float:left;
-    margin-left:75px;
+    margin-left:15px;
 }
 
 #search_place{
     float:right;
+     margin-right:15px;
 }
 
 
@@ -28,7 +29,7 @@
     float:left;
     margin-left:15px;
     margin-bottom:10px;
-    width:90%;    
+    width:86%;    
 }
 
 #search_model_label{
@@ -90,8 +91,8 @@
 }
 
 #search_year_product{
-   float:left; 
-   margin-left:60px;
+   float:right; 
+   margin-right:35px;
 }
 
 .the-legend {

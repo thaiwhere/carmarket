@@ -1,4 +1,19 @@
-﻿
+﻿.car-label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 100%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    width:80px;
+}
+.car-label-default {
+    background-color: #777;
+}
 .car-item-all {
     float: left;
     padding-top: 10px;
@@ -91,7 +106,7 @@
 }
 
 .car-date-right {
-    float: right;
+    float: left;
     text-align: left;
     width: 70px;
     color: #222;

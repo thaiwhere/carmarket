@@ -57,7 +57,7 @@
     border-bottom-left-radius:5px;
     border: 1px solid #428bca;    
     height:1000px;  
-    width:140px;     
+    width:200px;     
 }
 
 #div-center{
@@ -66,8 +66,8 @@
     border-top:1px solid #428bca; 
     border-right:1px solid #428bca; 
     border-bottom:1px solid #428bca; 
-    padding: 5px;         
-    width:620px;
+    /*padding: 5px;*/         
+    width:560px;
     height:1000px;  
 }
 
