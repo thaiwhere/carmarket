@@ -84,9 +84,14 @@
 #search_origin{
    float:left; 
 }
+#search_box_number{
+   float:left; 
+   margin-left:50px;
+}
+
 #search_year_product{
    float:left; 
-    margin-left:100px;
+   margin-left:60px;
 }
 
 .the-legend {

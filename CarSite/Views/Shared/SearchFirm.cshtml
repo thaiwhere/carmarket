@@ -1,5 +1,7 @@
 ﻿@model List<string>
-@*fgfgfg*@
+<button id="seared" type="button" class="btn btn-primary">Tìm kiếm</button>
+
+@*<button id="seared">Tìm kiếm</button>*@
 <div id="search-car-firm">
 
     <fieldset class="the-fieldset">
@@ -127,15 +129,28 @@
         <div id="search_origin">
             <label>Xuất xứ:</label>
             <select>
-                <option value="trongnuoc" selected>Trong nước</option>
+                <option value="tatca" selected>Tất cả</option>
+                <option value="trongnuoc">Trong nước</option>
                 <option value="nhapkhau">Nhập khẩu</option>
               
             </select>
         </div>
+        @*hop so*@
+
+        <div id="search_box_number">
+            <label>Hộp số:</label>
+            <select>
+                <option value="tatca" selected>Tất cả</option>
+                <option value="sotudong">Số tự động</option>
+                <option value="sotay">Số tay</option>
+
+            </select>
+        </div>
+
         <div id="search_year_product">
             <label>Năm SX:</label>
             <select>
-                <option value="All" selected>All</option>
+                <option value="All" selected>Tất cả</option>
                 <option value="2016">--2016--</option>
                 <option value="2015">--2015--</option>
                 <option value="2014">--2014--</option>
@@ -154,7 +169,7 @@
                 <option value="2001">--2001--</option>
                 <option value="2000">--2000--</option>
                 <option value="1999">--1999--</option>
-                <option value="<1999">--<1998--</option>
+                <option value="<1999">--1998--</option>
              
 
             </select>
