@@ -9,21 +9,21 @@ namespace CarSite
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Content/Scripts/jquery-{version}.js",
-                        "~/Content/Scripts/jquery.min.js"));
+                        "~/Content/Scripts/lib/jquery-{version}.js",
+                        "~/Content/Scripts/lib/jquery.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Content/Scripts/jquery.validate*"));
+                        "~/Content/Scripts/lib/jquery.validate*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Content/Scripts/modernizr-*"));
+                        "~/Content/Scripts/lib/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(                      
-                      "~/Content/Scripts/bootstrap.min.js",
+                      "~/Content/Scripts/lib/bootstrap.min.js",
                       //"~/Content/Scripts/bootstrap-dropdownhover.js",
-                      "~/Content/Scripts/respond.js",
+                      "~/Content/Scripts/lib/respond.js",
                       "~/Content/Scripts/common.js"));                    
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
