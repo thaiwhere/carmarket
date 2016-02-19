@@ -42,7 +42,12 @@
         </div>
         <div id="div-content">
             <div id="div-left" class="col-sm-2">
-                @{ Html.RenderPartial("~/Views/Shared/CarList.cshtml"); }                
+                <div id="div-left-searching">
+                    @{ Html.RenderPartial("~/Views/Shared/CarList.cshtml"); }
+                </div>
+                <div id="div-left-advertise">
+                    @{ Html.RenderPartial("~/Views/Shared/AdvertiseLeft.cshtml"); }
+                </div>
             </div>
             <div id="div-center">
                 @RenderBody()

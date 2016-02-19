@@ -1,0 +1,21 @@
+﻿
+#advertise-left {
+   float: left;
+    height: 1000px;
+    width: 201px;
+    margin-left: -15px;
+ 
+}
+
+#div-left-searching {
+       float:left;
+}
+
+#div-left-advertise{
+    float:left;
+}
+
+.advertise-left-panel{
+    width:198px;
+    height:198px;
+}

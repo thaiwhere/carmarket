@@ -175,6 +175,7 @@
     </Content>
     <Content Include="Content\assets\icon-fonts\styles.css" />
     <Content Include="Content\css\animate.min.css" />
+    <Content Include="Content\css\base\div-panel.css" />
     <Content Include="Content\css\base\searchfirm.css" />
     <Content Include="Content\css\base\common.css" />
     <Content Include="Content\css\base\div-car-list.css" />
@@ -290,6 +291,7 @@
     <Content Include="Views\Shared\Search.cshtml" />
     <Content Include="Views\Shared\ShowRoom.cshtml" />
     <Content Include="Views\Shared\SearchFirm.cshtml" />
+    <Content Include="Views\Shared\AdvertiseLeft.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
