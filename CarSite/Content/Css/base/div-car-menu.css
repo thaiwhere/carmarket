@@ -19,12 +19,8 @@
     width:110px;    
 }
 
-.dropdown-menu li a{
-    color: #428bca;    
-}
-
-.dropdown{
-    width:140px;
+.dropdown-menu {
+    min-width: 350px !important;
 }
 
 .dropdown:hover .dropdown-toggle{
@@ -38,4 +34,9 @@
     display: block;
     left: 136px;    
     top: -3px;    
+}
+
+.dropdown-menu > li > a:hover {    
+    color:white !important;
+    background-color:#337ab7 !important;
 }
