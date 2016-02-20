@@ -10,8 +10,6 @@
 
     @Scripts.Render("~/bundles/jquery")
 
-    @Scripts.Render("~/bundles/js")
-
     @RenderSection("Styles", required: false)
 
 </head>
@@ -49,7 +47,7 @@
                     @{ Html.RenderPartial("~/Views/Shared/AdvertiseLeft.cshtml"); }
                 </div>
             </div>
-            <div id="div-center">
+            <div id="div-center" class="div-center">
                 @RenderBody()
             </div>
             <div id="div-right">
@@ -63,6 +61,7 @@
     </div>
     
 
+    @Scripts.Render("~/bundles/js")
 
     @RenderSection("Scripts", required: false)
 

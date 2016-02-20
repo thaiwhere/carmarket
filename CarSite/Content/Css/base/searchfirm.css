@@ -3,7 +3,7 @@
     float:left;
     border: 1px solid #CCCCCC;    
     padding:3px;
-    width:100%;
+    width:555px;
     background-color:#FEF2B4;
     font-size:13px;
     color:#337ab7;
@@ -136,7 +136,7 @@ legend {
 
 #span_searching{    
     padding-left: 16px;
-    float: left;    
+    float: none;    
     margin-bottom:5px;
     cursor: pointer;
 }
@@ -147,4 +147,12 @@ legend {
 
 .expand_searching{
     background:url('../../images/expand.png') no-repeat left; 
+}
+
+.div-center{    
+    width:560px;  
+}
+
+.div-center-searching{
+    width:750px;
 }
