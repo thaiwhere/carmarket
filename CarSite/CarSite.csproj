@@ -227,7 +227,7 @@
     <Content Include="Content\scripts\lib\bootstrap-dropdownhover.js" />
     <Content Include="Content\scripts\lib\bootstrap.js" />
     <Content Include="Content\scripts\lib\bootstrap.min.js" />
-    <Content Include="Content\scripts\common.js" />
+    <Content Include="Content\scripts\base\common.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -240,8 +240,9 @@
     <Content Include="Content\scripts\lib\jquery.validate.unobtrusive.js" />
     <Content Include="Content\scripts\lib\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\scripts\lib\jquery.vegas.min.js" />
-    <Content Include="Content\scripts\Search.js" />
-    <Content Include="Content\scripts\Menu.js" />
+    <Content Include="Content\scripts\base\SearchingCar.js" />
+    <Content Include="Content\scripts\base\Search.js" />
+    <Content Include="Content\scripts\base\Menu.js" />
     <Content Include="Content\scripts\lib\modernizr-2.6.2.js" />
     <Content Include="Content\scripts\lib\owl.carousel.min.js" />
     <Content Include="Content\scripts\lib\respond.js" />
@@ -292,6 +293,7 @@
     <Content Include="Views\Shared\ShowRoom.cshtml" />
     <Content Include="Views\Shared\SearchFirm.cshtml" />
     <Content Include="Views\Shared\AdvertiseLeft.cshtml" />
+    <Content Include="Views\Home\SearchingCar.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
