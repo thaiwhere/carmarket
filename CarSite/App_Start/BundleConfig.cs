@@ -24,10 +24,13 @@ namespace CarSite
                       "~/Content/Scripts/lib/bootstrap.min.js",
                       //"~/Content/Scripts/bootstrap-dropdownhover.js",
                       "~/Content/Scripts/lib/respond.js",
+                      "~/Content/Scripts/grid.paging/*.js",
                       "~/Content/Scripts/base/*.js"));                    
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/Content/Css/base/*.css",
+                      "~/Content/Css/grid.paging/PagerGrid.css",
+                      "~/Content/Css/grid.paging/PagerPagination.css",
                       "~/Content/Css/bootstrap.min.css",
                       "~/Content/Css/bootstrap-dropdownhover.min.css",                      
                       "~/Content/Css/justified-nav.css"                      
