@@ -242,6 +242,8 @@
     <Content Include="Content\images\collapse.png" />
     <Content Include="Content\images\expand.png" />
     <Content Include="Content\images\icons.gif" />
+    <Content Include="Content\images\icons\new.jpg" />
+    <Content Include="Content\images\icons\old.jpg" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\people.png" />
     <Content Include="Content\images\phone.png" />
