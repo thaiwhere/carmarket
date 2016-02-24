@@ -30,7 +30,7 @@
     padding-right: 0px;
     margin-bottom:25px;
 }
-.car-type1 {
+.car-title {
     float: left;
     /*width: 350px;
     height: 30px;*/
@@ -103,7 +103,7 @@
 }
 
 .car-date-right {
-    float: left;
+    float: right;
     text-align: left;
     width: 70px;
     color: #222;

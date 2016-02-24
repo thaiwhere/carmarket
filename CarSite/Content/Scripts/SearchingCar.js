@@ -10,7 +10,7 @@ function generateData(numberRows, currentPage) {
             source = "<div class='car-info-source'>Trong nước</div>";
         }
 
-        var href = "http://banxehoi.com/xe-daewoo-lacetti-ha-noi/ban-xe--dang-ky-2009-tu-nhan-mau-den-con-moi-318-trieu-aid630947";
+        var href = "/Car/CarDetail";
 
         var title = "Bán Xe Daewoo Lacetti đăng ký 2009 tư nhân, màu đen còn mới, 318 triệu... (28/02/2016) ";
         var image = "/content/images/cars/0" + (index + 1) + ".jpg";

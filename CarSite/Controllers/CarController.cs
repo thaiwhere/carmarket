@@ -36,6 +36,12 @@ namespace CarSite.Controllers
             }
 
             return View(models);
-        }        
+        }
+
+        public ActionResult CarDetail()
+        {
+            List<string> carDetail = new List<string>();
+            return View(carDetail);
+        }
     }
 }

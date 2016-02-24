@@ -180,6 +180,7 @@
     <Content Include="Content\css\base\common.css" />
     <Content Include="Content\css\base\div-car-list.css" />
     <Content Include="Content\css\base\div-car-menu.css" />
+    <Content Include="Content\css\base\car-detail.css" />
     <Content Include="Content\css\base\searching-car.css" />
     <Content Include="Content\css\base\layout.css" />
     <Content Include="Content\css\base\Site.css" />
@@ -248,6 +249,7 @@
     <Content Include="Content\images\team\pic6.jpg" />
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
+    <Content Include="Content\scripts\CarDetail.js" />
     <Content Include="Content\scripts\SearchingHandler.js" />
     <Content Include="Content\scripts\grid.paging\PagerGrid.js" />
     <Content Include="Content\scripts\grid.paging\PagerPagination.js" />
@@ -320,6 +322,8 @@
     <Content Include="Views\Shared\SearchFirm.cshtml" />
     <Content Include="Views\Shared\AdvertiseLeft.cshtml" />
     <Content Include="Views\Home\SearchingCar.cshtml" />
+    <Content Include="Views\Car\CarDetail.cshtml" />
+    <Content Include="Views\Car\CarDetailImages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\advertise-left\" />
