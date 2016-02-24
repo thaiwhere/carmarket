@@ -163,7 +163,7 @@
     width: 160px;
 }
 .car-name-user-right {
-    background:  url('../../Images/people.png') no-repeat left; 
+    background:  url('../../Images/common/people.png') no-repeat left; 
     padding-left: 25px;
     float: left;
     width: 265px;
@@ -174,7 +174,7 @@
     text-overflow: ellipsis;
 }
 .car-name-telephone-right {
-    background:  url('../../Images/phone.png') no-repeat left;
+    background:  url('../../Images/common/phone.png') no-repeat left;
     padding-left: 25px;
     float: left;
     width: 265px;
@@ -218,7 +218,7 @@
 }
 
 .car-info-user{
-    background:  url('../../Images/people.png') no-repeat left; 
+    background:  url('../../Images/common/people.png') no-repeat left; 
     padding-left: 25px;
     float: left;    
     font: 14px/21px 'Arial';
@@ -229,7 +229,7 @@
 }
 
 .car-info-tel{
-     background:  url('../../Images/phone.png') no-repeat left;
+     background:  url('../../Images/common/phone.png') no-repeat left;
     padding-left: 25px;
     float: left;    
     font: 14px/21px 'Arial';
@@ -249,7 +249,7 @@
 }
 
 .status-icon{
-    background:  url('../../Images/Icons/new.jpg') no-repeat left;    
+    background:  url('../../Images/common/new.jpg') no-repeat left;    
     float: left;            
     margin-top:-5px;    
     width:50px;

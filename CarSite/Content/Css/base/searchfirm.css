@@ -142,11 +142,11 @@ legend {
 }
 
 .collapse_searching{
-    background:url('../../images/collapse.png') no-repeat left; 
+    background:url('../../images/common/collapse.png') no-repeat left; 
 }
 
 .expand_searching{
-    background:url('../../images/expand.png') no-repeat left; 
+    background:url('../../images/common/expand.png') no-repeat left; 
 }
 
 .div-center{    
@@ -154,5 +154,5 @@ legend {
 }
 
 .div-center-searching{
-    width:750px;
+    width:760px;
 }

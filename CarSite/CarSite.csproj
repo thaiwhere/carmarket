@@ -224,31 +224,22 @@
     <Content Include="Content\css\pixeden-icons.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\styles.css" />
-    <Content Include="Content\images\01.jpg" />
-    <Content Include="Content\images\02.jpg" />
-    <Content Include="Content\images\03.jpg" />
-    <Content Include="Content\images\04.jpg" />
-    <Content Include="Content\images\05.jpg" />
-    <Content Include="Content\images\06.jpg" />
-    <Content Include="Content\images\07.jpg" />
-    <Content Include="Content\images\08.jpg" />
-    <Content Include="Content\images\09.jpg" />
-    <Content Include="Content\images\10.jpg" />
-    <Content Include="Content\images\11.jpg" />
-    <Content Include="Content\images\12.jpg" />
-    <Content Include="Content\images\bar.gif" />
+    <Content Include="Content\images\cars\01.jpg" />
+    <Content Include="Content\images\cars\02.jpg" />
+    <Content Include="Content\images\cars\03.jpg" />
+    <Content Include="Content\images\cars\04.jpg" />
+    <Content Include="Content\images\cars\05.jpg" />
+    <Content Include="Content\images\cars\06.jpg" />
+    <Content Include="Content\images\cars\07.jpg" />
+    <Content Include="Content\images\cars\08.jpg" />
+    <Content Include="Content\images\cars\09.jpg" />
+    <Content Include="Content\images\cars\10.jpg" />
+    <Content Include="Content\images\cars\11.jpg" />
+    <Content Include="Content\images\cars\12.jpg" />
     <Content Include="Content\images\cars\20151227214928-b769_wm.jpg" />
     <Content Include="Content\images\cars\20151227214928-b769_wm_big.jpg" />
-    <Content Include="Content\images\collapse.png" />
-    <Content Include="Content\images\expand.png" />
-    <Content Include="Content\images\icons.gif" />
-    <Content Include="Content\images\icons\new.jpg" />
-    <Content Include="Content\images\icons\old.jpg" />
-    <Content Include="Content\images\loading.gif" />
-    <Content Include="Content\images\people.png" />
-    <Content Include="Content\images\phone.png" />
-    <Content Include="Content\images\pixel.gif" />
-    <Content Include="Content\images\star.png" />
+    <Content Include="Content\images\common\new.jpg" />
+    <Content Include="Content\images\common\old.jpg" />
     <Content Include="Content\images\team\pic1.jpg" />
     <Content Include="Content\images\team\pic2.jpg" />
     <Content Include="Content\images\team\pic3.jpg" />
@@ -257,7 +248,6 @@
     <Content Include="Content\images\team\pic6.jpg" />
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
-    <Content Include="Content\images\user-alt-v2.png" />
     <Content Include="Content\scripts\SearchingHandler.js" />
     <Content Include="Content\scripts\grid.paging\PagerGrid.js" />
     <Content Include="Content\scripts\grid.paging\PagerPagination.js" />
@@ -331,7 +321,10 @@
     <Content Include="Views\Shared\AdvertiseLeft.cshtml" />
     <Content Include="Views\Home\SearchingCar.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\images\advertise-left\" />
+    <Folder Include="Content\images\advertise-slide\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />

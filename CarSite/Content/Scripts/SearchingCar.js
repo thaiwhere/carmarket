@@ -1,14 +1,24 @@
 ﻿
-function generateData(numberRows, autoHeight) {
+function generateData(numberRows, currentPage) {
     var rows = [];
     for (var index = 0; index < numberRows; index++) {
 
         var statusIcon = index % 2 == 0 ? "<div class='status-icon'></div>" : "";
         var source = "<div class='car-info-source'>Nhập khẩu</div>";
+        if (currentPage % 2 != 0)
+        {
+            source = "<div class='car-info-source'>Trong nước</div>";
+        }
+
         var href = "http://banxehoi.com/xe-daewoo-lacetti-ha-noi/ban-xe--dang-ky-2009-tu-nhan-mau-den-con-moi-318-trieu-aid630947";
 
         var title = "Bán Xe Daewoo Lacetti đăng ký 2009 tư nhân, màu đen còn mới, 318 triệu... (28/02/2016) ";
-        var image = "/content/images/cars/20151227214928-b769_wm.jpg";
+        var image = "/content/images/cars/0" + (index + 1) + ".jpg";
+        if (index >= 9)
+        {
+            image = "/content/images/cars/" + (index + 1) + ".jpg";
+        }
+        
         var content = "Tôi cần bán xe Daewoo Laceti sản xuất năm 2009 tên tư nhân xe gia đình sử dụng nên còn chất lượng máy móc êm nội thất đẹp lốp mới đăng kiểm còn dài giá tốt 318 triệu liên hệ Mr Hải 0915558358.";
         
         var param = "<div class='car-info-item'>Km:&nbsp;40.000 km</div><div class='car-info-item'>Hộp số:&nbsp;Số tự động</div>";
@@ -35,16 +45,17 @@ function generateData(numberRows, autoHeight) {
 var gridOptions =
     {
         columns: [
-            { HeaderText: "Hình", Width: 150, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+            { HeaderText: "Hình", Width: 160, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
             { HeaderText: "Mô tả", Width: 420, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
             { HeaderText: "Thông tin", Width: 140, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
         ],
-        bodyRows: generateData(20),
+        bodyRows: generateData(10, 0),
         gridExpandHeight: 150,
         showPager: true,
         customPager: true,
+        //hideYBackGroundScroller: true, //// default is false
         pagerOption: {
-            itemsPerPage: 20,
+            itemsPerPage: 10,
             currentPage: 0,
             itemsPerPageArray: [10, 20, 50],
             pagerSelectCallBack: reRenderAfterPaged,
@@ -56,14 +67,16 @@ function reRenderAfterPaged(currentPageIndex, itemsPerPage) {
     
     //// Set grid option for re-render pager
     gridOptions.pagerOption.itemsPerPage = itemsPerPage;
-    gridOptions.pagerOption.currentPage = currentPageIndex;
+    gridOptions.pagerOption.currentPage = currentPageIndex;    
 
     //// You should get data by ajax here, and then re-render grid.
+    gridOptions.bodyRows = generateData(itemsPerPage, gridOptions.pagerOption.currentPage);
+
     $("#gridId").PagerGrid(gridOptions);
 }
 
-
 $(function () {
    
+
     var currentGrid = $("#gridId").PagerGrid(gridOptions);
 });
