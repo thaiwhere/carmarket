@@ -1,4 +1,8 @@
-﻿$("#span_searching").click(function () {
+﻿$("#select-model-all").change(function () {
+    $(".checkbox-model").prop('checked', $(this).prop("checked"));
+});
+
+$("#span_searching").click(function () {
     $("#search-car-firm").toggle();
 
     if ($('#span_searching').hasClass("expand_searching")) {

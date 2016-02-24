@@ -5,3 +5,41 @@
 .car-detail-info{
     margin-top:5px;
 }
+
+#div-car-similar .car-similar-tab{
+    margin: 0;
+    padding: 0px 0;
+    height: 34px;
+}
+
+#div-car-similar .car-similar-tab li{
+    display: block;
+    float: left;
+    background: none;
+    padding-left: 0px;
+}
+
+#div-car-similar li{
+    margin: .25em 0;
+    list-style: none;
+}
+
+#div-car-similar ul.car-similar-tab li.tabactive a {
+    margin-bottom: -1px;
+    height: 31px;
+    background: #FFFFFF;
+    border-bottom: none;
+    font-weight: bold;
+    color: #000000;
+}
+
+#div-car-similar ul.car-similar-tab li a {
+    display: block;
+    float: left;
+    background: #eeeeee url(../../Images/common/tab.png) repeat-x scroll center center;
+    border: 1px solid #dedede;
+    margin: 0 auto;
+    text-decoration: none;
+    line-height: 30px;
+    padding: 0 35px;
+}

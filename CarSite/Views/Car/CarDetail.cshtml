@@ -9,6 +9,8 @@
 
 <div id="div-car-detail" class="car-list-box">
 
+    @{ Html.RenderPartial("~/Views/Shared/SearchFirm.cshtml", Model); }
+
     <div class="car-item-all row-car">
         @{ Html.RenderPartial("~/Views/Car/CarDetailImages.cshtml", Model); }
 
@@ -22,7 +24,7 @@
             <div class="car-info">
                 Tôi cần bán xe Daewoo Laceti sản xuất năm 2009 tên tư nhân xe gia đình sử dụng nên còn chất lượng máy móc êm nội thất đẹp lốp mới đăng kiểm còn dài giá tốt 318 triệu liên hệ Mr Hải 0915558358.
             </div>
-            
+
             <div class="car-detail-left">
                 <div class="car-status-left">
                     <label class="car-label-left"> Tình trạng </label>
@@ -63,9 +65,24 @@
             </div>
         </div>
     </div>
+        
 </div>
 
+<div id="div-car-similar">
+    <ul class="car-similar-tab">
+        <li id="car-similar-model" class="tabactive"><a href="javascript:void(null);" title="Các xe khác cùng model" onclick="showSimilarCarModel();">Các xe khác cùng model</a></li>
+        <li id="car-similar-price" class=""><a href="javascript:void(null);" title="Các xe khác có mức giá xấp xỉ (± 10%)" onclick="showSimilarCarPrice();">Các xe khác có mức giá xấp xỉ (± 10%)</a></li>
+    </ul>
+
+    <div class="grid-container">
+        <div id="gridCarSimilar" class="freegrid"></div>
+    </div>
+</div>
 @section Scripts
 {
+    <script src="~/Content/scripts/SearchingHandler.js"></script>
     <script src="~/Content/scripts/CarDetail.js"></script>
 }
+
+
+    

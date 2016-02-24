@@ -76,7 +76,8 @@ function reRenderAfterPaged(currentPageIndex, itemsPerPage) {
 }
 
 $(function () {
-   
+    expandSearching();
 
+    $("#div-left").hide();
     var currentGrid = $("#gridId").PagerGrid(gridOptions);
 });
