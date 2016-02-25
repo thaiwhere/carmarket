@@ -10,73 +10,12 @@ namespace CarSite.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
-            string firm = "Acura";
-            List<string> models = new List<string>();
-            string xmlData = HttpContext.Server.MapPath("~/App_Data/Acura.xml");
+        {            
+            List<string> cars = new List<string>();
 
-            using (XmlReader reader = XmlReader.Create(xmlData))
-            {
-
-                reader.MoveToContent();
-                while (reader.Read())
-                {
-                    if (reader.NodeType == XmlNodeType.Element
-                        && reader.Name.Equals(firm))
-                    {
-                        while (reader.Read())
-                        {
-                            if (reader.NodeType == XmlNodeType.EndElement)
-                            {
-                                break;
-                            }
-                            if (reader.NodeType == XmlNodeType.Element &&
-                                reader.Name == "model")
-                            {
-                                models.Add(reader.ReadString());
-                            }
-                        }
-                    }
-                }
-            }
-
-            return View(models);
+            return View(cars);
         }
-        public ActionResult SearchingCar()
-        {
-            string firm = "Acura";
-            List<string> models = new List<string>();
-            string xmlData = HttpContext.Server.MapPath("~/App_Data/Acura.xml");
-
-            using (XmlReader reader = XmlReader.Create(xmlData))
-            {
-
-                reader.MoveToContent();
-                while (reader.Read())
-                {
-                    if (reader.NodeType == XmlNodeType.Element
-                        && reader.Name.Equals(firm))
-                    {
-                        while (reader.Read())
-                        {
-                            if (reader.NodeType == XmlNodeType.EndElement)
-                            {
-                                break;
-                            }
-                            if (reader.NodeType == XmlNodeType.Element &&
-                                reader.Name == "model")
-                            {
-                                models.Add(reader.ReadString());
-                            }
-                        }
-                    }
-                }
-            }
-
-            return View(models);
-
-            return View();
-        }
+        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

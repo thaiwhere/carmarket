@@ -250,6 +250,7 @@
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
     <Content Include="Content\scripts\CarDetail.js" />
+    <Content Include="Content\scripts\GridRender.js" />
     <Content Include="Content\scripts\SearchingHandler.js" />
     <Content Include="Content\scripts\grid.paging\PagerGrid.js" />
     <Content Include="Content\scripts\grid.paging\PagerPagination.js" />
@@ -311,7 +312,6 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Car\CarFirm.cshtml" />
     <Content Include="Views\Shared\AdvertiseRight.cshtml" />
     <Content Include="Views\Shared\AnimationDemo.cshtml" />
     <Content Include="Views\Shared\CarList.cshtml" />
@@ -319,9 +319,9 @@
     <Content Include="Views\Shared\Model.cshtml" />
     <Content Include="Views\Shared\Search.cshtml" />
     <Content Include="Views\Shared\ShowRoom.cshtml" />
-    <Content Include="Views\Shared\SearchFirm.cshtml" />
+    <Content Include="Views\Shared\SearchingCriteria.cshtml" />
     <Content Include="Views\Shared\AdvertiseLeft.cshtml" />
-    <Content Include="Views\Home\SearchingCar.cshtml" />
+    <Content Include="Views\Car\SearchingCar.cshtml" />
     <Content Include="Views\Car\CarDetail.cshtml" />
     <Content Include="Views\Car\CarDetailImages.cshtml" />
   </ItemGroup>

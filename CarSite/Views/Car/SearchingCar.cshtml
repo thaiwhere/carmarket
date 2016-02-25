@@ -9,7 +9,7 @@
 
 <div id="div-car-list" class="car-list-box">
     
-    @{ Html.RenderPartial("~/Views/Shared/SearchFirm.cshtml", Model); }
+    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml"); }
     
 
     <div class="car-list-header">
@@ -19,13 +19,14 @@
     <!-- begin list car -->
     
     <div class="grid-container">
-        <div id="gridId" class="freegrid"></div>
+        <div id="gridSearchingCar" class="freegrid"></div>
     </div>
         
 </div>
 
 @section Scripts
 {
-<script src="~/Content/scripts/SearchingHandler.js"></script>
-<script src="~/Content/scripts/SearchingCar.js"></script>
+    <script src="~/Content/scripts/SearchingHandler.js"></script>
+    <script src="~/Content/scripts/GridRender.js"></script>
+    <script src="~/Content/scripts/SearchingCar.js"></script>
 }

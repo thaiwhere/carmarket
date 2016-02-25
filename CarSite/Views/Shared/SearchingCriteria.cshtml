@@ -1,5 +1,4 @@
-﻿@model List<string>
-
+﻿
 <div id="span_searching" class="expand_searching">
     <span class="label label-primary">Tìm kiếm </span>
 </div>
@@ -11,7 +10,7 @@
 
         <div id="search_firm">
             <label>Hãng xe:</label>
-            <select>
+            <select id="select-firm" onchange="renderModels(this.value)">
                 <option value="Acura" selected>Acura</option>
                 <option value="Audi">Audi</option>
                 <option value="BMW">BMW</option>
@@ -116,17 +115,9 @@
                     <input type="checkbox" checked="checked" id="select-model-all" /> <label>All</label>
                 </div>
             </div>
-            <div id="search_model_box">
-                @foreach (var carModel in Model.ToList().ToArray())
-                {
-                    <div>
-                        <input type="checkbox" class="checkbox-model" checked="checked" /> <label>@carModel</label>
-                    </div>
-                }
+            <div id="search_model_box">                
             </div>
         </div>
-
-        @*fsdfhdksfdksafdsaf*@
 
         <div id="search_origin">
             <label>Xuất xứ:</label>
@@ -230,8 +221,3 @@
     </fieldset>
 
 </div>
-
-@section Scripts
-{
-    
-}

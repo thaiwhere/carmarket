@@ -9,7 +9,7 @@
 
 <div id="div-car-detail" class="car-list-box">
 
-    @{ Html.RenderPartial("~/Views/Shared/SearchFirm.cshtml", Model); }
+    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml", Model); }
 
     <div class="car-item-all row-car">
         @{ Html.RenderPartial("~/Views/Car/CarDetailImages.cshtml", Model); }
@@ -78,11 +78,10 @@
         <div id="gridCarSimilar" class="freegrid"></div>
     </div>
 </div>
+
 @section Scripts
-{
+{    
     <script src="~/Content/scripts/SearchingHandler.js"></script>
+    <script src="~/Content/scripts/GridRender.js"></script>
     <script src="~/Content/scripts/CarDetail.js"></script>
 }
-
-
-    

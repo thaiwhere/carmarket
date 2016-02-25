@@ -40,39 +40,6 @@ function generateData(numberRows, currentPage) {
     return rows;
 }
 
-var gridOptions =
-    {
-        columns: [
-            { HeaderText: "Hình", Width: 160, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
-            { HeaderText: "Mô tả", Width: 420, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
-            { HeaderText: "Thông tin", Width: 140, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
-        ],
-        bodyRows: generateData(10, 0),
-        gridExpandHeight: 150,
-        showPager: true,
-        customPager: true,
-        //hideYBackGroundScroller: true, //// default is false
-        pagerOption: {
-            itemsPerPage: 10,
-            currentPage: 0,
-            itemsPerPageArray: [10, 20, 50],
-            pagerSelectCallBack: reRenderAfterPaged,
-            totalItem: 2000
-        }
-    };
-
-function reRenderAfterPaged(currentPageIndex, itemsPerPage) {
-
-    //// Set grid option for re-render pager
-    gridOptions.pagerOption.itemsPerPage = itemsPerPage;
-    gridOptions.pagerOption.currentPage = currentPageIndex;
-
-    //// You should get data by ajax here, and then re-render grid.
-    gridOptions.bodyRows = generateData(itemsPerPage, gridOptions.pagerOption.currentPage);
-
-    $("#gridCarSimilar").PagerGrid(gridOptions);
-}
-
 function showSimilarCarModel()
 {
     $("#car-similar-model").addClass("tabactive");
@@ -88,6 +55,6 @@ function showSimilarCarPrice()
 $(function () {
     collapseSearching();
     $("#div-left").hide();
-
-    var currentGrid = $("#gridCarSimilar").PagerGrid(gridOptions);
+    
+    renderGrid("gridCarSimilar", generateData, 10, 200);
 });

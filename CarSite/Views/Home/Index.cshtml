@@ -9,7 +9,7 @@
 
 <div id="div-car-list" class="car-list-box">
     
-    @{ Html.RenderPartial("~/Views/Shared/SearchFirm.cshtml", Model); }
+    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml"); }
     
 
     <div class="car-list-header">
@@ -120,4 +120,5 @@
 
 @section Scripts
 {
+<script src="~/Content/scripts/SearchingHandler.js"></script>
 }
