@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CarModel.Criteria;
+using CarModel.Entity;
+using CarService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,6 +21,18 @@ namespace CarSite.Controllers
         {
             List<string> carDetail = new List<string>();
             return View(carDetail);
+        }
+
+        /// <summary>
+        /// hay nay dung de tim kiem ra list car thoa d/k tim kiem, sau do se dc lay = jquery.Ajax de render ra web
+        /// </summary>
+        /// <param name="criteria"></param>
+        /// <returns></returns>
+        public List<Car> SearchingCar(CarSearchingCriteria criteria)
+        {
+            List<Car> listCar = CarSearchingService.CarSearching(criteria); //criteria : nghia la d/k tim kiem
+
+            return listCar; // result trong getListCar
         }
     }
 }
