@@ -170,6 +170,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Acura - Copy.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\Acura.xml">
       <SubType>Designer</SubType>
     </Content>
