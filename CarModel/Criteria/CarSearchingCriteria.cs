@@ -18,6 +18,10 @@ namespace CarModel.Criteria
 
         public double fromPrice { get; set; }
         public double toPrice { get; set; }
+
+
+      
+
         // v.v.v.v.
     }
 }

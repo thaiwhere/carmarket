@@ -28,11 +28,11 @@ namespace CarSite.Controllers
         /// </summary>
         /// <param name="criteria"></param>
         /// <returns></returns>
-        public List<Car> SearchingCar(CarSearchingCriteria criteria)
+        public JsonResult SearchingCars(CarSearchingCriteria criteria)
         {
             List<Car> listCar = CarSearchingService.CarSearching(criteria); //criteria : nghia la d/k tim kiem
 
-            return listCar; // result trong getListCar
+            return Json(listCar); // result trong getListCar
         }
     }
 }
