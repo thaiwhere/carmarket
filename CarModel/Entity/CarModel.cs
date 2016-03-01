@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarModel.Entity
+namespace Car.Model.Entity
 {
-    public class Car
+    public class CarModel
     {
         public int CarId { get; set; }
         public string Name { get; set; }

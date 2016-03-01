@@ -1,5 +1,5 @@
-﻿using CarModel.Criteria;
-using CarModel.Entity;
+﻿using Car.Model.Criteria;
+using Car.Model.Entity;
 using CarService;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace CarSite.Controllers
         /// <returns></returns>
         public JsonResult SearchingCars(CarSearchingCriteria criteria)
         {
-            List<Car> listCar = CarSearchingService.CarSearching(criteria); //criteria : nghia la d/k tim kiem
+            List<CarModel> listCar = CarSearchingService.CarSearching(criteria); //criteria : nghia la d/k tim kiem
 
             return Json(listCar); // result trong getListCar
         }

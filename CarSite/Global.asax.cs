@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using TQQ.Data.Configuration;
 
 namespace CarSite
 {
@@ -12,6 +13,7 @@ namespace CarSite
     {
         protected void Application_Start()
         {
+            DbSettingProviderManager.Current.Start();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

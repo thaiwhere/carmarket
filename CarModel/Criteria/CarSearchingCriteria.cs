@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarModel.Criteria
+namespace Car.Model.Criteria
 {
     /// <summary>
     /// Day la class de x/d cac thong tin can tim kiem 
@@ -23,8 +23,14 @@ namespace CarModel.Criteria
         public double toPrice { get; set; }
 
 
-      
+        /// <summary>
+        /// Gets Setting Key.
+        /// </summary>
+        /// <returns>Setting key of the criteria.</returns>
+        public string GetSettingKey()
+        {
+            return "Car_Searching";
+        }
 
-        // v.v.v.v.
     }
 }
