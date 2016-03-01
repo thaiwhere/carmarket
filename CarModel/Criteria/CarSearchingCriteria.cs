@@ -11,6 +11,9 @@ namespace CarModel.Criteria
     /// </summary>
     public class CarSearchingCriteria
     {
+        public int currentPageIndex { get; set; }
+        public int itemsPerPage { get; set; }
+
         public int firm { get; set; }
         public string models { get; set; }
         public int original { get; set; }

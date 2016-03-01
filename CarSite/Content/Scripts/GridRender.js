@@ -18,48 +18,36 @@ var gridRender = (function () {
         //hideYBackGroundScroller: true, //// default is false
         pagerOption: {
             //itemsPerPage: _itemsPerPage,
-            currentPage: 0,
+            //currentPage: 0,
             itemsPerPageArray: [10, 20, 50],
             pagerSelectCallBack: reRenderAfterPaged,
             //totalItem: _totalItem
         }
     }    
 
-    function reRenderAfterPaged(currentPageIndex, itemsPerPage) {
-
-        //// Set grid option for re-render pager
-        gridOptions.pagerOption.itemsPerPage = itemsPerPage;
-        gridOptions.pagerOption.currentPage = currentPageIndex;
-
-        //// You should get data by ajax here, and then re-render grid.        
-        gridOptions.bodyRows = _bindDataFunction(itemsPerPage, gridOptions.pagerOption.currentPage);
-        $("#" + _gridId).PagerGrid(gridOptions);
+    function reRenderAfterPaged(currentPageIndex, itemsPerPage) {        
+        _bindDataFunction(_gridId, itemsPerPage, currentPageIndex, _totalItem);
     }
            
     init = function (gridId, bindDataFunction, itemsPerPage, totalItem) {
         _gridId = gridId;
         _bindDataFunction = bindDataFunction;
         _itemsPerPage = itemsPerPage;
-        _totalItem = totalItem;
+        _totalItem = totalItem;        
     }
 
-    renderData = function () {
-        gridOptions.bodyRows = _bindDataFunction(_itemsPerPage, 0);
-        gridOptions.pagerOption.itemsPerPage = _itemsPerPage;
-        gridOptions.pagerOption.totalItem = _totalItem;
-
-        $("#" + _gridId).PagerGrid(gridOptions);
+    getGridOptions = function(){
+        return gridOptions;
     }
-
+    
     return {
         init: init,
-        renderData: renderData
+        getGridOptions: getGridOptions
     };
 }());
 
 function renderGrid(gridId, bindDataFunction, itemsPerPage, totalItem)
 {    
     gridRender.init(gridId, bindDataFunction, itemsPerPage, totalItem);
-    gridRender.renderData();
-    
+    bindDataFunction(gridId, itemsPerPage, 0, totalItem);
 }

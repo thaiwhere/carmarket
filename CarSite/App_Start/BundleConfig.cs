@@ -9,11 +9,13 @@ namespace CarSite
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Content/Scripts/lib/jquery-{version}.js",
-                        "~/Content/Scripts/lib/jquery.min.js"));
+                        "~/Content/Scripts/lib/jquery/jquery-{version}.js",
+                        "~/Content/Scripts/lib/jquery/jquery.min.js",
+                        "~/Content/Scripts/lib/jquery/jquery.extensions.js",
+                        "~/Content/Scripts/lib/jquery/jquery.msgbox-0.0.1.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Content/Scripts/lib/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(                        
+                        "~/Content/Scripts/lib/jquery/jquery.validate.min.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -38,3 +40,4 @@ namespace CarSite
         }
     }
 }
+

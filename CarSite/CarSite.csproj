@@ -264,8 +264,11 @@
     <Content Include="Content\images\team\pic6.jpg" />
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
+    <Content Include="Content\scripts\base\car.js" />
     <Content Include="Content\scripts\CarDetail.js" />
     <Content Include="Content\scripts\GridRender.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery.extensions.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery.msgbox-0.0.1.js" />
     <Content Include="Content\scripts\SearchingHandler.js" />
     <Content Include="Content\scripts\grid.paging\PagerGrid.js" />
     <Content Include="Content\scripts\grid.paging\PagerPagination.js" />
@@ -276,15 +279,15 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\scripts\lib\jquery.knob.js" />
-    <Content Include="Content\scripts\lib\jquery.min.js" />
-    <Content Include="Content\scripts\lib\jquery.nav.js" />
-    <None Include="Content\scripts\lib\jquery.validate-vsdoc.js" />
-    <Content Include="Content\scripts\lib\jquery.validate.js" />
-    <Content Include="Content\scripts\lib\jquery.validate.min.js" />
-    <Content Include="Content\scripts\lib\jquery.validate.unobtrusive.js" />
-    <Content Include="Content\scripts\lib\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Content\scripts\lib\jquery.vegas.min.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery.knob.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery.min.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery.nav.js" />
+    <None Include="Content\scripts\lib\jquery\jquery.validate-vsdoc.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery.validate.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery.validate.min.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery.vegas.min.js" />
     <Content Include="Content\scripts\SearchingCar.js" />
     <Content Include="Content\scripts\base\Menu.js" />
     <Content Include="Content\scripts\lib\modernizr-2.6.2.js" />
