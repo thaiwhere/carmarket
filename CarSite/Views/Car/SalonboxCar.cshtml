@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+
+}
+@model List<string>
+
+<div id="div-car-list" class="car-list-box">
+    
+    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml"); }
+    
+
+    <div class="car-list-header">
+        <h3>Tin đăng bán xe</h3>
+        <span class="car-total">Tổng số : <b>21,287 tin bán xe</b></span>
+    </div>
+    <!-- begin list car -->
+    
+    <div class="grid-container">
+        <div id="gridSearchingCar" class="freegrid"></div>
+    </div>
+        
+</div>
+
+@section Scripts
+{
+    <script src="~/Content/scripts/SearchingHandler.js"></script>
+    <script src="~/Content/scripts/GridRender.js"></script>
+    <script src="~/Content/scripts/SearchingCar.js"></script>
+}

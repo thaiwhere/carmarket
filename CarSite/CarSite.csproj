@@ -368,6 +368,7 @@
     <Content Include="Views\Car\SearchingCar.cshtml" />
     <Content Include="Views\Car\CarDetail.cshtml" />
     <Content Include="Views\Car\CarDetailImages.cshtml" />
+    <Content Include="Views\Car\SalonboxCar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\advertise-left\" />

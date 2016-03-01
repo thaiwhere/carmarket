@@ -29,7 +29,7 @@ namespace CarService
                     Content = "toi muon ban xe...",                    
                     Price = 300,
                     Status = true, // True: is New, Else : Old
-                    Href = "",
+                Href  = "href",
                     Image = "/content/images/cars/" + index.ToString() + ".jpg",
                     Km = 50,
                     Type = true,//True: Hop so, False: So tu dong

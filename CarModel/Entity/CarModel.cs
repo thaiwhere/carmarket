@@ -22,6 +22,14 @@ namespace Car.Model.Entity
         public string Location { get; set; }
         public string ContactName { get; set; }
         public string ContactTel { get; set; }
+        
+        public string Style { get; set; }//Kiểu dáng
+        public string ColorOut { get; set; }//Màu ngoại thất 
+        public string ColorIn { get; set; }//Màu nội thất 
+        public string SeatCount { get; set; }//Số chỗ ngôi
+        public string DoorCount { get; set; }//Số cửa xe
+        public string Fuel { get; set; }//Hệ thống nhiên liệu
+         
     }
      
 }
