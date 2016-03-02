@@ -292,7 +292,7 @@
     <Content Include="Content\images\team\pic8.jpg" />
     <Content Include="Content\scripts\base\car.js" />
     <Content Include="Content\scripts\CarDetail.js" />
-    <Content Include="Content\scripts\GridRender.js" />
+    <Content Include="Content\scripts\base\GridRender.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.extensions.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.msgbox-0.0.1.js" />
     <Content Include="Content\scripts\SearchingHandler.js" />

@@ -1,4 +1,14 @@
-﻿$("#select-model-all").change(function () {
+﻿$("#car-similar-model").click(function () {
+    $("#car-similar-model").addClass("tabactive");
+    $("#car-similar-price").removeClass("tabactive");
+});
+
+$("#car-similar-price").click(function () {
+    $("#car-similar-price").addClass("tabactive");
+    $("#car-similar-model").removeClass("tabactive");
+});
+
+$("#select-model-all").change(function () {
     $(".checkbox-model").prop('checked', $(this).prop("checked"));
 });
 
