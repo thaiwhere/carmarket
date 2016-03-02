@@ -1,28 +1,44 @@
-﻿function getListSimilarCar(callback, itemsPerPage, currentPageIndex, totalItem) { // trong day se call Ajax de goi den CarController/SearchingCar
-    var criteria = {
-        itemsPerPage: itemsPerPage,
-        currentPageIndex: currentPageIndex
+﻿$(function () {        
+    var CarDetail = new Car.CarDetail();
+    CarDetail.Initialize();
+});
+
+Namespace.Register("Car.CarDetail");
+
+Car.CarDetail = function () {
+    var $this = this;
+
+    function getListSimilarCar(callback, itemsPerPage, currentPageIndex, totalItem) {
+        var criteria = {
+            itemsPerPage: itemsPerPage,
+            currentPageIndex: currentPageIndex
+        };
+
+        $.ajax({
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            url: "SearchingCars",
+            data: JSON.stringify(criteria),
+            success: function (result) {
+                callback(result, itemsPerPage, currentPageIndex, totalItem);
+            },
+            error: function (xhr) {
+                common.HandleAjaxError(xhr);
+            }
+        });
+    }
+
+    $this.showSimilarCarsList = function (carId) {
+        var bindDataFunction = getListSimilarCar;
+        renderGrid("gridCarSimilar", bindDataFunction, 10, 200);
+    }
+
+    $this.Initialize = function () {
+        SearchingHandler.collapseSearching();
+        handler.hideDivLeft();        
+        $this.showSimilarCarsList(1);
     };
-    
-    $.ajax({
-        type: 'POST',
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        url: "SearchingCars",
-        data: JSON.stringify(criteria),
-        success: function (result) {
-            callback(result, itemsPerPage, currentPageIndex, totalItem);
-        },
-        error: function (xhr) {
-            common.HandleAjaxError(xhr);
-        }
-    });
 }
 
-$(function () {
-    collapseSearching();
-    $("#div-left").hide();
-    
-    var bindDataFunction = getListSimilarCar;
-    renderGrid("gridCarSimilar", bindDataFunction, 10, 200);
-});
+

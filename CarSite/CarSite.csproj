@@ -290,7 +290,9 @@
     <Content Include="Content\images\team\pic6.jpg" />
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
-    <Content Include="Content\scripts\base\car.js" />
+    <Content Include="Content\scripts\base\init.js" />
+    <Content Include="Content\scripts\base\handler.js" />
+    <Content Include="Content\scripts\base\namespace.js" />
     <Content Include="Content\scripts\CarDetail.js" />
     <Content Include="Content\scripts\base\GridRender.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.extensions.js" />
@@ -315,7 +317,6 @@
     <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.vegas.min.js" />
     <Content Include="Content\scripts\SearchingCar.js" />
-    <Content Include="Content\scripts\base\Menu.js" />
     <Content Include="Content\scripts\lib\modernizr-2.6.2.js" />
     <Content Include="Content\scripts\lib\owl.carousel.min.js" />
     <Content Include="Content\scripts\lib\respond.js" />
