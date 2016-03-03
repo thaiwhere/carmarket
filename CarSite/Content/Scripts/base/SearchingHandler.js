@@ -53,6 +53,5 @@
             }            
         }
         $("#search_model_box").html(models);
-    }
 }
 
