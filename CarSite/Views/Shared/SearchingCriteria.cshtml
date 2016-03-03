@@ -1,9 +1,21 @@
 ﻿
-<div id="span_searching" class="expand_searching">
+<div id="span_searching" class="expand-searching">
     <span class="label label-primary">Tìm kiếm </span>
 </div>
 
-<div id="search-car-firm">
+<div id="new_car_searching">
+    <a href="~/Car/CarNewSearching">
+        <span class="label label-primary new-label-searching">Xe mới >> </span>
+    </a>
+</div>
+
+<div id="old_car_searching">
+    <a href="~/Car/CarOldSearching">
+        <span class="label label-primary old-label-searching">Xe cũ >> </span>
+    </a>
+</div>
+
+<div id="search_car_firm">
  
     <fieldset class="the-fieldset">
         @*<legend class="the-legend">Tìm kiếm</legend>*@
@@ -11,6 +23,7 @@
         <div id="search_firm">
             <label>Hãng xe:</label>
             <select id="select-firm">
+                <option value="All" selected>Tất cả</option>
                 <option value="Acura" selected>Acura</option>
                 <option value="Audi">Audi</option>
                 <option value="BMW">BMW</option>

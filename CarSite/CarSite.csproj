@@ -254,18 +254,18 @@
     <Content Include="Content\css\pixeden-icons.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\styles.css" />
-    <Content Include="Content\images\advertise-slide\01.jpg" />
-    <Content Include="Content\images\advertise-slide\02.jpg" />
-    <Content Include="Content\images\advertise-slide\03.jpg" />
-    <Content Include="Content\images\advertise-slide\04.jpg" />
-    <Content Include="Content\images\advertise-slide\05.jpg" />
-    <Content Include="Content\images\advertise-slide\06.jpg" />
-    <Content Include="Content\images\advertise-slide\07.jpg" />
-    <Content Include="Content\images\advertise-slide\08.jpg" />
-    <Content Include="Content\images\advertise-slide\09.jpg" />
-    <Content Include="Content\images\advertise-slide\10.jpg" />
-    <Content Include="Content\images\advertise-slide\11.jpg" />
-    <Content Include="Content\images\advertise-slide\12.jpg" />
+    <Content Include="Content\images\advertise_slide\01.jpg" />
+    <Content Include="Content\images\advertise_slide\02.jpg" />
+    <Content Include="Content\images\advertise_slide\03.jpg" />
+    <Content Include="Content\images\advertise_slide\04.jpg" />
+    <Content Include="Content\images\advertise_slide\05.jpg" />
+    <Content Include="Content\images\advertise_slide\06.jpg" />
+    <Content Include="Content\images\advertise_slide\07.jpg" />
+    <Content Include="Content\images\advertise_slide\08.jpg" />
+    <Content Include="Content\images\advertise_slide\09.jpg" />
+    <Content Include="Content\images\advertise_slide\10.jpg" />
+    <Content Include="Content\images\advertise_slide\11.jpg" />
+    <Content Include="Content\images\advertise_slide\12.jpg" />
     <Content Include="Content\images\cars\01.jpg" />
     <Content Include="Content\images\cars\02.jpg" />
     <Content Include="Content\images\cars\03.jpg" />
@@ -372,7 +372,7 @@
     <Content Include="Views\Car\SalonboxCar.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\images\advertise-left\" />
+    <Folder Include="Content\images\advertise_left\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

@@ -1,13 +1,13 @@
 ﻿var SearchingHandler = {
     expandSearching : function () {
-        $("#search-car-firm").show();
-        $("#span_searching").removeClass("expand_searching").addClass("collapse_searching");
+        $("#search_car_firm").show();
+        $("#span_searching").removeClass("expand-searching").addClass("collapse-searching");
         $("#div-center").removeClass("div-center").addClass("div-center-searching");
     },
 
     collapseSearching : function () {
-        $("#search-car-firm").hide();
-        $("#span_searching").removeClass("collapse_searching").addClass("expand_searching");
+        $("#search_car_firm").hide();
+        $("#span_searching").removeClass("collapse-searching").addClass("expand-searching");
         $("#div-center").removeClass("div-center").addClass("div-center-searching");
     },
 
@@ -42,15 +42,16 @@
             case "Suzuki": modelsName = "Aerio,Alto,APV,Balenno,Carry,Cultis wagon,Ertiga,Grand vitara,Liana,Samirai,SJ,Super Carry Truck,Super Carry Van,Swift,Twin,Vitara,Wagon R+,XL 7,Khác,"; break;
             case "Toyota": modelsName = "4 Runner,86,Allion,Alphard,Altezza,Aristo,Aurion,Avalon,Avensis,Aygo,Brevis,Caldina,Cami,Camry,Carina,Celica,Century,Chaser,Corolla,Corolla altis,Corona,Cressida,Cresta,Crown,Estima,Fj cruiser,Fortuner,Hiace,Highlander,Hilux,Innova,Ipsum,IQ,Land Cruiser,Liteace,Mark II,Matrix,MR 2,Picnic,Platz,Prado,Previa,Prius,Progres,Raum,RAV4,Sequoia,Sera,Sienna,Soarer,Solara,Starlet,Supra,Tacoma,Tercel,Townace,Tundra,Venza,Vios,Vista,Wish,XA,Yaris,Yaris Verso,Zace,Khác,"; break;
 
-            default: modelsName = "CL, EL, ILX, Intergra, Legend";
+            default: modelsName = "";
         }
 
         var models = "";
-        var modelsArray = modelsName.split(',');
-        for (var i = 0 ; i < modelsArray.length; i++) {
-            models += modelItem.replace("@carModel", modelsArray[i]);
+        if (modelsName != "") {            
+            var modelsArray = modelsName.split(',');
+            for (var i = 0 ; i < modelsArray.length; i++) {
+                models += modelItem.replace("@carModel", modelsArray[i]);
+            }            
         }
-
         $("#search_model_box").html(models);
     }
 }

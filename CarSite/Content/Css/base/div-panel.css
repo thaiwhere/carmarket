@@ -1,5 +1,5 @@
 ﻿
-#advertise-left {
+#advertise_left {
    float: left;    
     margin-left: -15px; 
 }
@@ -12,7 +12,7 @@
     float:left;
 }
 
-.advertise-left-panel{
+.advertise_left_panel{
     width:198px;
     height:198px;
 }

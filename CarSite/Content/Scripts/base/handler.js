@@ -4,7 +4,7 @@
     },
 
     hideSearchCarFirm: function () {
-        $("#search-car-firm").hide();
+        $("#search_car_firm").hide();
     },
 
     bindEvents: function () {
@@ -23,13 +23,13 @@
         });
 
         $("#span_searching").click(function () {
-            $("#search-car-firm").toggle();
+            $("#search_car_firm").toggle();
 
-            if ($('#span_searching').hasClass("expand_searching")) {
-                $("#span_searching").removeClass("expand_searching").addClass("collapse_searching");
+            if ($('#span_searching').hasClass("expand-searching")) {
+                $("#span_searching").removeClass("expand-searching").addClass("collapse-searching");
             }
             else {
-                $("#span_searching").removeClass("collapse_searching").addClass("expand_searching");
+                $("#span_searching").removeClass("collapse-searching").addClass("expand-searching");
             }
         });
 

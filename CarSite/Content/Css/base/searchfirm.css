@@ -1,15 +1,15 @@
 /*Search */
-#search-car-firm{
-    float:left;
+#search_car_firm{
+    float:right;
     border: 1px solid #CCCCCC;    
     padding:3px;
-    width:555px;
+    width:100%;/*555px;*/
     background-color:#FEF2B4;
     font-size:13px;
     color:#337ab7;
 }
 
-#search-car-firm label{    
+#search_car_firm label{    
     color:#2A55FF;
 }
 
@@ -23,12 +23,12 @@
 
 #search_status{
     float:left;
-    margin-left:15px;
+    margin-left:25px;
+    margin-right:14px;    
 }
 
 #search_place{
-    float:right;
-     margin-right:15px;
+    float:left;    
 }
 
 
@@ -38,7 +38,7 @@
     float:left;
     margin-left:15px;
     margin-bottom:10px;
-    width:86%;    
+    width:89%;    
 }
 
 #search_model_label{
@@ -96,12 +96,12 @@
 }
 #search_box_number{
    float:left; 
-   margin-left:50px;
+   margin-left:25px;
+   margin-right:25px;
 }
 
 #search_year_product{
-   float:right; 
-   margin-right:35px;
+   float:left;    
 }
 
 .the-legend {
@@ -136,16 +136,30 @@ legend {
 
 #span_searching{    
     padding-left: 16px;
-    float: none;    
+    float: left;    
     margin-bottom:5px;
     cursor: pointer;
 }
 
-.collapse_searching{
+#old_car_searching{    
+    padding-left: 16px;
+    float: left;    
+    margin-bottom:5px;
+    cursor: pointer;
+}
+
+#new_car_searching{    
+    padding-left: 16px;
+    float: left;    
+    margin-bottom:5px;
+    cursor: pointer;
+}
+
+.collapse-searching{
     background:url('../../images/common/collapse.png') no-repeat left; 
 }
 
-.expand_searching{
+.expand-searching{
     background:url('../../images/common/expand.png') no-repeat left; 
 }
 
@@ -155,4 +169,13 @@ legend {
 
 .div-center-searching{
     width:757px;
+}
+
+
+.new-label-searching{
+    color:#FFFF00 !important;
+}
+
+.old-label-searching{
+    color:#FFAA2A !important;
 }
