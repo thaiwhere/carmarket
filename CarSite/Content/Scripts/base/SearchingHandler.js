@@ -1,15 +1,17 @@
-﻿
-$(function () {
-    SearchingHandler = new Car.SearchingHandler();
-    SearchingHandler.Initialize();
-});
+﻿var SearchingHandler = {
+    expandSearching : function () {
+        $("#search-car-firm").show();
+        $("#span_searching").removeClass("expand_searching").addClass("collapse_searching");
+        $("#div-center").removeClass("div-center").addClass("div-center-searching");
+    },
 
-Namespace.Register("Car.SearchingHandler");
+    collapseSearching : function () {
+        $("#search-car-firm").hide();
+        $("#span_searching").removeClass("collapse_searching").addClass("expand_searching");
+        $("#div-center").removeClass("div-center").addClass("div-center-searching");
+    },
 
-Car.SearchingHandler = function () {
-    $this = this;
-    
-    function renderModels(firm) {
+    renderModels : function(firm) {
 
         var modelItem = "<div><input type='checkbox' class='checkbox-model' checked='checked' /> <label>@carModel</label></div>";
         var modelsName = "";
@@ -51,23 +53,5 @@ Car.SearchingHandler = function () {
 
         $("#search_model_box").html(models);
     }
-
-    $this.expandSearching = function () {
-        $("#search-car-firm").show();
-        $("#span_searching").removeClass("expand_searching").addClass("collapse_searching");
-        $("#div-center").removeClass("div-center").addClass("div-center-searching");
-    }
-
-    $this.collapseSearching = function () {
-        $("#search-car-firm").hide();
-        $("#span_searching").removeClass("collapse_searching").addClass("expand_searching");
-        $("#div-center").removeClass("div-center").addClass("div-center-searching");
-    }
-
-    $this.Initialize = function () {
-        renderModels("Acura");
-    };
 }
-
-
 

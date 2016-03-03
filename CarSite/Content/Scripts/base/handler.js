@@ -51,5 +51,11 @@
                 $(this).addClass("active");
             }
         );
+
+        $("#select-firm").change(
+            function () {
+                SearchingHandler.renderModels(this.value);
+            }
+        );        
     }
 }

@@ -13,19 +13,20 @@
     
 
     <div class="car-list-header">
-        <h3>Tin đăng bán xe</h3>
-        <span class="car-total">Tổng số : <b>21,287 tin bán xe</b></span>
+        <h3>Top 20 được rao bán gần nhất</h3>        
     </div>
     <!-- begin list car -->
     
-    <div class="car-item-all row-car">
+    @for (int i = 1; i <= 20; i++ )
+    {         
+        <div class="car-item-all row-car">
 
         <div class="car-photo">
             <a href="~/Car/CarDetail">
                 <img title="Bán Xe Daewoo Lacetti đăng ký 2009 tư nhân, màu đen còn mới, 318 triệu " width="140" height="104" src="/content/images/cars/20151227214928-b769_wm.jpg" alt="Bán Xe Daewoo Lacetti đăng ký 2009 tư nhân, màu đen còn mới, 318 triệu "></a>
         </div>
         <div class="car-title">
-            <a href="~/Car/CarDetail">Bán Xe Daewoo Lacetti ....(28/02/2016)  </a>
+            <a href="~/Car/CarDetail">Bán Xe Daewoo Lacetti đăng ký 2009 tư nhân....(28/02/2016)  </a>
           
         </div>
       
@@ -64,61 +65,10 @@
             </div>
         </div>
                 
-    </div>
-
-    <div class="car-item-all row-car">
-
-        <div class="car-photo">
-            <a href="~/Car/CarDetail">
-                <img title="Bán Xe Daewoo Lacetti đăng ký 2009 tư nhân, màu đen còn mới, 318 triệu " width="140" height="104" src="/content/images/cars/20151227214928-b769_wm.jpg" alt="Bán Xe Daewoo Lacetti đăng ký 2009 tư nhân, màu đen còn mới, 318 triệu ">
-            </a>
-        </div>
-        <div class="car-title">
-            <a href="~/Car/CarDetail">Bán Xe Daewoo Lacetti ....(28/02/2016)  </a>
-
-        </div>
-
-        <div class="car-detail-left">
-            <div class="car-status-left">
-                <label class="car-label-left"> Tình trạng </label>
-                <span>:&nbsp;Cũ</span>
-            </div>
-            <div class="car-madein-left">
-                <label class="car-label-left">Xuất xứ</label>
-                <span>:&nbsp;Xuất xứ</span>
-            </div>
-            <div class="car-km-left">
-                <label class="car-label-left">Km</label>
-                <span>:&nbsp;40.000 km</span>
-            </div>
-            <div class="car-gear-left">
-
-                <label class="car-label-left">Hộp số</label>
-                <span>:&nbsp;Số tự động</span>
-            </div>
-        </div>
-        <div class="car-detail-middle">
-            <div class="car-price-middle">
-                350 triệu
-            </div>
-            <div class="car-location-right">
-
-                <a href="/xe-toyota-vios-ha-noi">Hà Nội</a>
-            </div>
-            <div class=" car-name-user-right">
-                Chị Oanh
-            </div>
-            <div class=" car-name-telephone-right">
-                0901500799
-            </div>
-        </div>
-
-    </div>
-    
-    
+    </div>    
+    }
 </div>
 
 @section Scripts
 {
-<script src="~/Content/scripts/SearchingHandler.js"></script>
 }

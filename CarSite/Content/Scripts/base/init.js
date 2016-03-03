@@ -1,4 +1,5 @@
 ﻿$(function () {
     handler.hideSearchCarFirm();
-    handler.bindEvents();    
+    handler.bindEvents();
+    SearchingHandler.renderModels("Acura");
 });

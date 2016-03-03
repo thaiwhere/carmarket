@@ -55,30 +55,25 @@
     background-color:#374B64;     
     border-top-left-radius:5px;            
     border-bottom-left-radius:5px;
-    border: 1px solid #428bca;    
-    height:1000px;  
+    border: 1px solid #428bca;        
     width:200px;     
+    margin-right:3px;
 }
 
 #div-center{
     float:left;           
-    border-left:1px solid #428bca; 
-    border-top:1px solid #428bca; 
-    border-right:1px solid #428bca; 
-    border-bottom:1px solid #428bca; 
+    border-top:1px solid #428bca;          
+    border-right:1px solid #428bca;     
+    border-left:1px solid #428bca;
     /*padding: 5px;*/         
-    /*width:560px;*/
-    height:1000px;  
+    /*width:560px;*/    
 }
 
 #div-right{   
     float:right;
     border-top-right-radius:5px;            
     border-bottom-right-radius:5px;   
-    border-top:1px solid #428bca; 
-    border-right:1px solid #428bca; 
-    border-bottom:1px solid #428bca;  
-    height:1000px;
+    border:1px solid #428bca;     
     width:230px;
     padding:0px;
 }
@@ -102,4 +97,8 @@
 
 #div-footer p{
     text-align:center;
+}
+
+.car-list-box{
+    padding-left:3px;
 }
