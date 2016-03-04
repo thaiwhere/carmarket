@@ -33,6 +33,7 @@ namespace CarSite
                       "~/Content/Css/base/*.css",
                       "~/Content/Css/grid.paging/PagerGrid.css",
                       "~/Content/Css/grid.paging/PagerPagination.css",
+                      "~/Content/Css/grid.paging/PagerPagination2.css",
                       "~/Content/Css/bootstrap.min.css",
                       "~/Content/Css/bootstrap-dropdownhover.min.css",                      
                       "~/Content/Css/justified-nav.css"                      

@@ -283,7 +283,22 @@
                 footer = me.RenderFooter();
             }
             //// Render Table Main Frame
-            var html = me.RenderBody(me.RenderHeader()) + footer;
+            var html = "";
+
+            //// Build pager top
+            var isShowPager = options.showPager && options.bodyRows.length > 0;
+            if (isShowPager)
+            {
+                var pagerTpl = '<div id="grid-pager-top" class="grid-pager thaiwhere">\
+                                <div class="grid-pager-content">\
+                                    <div id="pagination2">&nbsp;</div>\
+                                </div>\
+                            </div>';
+                html = pagerTpl;
+            }
+
+
+            html += me.RenderBody(me.RenderHeader()) + footer;
             if (me.gridObject) {
                 me.gridObject.innerHTML = html;
             }
@@ -585,11 +600,13 @@
                 cellInfo,
                 colIndex,
                 currentCol,
-                customSpan;
+                customSpan;           
+
             //// Build Header
             if (divHeaderClass !== '') {
                 headerHtml.push('<div class="' + divHeaderClass + '">');
             }
+            
             headerHtml.push('<div class="' + divContainerClass + '">');
             headerHtml.push('<table class="' + tableClass + '" ' + (hasId ? ('id="' + tableContainId + '"') : '') + ' ><thead>');
 
@@ -1142,6 +1159,7 @@
         RenderBody: function (headerHtml, reRenderBody) {
             var me = this;
             var options = this.Options;
+
             var bodyHtml = (reRenderBody === true ? '' : (headerHtml + me.RenderCommonHeader('mainbody')));
             var bodyRowsHtml = [];
             var bodyFrozenHtml = [];
@@ -1406,6 +1424,7 @@
                 pagerOption.showDetail = options.pagerOption.showDetail;
 
                 this.$grid.find('#pagination').PagerPagination(pagerOption.totalItem, pagerOption);
+                this.$grid.find('#pagination2').PagerPagination(pagerOption.totalItem, pagerOption);
             }
         },
         RegisterEvents: function () {
@@ -2211,6 +2230,7 @@
     $.fn.initGrid = function (options) {
         return this.each(function () {
             var o = $(this);
+            
             //Render Free Cell
             var freeCellTpl = '<div class="free-cell free-bottom-left">\
                     <table class="grid-fixed-table">\
@@ -2260,12 +2280,12 @@
                 </div>';
             o.append(scrollbarTpl);
             if (options.isShowPager) {
-                var pagerTpl = '<div class="grid-pager">\
+                var pagerTpl = '<div id="grid-pager-bottom" class="grid-pager">\
                                 <div class="grid-pager-content">\
                                     <div id="pagination">&nbsp;</div>\
                                 </div>\
                             </div>';
-                o.append(pagerTpl);
+                o.append(pagerTpl);                
             }
         });
     };

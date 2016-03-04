@@ -1,0 +1,16 @@
+﻿.freegrid{
+    margin-left:10px;
+}
+
+.numberlist{
+    float:right !important;
+    margin-right: 15px;    
+}
+
+#grid-pager-top{
+    top:0px !important;
+}
+
+#grid-pager-bottom{
+    top:1825px !important; 
+}

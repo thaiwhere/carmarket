@@ -15,7 +15,7 @@ var gridRender = function () {
         gridExpandHeight: 150,
         showPager: true,
         customPager: true,
-        //hideYBackGroundScroller: true, //// default is false
+        hideYBackGroundScroller: true, //// default is false        
         pagerOption: {
             //itemsPerPage: _itemsPerPage,
             //currentPage: 0,
@@ -75,6 +75,17 @@ var gridRender = function () {
         return list;
     }
 
+    customGrid = function () {
+        var gridOjb = $("#" + _gridId);
+        gridOjb.css("width", (gridOjb.width() - 16) + "px");
+        gridOjb.css("height", "1860px");
+
+        $(".grid-container").css("height", "1860px");
+       
+        gridOjb.find($(".x-scrollbar")).remove();
+        gridOjb.find($(".y-scrollbar")).remove();        
+    }
+
     render = function (data, itemsPerPage, currentPageIndex, totalItem) {
         gridOptions.bodyRows = decorateData(data);
 
@@ -83,6 +94,7 @@ var gridRender = function () {
         gridOptions.pagerOption.totalItem = totalItem;        
 
         $("#" + _gridId).PagerGrid(gridOptions);
+        customGrid();
     }   
     
     return {

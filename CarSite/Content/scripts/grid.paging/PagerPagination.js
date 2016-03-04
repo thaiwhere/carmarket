@@ -1,4 +1,4 @@
-(function ($) {
+﻿(function ($) {
     $.fn.PagerPagination = function (maxentries, opts) {
         opts = $.extend({
             itemsPerPage: 20,
@@ -74,38 +74,39 @@
                     return function (evt) { return pageSelected(page_id, evt); }
                 }
 
-                //Generate Items Per Page
-                $('<div class="itemperpage">Page size </div>').appendTo(panel);
-                var optPageSize = $('<select id="itemperpage"></select>').css("width", "50px");
-                var totalItemPerPage = opts.itemsPerPageArray.length;
+                ////Generate Items Per Page
+                //$('<div class="itemperpage">Page size </div>').appendTo(panel);
+                //var optPageSize = $('<select id="itemperpage"></select>').css("width", "50px");
+                //var totalItemPerPage = opts.itemsPerPageArray.length;
 
-                if (totalItemPerPage > 0) {
-                    for (var j = 0; j < totalItemPerPage; j++) {
-                        var itemperpage = opts.itemsPerPageArray[j];
+                //if (totalItemPerPage > 0) {
+                //    for (var j = 0; j < totalItemPerPage; j++) {
+                //        var itemperpage = opts.itemsPerPageArray[j];
 
-                        if (itemperpage == opts.itemsPerPage) {
-                            $('<option value="' + itemperpage + '" selected="true">' + itemperpage + '</option>').appendTo(optPageSize);
-                        }
-                        else {
-                            $('<option value="' + itemperpage + '">' + itemperpage + '</option>').appendTo(optPageSize);
-                        }
-                    }
-                }
-                else {
-                    for (var i = opts.startPerPage; i <= opts.maxTtemsPerPage; i += opts.stepPerPage) {
-                        if (i == opts.itemsPerPage) {
-                            $('<option value="' + i + '" selected="true">' + i + '</option>').appendTo(optPageSize);
-                        }
-                        else {
-                            $('<option value="' + i + '">' + i + '</option>').appendTo(optPageSize);
-                        }
-                    }
-                }
+                //        if (itemperpage == opts.itemsPerPage) {
+                //            $('<option value="' + itemperpage + '" selected="true">' + itemperpage + '</option>').appendTo(optPageSize);
+                //        }
+                //        else {
+                //            $('<option value="' + itemperpage + '">' + itemperpage + '</option>').appendTo(optPageSize);
+                //        }
+                //    }
+                //}
+                //else {
+                //    for (var i = opts.startPerPage; i <= opts.maxTtemsPerPage; i += opts.stepPerPage) {
+                //        if (i == opts.itemsPerPage) {
+                //            $('<option value="' + i + '" selected="true">' + i + '</option>').appendTo(optPageSize);
+                //        }
+                //        else {
+                //            $('<option value="' + i + '">' + i + '</option>').appendTo(optPageSize);
+                //        }
+                //    }
+                //}
 
-                optPageSize.bind("change", function () {
-                    itemPerPage(this);
-                });
-                optPageSize.appendTo(panel);
+                //optPageSize.bind("change", function () {
+                //    itemPerPage(this);
+                //});
+                //optPageSize.appendTo(panel);
+
                 //            $('<span class="btnseparator"></span>').appendTo(panel);
                 // Helper function for generating a single link (or a span tag if it's the current page)
                 var numberList = $('<ul ></ul>');
@@ -165,7 +166,8 @@
 
                 // Generate Status
                 if (opts.showDetail) {
-                    $('<div class="detailtext">Displaying <b>' + (opts.itemsPerPage * opts.currentPage + 1) + '</b> to <b>' + Math.min(opts.itemsPerPage * (opts.currentPage + 1), maxentries) + '</b> of <b>' + maxentries + '</b> item(s)</div>').appendTo(panel);
+                    $('<div class="detailtext">Hiển thị <b>' + (opts.itemsPerPage * opts.currentPage + 1) + '</b> đến <b>' + Math.min(opts.itemsPerPage * (opts.currentPage + 1), maxentries) + '</b> / Tổng số <b>' + maxentries + '</b> xe</div>').appendTo(panel);
+                    //$('<div class="detailtext">Displaying <b>' + (opts.itemsPerPage * opts.currentPage + 1) + '</b> to <b>' + Math.min(opts.itemsPerPage * (opts.currentPage + 1), maxentries) + '</b> of <b>' + maxentries + '</b> item(s)</div>').appendTo(panel);
                 }
 
                 //GotoPage Pane
