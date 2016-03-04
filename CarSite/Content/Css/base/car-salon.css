@@ -1,0 +1,52 @@
+﻿#car-salon-head {
+    height: 80px;
+    width: 758px;
+    margin: 0 auto;
+}
+#car-salon-search {
+    width: 758px;
+    background: #e8e8e8;
+    min-height: 80px;
+    float: left;
+    position: relative;
+}
+#car-salon-search-textbox {
+    width: 1000px;
+    height: 30px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+.salontype {
+    display: inline-block;
+    float: left;
+    width: 854px;
+    height: 40px;
+}
+.saloncity {
+    display: inline-block;
+    float: left;
+    width: 854px;
+    height: 39px;
+}
+#car-label-search {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 100%;
+    font-weight: 700;
+    line-height: 1;
+   text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+#car-lable-search-header {
+    float: left;
+    width: 650px;
+    /*font-style:normal;*/
+}
+
+#car-lable-search-box {
+    float: left;
+    width: 250px;
+    /*font-style:normal;*/
+}
