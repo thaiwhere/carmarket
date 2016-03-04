@@ -316,6 +316,8 @@
     <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.vegas.min.js" />
+    <Content Include="Content\scripts\SearchingOldCar.js" />
+    <Content Include="Content\scripts\SearchingNewCar.js" />
     <Content Include="Content\scripts\SearchingCar.js" />
     <Content Include="Content\scripts\lib\modernizr-2.6.2.js" />
     <Content Include="Content\scripts\lib\owl.carousel.min.js" />

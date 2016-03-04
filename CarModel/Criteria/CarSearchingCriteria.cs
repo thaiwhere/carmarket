@@ -16,6 +16,7 @@ namespace Car.Model.Criteria
 
         public int firm { get; set; }
         public string models { get; set; }
+        public int searchingType { get; set; }
         public int original { get; set; }
         public int position { get; set; }
 

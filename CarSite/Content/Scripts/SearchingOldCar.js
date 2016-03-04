@@ -13,7 +13,7 @@ Car.SearchingCar = function () {
         var criteria = {
             itemsPerPage: itemsPerPage,
             currentPageIndex: currentPageIndex,
-            searchingType: 1
+            searchingType: 3
         };
 
         $.ajax({

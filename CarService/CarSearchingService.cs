@@ -13,7 +13,7 @@ namespace CarService
     /// </summary>
     public static class CarSearchingService
     {
-        public static List<CarModel> CarSearching(CarSearchingCriteria criteria)
+        public static List<CarModel> SearchingCars(CarSearchingCriteria criteria)
         {
             List<CarModel> listCar = new List<CarModel>();
             //call DB here to get list car ... ---> cai nay se dung call T da gui hom truoc (se add sau )
@@ -28,8 +28,8 @@ namespace CarService
                     Title = "Can ban xe" + index.ToString(),
                     Content = "toi muon ban xe...",                    
                     Price = 300,
-                    Status = true, // True: is New, Else : Old
-                Href  = "href",
+                    Status = criteria.searchingType ==2 ? true:false, // True: is New, Else : Old
+                    Href  = "href",
                     Image = "/content/images/cars/" + index.ToString() + ".jpg",
                     Km = 50,
                     Type = true,//True: Hop so, False: So tu dong
@@ -40,8 +40,7 @@ namespace CarService
             }
 
             return listCar;
-        }
-
+        }   
 
         public static List<CarModel> GetTop10Cars(CarSearchingCriteria criteria)
         {

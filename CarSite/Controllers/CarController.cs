@@ -14,7 +14,10 @@ namespace CarSite.Controllers
     {       
         public ActionResult SearchingCar(string firm="", string model="")
         {
-            return View();
+            SearchingType obj = new SearchingType();
+            obj.type = 1;            
+
+            return View("~/Views/Car/SearchingCar.cshtml", obj);
         }
 
         public ActionResult CarDetail()
@@ -30,9 +33,26 @@ namespace CarSite.Controllers
         /// <returns></returns>
         public JsonResult SearchingCars(CarSearchingCriteria criteria)
         {
-            List<CarModel> listCar = CarSearchingService.CarSearching(criteria); //criteria : nghia la d/k tim kiem
+            List<CarModel> listCar = CarSearchingService.SearchingCars(criteria); //criteria : nghia la d/k tim kiem
 
             return Json(listCar); // result trong getListCar
+        }
+
+        public ActionResult SearchingNewCar(CarSearchingCriteria criteria)
+        {
+            SearchingType obj = new SearchingType();
+            obj.type = 2;
+
+            return View("~/Views/Car/SearchingCar.cshtml", obj);
+        }
+
+        
+        public ActionResult SearchingOldCar(CarSearchingCriteria criteria)
+        {
+            SearchingType obj = new SearchingType();
+            obj.type = 3;
+
+            return View("~/Views/Car/SearchingCar.cshtml", obj);
         }
     }
 }
