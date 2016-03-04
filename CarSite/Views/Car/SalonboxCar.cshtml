@@ -7,23 +7,40 @@
 }
 @model List<string>
 
-<div id="div-car-list" class="car_list_box">
-    
-    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml"); }
-    
+<div id="car-lable-search-header" >
+    <div id="car-lable-search-box">
+        <label>Tìm theo tên salon</label>
+        <span>&nbsp;&nbsp;</span>
+        <input type="radio" name="search_status" value="OldStatus" checked /><span>&nbsp;Mới</span>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="inputType" class="col-sm-2 control-label">Tìm</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="input" placeholder="Input text">
+                </div>
+            </div>
+        </form>
+        @*<input type="text" value="" id="textSearch" name="textSearch" placeholder="Nhập từ khóa để tìm kiếm"/>*@
+    </div>
+   
 
-    <div class="car-list-header">
-        <h3>Tin đăng bán xe</h3>
-        <span class="car-total">Tổng số : <b>21,287 tin bán xe</b></span>
-    </div>
-    <!-- begin list car -->
-    
-    <div class="grid-container">
-        <div id="gridSearchingCar" class="freegrid"></div>
-    </div>
-        
+    @*<div class="col-xs-4">
+            <label for="ex3">col-xs-4</label>
+            <input class="form-control" id="ex3" type="text">
+        </div>*@
+    @*<div class="form-group">
+            <label for="usr">Name:</label>
+            <input type="text" class="form-control" id="usr">
+        </div>*@
 </div>
+    
+  
 
+   
+    
+  
+   
+@*</form>*@
 @section Scripts
 {    
     <script src="~/Content/scripts/GridRender.js"></script>

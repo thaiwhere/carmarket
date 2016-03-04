@@ -58,5 +58,9 @@ namespace CarSite.Controllers
 
             return View("~/Views/Car/SearchingCar.cshtml", obj);
         }
+        public ActionResult SalonboxCar()
+        {
+            return View();
+        }
     }
 }

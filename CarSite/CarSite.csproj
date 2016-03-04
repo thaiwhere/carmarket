@@ -205,6 +205,7 @@
     <Content Include="Content\assets\icon-fonts\styles.css" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\base\grid-custom.css" />
+    <Content Include="Content\css\base\car-salon.css" />
     <Content Include="Content\css\base\div-panel.css" />
     <Content Include="Content\css\base\searchfirm.css" />
     <Content Include="Content\css\base\common.css" />
