@@ -38,7 +38,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="TQQ.Data">
-      <HintPath>..\Dependencies\TQQ.Data.dll</HintPath>
+      <HintPath>..\CarSite\Dependencies\TQQ.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
