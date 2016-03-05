@@ -11,17 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car.Service", "CarService\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car.Framework", "Car.Framework\Car.Framework.csproj", "{E6F40E0C-1135-43C6-A137-3C085EA15825}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{FE51ABE5-44CD-40ED-828E-F22A11A2E121}"
-	ProjectSection(SolutionItems) = preProject
-		Dependencies\Microsoft.Practices.EnterpriseLibrary.Common.dll = Dependencies\Microsoft.Practices.EnterpriseLibrary.Common.dll
-		Dependencies\Microsoft.Practices.EnterpriseLibrary.Data.dll = Dependencies\Microsoft.Practices.EnterpriseLibrary.Data.dll
-		Dependencies\Microsoft.Practices.EnterpriseLibrary.Logging.dll = Dependencies\Microsoft.Practices.EnterpriseLibrary.Logging.dll
-		Dependencies\Microsoft.Practices.ServiceLocation.dll = Dependencies\Microsoft.Practices.ServiceLocation.dll
-		Dependencies\Microsoft.Practices.Unity.dll = Dependencies\Microsoft.Practices.Unity.dll
-		Dependencies\Microsoft.Practices.Unity.Interception.dll = Dependencies\Microsoft.Practices.Unity.Interception.dll
-		Dependencies\TQQ.Data.dll = Dependencies\TQQ.Data.dll
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
