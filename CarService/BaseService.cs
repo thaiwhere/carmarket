@@ -4,7 +4,7 @@ using System.Collections;
 using TQQ.Data;
 using TQQ.Data.Repository;
 
-namespace CarService
+namespace Car.Service
 {    
     /// <summary>
     /// Base Service.

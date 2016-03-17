@@ -1,6 +1,6 @@
 ﻿using Car.Model.Criteria;
 using Car.Model.Entity;
-using CarService;
+using Car.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,8 @@ namespace CarSite.Controllers
         public ActionResult SearchingCar(string firm="", string model="")
         {
             SearchingType obj = new SearchingType();
-            obj.type = 1;            
+            obj.Type = 1;
+            obj.Message = "Kết quả tìm kiếm";
 
             return View("~/Views/Car/SearchingCar.cshtml", obj);
         }
@@ -33,7 +34,7 @@ namespace CarSite.Controllers
         /// <returns></returns>
         public JsonResult SearchingCars(CarSearchingCriteria criteria)
         {
-            List<CarModel> listCar = CarSearchingService.SearchingCars(criteria); //criteria : nghia la d/k tim kiem
+            List<CarModel> listCar = CarService.SearchingCars(criteria).ToList<CarModel>();
 
             return Json(listCar); // result trong getListCar
         }
@@ -41,8 +42,10 @@ namespace CarSite.Controllers
         public ActionResult SearchingNewCar(CarSearchingCriteria criteria)
         {
             SearchingType obj = new SearchingType();
-            obj.type = 2;
+            obj.Type = 2;
+            obj.Message = "Xe mới";
 
+            
             return View("~/Views/Car/SearchingCar.cshtml", obj);
         }
 
@@ -50,7 +53,8 @@ namespace CarSite.Controllers
         public ActionResult SearchingOldCar(CarSearchingCriteria criteria)
         {
             SearchingType obj = new SearchingType();
-            obj.type = 3;
+            obj.Type = 3;
+            obj.Message = "Xe cũ";
 
             return View("~/Views/Car/SearchingCar.cshtml", obj);
         }

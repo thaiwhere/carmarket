@@ -5,6 +5,7 @@
 
     hideSearchCarFirm: function () {
         $("#search_car_firm").hide();
+        $("#span_searching").removeClass("collapse-searching").addClass("expand-searching");
     },
 
     bindEvents: function () {

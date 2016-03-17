@@ -12,10 +12,9 @@
     @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml"); }
     
 
-    @*<div class="car-list-header">
-        <h3>Tin đăng bán xe</h3>
-        <span class="car-total">Tổng số : <b>21,287 tin bán xe</b></span>
-    </div>*@
+    <div class="car-list-header">
+        <h3>@Model.Message</h3>
+    </div>
     <!-- begin list car -->
     
     <div class="grid-container">
@@ -27,11 +26,11 @@
 @section Scripts
 {    
 
-    @if (Model.type == 1)
+    @if (Model.Type == 1)
     {
         <script src="~/Content/scripts/SearchingCar.js"></script>
     }
-    else if (Model.type == 2)
+    else if (Model.Type == 2)
     {
         <script src="~/Content/scripts/SearchingNewCar.js"></script>
     }

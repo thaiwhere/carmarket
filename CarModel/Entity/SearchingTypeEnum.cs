@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Car.Model.Entity
 {
-    public class SearchingType
+    public enum SearchingTypeEnum
     {
-        public int Type { get; set; }
-        public string Message { get; set; }
+        NewCar =1,
+        OldCar = 2
     }
 }

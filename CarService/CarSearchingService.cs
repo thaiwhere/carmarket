@@ -6,7 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TQQ.Data;
-namespace CarService
+
+namespace Car.Service
 {
     /// <summary>
     /// Day la class service de call xuong DB
