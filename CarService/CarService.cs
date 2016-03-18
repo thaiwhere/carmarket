@@ -1,4 +1,5 @@
-﻿using Car.Model.Criteria;
+﻿using Car.Framework;
+using Car.Model.Criteria;
 using Car.Model.Entity;
 using System.Collections.Generic;
 using TQQ.Data;
@@ -10,12 +11,22 @@ namespace Car.Service
     /// </summary>
     public static class CarService
     {
+        
         public static IEnumerable<CarModel> SearchingCars(CarSearchingCriteria criteria)
-        {            
-            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+        {
+            var cache = CacheManager.GetInstance();
+            var cars = cache.GetCache<IEnumerable<CarModel>>(criteria.GetSettingKey());
+
+            if (cars == null)
             {
-                return obj.Query<CarModel>();                
+                using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+                {
+                    cars = obj.Query<CarModel>();
+                    cache.SetCache(criteria.GetSettingKey(), cars);
+                }
             }
+
+            return cars;
         }   
 
         public static List<CarModel> GetTop10Cars(CarSearchingCriteria criteria)
