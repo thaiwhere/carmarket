@@ -289,7 +289,7 @@
             var isShowPager = options.showPager && options.bodyRows.length > 0;
             if (isShowPager)
             {
-                var pagerTpl = '<div id="grid-pager-top" class="grid-pager thaiwhere">\
+                var pagerTpl = '<div id="grid-pager-top" class="grid-pager">\
                                 <div class="grid-pager-content">\
                                     <div id="pagination2">&nbsp;</div>\
                                 </div>\

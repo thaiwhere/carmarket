@@ -11,7 +11,7 @@
         $("#div-center").removeClass("div-center").addClass("div-center-searching");
     },
 
-    renderModels : function(firm) {
+    renderModels: function (firm) {
 
         var modelItem = "<div><input type='checkbox' class='checkbox-model' checked='checked' /> <label>@carModel</label></div>";
         var modelsName = "";
@@ -46,12 +46,13 @@
         }
 
         var models = "";
-        if (modelsName != "") {            
+        if (modelsName != "") {
             var modelsArray = modelsName.split(',');
             for (var i = 0 ; i < modelsArray.length; i++) {
                 models += modelItem.replace("@carModel", modelsArray[i]);
-            }            
+            }
         }
         $("#search_model_box").html(models);
+    }
 }
 

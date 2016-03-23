@@ -31,7 +31,7 @@
     width: 100%;
 }
 .btn-search{
-        margin-top: 1px;
+    margin-top: -23px;
     float: right;
     background: transparent url(../../Images/common/icons.gif) repeat-x scroll -2px -140px;
     width: 78px;
