@@ -30,8 +30,12 @@
     background: transparent url(../../Images/common/bar.gif) scroll -0px -80px;
     width: 100%;
 }
-.btn-search{
-    margin-top: -23px;
+
+.search-input .btn-search{
+    margin-top:-23px;
+}
+
+.btn-search{    
     float: right;
     background: transparent url(../../Images/common/icons.gif) repeat-x scroll -2px -140px;
     width: 78px;

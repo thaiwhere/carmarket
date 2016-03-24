@@ -101,3 +101,8 @@
 .car_list_box{
     padding-left:3px;
 }
+
+#div-user a
+{
+    float:right;
+}
