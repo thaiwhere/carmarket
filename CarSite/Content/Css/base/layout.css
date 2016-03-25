@@ -61,10 +61,11 @@
 
 #div-center{
     float:left;           
-    border-top:1px solid #428bca;          
+    border: 1px solid #428bca;
+    /*border-top:1px solid #428bca;          
     border-right:1px solid #428bca;     
-    border-left:1px solid #428bca;
-    /*padding: 5px;*/         
+    border-left:1px solid #428bca;    
+    padding: 5px;*/         
     /*width:560px;*/    
 }
 
