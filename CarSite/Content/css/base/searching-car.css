@@ -140,7 +140,8 @@
 }
 .car-detail-left {
     float: left;
-    width: 200px;
+    width: 150px;
+    /*width: 200px;*/
     font-style:normal;
 }
 .car-km-left {

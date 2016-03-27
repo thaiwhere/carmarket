@@ -36,8 +36,7 @@ Car.SearchingCar = function () {
         renderGrid("gridSearchingCar", bindDataFunction, 10, 50);
     }
 
-    $this.Initialize = function () {
-        SearchingHandler.expandSearching();
+    $this.Initialize = function () {                
         handler.hideDivLeft();
         $this.showTop50Cars();        
     };

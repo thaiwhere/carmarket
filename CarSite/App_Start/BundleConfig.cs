@@ -12,7 +12,8 @@ namespace CarSite
                         "~/Content/Scripts/lib/jquery/jquery-{version}.js",
                         "~/Content/Scripts/lib/jquery/jquery.min.js",
                         "~/Content/Scripts/lib/jquery/jquery.extensions.js",
-                        "~/Content/Scripts/lib/jquery/jquery.msgbox-0.0.1.js"));
+                        "~/Content/Scripts/lib/jquery/jquery.msgbox-0.0.1.js",
+                        "~/Content/Scripts/lib/jquery/jquery.cookie.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(                        
                         "~/Content/Scripts/lib/jquery/jquery.validate.min.js"));

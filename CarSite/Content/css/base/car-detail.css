@@ -6,25 +6,25 @@
     margin-top:5px;
 }
 
-#div_car_similar .car-similar-tab{
+.div-car-tab .ul-car-tab{
     margin: 0;
     padding: 0px 0;
     height: 34px;
 }
 
-#div_car_similar .car-similar-tab li{
+.div-car-tab .ul-car-tab li{
     display: block;
     float: left;
     background: none;
     padding-left: 0px;
 }
 
-#div_car_similar li{
+.div-car-tab li{
     margin: .25em 0;
     list-style: none;
 }
 
-#div_car_similar ul.car-similar-tab li.tabactive a {
+.div-car-tab ul.ul-car-tab li.tabactive a {
     margin-bottom: -1px;
     height: 31px;
     background: #FFFFFF;
@@ -33,7 +33,7 @@
     color: #000000;
 }
 
-#div_car_similar ul.car-similar-tab li a {
+.div-car-tab ul.ul-car-tab li a {
     display: block;
     float: left;
     background: #eeeeee url(../../Images/common/tab.png) repeat-x scroll center center;
@@ -41,5 +41,5 @@
     margin: 0 auto;
     text-decoration: none;
     line-height: 30px;
-    padding: 0 35px;
+    padding: 0 8px;
 }

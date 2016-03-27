@@ -1,25 +1,18 @@
 ﻿
-<div id="span_searching" class="expand-searching">
-    <span class="label label-primary">Tìm kiếm </span>
-</div>
-
-<div id="new_car_searching">
-    <a href="~/Car/SearchingNewCar">
-        <span class="label label-primary new-label-searching">Xe mới >> </span>
-    </a>
-</div>
-
-<div id="old_car_searching">
-    <a href="~/Car/SearchingOldCar">
-        <span class="label label-primary old-label-searching">Xe cũ >> </span>
-    </a>
+<div id="div_searching_criteria" class="div-car-tab">
+    <ul class="ul-car-tab">
+        <li id="car_searching" class=""><a href="javascript:void(null);" title="Tìm kiếm xe bán">Tìm kiếm</a></li>
+        <li id="car_for_you" class="tabactive"><a href="javascript:void(null);" title="Xe phù hợp nhất với bạn">Xe phù hợp với bạn</a></li>
+        <li id="car_new" class=""><a href="javascript:void(null);" title="Xe mới">Xe mới</a></li>
+        <li id="car_old" class=""><a href="javascript:void(null);" title="Xe cũ">Xe cũ</a></li>
+        <li id="car_import" class=""><a href="javascript:void(null);" title="Xe nhập khẩu">Xe  nhập khẩu</a></li>
+        <li id="car_domestic" class=""><a href="javascript:void(null);" title="Xe trong nước">Xe trong nước</a></li>
+    </ul>
 </div>
 
 <div id="search_car_firm">
- 
-    <fieldset class="the-fieldset">
-        @*<legend class="the-legend">Tìm kiếm</legend>*@
 
+    <fieldset class="the-fieldset">
         <div id="search_firm">
             <label>Hãng xe:</label>
             <select id="select-firm">
@@ -128,7 +121,7 @@
                     <input type="checkbox" checked="checked" id="select-model-all" /> <label>All</label>
                 </div>
             </div>
-            <div id="search_model_box">                
+            <div id="search_model_box">
             </div>
         </div>
 
@@ -138,7 +131,7 @@
                 <option value="tatca" selected>Tất cả</option>
                 <option value="trongnuoc">Trong nước</option>
                 <option value="nhapkhau">Nhập khẩu</option>
-              
+
             </select>
         </div>
         @*hop so*@
@@ -176,13 +169,13 @@
                 <option value="2000">--2000--</option>
                 <option value="1999">--1999--</option>
                 <option value="<1999">--1998--</option>
-             
+
 
             </select>
         </div>
         <div id="search_price">
             <div id="search_price_option">
-                <label>Giá:</label>                
+                <label>Giá:</label>
             </div>
             <div id="search_price_from">
                 <select>
@@ -201,7 +194,7 @@
                     <option value="3">3 Tỉ</option>
                     <option value="4">4 Tỉ</option>
                     <option value=">5">>5 Tỉ</option>
-                   
+
                 </select>
             </div>
             <span style="float:left">&nbsp;&nbsp;-->&nbsp;&nbsp;</span>
@@ -230,7 +223,7 @@
             </div>
         </div>
 
-        
+
     </fieldset>
 
 </div>

@@ -1,14 +1,10 @@
 ﻿var SearchingHandler = {
-    expandSearching : function () {
-        $("#search_car_firm").show();
-        $("#span_searching").removeClass("expand-searching").addClass("collapse-searching");
+    expandSearching : function () {        
         $("#div-center").removeClass("div-center").addClass("div-center-searching");
     },
 
-    collapseSearching : function () {
-        $("#search_car_firm").hide();
-        $("#span_searching").removeClass("collapse-searching").addClass("expand-searching");
-        $("#div-center").removeClass("div-center").addClass("div-center-searching");
+    collapseSearching : function () {        
+        $("#div-center").removeClass("div-center-searching").addClass("div-center");
     },
 
     renderModels: function (firm) {

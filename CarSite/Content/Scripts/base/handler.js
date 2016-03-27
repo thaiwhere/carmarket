@@ -4,19 +4,76 @@
     },
 
     hideSearchCarFirm: function () {
-        $("#search_car_firm").hide();
-        $("#span_searching").removeClass("collapse-searching").addClass("expand-searching");
+        $("#search_car_firm").hide();                
+    },
+
+    showSearchCarFirm: function () {
+        $("#search_car_firm").show();
+    },
+
+    inActiveTab: function(parent){
+        var obj = parent.find(".tabactive");
+        if (obj) {
+            obj.removeClass("tabactive");
+        }
     },
 
     bindEvents: function () {
-        $("#car-similar-model").click(function () {
-            $("#car-similar-model").addClass("tabactive");
-            $("#car-similar-price").removeClass("tabactive");
+        
+        $("#car_searching").click(function () {
+            $.cookie("tabIndex", 0, { path: '/' });
+            handler.showSearchCarFirm();
+            handler.inActiveTab($("#div_searching_criteria"));
+            $("#car_searching").addClass("tabactive");            
         });
 
-        $("#car-similar-price").click(function () {
-            $("#car-similar-price").addClass("tabactive");
-            $("#car-similar-model").removeClass("tabactive");
+        $("#car_for_you").click(function () {
+            $.cookie("tabIndex", 1, { path: '/' });
+            handler.hideSearchCarFirm();
+            handler.inActiveTab($("#div_searching_criteria"));
+            $("#car_for_you").addClass("tabactive");
+            
+            if (location.href.indexOf("SearchingCar") < 0) {               
+                location.href = "/car/SearchingCar";
+            }
+        });
+
+        $("#car_new").click(function () {
+            $.cookie("tabIndex", 2, { path: '/' });
+            handler.hideSearchCarFirm();
+            handler.inActiveTab($("#div_searching_criteria"));
+            $("#car_new").addClass("tabactive");
+        });
+
+        $("#car_old").click(function () {
+            $.cookie("tabIndex", 3, { path: '/' });
+            handler.hideSearchCarFirm();
+            handler.inActiveTab($("#div_searching_criteria"));
+            $("#car_old").addClass("tabactive");
+        });
+
+        $("#car_import").click(function () {
+            $.cookie("tabIndex", 4, { path: '/' });
+            handler.hideSearchCarFirm();
+            handler.inActiveTab($("#div_searching_criteria"));
+            $("#car_import").addClass("tabactive");
+        });
+
+        $("#car_domestic").click(function () {
+            $.cookie("tabIndex", 5, { path: '/' });
+            handler.hideSearchCarFirm();
+            handler.inActiveTab($("#div_searching_criteria"));
+            $("#car_domestic").addClass("tabactive");
+        });
+
+        $("#car_similar_model").click(function () {
+            handler.inActiveTab($("#div_car_similar"));
+            $("#car_similar_model").addClass("tabactive");            
+        });
+
+        $("#car_similar_price").click(function () {
+            handler.inActiveTab($("#div_car_similar"));
+            $("#car_similar_price").addClass("tabactive");            
         });
 
         $("#select-model-all").change(function () {

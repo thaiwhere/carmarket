@@ -31,9 +31,15 @@
     background-color: #428bca;
 }
 
+.dropdown > a
+{
+    margin-left:-15px !important;
+    width:145px !important;
+}
+
 .dropdown:hover .dropdown-menu {
     display: block;
-    left: 136px;    
+    left: 131px;    
     top: -3px;    
 }
 

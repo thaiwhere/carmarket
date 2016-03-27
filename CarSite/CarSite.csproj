@@ -221,7 +221,9 @@
     <Content Include="AppTemp\Acura.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\SpNames.xml" />
+    <Content Include="App_Data\SpNames.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\assets\icon-fonts\styles.css" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\base\grid-custom.css" />
@@ -317,6 +319,9 @@
     <Content Include="Content\scripts\base\init.js" />
     <Content Include="Content\scripts\base\handler.js" />
     <Content Include="Content\scripts\base\namespace.js" />
+    <Content Include="Content\scripts\Index.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery.cookie.js" />
+    <Content Include="Content\scripts\SearchingCriteria.js" />
     <Content Include="Content\scripts\base\SearchingHandler.js" />
     <Content Include="Content\scripts\CarDetail.js" />
     <Content Include="Content\scripts\base\GridRender.js" />
@@ -399,6 +404,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\advertise_left\" />
+    <Folder Include="Images\Cars_1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

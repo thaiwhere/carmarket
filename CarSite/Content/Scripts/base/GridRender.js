@@ -49,7 +49,7 @@ var gridRender = function () {
 
             var href = cars[i].Href;// "/Car/CarDetail";                
             var title = cars[i].Title;// "Bán Xe Daewoo Lacetti đăng ký 2009 tư nhân, màu đen còn mới, 318 triệu... (28/02/2016) ";
-            var image = cars[i].Image;// "/content/images/cars/0" + (index + 1) + ".jpg";
+            var image = href + "/1.jpg"; //cars[i].Image;// "/content/images/cars/0" + (index + 1) + ".jpg";
 
             var content = cars[i].Content// "Tôi cần bán xe Daewoo Laceti sản xuất năm 2009 tên tư nhân xe gia đình sử dụng nên còn chất lượng máy móc êm nội thất đẹp lốp mới đăng kiểm còn dài giá tốt 318 triệu liên hệ Mr Hải 0915558358.";
 

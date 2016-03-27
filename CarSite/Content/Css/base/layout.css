@@ -55,7 +55,8 @@
     border-top-left-radius:5px;            
     border-bottom-left-radius:5px;
     border: 1px solid #428bca;        
-    width:200px;     
+    width:190px;     
+    /*width:200px;*/
     margin-right:3px;
 }
 
