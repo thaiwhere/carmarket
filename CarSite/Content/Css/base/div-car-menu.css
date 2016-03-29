@@ -22,6 +22,7 @@
 
 .dropdown-menu {
     min-width: 350px !important;
+    margin-left:42px !important;
 }
 
 .dropdown:hover .dropdown-toggle{
@@ -34,7 +35,7 @@
 .dropdown > a
 {
     margin-left:-15px !important;
-    width:145px !important;
+    width:188px !important;
 }
 
 .dropdown:hover .dropdown-menu {

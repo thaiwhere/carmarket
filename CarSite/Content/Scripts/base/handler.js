@@ -18,51 +18,49 @@
         }
     },
 
+    redirectSearching: function (index) {
+        $.cookie("tabIndex", index, { path: '/' });
+        if (index == 0) {
+            handler.showSearchCarFirm();
+        }
+        else{
+            handler.hideSearchCarFirm();
+            if (location.href.indexOf("SearchingCar") < 0) {
+                location.href = "/car/SearchingCar";
+            }
+        }        
+        handler.inActiveTab($("#div_searching_criteria"));        
+    },
+
     bindEvents: function () {
         
         $("#car_searching").click(function () {
-            $.cookie("tabIndex", 0, { path: '/' });
-            handler.showSearchCarFirm();
-            handler.inActiveTab($("#div_searching_criteria"));
+            handler.redirectSearching(0);            
             $("#car_searching").addClass("tabactive");            
         });
 
         $("#car_for_you").click(function () {
-            $.cookie("tabIndex", 1, { path: '/' });
-            handler.hideSearchCarFirm();
-            handler.inActiveTab($("#div_searching_criteria"));
-            $("#car_for_you").addClass("tabactive");
-            
-            if (location.href.indexOf("SearchingCar") < 0) {               
-                location.href = "/car/SearchingCar";
-            }
+            handler.redirectSearching(1);
+            $("#car_for_you").addClass("tabactive");            
         });
 
         $("#car_new").click(function () {
-            $.cookie("tabIndex", 2, { path: '/' });
-            handler.hideSearchCarFirm();
-            handler.inActiveTab($("#div_searching_criteria"));
+            handler.redirectSearching(2);
             $("#car_new").addClass("tabactive");
         });
 
         $("#car_old").click(function () {
-            $.cookie("tabIndex", 3, { path: '/' });
-            handler.hideSearchCarFirm();
-            handler.inActiveTab($("#div_searching_criteria"));
+            handler.redirectSearching(3);
             $("#car_old").addClass("tabactive");
         });
 
         $("#car_import").click(function () {
-            $.cookie("tabIndex", 4, { path: '/' });
-            handler.hideSearchCarFirm();
-            handler.inActiveTab($("#div_searching_criteria"));
+            handler.redirectSearching(4);
             $("#car_import").addClass("tabactive");
         });
 
         $("#car_domestic").click(function () {
-            $.cookie("tabIndex", 5, { path: '/' });
-            handler.hideSearchCarFirm();
-            handler.inActiveTab($("#div_searching_criteria"));
+            handler.redirectSearching(5);
             $("#car_domestic").addClass("tabactive");
         });
 
