@@ -43,3 +43,21 @@
     line-height: 30px;
     padding: 0 8px;
 }
+
+#car_detail_slide{
+    width:62%;
+    float:left;
+}
+
+#car_detail_images_list{    
+    margin: 5px 10px 10px 8px;
+    padding: 0px;
+    float: left;
+}
+
+#car_detail_images_list img {
+    float: left;
+    width: 63px;
+    height: 47px;
+    margin: 1px;
+}

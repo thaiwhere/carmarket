@@ -112,6 +112,11 @@
             function () {
                 SearchingHandler.renderModels(this.value);
             }
-        );        
+        );
+
+        $("#car_detail_images_list").find("img").click(function () {
+            var CarDetail = new Car.CarDetail();
+            CarDetail.change_img(this);
+        });
     }
 }

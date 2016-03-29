@@ -27,20 +27,26 @@ Car.CarDetail = function () {
                 common.HandleAjaxError(xhr);
             }
         });
-    }
+    };
 
     $this.showSimilarCarsList = function (carId) {
         var bindDataFunction = getListSimilarCar;
         renderGrid("gridCarSimilar", bindDataFunction, 10, 200);
-    }
+    };
 
     $this.Initialize = function () {
         handler.inActiveTab($("#div_searching_criteria"));
 
-        SearchingHandler.collapseSearching();
+        SearchingHandler.expandSearching();
         handler.hideDivLeft();        
         $this.showSimilarCarsList(1);
     };
+
+    $this.change_img = function (img) {        
+        $("#car_detail_slide").find(".carousel").hide();
+        $("#car_detail_slide").find(".car-active").show();
+        $("#car_active_item").attr('src', $(img).attr('src'));
+    }
 }
 
 
