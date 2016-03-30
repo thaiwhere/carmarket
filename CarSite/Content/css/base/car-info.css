@@ -1,0 +1,176 @@
+﻿#div_car_detail{
+    padding:10px;
+}
+
+.car-detail-info{
+    margin-top:5px;
+}
+
+.div-car-tab .ul-car-tab{
+    margin: 0;
+    padding: 0px 0;
+    height: 34px;
+}
+
+.div-car-tab .ul-car-tab li{
+    display: block;
+    float: left;
+    background: none;
+    padding-left: 0px;
+}
+
+.div-car-tab li{
+    margin: .25em 0;
+    list-style: none;
+}
+
+.div-car-tab ul.ul-car-tab li.tabactive a {
+    margin-bottom: -1px;
+    height: 31px;
+    background: #FFFFFF;
+    border-bottom: none;
+    font-weight: bold;
+    color: #000000;
+}
+
+.div-car-tab ul.ul-car-tab li a {
+    display: block;
+    float: left;
+    background: #eeeeee url(../../Images/common/tab.png) repeat-x scroll center center;
+    border: 1px solid #dedede;
+    margin: 0 auto;
+    text-decoration: none;
+    line-height: 30px;
+    padding: 0 8px;
+}
+
+#car_detail_slide{
+    width:450px;
+    float:left;
+}
+
+.car-detail-section{    
+    margin: 0px 5px 5px 6px;
+    padding: 0px;
+    float: left;    
+}
+
+.car-detail-section span{    
+    line-height:1px;
+}
+
+.car-detail-section img {
+    float: left;
+    width: 63px;
+    height: 47px;
+    margin: 1px;
+}
+
+.car-detail{
+    float:none;
+    width:100%;
+}
+
+.car-index-section {
+    float: left;
+    width: 150px;    
+    font-style:normal;
+}
+
+.car-km{
+    float: left;
+    width: 170px;
+    font-weight:normal;
+}
+
+.car-gear {
+    float: left;
+    width: 160px;
+}
+
+.car-status{
+    float: left;
+    width: 150px;
+    height: 20px;
+    text-align:left;
+    margin-top: 15px;
+    border-radius: 3px;
+    line-height: 15px;
+    font-weight:normal;
+    
+}
+.car-madein{
+    float: left;
+    width: 150px;
+    text-align:left;
+    border-radius: 3px;
+    
+}
+.car-price{
+    float: left;
+    width: 80px;
+    height: 30px;
+    text-align: left;
+    color: chocolate;
+    background-color: #4db748;
+    font: bold 14px/23px 'Arial';    
+    border-radius: 3px;
+    margin-top: 15px;    
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding-right: 1px;
+    padding-left: 10px;
+   
+}
+
+.car-location
+{
+    background-color: #bbb;
+    border-radius: 3px;
+    float:left;
+     width: 80px;
+     height: 30px;
+     margin-top: 15px;
+     font: bold 14px/23px 'Arial';
+     color: #fff;
+     margin-bottom: 10px;
+     margin-right: 10px;
+     padding-right: 10px;
+     padding-left: 10px;
+     white-space: nowrap;
+   
+}
+
+.car-date{
+    float: right;
+    text-align: left;
+    width: 70px;
+    color: #222;
+    font: 13px/21px 'Open Sans';
+    font-style: italic;
+}
+
+.car-contact-user
+{
+	background: url('../../Images/common/people.png') no-repeat left;
+    padding-left: 25px;
+    float: left;
+    width: 265px;
+    font: 14px/21px 'Arial';
+    color: #222;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;	
+}
+
+.car-contact-tel{
+    background: url('../../Images/common/phone.png') no-repeat left;
+    padding-left: 25px;
+    float: left;
+    width: 265px;
+    font: 14px/21px 'Arial';
+    color: #222;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

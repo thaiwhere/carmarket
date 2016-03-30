@@ -1,16 +1,4 @@
-﻿.car-label {
-    display: inline;
-    padding: .2em .6em .3em;
-    font-size: 100%;
-    font-weight: 700;
-    line-height: 1;
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: .25em;
-    width:80px;
-}
+﻿
 .car-label-default {
     background-color: #777;
 }
@@ -37,39 +25,7 @@
     font-weight:bold;
     text-align: left;    
 }
-.car-status-left {
-    float: left;
-    width: 150px;
-    height: 20px;
-    text-align:left;
-    margin-top: 15px;
-    border-radius: 3px;
-    line-height: 15px;
-    font-weight:normal;
-    
-}
-.car-madein-left {
-    float: left;
-    width: 150px;
-    text-align:left;
-    border-radius: 3px;
-    
-}
-.car-price-middle {
-    background-color: #4db748;
-    border-radius: 3px;
-     float:left;
-     width: 80px;
-     height: 30px;
-     margin-top: 15px;
-     font: bold 14px/23px 'Arial';
-     color: #fff;
-     margin-bottom: 10px;
-     margin-right: 10px;
-     padding-right: 1px;
-     padding-left: 10px;
-   
-}
+
 .car-color-all {
    color:red;
    
@@ -80,36 +36,11 @@
     border-radius: 3px;
 }
 
-.car-location-right 
-{
-    background-color: #bbb;
-    border-radius: 3px;
-    float:left;
-     width: 80px;
-     height: 30px;
-     margin-top: 15px;
-     font: bold 14px/23px 'Arial';
-     color: #fff;
-     margin-bottom: 10px;
-     margin-right: 10px;
-     padding-right: 10px;
-     padding-left: 10px;
-     white-space: nowrap;
-   
-}
-
 .car-info {
     float: left;    
 }
 
-.car-date-right {
-    float: right;
-    text-align: left;
-    width: 70px;
-    color: #222;
-    font: 13px/21px 'Open Sans';
-    font-style: italic;
-}
+
 .opensanslistauto {
     font-family: 'Open sans' !important;
     font-size: 15px;
@@ -138,53 +69,7 @@
     margin-right: 4px;
   
 }
-.car-detail-left {
-    float: left;
-    width: 150px;
-    /*width: 200px;*/
-    font-style:normal;
-}
-.car-km-left {
-    float: left;
-    width: 170px;
-    font-weight:normal;
-}
-.car-detail-middle {
-    float: left;
-    width: 180px;
-}
-.car-label-left {
-    float: left;
-    width: 75px;
-    font-weight:normal;
 
-}
-.car-gear-left {
-    float: left;
-    width: 160px;
-}
-.car-name-user-right {
-    background:  url('../../Images/common/people.png') no-repeat left; 
-    padding-left: 25px;
-    float: left;
-    width: 265px;
-    font: 14px/21px 'Arial';
-    color: #222;
-    margin-top: 4px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.car-name-telephone-right {
-    background:  url('../../Images/common/phone.png') no-repeat left;
-    padding-left: 25px;
-    float: left;
-    width: 265px;
-    font: 14px/21px 'Arial';
-    color: #222;
-    margin-top: 4px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 .car-detail-right {
     float: left;
     width: 100px;

@@ -53,30 +53,6 @@
 	height:30px;
 	text-align:center;	
 }
-.car-type
-{
-	float:left;
-	width:290px;
-	height:30px;
-	text-align:left;
-	
-}
-.car-price
-{
-	float:left;
-	width:167px;
-	height:30px;
-	text-align:left;	
-    color: chocolate	
-}
-
-.car-place
-{
-	float: left;
-    width: 60px;
-    height: 30px;
-    text-align: right;
-}
 
 .car-img-box
 {
@@ -107,15 +83,6 @@
 	text-align:left;
 	color:#333;
 	margin-top:2px;
-}
-.car-contact
-{
-	float:right;
-	width:236px;
-	height:90px;
-	text-align:left;	
-	color:#555;
-	
 }
 
 .car-item a{ 

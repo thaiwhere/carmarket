@@ -24,7 +24,7 @@
 
 /*Search*/
 #search{
-        float: left;
+    float: left;
     height: 30px;
     background-color: #FCEDC4;
     background: transparent url(../../Images/common/bar.gif) scroll -0px -80px;
@@ -49,4 +49,24 @@
 /*Advertise*/
 
 .advertise{   
+}
+
+
+.car-label{
+    width: 80px;
+    float: left;        
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 100%;
+    font-weight: 700;
+    line-height: 1;
+    /* color: #fff; */
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;    
+}
+
+.float-none{
+    float:none;
 }

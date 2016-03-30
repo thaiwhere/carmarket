@@ -234,7 +234,7 @@
     <Content Include="Content\css\base\common.css" />
     <Content Include="Content\css\base\div-car-list.css" />
     <Content Include="Content\css\base\div-car-menu.css" />
-    <Content Include="Content\css\base\car-detail.css" />
+    <Content Include="Content\css\base\car-info.css" />
     <Content Include="Content\css\base\searching-car.css" />
     <Content Include="Content\css\base\layout.css" />
     <Content Include="Content\css\base\Site.css" />
