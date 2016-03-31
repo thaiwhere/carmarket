@@ -16,3 +16,10 @@
     width:187px; /*198px*/
     height:187px;
 }
+
+#car_detai_banner img{
+    width: 793px;
+    margin: 10px 0;
+    border: 0;
+
+}

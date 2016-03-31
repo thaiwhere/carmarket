@@ -45,18 +45,29 @@
 }
 
 #car_detail_slide{
-    width:450px;
+    width:438px;
     float:left;
 }
 
 .car-detail-section{    
-    margin: 0px 5px 5px 6px;
-    padding: 0px;
+    margin: 0px 5px 5px 6px;    
     float: left;    
 }
 
-.car-detail-section span{    
-    line-height:1px;
+.car-detail-section.info
+{
+    margin-top:10px;
+}
+
+.car-detail-section.info span{        
+    float: left;    
+    padding: .2em .6em .3em;    
+    text-align: left;    
+}
+
+.car-detail-section.title{
+    margin:5px 0px;
+    line-height: 30px;
 }
 
 .car-detail-section img {
@@ -66,6 +77,11 @@
     margin: 1px;
 }
 
+#img-section {    
+    width: 336px;
+    float:left;
+}
+
 .car-detail{
     float:none;
     width:100%;
@@ -73,7 +89,7 @@
 
 .car-index-section {
     float: left;
-    width: 150px;    
+    width: 180px;    
     font-style:normal;
 }
 
@@ -142,12 +158,10 @@
 }
 
 .car-date{
-    float: right;
-    text-align: left;
-    width: 70px;
-    color: #222;
-    font: 13px/21px 'Open Sans';
+    float: right;    
     font-style: italic;
+    color:#0000FF;
+    margin-top:5px;
 }
 
 .car-contact-user
@@ -155,7 +169,7 @@
 	background: url('../../Images/common/people.png') no-repeat left;
     padding-left: 25px;
     float: left;
-    width: 265px;
+    width: 150px;
     font: 14px/21px 'Arial';
     color: #222;
     margin-top: 4px;
@@ -167,10 +181,15 @@
     background: url('../../Images/common/phone.png') no-repeat left;
     padding-left: 25px;
     float: left;
-    width: 265px;
+    width: 180px;
     font: 14px/21px 'Arial';
     color: #222;
     margin-top: 4px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.carousel-inner img{
+    width: 438px;
+    height: 330px;
 }

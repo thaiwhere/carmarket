@@ -38,15 +38,14 @@ Car.CarDetail = function () {
         handler.inActiveTab($("#div_searching_criteria"));
 
         SearchingHandler.expandSearching();
-        handler.hideDivLeft();        
+        handler.hideDivRight();        
         $this.showSimilarCarsList(1);
-    };
+    };    
+}
 
-    $this.change_img = function (img) {        
-        $("#car_detail_slide").find(".carousel").hide();
-        $("#car_detail_slide").find(".car-active").show();
-        $("#car_active_item").attr('src', $(img).attr('src'));
-    }
+var change_img = function (index) {
+    $("#car_detail_carousel").carousel(index);
+    //$("#car_detail_carousel").carousel("pause");
 }
 
 

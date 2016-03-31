@@ -38,7 +38,7 @@ Car.SearchingCar = function () {
 
     $this.Initialize = function () {
         SearchingHandler.expandSearching();
-        handler.hideDivLeft();
+        handler.hideDivRight();
         handler.hideSearchCarFirm();
         $this.showTop50Cars();        
     };

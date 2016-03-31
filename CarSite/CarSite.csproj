@@ -405,6 +405,7 @@
   <ItemGroup>
     <Folder Include="Content\images\advertise_left\" />
     <Folder Include="Images\Cars_1\" />
+    <Folder Include="Images\Showroom\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

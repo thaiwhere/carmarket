@@ -37,7 +37,7 @@ Car.SearchingCar = function () {
     }
 
     $this.Initialize = function () {                
-        handler.hideDivLeft();
+        handler.hideDivRight();
         $this.showTop50Cars();        
     };
 }
