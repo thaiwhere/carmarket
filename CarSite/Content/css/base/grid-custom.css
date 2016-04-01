@@ -14,3 +14,11 @@
 #grid-pager-bottom{
     top:1825px !important; 
 }
+
+#gridCarSimilar{
+    margin-top:-5px;
+}
+
+#gridSearchingCar{
+    margin-left:0px;
+}

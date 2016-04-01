@@ -30,7 +30,7 @@
     background: #FFFFFF;
     border-bottom: none;
     font-weight: bold;
-    color: #000000;
+    color: #0035FF;
 }
 
 .div-car-tab ul.ul-car-tab li a {
@@ -55,8 +55,10 @@
 }
 
 .car-detail-section.info
-{
-    margin-top:10px;
+{    
+    width:330px;
+    margin-left:15px;        
+    margin-right:-17px;
 }
 
 .car-detail-section.info span{        
@@ -157,11 +159,20 @@
    
 }
 
-.car-date{
-    float: right;    
+.car-contact-date{
+    float: none;    
     font-style: italic;
     color:#0000FF;
+    margin-top:15px;
+    width: 150px;
+}
+
+.car-contact-view{
+    float: left;    
+    font-style: italic;
+    color:#FFA500;
     margin-top:5px;
+    width: 150px;
 }
 
 .car-contact-user
@@ -189,7 +200,49 @@
     text-overflow: ellipsis;
 }
 
+.car-contact-address{
+    background: url('../../Images/common/address.png') no-repeat left;
+    padding-left: 25px;
+    float: left;
+    width: 180px;
+    font: 14px/21px 'Arial';
+    color: #222;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .carousel-inner img{
     width: 438px;
     height: 330px;
+}
+
+#div_car_detail_info .row{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    float: left;
+    width: 99%;
+    border-top: 1px solid #dedede;
+    border-left: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+}
+
+.car-label-detail{
+    padding: 0.2em .2em .2em .2em;
+    font-weight:bold;    
+    float:left;
+    /*color:#0035FF;*/
+}
+
+#div_car_detail_similar{
+    padding:10px;
+}
+
+#car_detail_info_basic{
+    float:none;
+    display:inline-block;  
+}
+
+#car_detail_info_technical{    
+    float:none;
 }

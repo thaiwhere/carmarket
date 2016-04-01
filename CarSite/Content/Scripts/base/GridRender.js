@@ -8,8 +8,8 @@ var gridRender = function () {
     var gridOptions = {
         columns: [
             { HeaderText: "Hình", Width: 160, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
-            { HeaderText: "Mô tả", Width: 420, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
-            { HeaderText: "Thông tin", Width: 140, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
+            { HeaderText: "Mô tả", Width: 470, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
+            { HeaderText: "Thông tin", Width: 170, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
         ],
         //bodyRows: generateData(10, 0),
         gridExpandHeight: 150,

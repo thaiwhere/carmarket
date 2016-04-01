@@ -69,14 +69,30 @@
         });
 
         $("#car_similar_model").click(function () {
-            handler.inActiveTab($("#div_car_similar"));
+            handler.inActiveTab($("#div_car_detail_similar"));
             $("#car_similar_model").addClass("tabactive");            
         });
 
         $("#car_similar_price").click(function () {
-            handler.inActiveTab($("#div_car_similar"));
+            handler.inActiveTab($("#div_car_detail_similar"));
             $("#car_similar_price").addClass("tabactive");            
         });
+
+        $("#car_detail_info_basic_tab").click(function () {
+            handler.inActiveTab($("#div_car_detail_info"));
+            $("#car_detail_info_basic_tab").addClass("tabactive");
+
+            $("#car_detail_info_basic").css('display', 'inline-block');
+            $("#car_detail_info_technical").hide();
+        });
+
+        $("#car_detail_info_technical_tab").click(function () {
+            handler.inActiveTab($("#div_car_detail_info"));
+            $("#car_detail_info_technical_tab").addClass("tabactive");
+
+            $("#car_detail_info_technical").css('display', 'inline-block');
+            $("#car_detail_info_basic").hide();
+        });        
 
         $("#select-model-all").change(function () {
             $(".checkbox-model").prop('checked', $(this).prop("checked"));
