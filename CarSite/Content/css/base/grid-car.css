@@ -16,7 +16,7 @@
     width: 150px;
     height: 104px;
     padding-right: 0px;
-    margin-bottom:25px;
+    margin: 5px 5px;
 }
 .car-title {
     float: left;
@@ -127,11 +127,15 @@
 .car-des-title {
     float: left;    
     font-weight:bold;
-    text-align: left;    
+    text-align: left;        
 }
 
 .car-des {    
+    text-align: left;        
     font-weight:normal;       
+    float:left;
+    width:100%;
+    border:none;
 }
 
 .status-icon{
@@ -143,9 +147,18 @@
 }
 
 .car-info-source{
-    font: 14px/21px 'Arial';
-    color:red;
-    font-weight:bold;
-    float:right;    
-    margin-top:25px;
+    font: 14px/21px 'Arial';        
+}
+
+.car-info-firm{
+    color:#0000FF;
+    font-weight:bold;        
+}
+
+.car-info-status-new{
+
+}
+
+.car-info-status-old{
+    color:rgba(169, 68, 66, 0.75)
 }
