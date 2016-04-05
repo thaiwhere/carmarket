@@ -29,5 +29,10 @@ namespace CarSite.Controllers
 
             return View();
         }
+
+        public ActionResult Salon()
+        {
+            return View();
+        }
     }
 }

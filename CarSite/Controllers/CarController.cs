@@ -57,10 +57,6 @@ namespace CarSite.Controllers
             obj.Message = "Xe cũ";
 
             return View("~/Views/Car/SearchingCar.cshtml", obj);
-        }
-        public ActionResult SalonboxCar()
-        {
-            return View();
-        }
+        }       
     }
 }

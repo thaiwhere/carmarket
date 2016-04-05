@@ -1,0 +1,36 @@
+﻿.salon-section{    
+    float:left;
+    width:50%; 
+    height:300px;
+    padding:5px;   
+    border-right: 1px dotted blue !important;
+    border-bottom: 1px dotted blue !important;
+}
+
+.salon-photo {
+    float: left;
+    width:100%;
+    height: 104px;
+    padding-right: 0px;
+    margin-bottom:25px;
+}
+.salon-name {    
+    float: left;
+    width:100%;
+    width: 100%;
+    font-weight:bold;
+   
+}
+.salon-decription {
+    float: left;
+    width:100%;
+    font: 13px/19px 'Arial';
+    color: #222;
+}
+.salon-address {
+    float: left;
+    width:100%;
+    padding-left: 15px;
+    background: url('../../images/common/address.png') no-repeat left;
+    background-position: 0 3px;
+}

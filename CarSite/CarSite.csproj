@@ -227,7 +227,7 @@
     <Content Include="Content\assets\icon-fonts\styles.css" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\base\grid-custom.css" />
-    <Content Include="Content\css\base\car-salon.css" />
+    <Content Include="Content\css\base\salon.css" />
     <Content Include="Content\css\base\grid-custom.css" />
     <Content Include="Content\css\base\div-panel.css" />
     <Content Include="Content\css\base\searchfirm.css" />
@@ -400,7 +400,7 @@
     <Content Include="Views\Car\SearchingCar.cshtml" />
     <Content Include="Views\Car\CarDetail.cshtml" />
     <Content Include="Views\Car\CarDetailImages.cshtml" />
-    <Content Include="Views\Car\SalonboxCar.cshtml" />
+    <Content Include="Views\Home\Salon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\advertise_left\" />
