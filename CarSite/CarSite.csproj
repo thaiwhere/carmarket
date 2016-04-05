@@ -193,23 +193,23 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\User.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>Users.tt</DependentUpon>
+      <DependentUpon>User.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Users.Context.cs">
+    <Compile Include="Models\User.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Users.Context.tt</DependentUpon>
+      <DependentUpon>User.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Users.cs">
+    <Compile Include="Models\User1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Users.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Users.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Users.edmx</DependentUpon>
+      <DependentUpon>User.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -413,22 +413,22 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <EntityDeploy Include="Models\Users.edmx">
+    <EntityDeploy Include="Models\User.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Users.Designer.cs</LastGenOutput>
+      <LastGenOutput>User.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Users.Context.tt">
+    <Content Include="Models\User.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Users.edmx</DependentUpon>
-      <LastGenOutput>Users.Context.cs</LastGenOutput>
+      <DependentUpon>User.edmx</DependentUpon>
+      <LastGenOutput>User.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Users.edmx.diagram">
-      <DependentUpon>Users.edmx</DependentUpon>
+    <Content Include="Models\User.edmx.diagram">
+      <DependentUpon>User.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\Users.tt">
+    <Content Include="Models\User.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Users.edmx</DependentUpon>
-      <LastGenOutput>Users.cs</LastGenOutput>
+      <DependentUpon>User.edmx</DependentUpon>
+      <LastGenOutput>User1.cs</LastGenOutput>
     </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>

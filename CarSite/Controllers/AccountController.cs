@@ -40,7 +40,7 @@ namespace CarSite.Controllers
                     // same operation on the user entered password here, But for now
                     // since the password is in plain text lets just authenticate directly
 
-                    bool userValid = entities.Users.Any(user => user.Username == username && user.Password == password);
+                    bool userValid = entities.Users.Any(user => user.UserName == username && user.Password == password);
 
                     // User found in the database
                     if (userValid)
@@ -87,10 +87,10 @@ namespace CarSite.Controllers
             {
                 using (CARWEBEntities entities = new CARWEBEntities())
                 {
-                    User user = new Models.User() { Username = model.UserName, Password = model.Password, Roles = "user" };
+                    User user = new Models.User() { UserName = model.UserName, Password = model.Password, Roles = "user" };
                     entities.Users.Add(user);
 
-                    FormsAuthentication.SetAuthCookie(user.Username, false);
+                    FormsAuthentication.SetAuthCookie(user.UserName, false);
 
                     if (entities.SaveChanges() > 0)
                     {                        

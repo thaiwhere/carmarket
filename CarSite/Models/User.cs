@@ -15,8 +15,17 @@ namespace CarSite.Models
     public partial class User
     {
         public int UserId { get; set; }
-        public string Username { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
         public string Roles { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Tel1 { get; set; }
+        public string Tel2 { get; set; }
+        public string Address { get; set; }
+        public string ProvinceId { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDade { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     }
 }

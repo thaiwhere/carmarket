@@ -31,12 +31,12 @@ namespace CarSite
                     try
                     {
                         //let us take out the username now                
-                        string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+                        string userName = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
                         string roles = string.Empty;
 
                         using (CARWEBEntities entities = new CARWEBEntities())
                         {
-                            User user = entities.Users.SingleOrDefault(u => u.Username == username);
+                            User user = entities.Users.SingleOrDefault(u => u.UserName == userName);
 
                             roles = user.Roles;
                         }
@@ -45,7 +45,7 @@ namespace CarSite
 
                         //Let us set the Pricipal with our user specific details
                         HttpContext.Current.User = new System.Security.Principal.GenericPrincipal(
-                          new System.Security.Principal.GenericIdentity(username, "Forms"), roles.Split(';'));
+                          new System.Security.Principal.GenericIdentity(userName, "Forms"), roles.Split(';'));
                     }
                     catch (Exception)
                     {
