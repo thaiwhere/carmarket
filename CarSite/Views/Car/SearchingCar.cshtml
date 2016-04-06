@@ -26,17 +26,17 @@
 @section Scripts
 {    
 
-    @if (Model.Type == 1)
+    @if (ViewBag.SearchingType == 1)    
     {
         <script src="~/Content/scripts/SearchingCar.js"></script>
     }
-    else if (Model.Type == 2)
+    else if (ViewBag.SearchingType == 2)
     {
-        <script src="~/Content/scripts/SearchingNewCar.js"></script>
+        <script src="~/Content/scripts/SearchingNewCars.js"></script>
     }
-    else
+    else if(ViewBag.SearchingType == 3)
     {
-        <script src="~/Content/scripts/SearchingOldCar.js"></script>
+        <script src="~/Content/scripts/SearchingOldCars.js"></script>
     }
     
     <script src="~/Content/scripts/SearchingCriteria.js"></script>

@@ -37,12 +37,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TQQ.Data">
+      <HintPath>..\Dependencies\TQQ.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Criteria\CarSearchingForYouCriteria.cs" />
     <Compile Include="Criteria\CarSearchingCriteria.cs" />
     <Compile Include="Entity\CarModel.cs" />
     <Compile Include="Entity\SearchingTypeEnum.cs" />
-    <Compile Include="Entity\SearchingType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -11,15 +11,58 @@ using System.Xml;
 namespace CarSite.Controllers
 {
     public class CarController : Controller
-    {       
-        public ActionResult SearchingCar(string firm="", string model="")
-        {
-            SearchingType obj = new SearchingType();
-            obj.Type = 1;
-            obj.Message = "Kết quả tìm kiếm";
+    {
+        #region GET Methods
 
-            return View("~/Views/Car/SearchingCar.cshtml", obj);
+        public ActionResult SearchingCars(string firm="", string model="")
+        {          
+            int firmSearching = 0;
+            int.TryParse(firm, out firmSearching);
+
+            CarSearchingCriteria criteria = new CarSearchingCriteria
+            {
+                firm = firmSearching,
+                models = model
+            };
+
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList();
+
+            ViewBag.SearchingType = "1";
+            ViewBag.SearchingMessage = "Kết quả tìm kiếm : " + listCars.Count() +" xe";
+
+            return View("~/Views/Car/SearchingCar.cshtml", listCars);
         }
+        
+        public ActionResult SearchingNewCars()
+        {
+            CarSearchingCriteria criteria = new CarSearchingCriteria
+            {
+                IsNew = true
+            };
+
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList();
+
+            ViewBag.SearchingType = "2";
+            ViewBag.SearchingMessage = "Danh sách xe mới" + listCars.Count() +" xe";
+
+            return View("~/Views/Car/SearchingCar.cshtml", listCars);
+        }
+
+        public ActionResult SearchingOldCars()
+        {            
+            CarSearchingCriteria criteria = new CarSearchingCriteria
+            {
+                IsNew = false
+            };
+
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList();
+
+            ViewBag.SearchingType = "3";
+            ViewBag.SearchingMessage = "Danh sách xe cũ" + listCars.Count() +" xe";
+
+            return View("~/Views/Car/SearchingCar.cshtml", listCars);
+        }
+
 
         public ActionResult CarDetail()
         {
@@ -27,36 +70,24 @@ namespace CarSite.Controllers
             return View(carDetail);
         }
 
-        /// <summary>
-        /// hay nay dung de tim kiem ra list car thoa d/k tim kiem, sau do se dc lay = jquery.Ajax de render ra web
-        /// </summary>
-        /// <param name="criteria"></param>
-        /// <returns></returns>
+        #endregion
+
+        #region POST Methods
+
+        [HttpPost]
         public JsonResult SearchingCars(CarSearchingCriteria criteria)
         {
-            List<CarModel> listCar = CarService.SearchingCars(criteria).ToList<CarModel>();
-
-            return Json(listCar); // result trong getListCar
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
         }
 
-        public ActionResult SearchingNewCar(CarSearchingCriteria criteria)
+        [HttpPost]
+        public JsonResult SearchingCarsForYou(CarSearchingForYouCriteria criteria)
         {
-            SearchingType obj = new SearchingType();
-            obj.Type = 2;
-            obj.Message = "Xe mới";
-
-            
-            return View("~/Views/Car/SearchingCar.cshtml", obj);
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
         }
-
         
-        public ActionResult SearchingOldCar(CarSearchingCriteria criteria)
-        {
-            SearchingType obj = new SearchingType();
-            obj.Type = 3;
-            obj.Message = "Xe cũ";
-
-            return View("~/Views/Car/SearchingCar.cshtml", obj);
-        }       
+        #endregion
     }
 }
