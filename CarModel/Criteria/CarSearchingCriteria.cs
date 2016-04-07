@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TQQ.Data.Repository;
 
 namespace Car.Model.Criteria
 {
     /// <summary>
-    /// Day la class de x/d cac thong tin can tim kiem 
+    /// 
     /// </summary>
-    public class CarSearchingCriteria
+    public class CarSearchingCriteria : CriteriaBase
     {
         public int currentPageIndex { get; set; }
 
@@ -80,6 +81,9 @@ namespace Car.Model.Criteria
 
 
 
+
+        public bool IsNew { get; set; }
+        
 
         /// <summary>
         /// Gets Setting Key.
