@@ -45,7 +45,6 @@
     <Compile Include="Criteria\CarSearchingForYouCriteria.cs" />
     <Compile Include="Criteria\CarSearchingCriteria.cs" />
     <Compile Include="Entity\CarModel.cs" />
-    <Compile Include="Entity\SearchingTypeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
