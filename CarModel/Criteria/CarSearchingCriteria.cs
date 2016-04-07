@@ -89,7 +89,7 @@ namespace Car.Model.Criteria
         /// Gets Setting Key.
         /// </summary>
         /// <returns>Setting key of the criteria.</returns>
-        public string GetSettingKey()
+        public override string GetSettingKey()
         {
             return "SP_TOP_10_CARS";
         }
