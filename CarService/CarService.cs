@@ -49,7 +49,7 @@ namespace Car.Service
                         Href = "",
                         Image = "/content/images/cars/" + 1.ToString() + ".jpg",
                         Km = 50,
-                        Type = true,//True: Hop so, False: So tu dong
+                        Type = "Sedan",//True: Hop so, False: So tu dong
                         Location = "Hà nội",
                         ContactName = "Chị oanh",
                         ContactTel = "123456789"
