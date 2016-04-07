@@ -10,15 +10,15 @@ namespace Car.Model.Entity
     {
         public int CarId { get; set; }
         public string Name { get; set; }
-        public bool Source { get; set; }//torng nuoc hay ngoai nuoc
+        public bool Source { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public double Price { get; set; }
-        public bool Status { get; set; } // True: is New, Else : Old
+        public bool Status { get; set; }
         public string Href { get; set; }
         public string Image { get; set; }
         public int Km { get; set; }
-        public bool Type { get; set; } //True: Hop so, False: So tu dong
+        public string Type { get; set; } //True: Hop so, False: So tu dong
         public string Location { get; set; }
         public string ContactName { get; set; }
         public string ContactTel { get; set; }
@@ -29,6 +29,7 @@ namespace Car.Model.Entity
         public string SeatCount { get; set; }//Số chỗ ngôi
         public string DoorCount { get; set; }//Số cửa xe
         public string Fuel { get; set; }//Hệ thống nhiên liệu
+        public bool IsNew { get; set; }
          
     }
      
