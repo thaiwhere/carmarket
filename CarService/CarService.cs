@@ -27,7 +27,6 @@ namespace Car.Service
             }
 
             return cars;
-        }                        
-                        Type = "Sedan",//True: Hop so, False: So tu dong
+        }                                                
     }
 }
