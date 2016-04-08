@@ -21,7 +21,8 @@ namespace Car.Service
             {
                 using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
                 {
-                    cars = obj.Query<CarModel>();
+                    var param = criteria.GetSpParams();                    
+                    cars = obj.Query<CarModel>(param);
                     cache.SetCache(criteria.GetSettingKey(), cars);
                 }
             }

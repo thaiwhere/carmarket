@@ -8,7 +8,7 @@ using TQQ.Data.Repository;
 namespace Car.Model.Criteria
 {
     /// <summary>
-    /// 
+    /// Class nay dung de search cars, Khi viet sp thi cac tham so cho gia tri mac dinh de ko truyen vao thi ko bao loi~
     /// </summary>
     public class CarSearchingCriteria : CriteriaBase
     {
@@ -16,41 +16,22 @@ namespace Car.Model.Criteria
 
         public int itemsPerPage { get; set; }
 
-        public int firm { get; set; }
+        public string FirmName { get; set; }
 
-        public string models { get; set; }
+        public string Model { get; set; }
 
-        public int searchingType { get; set; }
-
-        public int original { get; set; }
-
-        //public int position { get; set; }
+        public bool IsImport { get; set; }
 
         public double fromPrice { get; set; }
 
         public double toPrice { get; set; }
-
-        public int User { get; set; }
-
-        public string Code { get; set; }
-
-        public string Title { get; set; }
-
-        public string Class { get; set; }
-
-
-        public bool IsImport { get; set; }
-
+      
         public int Year { get; set; }
 
         public string Province { get; set; }
 
         public bool Status { get; set; }
-
-        public int Km { get; set; }
-
-        public string Type { get; set; }
-
+        
         public double PriceVN { get; set; }
 
         public double PriceUSD { get; set; }
@@ -61,29 +42,9 @@ namespace Car.Model.Criteria
 
         public int WindowNo { get; set; }
 
-        public int SeatNo { get; set; }
+        public int SeatNo { get; set; }        
 
-        public string Description { get; set; }
-
-        public short GearBox { get; set; }
-
-	    public string WheelDrive { get; set; }
-
-	    public string FuelSystem { get; set; }
-
-        public string FuelConsumption { get; set; }
-
-        public DateTime CreatedDate { get; set; }
-
-        public DateTime ModifiedDate { get; set; }
-
-        public DateTime ExpiredDate { get; set; }
-
-
-
-
-        public bool IsNew { get; set; }
-        
+        public bool IsNew { get; set; }        
 
         /// <summary>
         /// Gets Setting Key.
@@ -91,7 +52,7 @@ namespace Car.Model.Criteria
         /// <returns>Setting key of the criteria.</returns>
         public override string GetSettingKey()
         {
-            return "SP_TOP_10_CARS";
+            return "Car_Searching"; // Vien can viet sp nay voi cac tham so o tren
         }
 
     }

@@ -15,14 +15,13 @@ namespace CarSite.Controllers
         #region GET Methods
 
         public ActionResult SearchingCars(string firm="", string model="")
-        {          
-            int firmSearching = 0;
-            int.TryParse(firm, out firmSearching);
+        {                     
+            //truong hop nay minh chi can xai 2 tham so {firm, model}
 
             CarSearchingCriteria criteria = new CarSearchingCriteria
             {
-                firm = firmSearching,
-                models = model
+                FirmName = firm,
+                Model = model
             };
 
             List<CarModel> listCars = CarService.SearchingCars(criteria).ToList();
