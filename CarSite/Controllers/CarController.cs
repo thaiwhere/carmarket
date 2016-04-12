@@ -74,9 +74,12 @@ namespace CarSite.Controllers
         #region POST Methods
 
         [HttpPost]
-        public JsonResult SearchingCars(CarSearchingCriteria criteria)
+        public JsonResult SearchingCars(CarSearchingFirmModelCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            criteria.FirmName = "Toyota";
+            criteria.Model = "Vios";
+
+            var listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
         }
 
