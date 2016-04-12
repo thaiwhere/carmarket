@@ -2,7 +2,7 @@
 var gridRender = function () {
     var _gridId = "";
     var _bindDataFunction;
-    var _itemsPerPage = 0;
+    var _itemsPerPage = 20;
     var _totalItem = 0;
 
     var gridOptions = {
@@ -17,27 +17,31 @@ var gridRender = function () {
         customPager: true,
         hideYBackGroundScroller: true, //// default is false        
         pagerOption: {
-            //itemsPerPage: _itemsPerPage,
-            //currentPage: 0,
+            itemsPerPage: _itemsPerPage,
+            currentPage: 0,
             itemsPerPageArray: [10, 20, 50],
             pagerSelectCallBack: reRenderAfterPaged,
-            //totalItem: _totalItem
+            totalItem: _totalItem
         }
     }    
 
-    function reRenderAfterPaged(currentPageIndex, itemsPerPage) {        
-        _bindDataFunction(render, itemsPerPage, currentPageIndex, _totalItem);
+    function reRenderAfterPaged(currentPageIndex, itemsPerPage) {                
+        gridOptions.pagerOption.currentPage = currentPageIndex;
+        gridOptions.pagerOption.itemsPerPage = itemsPerPage;        
+        gridOptions.pagerOption.totalItem = _totalItem;
+
+        $("#" + _gridId).PagerGrid(gridOptions);
+        customGrid();
     }
            
-    init = function (gridId, bindDataFunction, itemsPerPage, totalItem) {
+    init = function (gridId, bindDataFunction, itemsPerPage) {
         _gridId = gridId;        
         _bindDataFunction = bindDataFunction;
-        _itemsPerPage = itemsPerPage;
-        _totalItem = totalItem;        
+        _itemsPerPage = itemsPerPage;        
     }
 
     bindData = function(){
-        _bindDataFunction(render, _itemsPerPage, 0, _totalItem);
+        _bindDataFunction(render);
     }
 
     decorateData = function (cars) {
@@ -94,12 +98,11 @@ var gridRender = function () {
         gridOjb.find($(".y-scrollbar")).remove();        
     }
 
-    render = function (data, itemsPerPage, currentPageIndex, totalItem) {
+    render = function (data) {
         gridOptions.bodyRows = decorateData(data);
-
-        gridOptions.pagerOption.itemsPerPage = itemsPerPage;
-        gridOptions.pagerOption.currentPage = currentPageIndex;
-        gridOptions.pagerOption.totalItem = totalItem;        
+        
+        _totalItem = gridOptions.bodyRows.length;
+        gridOptions.pagerOption.totalItem = _totalItem ;
 
         $("#" + _gridId).PagerGrid(gridOptions);
         customGrid();
@@ -111,9 +114,9 @@ var gridRender = function () {
     };
 };
 
-function renderGrid(gridId, bindDataFunction, itemsPerPage, totalItem)
+function renderGrid(gridId, bindDataFunction, itemsPerPage)
 {
     var grid = new gridRender();
-    grid.init(gridId, bindDataFunction, itemsPerPage, totalItem);
+    grid.init(gridId, bindDataFunction, itemsPerPage);
     grid.bindData();
 }

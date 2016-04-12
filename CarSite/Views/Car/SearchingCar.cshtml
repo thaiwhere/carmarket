@@ -6,6 +6,8 @@
 
 }
 
+@model Car.Model.Criteria.CarSearchingFirmModelCriteria
+
 <div id="div-car-list" class="car_list_box">
     
     @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml"); }
@@ -25,18 +27,53 @@
 @section Scripts
 {    
 
-    @if (ViewBag.SearchingType == "1")    
+    @if (ViewBag.SearchingType == "0")    
     {
-        <script src="~/Content/scripts/SearchingCar.js"></script>
+        <script>
+        var criteria = {
+            itemsPerPage: 20,
+            currentPageIndex: 0,
+            firmName: '@Model.FirmName',
+            model: '@Model.Model'
+        };
+        </script>
+        
+    }    
+    else if(ViewBag.SearchingType == "1")
+    {
+        <script>
+        var criteria = {
+            itemsPerPage: 20,
+            currentPageIndex: 0,
+            firmName: '@Model.FirmName',
+            model: '@Model.Model'
+        };
+        </script>
     }
     else if (ViewBag.SearchingType == "2")
     {
-        <script src="~/Content/scripts/SearchingNewCars.js"></script>
+        <script>
+        var criteria = {
+            itemsPerPage: 20,
+            currentPageIndex: 0,
+            firmName: '@Model.FirmName',
+            model: '@Model.Model'
+        };
+        </script>
     }
-    else if(ViewBag.SearchingType == "3")
+    else if (ViewBag.SearchingType == "3")
     {
-        <script src="~/Content/scripts/SearchingOldCars.js"></script>
+        <script>
+        var criteria = {
+            itemsPerPage: 20,
+            currentPageIndex: 0,
+            firmName: '@Model.FirmName',
+            model: '@Model.Model'
+        };
+        </script>
     }
     
+    <script src="~/Content/scripts/SearchingCar.js"></script>
+
     <script src="~/Content/scripts/SearchingCriteria.js"></script>
 }

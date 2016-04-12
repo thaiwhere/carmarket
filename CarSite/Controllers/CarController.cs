@@ -15,51 +15,51 @@ namespace CarSite.Controllers
         #region GET Methods
 
         public ActionResult SearchingCars(string firm="", string model="")
-        {                     
-            //truong hop nay minh chi can xai 2 tham so {firm, model}
-
-            CarSearchingCriteria criteria = new CarSearchingCriteria
+        {                                 
+            CarSearchingFirmModelCriteria criteria = new CarSearchingFirmModelCriteria
             {
                 FirmName = firm,
                 Model = model
             };
-
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList();
-
-            ViewBag.SearchingType = "1";
-            ViewBag.SearchingMessage = "Kết quả tìm kiếm : " + listCars.Count() +" xe";
-
-            return View("~/Views/Car/SearchingCar.cshtml", listCars);
+            
+            ViewBag.SearchingType = "0";            
+            return View("~/Views/Car/SearchingCar.cshtml", criteria);
         }
-        
-        public ActionResult SearchingNewCars()
+
+        public ActionResult SearchingCarsForYou()
         {
-            CarSearchingCriteria criteria = new CarSearchingCriteria
+            CarSearchingFirmModelCriteria criteria = new CarSearchingFirmModelCriteria
             {
-                IsNew = true
+                FirmName = "Toyota",
+                Model = "Vios"
             };
 
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList();
+            ViewBag.SearchingType = "1";
+            return View("~/Views/Car/SearchingCar.cshtml", criteria);
+        }
+
+        public ActionResult SearchingNewCars()
+        {
+            CarSearchingFirmModelCriteria criteria = new CarSearchingFirmModelCriteria
+            {
+                FirmName = "Toyota",
+                Model = "Vios"
+            };
 
             ViewBag.SearchingType = "2";
-            ViewBag.SearchingMessage = "Danh sách xe mới" + listCars.Count() +" xe";
-
-            return View("~/Views/Car/SearchingCar.cshtml", listCars);
+            return View("~/Views/Car/SearchingCar.cshtml", criteria);
         }
 
         public ActionResult SearchingOldCars()
-        {            
-            CarSearchingCriteria criteria = new CarSearchingCriteria
+        {
+            CarSearchingFirmModelCriteria criteria = new CarSearchingFirmModelCriteria
             {
-                IsNew = false
+                FirmName = "Toyota",
+                Model = "Vios"
             };
 
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList();
-
             ViewBag.SearchingType = "3";
-            ViewBag.SearchingMessage = "Danh sách xe cũ" + listCars.Count() +" xe";
-
-            return View("~/Views/Car/SearchingCar.cshtml", listCars);
+            return View("~/Views/Car/SearchingCar.cshtml", criteria);
         }
 
 
@@ -75,10 +75,7 @@ namespace CarSite.Controllers
 
         [HttpPost]
         public JsonResult SearchingCars(CarSearchingFirmModelCriteria criteria)
-        {
-            criteria.FirmName = "Toyota";
-            criteria.Model = "Vios";
-
+        {            
             var listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
         }

@@ -29,8 +29,14 @@
         }
         else{
             handler.hideSearchCarFirm();
-            if (location.href.indexOf("SearchingCar") < 0) {
-                location.href = "/car/SearchingCar";
+            //if (location.href.indexOf("SearchingCars") < 0) {
+            //    location.href = "/car/SearchingCars";
+            //}
+            switch(index)
+            {
+                case 1: location.href = "/car/SearchingCarsForYou"; break;
+                case 2: location.href = "/car/SearchingNewCars"; break;
+                case 3: location.href = "/car/SearchingOldCars"; break;
             }
         }        
         handler.inActiveTab($("#div_searching_criteria"));        
