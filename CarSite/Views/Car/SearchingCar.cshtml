@@ -25,55 +25,24 @@
 </div>
 
 @section Scripts
-{    
-
-    @if (ViewBag.SearchingType == "0")    
-    {
-        <script>
-        var criteria = {
-            itemsPerPage: 20,
-            currentPageIndex: 0,
-            firmName: '@Model.FirmName',
-            model: '@Model.Model'
-        };
-        </script>
-        
-    }    
-    else if(ViewBag.SearchingType == "1")
-    {
-        <script>
-        var criteria = {
-            itemsPerPage: 20,
-            currentPageIndex: 0,
-            firmName: '@Model.FirmName',
-            model: '@Model.Model'
-        };
-        </script>
-    }
-    else if (ViewBag.SearchingType == "2")
-    {
-        <script>
-        var criteria = {
-            itemsPerPage: 20,
-            currentPageIndex: 0,
-            firmName: '@Model.FirmName',
-            model: '@Model.Model'
-        };
-        </script>
-    }
-    else if (ViewBag.SearchingType == "3")
-    {
-        <script>
-        var criteria = {
-            itemsPerPage: 20,
-            currentPageIndex: 0,
-            firmName: '@Model.FirmName',
-            model: '@Model.Model'
-        };
-        </script>
-    }
-    
-    <script src="~/Content/scripts/SearchingCar.js"></script>
+{       
 
     <script src="~/Content/scripts/SearchingCriteria.js"></script>
+
+    <script src="~/Content/scripts/SearchingCar.js"></script>
+
+    <script>        
+            var searchingUrl = "SearchingCars";
+
+            var criteria = {
+                itemsPerPage: itemsPerPage,
+                currentPageIndex: 0,
+                firmName: '@Model.FirmName',
+                model: '@Model.Model'
+            };
+
+            SearchingCar.Searching(searchingUrl, criteria);
+
+    </script>   
+    
 }

@@ -1,21 +1,16 @@
 ﻿
-$(function () {
-    var SearchingCar = new Car.SearchingCar();
-    SearchingCar.Initialize();
-});
-
 Namespace.Register("Car.SearchingCar");
 
 Car.SearchingCar = function () {
     $this = this;
 
-    function getListCar(callback) {        
+    function getListCar(searchingUrl, criteria, callback) {
 
         $.ajax({
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
-            url: "SearchingCars",
+            url: searchingUrl,
             data: JSON.stringify(criteria),
             success: function (result) {
                 callback(result);
@@ -26,14 +21,15 @@ Car.SearchingCar = function () {
         });
     }
 
-    $this.showSearchedCars = function () {
-        var itemsPerPage = 20;
-        var bindDataFunction = getListCar;
-        renderGrid("gridSearchingCar", bindDataFunction, itemsPerPage);
-    }
-
     $this.Initialize = function () {                
         handler.hideDivRight();
-        $this.showSearchedCars();
     };
+
+    $this.Searching= function(searchingUrl, criteria)
+    {        
+        renderGrid("gridSearchingCar", searchingUrl, criteria, getListCar, itemsPerPage);
+    }
 }
+
+var SearchingCar = new Car.SearchingCar();
+SearchingCar.Initialize();

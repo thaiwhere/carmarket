@@ -4,6 +4,8 @@ var gridRender = function () {
     var _bindDataFunction;
     var _itemsPerPage = 20;
     var _totalItem = 0;
+    var _searhingUrl = "";
+    var _criteria = {};
 
     var gridOptions = {
         columns: [
@@ -34,14 +36,16 @@ var gridRender = function () {
         customGrid();
     }
            
-    init = function (gridId, bindDataFunction, itemsPerPage) {
-        _gridId = gridId;        
+    init = function (gridId, searchingUrl, criteria, bindDataFunction, itemsPerPage) {
+        _gridId = gridId;
+        _searhingUrl = searchingUrl;
+        _criteria = criteria;
         _bindDataFunction = bindDataFunction;
         _itemsPerPage = itemsPerPage;        
     }
 
     bindData = function(){
-        _bindDataFunction(render);
+        _bindDataFunction(_searhingUrl, _criteria, render);
     }
 
     decorateData = function (cars) {
@@ -114,9 +118,10 @@ var gridRender = function () {
     };
 };
 
-function renderGrid(gridId, bindDataFunction, itemsPerPage)
+
+function renderGrid(gridId, searchingUrl, criteria, bindDataFunction, itemsPerPage)
 {
     var grid = new gridRender();
-    grid.init(gridId, bindDataFunction, itemsPerPage);
+    grid.init(gridId, searchingUrl, criteria, bindDataFunction, itemsPerPage);
     grid.bindData();
 }

@@ -25,44 +25,7 @@ namespace CarSite.Controllers
             ViewBag.SearchingType = "0";            
             return View("~/Views/Car/SearchingCar.cshtml", criteria);
         }
-
-        public ActionResult SearchingCarsForYou()
-        {
-            CarSearchingFirmModelCriteria criteria = new CarSearchingFirmModelCriteria
-            {
-                FirmName = "Toyota",
-                Model = "Vios"
-            };
-
-            ViewBag.SearchingType = "1";
-            return View("~/Views/Car/SearchingCar.cshtml", criteria);
-        }
-
-        public ActionResult SearchingNewCars()
-        {
-            CarSearchingFirmModelCriteria criteria = new CarSearchingFirmModelCriteria
-            {
-                FirmName = "Toyota",
-                Model = "Vios"
-            };
-
-            ViewBag.SearchingType = "2";
-            return View("~/Views/Car/SearchingCar.cshtml", criteria);
-        }
-
-        public ActionResult SearchingOldCars()
-        {
-            CarSearchingFirmModelCriteria criteria = new CarSearchingFirmModelCriteria
-            {
-                FirmName = "Toyota",
-                Model = "Vios"
-            };
-
-            ViewBag.SearchingType = "3";
-            return View("~/Views/Car/SearchingCar.cshtml", criteria);
-        }
-
-
+    
         public ActionResult CarDetail()
         {
             List<string> carDetail = new List<string>();
@@ -74,7 +37,7 @@ namespace CarSite.Controllers
         #region POST Methods
 
         [HttpPost]
-        public JsonResult SearchingCars(CarSearchingFirmModelCriteria criteria)
+        public JsonResult SearchingCars(CarSearchingCriteria criteria)
         {            
             var listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
@@ -82,6 +45,20 @@ namespace CarSite.Controllers
 
         [HttpPost]
         public JsonResult SearchingCarsForYou(CarSearchingForYouCriteria criteria)
+        {
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
+        }
+
+        [HttpPost]
+        public JsonResult SearchingNewCars(CarSearchingCriteria criteria)
+        {
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
+        }
+
+        [HttpPost]
+        public JsonResult SearchingOldCars(CarSearchingCriteria criteria)
         {
             List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
