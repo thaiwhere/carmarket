@@ -15,54 +15,17 @@ namespace CarSite.Controllers
         #region GET Methods
 
         public ActionResult SearchingCars(string firm="", string model="")
-        {                     
-            //truong hop nay minh chi can xai 2 tham so {firm, model}
-
-            CarSearchingCriteria criteria = new CarSearchingCriteria
+        {                                 
+            CarSearchingFirmModelCriteria criteria = new CarSearchingFirmModelCriteria
             {
                 FirmName = firm,
                 Model = model
             };
-
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList();
-
-            ViewBag.SearchingType = "1";
-            ViewBag.SearchingMessage = "Kết quả tìm kiếm : " + listCars.Count() +" xe";
-
-            return View("~/Views/Car/SearchingCar.cshtml", listCars);
+            
+            ViewBag.SearchingType = "0";            
+            return View("~/Views/Car/SearchingCar.cshtml", criteria);
         }
-        
-        public ActionResult SearchingNewCars()
-        {
-            CarSearchingCriteria criteria = new CarSearchingCriteria
-            {
-                IsNew = true
-            };
-
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList();
-
-            ViewBag.SearchingType = "2";
-            ViewBag.SearchingMessage = "Danh sách xe mới" + listCars.Count() +" xe";
-
-            return View("~/Views/Car/SearchingCar.cshtml", listCars);
-        }
-
-        public ActionResult SearchingOldCars()
-        {            
-            CarSearchingCriteria criteria = new CarSearchingCriteria
-            {
-                IsNew = false
-            };
-
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList();
-
-            ViewBag.SearchingType = "3";
-            ViewBag.SearchingMessage = "Danh sách xe cũ" + listCars.Count() +" xe";
-
-            return View("~/Views/Car/SearchingCar.cshtml", listCars);
-        }
-
-
+    
         public ActionResult CarDetail()
         {
             List<string> carDetail = new List<string>();
@@ -75,13 +38,27 @@ namespace CarSite.Controllers
 
         [HttpPost]
         public JsonResult SearchingCars(CarSearchingCriteria criteria)
+        {            
+            var listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
+        }
+
+        [HttpPost]
+        public JsonResult SearchingCarsForYou(CarSearchingForYouCriteria criteria)
         {
             List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
-        public JsonResult SearchingCarsForYou(CarSearchingForYouCriteria criteria)
+        public JsonResult SearchingNewCars(CarSearchingCriteria criteria)
+        {
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
+        }
+
+        [HttpPost]
+        public JsonResult SearchingOldCars(CarSearchingCriteria criteria)
         {
             List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);

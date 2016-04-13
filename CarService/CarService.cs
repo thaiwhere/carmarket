@@ -17,7 +17,7 @@ namespace Car.Service
             var cache = CacheManager.GetInstance();
             var cars = cache.GetCache<IEnumerable<CarModel>>(criteria.GetSettingKey());
 
-            if (cars == null)
+            //if (cars == null)
             {
                 using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
                 {

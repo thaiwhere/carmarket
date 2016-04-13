@@ -2,6 +2,8 @@
 <Functions>
   <Function Name="CarSite">
     <Setting Key="Car_Searching" SpName="Car_Searching" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="Car_Searching_Firm_Model" SpName="Car_Searching_Firm_Model" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="Car_Searching_For_You" SpName="Car_Searching_For_You" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="SP_TOP_10_CARS" SpName="SP_TOP_10_CARS" DbName="CarHome.Database" Plain="1"></Setting>
   </Function>
 </Functions>

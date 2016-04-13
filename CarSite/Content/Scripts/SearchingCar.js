@@ -1,29 +1,19 @@
 ﻿
-$(function () {
-    var SearchingCar = new Car.SearchingCar();
-    SearchingCar.Initialize();
-});
-
 Namespace.Register("Car.SearchingCar");
 
 Car.SearchingCar = function () {
     $this = this;
 
-    function getListCar(callback, itemsPerPage, currentPageIndex, totalItem) { // trong day se call Ajax de goi den CarController/SearchingCar
-        var criteria = {
-            itemsPerPage: itemsPerPage,
-            currentPageIndex: currentPageIndex,
-            searchingType: 1
-        };
+    function getListCar(searchingUrl, criteria, callback) {
 
         $.ajax({
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
-            url: "SearchingCars",
+            url: searchingUrl,
             data: JSON.stringify(criteria),
             success: function (result) {
-                callback(result, itemsPerPage, currentPageIndex, totalItem);
+                callback(result);
             },
             error: function (xhr) {
                 common.HandleAjaxError(xhr);
@@ -31,13 +21,15 @@ Car.SearchingCar = function () {
         });
     }
 
-    $this.showTop50Cars = function () {
-        var bindDataFunction = getListCar;
-        renderGrid("gridSearchingCar", bindDataFunction, 10, 50);
-    }
-
     $this.Initialize = function () {                
         handler.hideDivRight();
-        $this.showTop50Cars();        
     };
+
+    $this.Searching= function(searchingUrl, criteria)
+    {        
+        renderGrid("gridSearchingCar", searchingUrl, criteria, getListCar, itemsPerPage);
+    }
 }
+
+var SearchingCar = new Car.SearchingCar();
+SearchingCar.Initialize();

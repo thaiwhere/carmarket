@@ -25,15 +25,25 @@
     redirectSearching: function (index) {
         $.cookie("tabIndex", index, { path: '/' });
         if (index == 0) {
-            handler.showSearchCarFirm();
+            handler.showSearchCarFirm();            
         }
         else{
             handler.hideSearchCarFirm();
-            if (location.href.indexOf("SearchingCar") < 0) {
-                location.href = "/car/SearchingCar";
+            if (location.href.indexOf("SearchingCars") < 0) {
+                location.href = "/car/SearchingCars";
             }
-        }        
-        handler.inActiveTab($("#div_searching_criteria"));        
+            switch(index)
+            {
+                case 1: SearchingCar.Searching("SearchingCarsForYou", { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
+                    break;
+                case 2: SearchingCar.Searching("SearchingNewCars", { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
+                    break;
+                case 3: SearchingCar.Searching("SearchingOldCars", { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
+                    break;
+            }
+        }
+
+        handler.inActiveTab($("#div_searching_criteria"));
     },
 
     bindEvents: function () {
