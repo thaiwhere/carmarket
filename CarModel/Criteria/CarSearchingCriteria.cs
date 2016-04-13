@@ -12,15 +12,13 @@ namespace Car.Model.Criteria
     /// </summary>
     public class CarSearchingCriteria : CriteriaBase
     {
-        public int currentPageIndex { get; set; }
-
-        public int itemsPerPage { get; set; }
-
         public string FirmName { get; set; }
 
         public string Model { get; set; }
 
-        public bool IsImport { get; set; }
+        public short IsNew { get; set; } 
+
+        public short IsImport { get; set; }
 
         public double fromPrice { get; set; }
 
@@ -29,22 +27,18 @@ namespace Car.Model.Criteria
         public int Year { get; set; }
 
         public string Province { get; set; }
-
-        public bool Status { get; set; }
-        
-        public double PriceVN { get; set; }
-
-        public double PriceUSD { get; set; }
-
+                
         public string ExteriorColor { get; set; }
 
         public string InteriorColor { get; set; }
 
         public int WindowNo { get; set; }
 
-        public int SeatNo { get; set; }        
+        public int SeatNo { get; set; }
 
-        public bool IsNew { get; set; }        
+        public int currentPageIndex { get; set; }
+
+        public int itemsPerPage { get; set; }
 
         /// <summary>
         /// Gets Setting Key.

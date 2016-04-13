@@ -39,13 +39,13 @@ namespace Car.Model.Criteria
         public string Class { get; set; }
 
 
-        public bool IsImport { get; set; }
+        public short IsImport { get; set; }
 
         public int Year { get; set; }
 
         public string Province { get; set; }
 
-        public bool Status { get; set; }
+        public short Status { get; set; }
 
         public int Km { get; set; }
 
@@ -82,7 +82,7 @@ namespace Car.Model.Criteria
 
 
 
-        public bool IsNew { get; set; }
+        public short IsNew { get; set; }
         
 
         /// <summary>
