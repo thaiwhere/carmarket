@@ -29,17 +29,26 @@
         }
         else{
             handler.hideSearchCarFirm();
-            if (location.href.indexOf("SearchingCars") < 0) {
-                location.href = "/car/SearchingCars";
-            }
+            
             switch(index)
             {
-                case 1: SearchingCar.Searching("SearchingCarsForYou", { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
+                case 1:
+                    searchingUrl = "SearchingCarsForYou";                                        
                     break;
-                case 2: SearchingCar.Searching("SearchingNewCars", { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
+                case 2:
+                    searchingUrl = "SearchingNewCars";                    
                     break;
-                case 3: SearchingCar.Searching("SearchingOldCars", { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
+                case 3:
+                    searchingUrl = "SearchingOldCars";                    
                     break;
+            }
+           
+            if (location.href.indexOf("SearchingCars") < 0) {
+                $.cookie("searchingUrl", searchingUrl, { path: '/' });
+                location.href = "/car/SearchingCars";
+            }
+            else {
+                SearchingCar.Searching(searchingUrl, { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
             }
         }
 

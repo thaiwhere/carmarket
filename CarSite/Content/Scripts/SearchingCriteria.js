@@ -5,7 +5,7 @@
     {        
         switch(tabIndex)
         {
-            case "0": $("#car_searching").addClass("tabactive"); handler.hideSearchCarFirm(); break;
+            case "0": $("#car_searching").addClass("tabactive"); break;
             case "1": $("#car_for_you").addClass("tabactive"); break;
             case "2": $("#car_new").addClass("tabactive"); break;
             case "3": $("#car_old").addClass("tabactive"); break;

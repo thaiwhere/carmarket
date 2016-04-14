@@ -22,9 +22,8 @@ namespace CarSite.Controllers
                 Model = model
             };
             
-            ViewBag.SearchingType = "0";            
             return View("~/Views/Car/SearchingCar.cshtml", criteria);
-        }
+        }        
     
         public ActionResult CarDetail()
         {
