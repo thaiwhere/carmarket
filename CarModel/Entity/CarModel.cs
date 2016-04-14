@@ -10,7 +10,7 @@ namespace Car.Model.Entity
     {
         public int CarId { get; set; }
         public int UserId { get; set; }
-        public bool Status { get; set; }
+        public bool IsNew { get; set; }
         public bool IsImport { get; set; }
         public int Year { get; set; }
 

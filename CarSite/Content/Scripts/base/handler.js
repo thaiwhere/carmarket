@@ -41,6 +41,12 @@
                 case 3:
                     searchingUrl = "SearchingOldCars";                    
                     break;
+                case 4:
+                    searchingUrl = "SearchingImportCars";
+                    break;
+                case 5:
+                    searchingUrl = "SearchingDomesticCars";
+                    break;
             }
            
             if (location.href.indexOf("SearchingCars") < 0) {

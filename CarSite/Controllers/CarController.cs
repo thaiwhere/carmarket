@@ -50,14 +50,28 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
-        public JsonResult SearchingNewCars(CarSearchingCriteria criteria)
+        public JsonResult SearchingNewCars(CarSearchingNewImportCriteria criteria)
         {
             List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
-        public JsonResult SearchingOldCars(CarSearchingCriteria criteria)
+        public JsonResult SearchingOldCars(CarSearchingNewImportCriteria criteria)
+        {
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
+        }
+
+        [HttpPost]
+        public JsonResult SearchingImportCars(CarSearchingNewImportCriteria criteria)
+        {
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
+        }
+
+        [HttpPost]
+        public JsonResult SearchingDomesticCars(CarSearchingNewImportCriteria criteria)
         {
             List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);

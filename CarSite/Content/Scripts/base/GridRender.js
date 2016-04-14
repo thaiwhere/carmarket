@@ -7,7 +7,7 @@ function decorateData(cars) {
         var image = "/Images/Cars_" + cars[i].UserId + "/1.jpg";
         var title = cars[i].Title;
 
-        var status = cars[i].Status == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe cũ";
+        var status = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe cũ";
         status += " (" + cars[i].Year + ")</div>";
 
         var source = "<div class='car-info-source'>" + (cars[i].IsImport == true ? "Nhập khẩu" : "Trong nước") + "</div>";
