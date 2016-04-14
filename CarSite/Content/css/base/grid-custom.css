@@ -21,4 +21,11 @@
 
 #gridSearchingCar{
     margin-left:0px;
+    width:766px !important;
+    height:1860px !important;
+}
+
+.grid-container
+{
+    height:1860px !important;
 }

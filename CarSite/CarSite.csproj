@@ -316,9 +316,11 @@
     <Content Include="Content\images\team\pic6.jpg" />
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
+    <Content Include="Content\scripts\base\GridRender - Copy.js" />
     <Content Include="Content\scripts\base\init.js" />
     <Content Include="Content\scripts\base\handler.js" />
     <Content Include="Content\scripts\base\namespace.js" />
+    <Content Include="Content\scripts\GridDemo.js" />
     <Content Include="Content\scripts\Index.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.cookie.js" />
     <Content Include="Content\scripts\SearchingCriteria.js" />

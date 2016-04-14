@@ -4,7 +4,7 @@ Namespace.Register("Car.SearchingCar");
 Car.SearchingCar = function () {
     $this = this;
 
-    function getListCar(searchingUrl, criteria, callback) {
+    function getListCar(gridId, searchingUrl, criteria, callback) {
 
         $.ajax({
             type: 'POST',
@@ -13,7 +13,7 @@ Car.SearchingCar = function () {
             url: searchingUrl,
             data: JSON.stringify(criteria),
             success: function (result) {
-                callback(result);
+                callback(gridId, result);
             },
             error: function (xhr) {
                 common.HandleAjaxError(xhr);
@@ -26,8 +26,9 @@ Car.SearchingCar = function () {
     };
 
     $this.Searching= function(searchingUrl, criteria)
-    {        
-        renderGrid("gridSearchingCar", searchingUrl, criteria, getListCar, itemsPerPage);
+    {
+        var callback = gridRender;
+        getListCar("gridSearchingCar", searchingUrl, criteria, callback);
     }
 }
 
