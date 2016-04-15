@@ -10,13 +10,10 @@ namespace Car.Model.Criteria
     /// <summary>
     /// 
     /// </summary>
-    public class CarSearchingNewImportCriteria : CriteriaBase
+    public class CarSearchingLikeModelCriteria : CriteriaBase
     {
 
-
-        public short IsNew { get; set; }
-
-        public short IsImport { get; set; }
+        public string Model { get; set; }
 
         public int currentPageIndex { get; set; }
 
@@ -28,9 +25,8 @@ namespace Car.Model.Criteria
         /// <returns>Setting key of the criteria.</returns>
         public override string GetSettingKey()
         {
-            return "get_New_Import_Cars";
+            return "Car_Searching_Like_Model";
         }
-
 
     }
 }
