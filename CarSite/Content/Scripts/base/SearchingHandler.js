@@ -37,7 +37,61 @@
             case "Ssangyong": modelsName = "Chairman,Family,Istana,Korando,Kyron,Musso,Rexton,Khác,"; break;
             case "Suzuki": modelsName = "Aerio,Alto,APV,Balenno,Carry,Cultis wagon,Ertiga,Grand vitara,Liana,Samirai,SJ,Super Carry Truck,Super Carry Van,Swift,Twin,Vitara,Wagon R+,XL 7,Khác,"; break;
             case "Toyota": modelsName = "4 Runner,86,Allion,Alphard,Altezza,Aristo,Aurion,Avalon,Avensis,Aygo,Brevis,Caldina,Cami,Camry,Carina,Celica,Century,Chaser,Corolla,Corolla altis,Corona,Cressida,Cresta,Crown,Estima,Fj cruiser,Fortuner,Hiace,Highlander,Hilux,Innova,Ipsum,IQ,Land Cruiser,Liteace,Mark II,Matrix,MR 2,Picnic,Platz,Prado,Previa,Prius,Progres,Raum,RAV4,Sequoia,Sera,Sienna,Soarer,Solara,Starlet,Supra,Tacoma,Tercel,Townace,Tundra,Venza,Vios,Vista,Wish,XA,Yaris,Yaris Verso,Zace,Khác,"; break;
-
+            case "Volkswagen": modelsName = "Beetle,Bora,California,Eos,Golf,Jetta,Multivan,New Beetle,Passat,Phaeton,Polo,Routan,Scirocco,Sharan,Solo,Tiguan,Touareg,Transporter,Vento,Khác,"; break;
+            case "AlfaRomeo": modelsName = "GT,Spider,Khác"; break;
+            case "AstonMartin": modelsName ="DB7,Lagonda,Vantage,Virage,Zagato,Khác"; break;
+            case "Asia": modelsName ="Khác"; break;
+            case "Baic": modelsName = "S3,Bentley,Azure,Brooklands,Continental,Mulsanne,Khác"; break;
+            case "Buick": modelsName = "Electra,Lasabre,Skylark,Khác"; break;
+            case "BYD": modelsName = "F0,Khác"; break;
+            case "Cadillac": modelsName = "Allante,ATS,Catera,CTS,Deville,Escalade,Fleetwood,Seville,SRX,STS,Khác"; break;
+            case "Changan": modelsName = "CX20,Eado,Honor"; break;
+            case "Chery": modelsName = "QQ3,Khác"; break;
+            case "Chrysler": modelsName = "200,300C,300M,Cruiser,Grand Voyager,Intrepid,Jeep cherokee,LeBaron,Neon,New Yorker,Ptcruise,Sebring,Stratus,Voyager,Khác"; break;
+            case "Citroen": modelsName = "AX,C1,C2,C3,CX,DS3,XM,ZX,Khác"; break;
+            case "Dodge": modelsName = "Caravan,Dakota,Durango,Grand caravan,Journey,Neon,Ram,Stealth,Voyager,Khác"; break;
+            case "Ferrari": modelsName = "456,458,575,California,F 355,F 360,F 512,Maranello,Testarossa,Khác"; break;
+            case "Gaz": modelsName = "69,Volga,Khác"; break;
+            case "Geely": modelsName = "Emgrand,Englon,Khác"; break;
+            case "GMC": modelsName = "Savana,Khác"; break;
+            case "Haima": modelsName = "2,3,7,Freema,Fstar,M3,M8,S5,S7,Khác"; break;
+            case "Hummer": modelsName = "H2,H3,Khác"; break;
+            case "Infiniti": modelsName = "EX,FX,G35,G37,Q45,QX,Khác"; break;
+            case "Jaguar": modelsName = "S Type,X Type,XF,XJ series,XK series,Khác"; break;   
+            case "Jeep": modelsName = ""; break;  
+            case "Lada": modelsName = "2104,2105,2106,2107,2108,2109,2112,2121,Niva,Samara,Khác"; break;    
+            case "Lamborghini": modelsName = ""; break;  
+            case "Lifan": modelsName = "520,620,Khác"; break;
+            case "Lincoln": modelsName = "Continental,Town car,Khác"; break;
+            case "Luxgen": modelsName = "5,7 MPV,7 SUV,M7,U7,Khác"; break;
+            case "Man": modelsName = "CLA,Khác"; break;
+            case "Maserati": modelsName = "Quatroporte,Khác"; break;
+            case "Maybach": modelsName = "57,Khác"; break;
+            case "Mekong": modelsName = "Paso,Premio,Pronto,Khác"; break;
+            case "Mercury": modelsName = "Sable,Topaz,Villager,Khác"; break;
+            case "Mini": modelsName = "Cooper,One,Khác"; break;
+            case "Opel": modelsName = "Antara,Astra,Combo,Corsa,Omega,Record,Tigra,Vectra,Khác"; break;
+            case "Pontiac": modelsName = "Aztek,Fiero,Firebird,Solstice,Trans sport,Khác"; break;               
+            case "RollsRoyce": modelsName = "Ghost,Phantom,Wraith,Khác"; break;
+            case "Rover": modelsName = "100,200,400,800,Khác"; break;
+            case "Samsung": modelsName = "QM5,SM3,SM5,SM7,Khác"; break;
+            case "Scion": modelsName = "Xd,Khác"; break;
+            case "Smart": modelsName = "Coupe,Forfour,Fortwo,Roadster,Khác"; break;
+            case "Proton": modelsName = "Arena,Perdana,Tiara,Wira,Khác"; break;
+            case "Subaru": modelsName = "Forester,Impreza,Legacy,Levorg,Outback,Tribeca,XV,Khác"; break;
+            case "SYM": modelsName = " T1000,T880,V11,V5,Khác"; break;
+            case "Tesla": modelsName = "S"; break;
+                
+                
+               
+                    
+                
+                
+               
+                           
+                
+                
+                                             
             default: modelsName = "";
         }
 
