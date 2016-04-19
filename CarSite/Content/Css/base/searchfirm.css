@@ -17,39 +17,18 @@
     color:#337ab7;
 }
 
-#search_firm{
+.search-section{
     float:left;    
+    margin-top:10px;
+    padding-right:10px;
 }
-
-#search_status{
-    float:left;
-    margin-left:25px;
-    margin-right:14px;    
-}
-
-#search_place{
-    float:left;    
-}
-
 
 #search_model_box{
     border: 1px solid #CCCCCC;        
     padding:3px;
-    float:left;
-    margin-left:15px;
-    margin-bottom:10px;
-    width:89%;    
-}
-
-#search_model_label{
-    float:none !important;
-    font-weight:bold !important;
-}
-
-#search_model{    
     float:left;    
-    margin-top:10px;
-    width:100%;
+    margin-bottom:10px;
+    width:100%;    
 }
 
 #search_model_all{    
@@ -61,7 +40,7 @@
     width:100px;
 }
 
-#check_model_all label{
+#checkbox_model_all label{
     font-weight:normal;
 }
 
@@ -69,24 +48,6 @@
     font-weight:normal;
 }
 
-#search_price{
-    float:left;
-    margin-top:10px;
-}
-
-#search_price_option{
-    float:left;    
-}
-
-#search_price_from{
-    float:left;
-    margin-left:32px;
-}
-
-#search_price_to{
-    float:left;
-    margin-right:50px;
-}
 
 #searching{
     float:right;
@@ -94,15 +55,7 @@
 #search_origin{
    float:left; 
 }
-#search_box_number{
-   float:left; 
-   margin-left:25px;
-   margin-right:25px;
-}
 
-#search_year_product{
-   float:left;    
-}
 
 .the-legend {
     border-style: none;

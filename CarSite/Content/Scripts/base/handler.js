@@ -153,7 +153,7 @@
             }
         );
 
-        $("#select-firm").change(
+        $("#select_firm").change(
             function () {
                 SearchingHandler.renderModels(this.value);
             }

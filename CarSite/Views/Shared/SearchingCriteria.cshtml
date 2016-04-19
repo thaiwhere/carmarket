@@ -12,9 +12,9 @@
 <div id="search_car_firm">
 
     <fieldset class="the-fieldset">
-        <div id="search_firm">
+        <div class="search-section">
             <label>Hãng xe:</label>
-            <select id="select-firm">
+            <select id="select_firm">
                 <option value="All" selected>Tất cả</option>
                 <option value="Acura" selected>Acura</option>
                 <option value="Audi">Audi</option>
@@ -94,16 +94,18 @@
             </select>
         </div>
 
-        <div id="search_status">
+        <div class="search-section">
             <label>Tình trạng:</label>
-            <input type="radio" name="search_status" value="OldStatus" checked /><span>&nbsp;Mới</span>
-            <span>&nbsp;&nbsp;</span>
-            <input type="radio" name="search_status" value="NewStatus" /><span>&nbsp;Cũ</span>
+            <select id="select_status">
+                <option value="all" selected>Tất cả</option>
+                <option value="new">Mới</option>
+                <option value="old">Cũ</option>
+            </select>
         </div>
 
-        <div id="search_place">
+        <div class="search-section">
             <label>Nơi bán:</label>
-            <select>
+            <select id="select_place">
                 <option value="HCM" selected>Hồ Chí Minh</option>
                 <option value="HN">Hà Nội</option>
                 <option value="DN">Đà Nẵng</option>
@@ -111,41 +113,35 @@
             </select>
         </div>
 
-        <div id="search_model">
-            <div id="search_model_all">
-                <label id="search_model_label">Model:</label>
-                <div id="check_model_all">
-                    <input type="checkbox" checked="checked" id="select-model-all" /> <label>All</label>
-                </div>
-            </div>
-            <div id="search_model_box">
-            </div>
+        <div class="search-section">
+            <label>Model:</label>
+            <input type="checkbox" checked="checked" id="select-model-all" /> <label style="font-weight:normal">All</label>
         </div>
 
-        <div id="search_origin">
+        <div id="search_model_box" class="search-section" >            
+        </div>
+
+        <div class="search-section">
             <label>Xuất xứ:</label>
-            <select>
-                <option value="tatca" selected>Tất cả</option>
-                <option value="trongnuoc">Trong nước</option>
-                <option value="nhapkhau">Nhập khẩu</option>
-
+            <select id="select_origin">
+                <option value="all" selected>Tất cả</option>
+                <option value="domestic">Trong nước</option>
+                <option value="import">Nhập khẩu</option>
             </select>
         </div>
-        @*hop so*@
 
-        <div id="search_box_number">
+        <div class="search-section">
             <label>Hộp số:</label>
-            <select>
-                <option value="tatca" selected>Tất cả</option>
-                <option value="sotudong">Số tự động</option>
-                <option value="sotay">Số tay</option>
-
+            <select id="select_gearbox">
+                <option value="all" selected>Tất cả</option>
+                <option value="auto">Số tự động</option>
+                <option value="manual">Số tay</option>
             </select>
         </div>
 
-        <div id="search_year_product">
+        <div class="search-section">
             <label>Năm SX:</label>
-            <select>
+            <select id="select_year">
                 <option value="All" selected>Tất cả</option>
                 <option value="2016">--2016--</option>
                 <option value="2015">--2015--</option>
@@ -166,60 +162,55 @@
                 <option value="2000">--2000--</option>
                 <option value="1999">--1999--</option>
                 <option value="<1999">--1998--</option>
+            </select>
+        </div>
 
+        <div class="search-section">
+            <label style="width:55px;">Giá:</label>
+            <select id="select_price_from">
+                <option value="0" selected>Từ giá</option>
+                <option value="100">100 Triệu</option>
+                <option value="200">200 Triệu</option>
+                <option value="300">300 Triệu</option>
+                <option value="400">400 Triệu</option>
+                <option value="500">500 Triệu</option>
+                <option value="600">600 Triệu</option>
+                <option value="700">700 Triệu</option>
+                <option value="800">800 Triệu</option>
+                <option value="900">900 Triệu</option>
+                <option value="1">1 Tỉ</option>
+                <option value="2">2 Tỉ</option>
+                <option value="3">3 Tỉ</option>
+                <option value="4">4 Tỉ</option>
+                <option value=">5">>5 Tỉ</option>
 
             </select>
         </div>
-        <div id="search_price">
-            <div id="search_price_option">
-                <label>Giá:</label>
-            </div>
-            <div id="search_price_from">
-                <select>
-                    <option value="0" selected>Từ giá</option>
-                    <option value="100">100 Triệu</option>
-                    <option value="200">200 Triệu</option>
-                    <option value="300">300 Triệu</option>
-                    <option value="400">400 Triệu</option>
-                    <option value="500">500 Triệu</option>
-                    <option value="600">600 Triệu</option>
-                    <option value="700">700 Triệu</option>
-                    <option value="800">800 Triệu</option>
-                    <option value="900">900 Triệu</option>
-                    <option value="1">1 Tỉ</option>
-                    <option value="2">2 Tỉ</option>
-                    <option value="3">3 Tỉ</option>
-                    <option value="4">4 Tỉ</option>
-                    <option value=">5">>5 Tỉ</option>
 
-                </select>
-            </div>
+        <div class="search-section">
             <span style="float:left">&nbsp;&nbsp;-->&nbsp;&nbsp;</span>
-            <div id="search_price_to">
-                <select>
-                    <option value="0" selected>Đến giá</option>
-                    <option value="100">100 Triệu</option>
-                    <option value="200">200 Triệu</option>
-                    <option value="300">300 Triệu</option>
-                    <option value="400">400 Triệu</option>
-                    <option value="500">500 Triệu</option>
-                    <option value="600">600 Triệu</option>
-                    <option value="700">700 Triệu</option>
-                    <option value="800">800 Triệu</option>
-                    <option value="900">900 Triệu</option>
-                    <option value="1">1 Tỉ</option>
-                    <option value="2">2 Tỉ</option>
-                    <option value="3">3 Tỉ</option>
-                    <option value="4">4 Tỉ</option>
-                    <option value=">5">>5 Tỉ</option>
-                </select>
-            </div>
-
-            <div id="searching">
-                <a href="javascript:void(null);" onclick="$('#fsearch').submit();" class="btn-search"></a>
-            </div>
+            <select id="select_price_to">
+                <option value="0" selected>Đến giá</option>
+                <option value="100">100 Triệu</option>
+                <option value="200">200 Triệu</option>
+                <option value="300">300 Triệu</option>
+                <option value="400">400 Triệu</option>
+                <option value="500">500 Triệu</option>
+                <option value="600">600 Triệu</option>
+                <option value="700">700 Triệu</option>
+                <option value="800">800 Triệu</option>
+                <option value="900">900 Triệu</option>
+                <option value="1">1 Tỉ</option>
+                <option value="2">2 Tỉ</option>
+                <option value="3">3 Tỉ</option>
+                <option value="4">4 Tỉ</option>
+                <option value=">5">>5 Tỉ</option>
+            </select>
         </div>
 
+        <div id="searching">
+            <a href="javascript:void(null);" onclick="$('#fsearch').submit();" class="btn-search"></a>
+        </div>
 
     </fieldset>
 
