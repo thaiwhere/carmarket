@@ -58,9 +58,7 @@
             case "Hummer": modelsName = "H2,H3,Khác"; break;
             case "Infiniti": modelsName = "EX,FX,G35,G37,Q45,QX,Khác"; break;
             case "Jaguar": modelsName = "S Type,X Type,XF,XJ series,XK series,Khác"; break;   
-            case "Jeep": modelsName = ""; break;  
             case "Lada": modelsName = "2104,2105,2106,2107,2108,2109,2112,2121,Niva,Samara,Khác"; break;    
-            case "Lamborghini": modelsName = ""; break;  
             case "Lifan": modelsName = "520,620,Khác"; break;
             case "Lincoln": modelsName = "Continental,Town car,Khác"; break;
             case "Luxgen": modelsName = "5,7 MPV,7 SUV,M7,U7,Khác"; break;
@@ -81,11 +79,68 @@
             case "Subaru": modelsName = "Forester,Impreza,Legacy,Levorg,Outback,Tribeca,XV,Khác"; break;
             case "SYM": modelsName = " T1000,T880,V11,V5,Khác"; break;
             case "Tesla": modelsName = "S"; break;
+            case "Aston Martin": modelsName = "DB7,Lagonda,Rapide,Vanquish,Vantage,Virage,Zagato,Khác"; break;
+            case "Bentley": modelsName = "Azure,Brooklands,Continental,Flying Spur,Mulsanne, Khác"; break;
+            case "Fuso": modelsName = "Canter, Fighter,FV,Rosa,Tractor, Khác"; break;
+            case "Hino": modelsName = "300 Series,500 Series, 700 Series, Khác"; break;
+            case "Jeep": modelsName = "A2,Cherokee,CJ,Grand,Liberty,Wrangler,Khác"; break;
+            case "Lamborghini": modelsName = "Aventador, Diablo, Gallado, Murcielago, Khác"; break;
+            case "MG": modelsName = "350C,5,6,Express, ZT,Khác"; break;
+            case "Thaco": modelsName = "Auman,Aumark,Forland,Foton,Frontier,Mobihome,Ollin,Towner,Khác"; break;
+            case "Vinaxuki": modelsName = "1200B,1240T,1490T,1980T,1990BA,2500BA,3450T,35000TL,4500BA,50000BA,5500TL,7000BA,990T,Hafei,Jinbei,Khác"; break;
+            case "Volvo": modelsName = "340,360,460,740,760,850,940,960,C70,S60,V70,XC90,Khác"; break;
+            case "Zotye": modelsName = "T600,Z100,Z300,Z500,Khác"; break;
+               
+                
+
+                
+
+                
                 
                 
                
-                    
                 
+                
+               
+                
+
+                
+                
+                
+               
+                
+
+               
+               
+                
+               
+
+                
+               
+               
+                
+               
+                
+                
+                
+
+                
+                
+                
+               
+               
+
+               
+                
+               
+                
+                
+               
+
+               
+    
+                
+     
                 
                
                            
