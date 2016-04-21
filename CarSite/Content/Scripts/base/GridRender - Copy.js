@@ -92,14 +92,14 @@ var gridRender = function () {
     }
 
     customGrid = function () {
-        var gridOjb = $("#" + _gridId);
-        gridOjb.css("width", (gridOjb.width() - 16) + "px");
-        gridOjb.css("height", "1860px");
+        var gridObj = $("#" + _gridId);
+        gridObj.css("width", (gridObj.width() - 16) + "px");
+        gridObj.css("height", "1860px");
 
         $(".grid-container").css("height", "1860px");
        
-        gridOjb.find($(".x-scrollbar")).remove();
-        gridOjb.find($(".y-scrollbar")).remove();        
+        gridObj.find($(".x-scrollbar")).remove();
+        gridObj.find($(".y-scrollbar")).remove();        
     }
 
     render = function (data) {

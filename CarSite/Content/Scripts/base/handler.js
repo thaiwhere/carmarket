@@ -1,6 +1,18 @@
 ﻿var handler = {
+    expandDivCenter: function () {
+        $("#div-center").removeClass("div-center").addClass("div-center-searching");
+    },
+
+    collapseDivCenter: function () {
+        $("#div-center").removeClass("div-center-searching").addClass("div-center");
+    },
+
     hideDivLeft: function () {
         $("#div-left").hide();
+    },
+
+    showDivRight: function () {
+        $("#div-right").show();
     },
 
     hideDivRight: function () {
@@ -22,21 +34,50 @@
         }
     },
 
+    setSearchingActiveTab:function(){
+        handler.inActiveTab($("#div_searching_criteria"));
+        var tabIndex = $.cookie("tabIndex");
+        if (tabIndex != 'undefined') {
+            switch (tabIndex) {
+                case "0": $("#car_searching").addClass("tabactive"); break;
+                case "1": $("#car_for_you").addClass("tabactive"); break;
+                case "2": $("#car_new").addClass("tabactive"); break;
+                case "3": $("#car_old").addClass("tabactive"); break;
+                case "4": $("#car_import").addClass("tabactive"); break;
+                case "5": $("#car_domestic").addClass("tabactive"); break;
+            }
+        }
+    },
+
+    showResultSearching:function(){
+        shrinkGrid = false;        
+        handler.hideDivRight();
+        handler.expandDivCenter();
+    },
+
+    showHomePage: function () {
+        shrinkGrid = true;
+        handler.showDivRight();
+        handler.collapseDivCenter();
+    },
+
     redirectSearching: function (index) {
         $.cookie("tabIndex", index, { path: '/' });
         if (index == 0) {
+            shrinkGrid = true;
             handler.showSearchCarFirm();            
         }
-        else{
+        else {
             handler.hideSearchCarFirm();
+            handler.showResultSearching();            
             
             switch(index)
             {
                 case 1:
-                    searchingUrl = "SearchingCarsForYou";                                        
+                    searchingUrl = "/Car/SearchingCarsForYou";                                        
                     break;
                 case 2:
-                    searchingUrl = "SearchingNewCars";                    
+                    searchingUrl = "/Car/SearchingNewCars";                    
                     break;
                 case 3:
                     searchingUrl = "SearchingOldCars";                    
@@ -49,13 +90,15 @@
                     break;
             }
            
-            if (location.href.indexOf("SearchingCars") < 0) {
-                $.cookie("searchingUrl", searchingUrl, { path: '/' });
-                location.href = "/car/SearchingCars";
-            }
-            else {
-                SearchingCar.Searching(searchingUrl, { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
-            }
+            SearchingCar.Searching(searchingUrl, { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
+
+            //if (location.href.indexOf("SearchingCars") < 0) {
+            //    $.cookie("searchingUrl", searchingUrl, { path: '/' });
+            //    location.href = "/car/SearchingCars";
+            //}
+            //else {
+            //    SearchingCar.Searching(searchingUrl, { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
+            //}
         }
 
         handler.inActiveTab($("#div_searching_criteria"));

@@ -38,29 +38,52 @@ function decorateData(cars) {
 }
 
 var gridRender = function (gridId, data) {
-
-    var gridOptions =
-        {
-            columns: [
-            { HeaderText: "Hình", Width: 160, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
-            { HeaderText: "Mô tả", Width: 450, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
-            { HeaderText: "Thông tin", Width: 190, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
-            ],
-            bodyRows: decorateData(data),
-            gridExpandHeight: 100,
-            showPager: true,            
-            pagerOption: {
-                itemsPerPage: 10,
-                currentPage: 0,                    
-                showDetail: true
-            }
-        };   
+    var gridOptions = {};
+    if (!shrinkGrid) {
+        gridOptions =
+            {
+                columns: [
+                { HeaderText: "Hình", Width: 160, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Mô tả", Width: 450, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Thông tin", Width: 160, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
+                ],
+                bodyRows: decorateData(data),
+                gridExpandHeight: 100,
+                showPager: true,
+                pagerOption: {
+                    itemsPerPage: 10,
+                    currentPage: 0,
+                    showDetail: true
+                }
+            };
+    }
+    else
+    {
+        gridOptions =
+            {
+                columns: [
+                { HeaderText: "Hình", Width: 150, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Mô tả", Width: 260, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Thông tin", Width: 120, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
+                ],
+                bodyRows: decorateData(data),
+                gridExpandHeight: 100,
+                showPager: true,
+                pagerOption: {
+                    itemsPerPage: 10,
+                    currentPage: 0,
+                    showDetail: true
+                }
+            };
+    }
 
     customGrid = function () {
-        var gridOjb = $("#" + gridId);        
-        gridOjb.find($(".x-scrollbar")).remove();
-        gridOjb.find($(".y-scrollbar")).remove();
-        gridOjb.find($(".free-cell")).remove();
+        var gridObj = $("#" + gridId);        
+        gridObj.find($(".x-scrollbar")).remove();
+        gridObj.find($(".y-scrollbar")).remove();
+        gridObj.find($(".free-cell")).remove();
+
+        var width = gridObj.width();
     }
 
     $("#" + gridId).PagerGrid(gridOptions);

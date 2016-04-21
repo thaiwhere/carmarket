@@ -1,5 +1,5 @@
 ﻿.freegrid{
-    margin-left:10px;
+    /*margin-left:10px;*/
 }
 
 .numberlist{
@@ -12,7 +12,7 @@
 }
 
 #grid-pager-bottom{
-    top:1825px !important; 
+    /*top:1825px !important;*/ 
 }
 
 #gridCarSimilar{
@@ -20,9 +20,9 @@
 }
 
 #gridSearchingCar{
-    margin-left:0px;
+    /*margin-left:0px;
     width:766px !important;
-    height:1860px !important;
+    height:1860px !important;*/
 }
 
 .grid-container

@@ -36,8 +36,7 @@ Car.CarDetail = function () {
 
     $this.Initialize = function () {
         handler.inActiveTab($("#div_searching_criteria"));
-
-        SearchingHandler.expandSearching();
+        
         handler.hideDivRight();        
         $this.showSimilarCarsList(1);
     };    

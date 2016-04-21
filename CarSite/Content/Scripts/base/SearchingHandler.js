@@ -1,12 +1,5 @@
 ﻿var SearchingHandler = {
-    expandSearching : function () {        
-        $("#div-center").removeClass("div-center").addClass("div-center-searching");
-    },
-
-    collapseSearching : function () {        
-        $("#div-center").removeClass("div-center-searching").addClass("div-center");
-    },
-
+   
     renderModels: function (firm) {
 
         var modelItem = "<div><input type='checkbox' class='checkbox-model' checked='checked' /> <label>@carModel</label></div>";
@@ -101,6 +94,11 @@
             }
         }
         $("#search_model_box").html(models);
+    },
+
+    searching: function () {
+        var firm = $("#search_firm").val();
+        var models = $("#search_model_box");
     }
 }
 

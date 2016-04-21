@@ -323,7 +323,6 @@
     <Content Include="Content\scripts\GridDemo.js" />
     <Content Include="Content\scripts\Index.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.cookie.js" />
-    <Content Include="Content\scripts\SearchingCriteria.js" />
     <Content Include="Content\scripts\base\SearchingHandler.js" />
     <Content Include="Content\scripts\CarDetail.js" />
     <Content Include="Content\scripts\base\GridRender.js" />
@@ -347,8 +346,6 @@
     <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.vegas.min.js" />
-    <Content Include="Content\scripts\SearchingOldCar.js" />
-    <Content Include="Content\scripts\SearchingNewCar.js" />
     <Content Include="Content\scripts\SearchingCar.js" />
     <Content Include="Content\scripts\lib\modernizr-2.6.2.js" />
     <Content Include="Content\scripts\lib\owl.carousel.min.js" />
@@ -403,6 +400,7 @@
     <Content Include="Views\Car\CarDetail.cshtml" />
     <Content Include="Views\Car\CarDetailImages.cshtml" />
     <Content Include="Views\Home\Salon.cshtml" />
+    <Content Include="Views\Home\Index - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\advertise_left\" />

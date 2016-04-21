@@ -27,38 +27,24 @@
 @section Scripts
 {       
 
-    <script src="~/Content/scripts/SearchingCriteria.js"></script>
-
     <script src="~/Content/scripts/SearchingCar.js"></script>
 
     <script>   
-        var searchingUrl = $.cookie("searchingUrl");
 
-        if (searchingUrl == "" || searchingUrl == "SearchingCars") {
-            searchingUrl = "SearchingCars";
-
-            $.cookie("searchingUrl", searchingUrl, { path: '/' });
-            
-            $.cookie("tabIndex", 0, { path: '/' });
-
-            handler.inActiveTab($("#div_searching_criteria"));
-            $("#car_searching").addClass("tabactive");
-            
-            var criteria = {
-                itemsPerPage: itemsPerPage,
-                currentPageIndex: 0,
-                firmName: '@Model.FirmName',
-                model: '@Model.Model'
-            };
-
-            SearchingCar.Searching(searchingUrl, criteria);
-           
-        }
-        else {
-            $.cookie("searchingUrl", "", { path: '/' });
-            SearchingCar.Searching(searchingUrl, { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
-        }
+        handler.setSearchingActiveTab();
+        handler.showResultSearching();
       
+        var searchingUrl = "/Car/SearchingCarsForYou";
+
+        var criteria = {
+            itemsPerPage: itemsPerPage,
+            currentPageIndex: 0,
+            FirmName: '@Model.FirmName',
+            Model: '@Model.Model'
+        };
+
+        SearchingCar.Searching(searchingUrl, criteria);
+        
     </script>   
     
 }

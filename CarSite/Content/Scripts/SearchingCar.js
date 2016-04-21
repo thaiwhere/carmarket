@@ -33,4 +33,4 @@ Car.SearchingCar = function () {
 }
 
 var SearchingCar = new Car.SearchingCar();
-SearchingCar.Initialize();
+//SearchingCar.Initialize();
