@@ -43,7 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Criteria\CarSearchingLikeModelCriteria.cs" />
-    <Compile Include="Criteria\CarSearchingNewImportCriteria.cs" />
+    <Compile Include="Criteria\CarSearchingImportDomesticCriteria.cs" />
+    <Compile Include="Criteria\CarSearchingNewOldCriteria.cs" />
     <Compile Include="Criteria\CarSearchingFirmModelCriteria.cs" />
     <Compile Include="Criteria\CarSearchingTop10Criteria.cs" />
     <Compile Include="Criteria\CarSearchingForYouCriteria.cs" />
