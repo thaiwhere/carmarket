@@ -7,5 +7,7 @@
     <Setting Key="SP_TOP_10_CARS" SpName="SP_TOP_10_CARS" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_New_Import_Cars" SpName="get_New_Import_Cars" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="Car_Searching_Like_Model" SpName="Car_Searching_Like_Model" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="get_New_Old_Cars" SpName="get_New_Old_Cars" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="get_Import_Domestic_Cars" SpName="get_Import_Domestic_Cars" DbName="CarHome.Database" Plain="1"></Setting>
   </Function>
 </Functions>

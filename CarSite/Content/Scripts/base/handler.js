@@ -69,36 +69,35 @@
         }
         else {
             handler.hideSearchCarFirm();
-            handler.showResultSearching();            
-            
+            handler.showResultSearching();
+
+            var searchingUrl = "";            
+            var criteria = { itemsPerPage: itemsPerPage, currentPageIndex: 0 };
+
             switch(index)
             {
                 case 1:
-                    searchingUrl = "/Car/SearchingCarsForYou";                                        
+                    searchingUrl = "/Car/SearchingCarsForYou";                    
                     break;
                 case 2:
-                    searchingUrl = "/Car/SearchingNewCars";                    
+                    searchingUrl = "/Car/SearchingCarsNewOld";
+                    criteria.IsNew = 1;
                     break;
                 case 3:
-                    searchingUrl = "SearchingOldCars";                    
+                    searchingUrl = "/Car/SearchingCarsNewOld";
+                    criteria.IsNew = 0;
                     break;
                 case 4:
-                    searchingUrl = "SearchingImportCars";
+                    searchingUrl = "/Car/SearchingCarsImportDomestic";
+                    criteria.IsImport = 1;
                     break;
                 case 5:
-                    searchingUrl = "SearchingDomesticCars";
+                    searchingUrl = "/Car/SearchingCarsImportDomestic";
+                    criteria.IsImport = 0;
                     break;
             }
            
-            SearchingCar.Searching(searchingUrl, { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
-
-            //if (location.href.indexOf("SearchingCars") < 0) {
-            //    $.cookie("searchingUrl", searchingUrl, { path: '/' });
-            //    location.href = "/car/SearchingCars";
-            //}
-            //else {
-            //    SearchingCar.Searching(searchingUrl, { itemsPerPage: itemsPerPage, currentPageIndex: 0 });
-            //}
+            SearchingCar.Searching(searchingUrl, criteria);
         }
 
         handler.inActiveTab($("#div_searching_criteria"));

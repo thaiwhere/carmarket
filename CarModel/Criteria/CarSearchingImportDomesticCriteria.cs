@@ -10,12 +10,8 @@ namespace Car.Model.Criteria
     /// <summary>
     /// 
     /// </summary>
-    public class CarSearchingNewImportCriteria : CriteriaBase
-    {
-
-
-        public short IsNew { get; set; }
-
+    public class CarSearchingImportDomesticCriteria : CriteriaBase
+    {       
         public short IsImport { get; set; }
 
         public int currentPageIndex { get; set; }
@@ -28,7 +24,7 @@ namespace Car.Model.Criteria
         /// <returns>Setting key of the criteria.</returns>
         public override string GetSettingKey()
         {
-            return "get_New_Import_Cars";
+            return "get_Import_Domestic_Cars";
         }
 
 
