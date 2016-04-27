@@ -23,3 +23,11 @@
     border: 0;
 
 }
+#div-left-below{
+    float:left;
+    width: 140px;
+    height: 104px;
+    padding-right: 0px;
+    margin: 5px 5px;
+}
+

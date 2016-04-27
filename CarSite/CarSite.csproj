@@ -280,6 +280,7 @@
     <Content Include="Content\css\pixeden-icons.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\images\advertise_left\01.jpg" />
     <Content Include="Content\images\advertise_slide\01.jpg" />
     <Content Include="Content\images\advertise_slide\02.jpg" />
     <Content Include="Content\images\advertise_slide\03.jpg" />
@@ -361,6 +362,8 @@
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Images\quangcao\quangcao_1.gif" />
+    <Content Include="Images\quangcao\quangcao_2.gif" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -401,9 +404,9 @@
     <Content Include="Views\Car\CarDetailImages.cshtml" />
     <Content Include="Views\Home\Salon.cshtml" />
     <Content Include="Views\Home\Index - Copy.cshtml" />
+    <Content Include="Views\Shared\AdvertiseBelow.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\images\advertise_left\" />
     <Folder Include="Images\Cars_1\" />
     <Folder Include="Images\Showroom\" />
   </ItemGroup>
