@@ -30,8 +30,7 @@
     <script src="~/Content/scripts/SearchingCar.js"></script>
 
     <script>   
-
-        handler.setSearchingActiveTab();
+                        
         handler.showResultSearching();
       
         var searchingUrl = "/Car/SearchingCars";
@@ -45,6 +44,8 @@
 
         SearchingCar.Searching(searchingUrl, criteria);
         
+        handler.inActiveTab($("#div_searching_criteria"));
+
     </script>   
     
 }

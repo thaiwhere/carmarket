@@ -2,11 +2,11 @@
    
     renderModels: function (firm) {
 
-        var modelItem = "<div><input type='checkbox' class='checkbox-model' checked='checked' /> <label>@carModel</label></div>";
+        var modelItem = "<div><input name='@carModel' type='checkbox' class='checkbox-model' checked='checked' /> <label>@carModel</label></div>";
         var modelsName = "";
 
         switch (firm) {
-            case "Acura": modelsName = " CL,EL,ILX,Intergra,Legend,MDX,RDX,TL,TSX,Vigor,ZDX,Khác"; break;
+            case "Acura": modelsName = "CL,EL,ILX,Intergra,Legend,MDX,RDX,TL,TSX,Vigor,ZDX,Khác"; break;
             case "Audi": modelsName = "100,200,80,90, A1,A2,A3,A4,A5,A6,A7,A8,Cabriolet,Coupe,Q3,Q5,Q7,Quattro,TT,V8,Khác"; break;
             case "BMW": modelsName = " 1 Series,2 Series,3 Series,4 Series,5 Series,6 Series,7 Series,8 Series,Alpina,i3,i8,M couper,M3,M4,M5,M6,X1,X3,X4,X5,X6,Z3,Z4,Z8,Khác"; break;
             case "Chevrolet": modelsName = "Astro,Avanlanche,Aveo,Beretta,Camaro,Caprice,Captiva,Cavalier,Chevyvan,Colorado,Corsica,Corvette,Cruze,Explorer,Express,Impala,Ipanema,Kalos,Lacetti,Lumina,Malibu,Matiz,Nubira,Orlando,Prizm,S 10,Silverado,Spark,SSR, Suburban,Tracker,Venture,Vivant,Khác"; break;
@@ -90,7 +90,7 @@
         if (modelsName != "") {
             var modelsArray = modelsName.split(',');
             for (var i = 0 ; i < modelsArray.length; i++) {
-                models += modelItem.replace("@carModel", modelsArray[i]);
+                models += modelItem.replace(new RegExp("@carModel",'g'), modelsArray[i]);
             }
         }
         $("#search_model_box").html(models);

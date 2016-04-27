@@ -14,15 +14,17 @@ namespace Car.Model.Criteria
     {
         public string FirmName { get; set; }
 
-        public string Model { get; set; }
+        public string Models { get; set; }
+
+        public short IsGearBox { get; set; }
 
         public short IsNew { get; set; } 
 
         public short IsImport { get; set; }
 
-        public double fromPrice { get; set; }
+        public double FromPrice { get; set; }
 
-        public double toPrice { get; set; }
+        public double ToPrice { get; set; }
       
         public int Year { get; set; }
 
@@ -36,9 +38,9 @@ namespace Car.Model.Criteria
 
         public int SeatNo { get; set; }
 
-        public int currentPageIndex { get; set; }
+        public int CurrentPageIndex { get; set; }
 
-        public int itemsPerPage { get; set; }
+        public int ItemsPerPage { get; set; }
 
         /// <summary>
         /// Gets Setting Key.

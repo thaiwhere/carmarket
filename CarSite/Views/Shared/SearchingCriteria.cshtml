@@ -1,4 +1,42 @@
-﻿<div id="div_searching_criteria" class="div-car-tab">
+﻿<script>
+    function SearchingCarByCriteria() {
+        var searchingUrl = "/Car/SearchingCars";
+
+        var models = "";
+        if ($("#select-model-all").is(':checked')) {
+            models = "All";
+        }
+        else {
+            var selectedModels = [];
+            $('#search_model_box input:checked').each(function () {
+                selectedModels.push($(this).attr('name'));                
+            });
+            models = selectedModels.toString();
+                        
+        }
+
+        var criteria = {
+            FirmName: $("#select_firm").val(),
+            Models: models,
+            IsGearBox: $("#select_gearbox").val(),
+            IsNew: $("#select_status").val(),
+            IsImport: $("#select_origin").val(),
+            FromPrice: $("#select_price_from").val(),
+            ToPrice: $("#select_price_to").val(),
+            Year: $("#select_year").val(),
+            Province: $("#select_place").val(),
+            ItemsPerPage: itemsPerPage,
+            currentPageIndex: 0
+        };
+
+        SearchingCar.Searching(searchingUrl, criteria);
+
+        handler.showResultSearching();
+    }
+</script>
+
+
+<div id="div_searching_criteria" class="div-car-tab">
     <ul class="ul-car-tab">
         <li id="car_searching" class=""><a href="javascript:void(null);" title="Tìm kiếm xe bán">Tìm kiếm</a></li>
         <li id="car_for_you" class="tabactive"><a href="javascript:void(null);" title="Xe phù hợp nhất với bạn">Xe phù hợp với bạn</a></li>
@@ -16,7 +54,7 @@
             <label>Hãng xe:</label>
             <select id="select_firm">
                 <option value="All" selected>Tất cả</option>
-                <option value="Acura" selected>Acura</option>
+                <option value="Acura">Acura</option>
                 <option value="Audi">Audi</option>
                 <option value="Asia">Asia</option>
                 <option value="Aston Martin">Aston Martin</option>
@@ -97,19 +135,19 @@
         <div class="search-section">
             <label>Tình trạng:</label>
             <select id="select_status">
-                <option value="all" selected>Tất cả</option>
-                <option value="new">Mới</option>
-                <option value="old">Cũ</option>
+                <option value="-1" selected>Tất cả</option>
+                <option value="1">Mới</option>
+                <option value="0">Cũ</option>
             </select>
         </div>
 
         <div class="search-section">
             <label>Nơi bán:</label>
             <select id="select_place">
-                <option value="HCM" selected>Hồ Chí Minh</option>
-                <option value="HN">Hà Nội</option>
-                <option value="DN">Đà Nẵng</option>
-                <option value="ALL">Toàn Quốc</option>
+                <option value="08" selected>Hồ Chí Minh</option>
+                <option value="04">Hà Nội</option>
+                <option value="0511">Đà Nẵng</option>
+                <option value="0">Toàn Quốc</option>
             </select>
         </div>
 
@@ -124,25 +162,25 @@
         <div class="search-section">
             <label>Xuất xứ:</label>
             <select id="select_origin">
-                <option value="all" selected>Tất cả</option>
-                <option value="domestic">Trong nước</option>
-                <option value="import">Nhập khẩu</option>
+                <option value="-1" selected>Tất cả</option>
+                <option value="0">Trong nước</option>
+                <option value="1">Nhập khẩu</option>
             </select>
         </div>
 
         <div class="search-section">
             <label>Hộp số:</label>
             <select id="select_gearbox">
-                <option value="all" selected>Tất cả</option>
-                <option value="auto">Số tự động</option>
-                <option value="manual">Số tay</option>
+                <option value="-1" selected>Tất cả</option>
+                <option value="0">Số tự động</option>
+                <option value="1">Số tay</option>
             </select>
         </div>
 
         <div class="search-section">
             <label>Năm SX:</label>
             <select id="select_year">
-                <option value="All" selected>Tất cả</option>
+                <option value="0" selected>Tất cả</option>
                 <option value="2016">--2016--</option>
                 <option value="2015">--2015--</option>
                 <option value="2014">--2014--</option>
@@ -161,7 +199,7 @@
                 <option value="2001">--2001--</option>
                 <option value="2000">--2000--</option>
                 <option value="1999">--1999--</option>
-                <option value="<1999">--1998--</option>
+                <option value="1998">--1998--</option>
             </select>
         </div>
 
@@ -178,11 +216,11 @@
                 <option value="700">700 Triệu</option>
                 <option value="800">800 Triệu</option>
                 <option value="900">900 Triệu</option>
-                <option value="1">1 Tỉ</option>
-                <option value="2">2 Tỉ</option>
-                <option value="3">3 Tỉ</option>
-                <option value="4">4 Tỉ</option>
-                <option value=">5">>5 Tỉ</option>
+                <option value="1000">1 Tỉ</option>
+                <option value="2000">2 Tỉ</option>
+                <option value="3000">3 Tỉ</option>
+                <option value="4000">4 Tỉ</option>
+                <option value="5000">>5 Tỉ</option>
 
             </select>
         </div>
@@ -200,16 +238,16 @@
                 <option value="700">700 Triệu</option>
                 <option value="800">800 Triệu</option>
                 <option value="900">900 Triệu</option>
-                <option value="1">1 Tỉ</option>
-                <option value="2">2 Tỉ</option>
-                <option value="3">3 Tỉ</option>
-                <option value="4">4 Tỉ</option>
-                <option value=">5">>5 Tỉ</option>
+                <option value="1000">1 Tỉ</option>
+                <option value="2000">2 Tỉ</option>
+                <option value="3000">3 Tỉ</option>
+                <option value="4000">4 Tỉ</option>
+                <option value="5000">>5 Tỉ</option>
             </select>
         </div>
 
         <div id="searching">
-            <a href="javascript:void(null);" onclick="SearchingHandler.searching();" class="btn-search"></a>
+            <a href="javascript:void(null);" onclick="SearchingCarByCriteria();" class="btn-search"></a>
         </div>
 
     </fieldset>
