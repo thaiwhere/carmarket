@@ -25,10 +25,10 @@ namespace CarSite.Controllers
             return View("~/Views/Car/SearchingCar.cshtml", criteria);
         }        
     
-        public ActionResult CarDetail()
+        public ActionResult CarDetail(int carId = 1)
         {
-            List<string> carDetail = new List<string>();
-            return View(carDetail);
+            ViewBag.CarDetailId = carId;            
+            return View();
         }
 
         #endregion
@@ -62,7 +62,14 @@ namespace CarSite.Controllers
             List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
         }        
-        
+                
+        [HttpPost]
+        public JsonResult SearchingSimilarCars(CarSearchingImportDomesticCriteria criteria)
+        {
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
+        }        
+
         #endregion
     }
 }

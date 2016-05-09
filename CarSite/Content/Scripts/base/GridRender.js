@@ -4,7 +4,7 @@ function decorateData(cars) {
 
     for (var i = 0; i < cars.length; i++) {
         var href = "/Car/CarDetail/" + cars[i].CarId;
-        var image = "/Images/Cars_" + cars[i].UserId + "/1.jpg";
+        var image = "/Images/Cars_" + cars[i].CarId + "/small.jpg";
         var title = cars[i].Title;
 
         var status = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe cũ";
@@ -43,11 +43,12 @@ var gridRender = function (gridId, data) {
         gridOptions =
             {
                 columns: [
-                { HeaderText: "Hình", Width: 160, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
-                { HeaderText: "Mô tả", Width: 450, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
-                { HeaderText: "Thông tin", Width: 160, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
+                { HeaderText: "Hình", Width: 150, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Mô tả", Width: 470, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Thông tin", Width: 150, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
                 ],
                 bodyRows: decorateData(data),
+                scrollWidth: 0, //// Default is 24px
                 gridExpandHeight: 100,
                 showPager: true,
                 pagerOption: {
@@ -64,9 +65,10 @@ var gridRender = function (gridId, data) {
                 columns: [
                 { HeaderText: "Hình", Width: 150, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
                 { HeaderText: "Mô tả", Width: 260, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
-                { HeaderText: "Thông tin", Width: 120, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
+                { HeaderText: "Thông tin", Width: 130, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
                 ],
                 bodyRows: decorateData(data),
+                scrollWidth: 0, //// Default is 24px
                 gridExpandHeight: 100,
                 showPager: true,
                 pagerOption: {
@@ -78,12 +80,15 @@ var gridRender = function (gridId, data) {
     }
 
     customGrid = function () {
-        var gridObj = $("#" + gridId);        
-        gridObj.find($(".x-scrollbar")).remove();
-        gridObj.find($(".y-scrollbar")).remove();
+        var gridObj = $("#" + gridId);                
         gridObj.find($(".free-cell")).remove();
+        var width = gridObj.width() - 17;
+        gridObj.width(width);
 
-        var width = gridObj.width();
+        if (!shrinkGrid) {
+            gridObj.width(785);            
+            $("#gridSearchingCar").find(".grid-container").width(800);            
+        }
     }
 
     $("#" + gridId).PagerGrid(gridOptions);

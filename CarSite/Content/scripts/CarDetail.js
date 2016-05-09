@@ -8,20 +8,16 @@ Namespace.Register("Car.CarDetail");
 Car.CarDetail = function () {
     var $this = this;
 
-    function getListSimilarCar(callback, itemsPerPage, currentPageIndex, totalItem) {
-        var criteria = {
-            itemsPerPage: itemsPerPage,
-            currentPageIndex: currentPageIndex
-        };
-
+    function getListSimilarCar(gridId, searchingUrl, criteria, callback) {
+        
         $.ajax({
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
-            url: "SearchingCars",
+            url: searchingUrl,
             data: JSON.stringify(criteria),
             success: function (result) {
-                callback(result, itemsPerPage, currentPageIndex, totalItem);
+                callback(gridId, result);
             },
             error: function (xhr) {
                 common.HandleAjaxError(xhr);
@@ -29,15 +25,18 @@ Car.CarDetail = function () {
         });
     };
 
-    $this.showSimilarCarsList = function (carId) {
-        var bindDataFunction = getListSimilarCar;
-        renderGrid("gridCarSimilar", bindDataFunction, 10, 200);
+    $this.showSimilarCarsList = function (carId) {        
+        var callback = gridRender;
+        var searchingUrl = "/Car/SearchingSimilarCars";
+        var criteria = { carId: carId, itemsPerPage: itemsPerPage, currentPageIndex: 0 };
+
+        getListSimilarCar("gridCarSimilar", searchingUrl, criteria, callback);
     };
 
     $this.Initialize = function () {
         handler.inActiveTab($("#div_searching_criteria"));
         
-        handler.hideDivRight();        
+        handler.showResultSearching();
         $this.showSimilarCarsList(1);
     };    
 }

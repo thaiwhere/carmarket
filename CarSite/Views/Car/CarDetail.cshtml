@@ -9,14 +9,13 @@
 
 <div id="div_car_detail" class="car_list_box">
 
-    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml", Model); }
+    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml", null); }
 
     <div class="car-item-all row-car">
 
         <div class="car-detail">
 
-            @{ Html.RenderPartial("~/Views/Car/CarDetailImages.cshtml", Model); }
-
+            @{ Html.RenderPartial("~/Views/Car/CarDetailImages.cshtml", null); }
 
         </div>
 
@@ -151,4 +150,5 @@
 @section Scripts
 {
     <script src="~/Content/scripts/CarDetail.js"></script>
+    <script src="~/Content/scripts/SearchingCar.js"></script>
 }

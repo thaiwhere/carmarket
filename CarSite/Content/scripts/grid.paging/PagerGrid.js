@@ -2278,7 +2278,7 @@
                     <div class="scrollbar-x-content">\
                         &nbsp;</div>\
                 </div>';
-            o.append(scrollbarTpl);
+            //o.append(scrollbarTpl);
             if (options.isShowPager) {
                 var pagerTpl = '<div id="grid-pager-bottom" class="grid-pager">\
                                 <div class="grid-pager-content">\
