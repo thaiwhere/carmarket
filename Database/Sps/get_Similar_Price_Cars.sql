@@ -1,15 +1,16 @@
 USE [CARWEB]
 GO
-/****** Object:  StoredProcedure [dbo].[Car_Searching_Firm_Model]    Script Date: 5/16/2016 2:01:44 PM ******/
+/****** Object:  StoredProcedure [dbo].[get_Import_Domestic_Cars]    Script Date: 5/11/2016 4:30:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER PROCEDURE [dbo].[Car_Searching_Firm_Model]	
-	 @FirmName varchar(100),	 
-	 @Model varchar(300),	
-     @currentPageIndex int = 0,
-     @ItemsPerPage int = 20
+--exec get_NewCar '76','4',0,0,0,0
+ALTER PROCEDURE [dbo].[get_Similar_Price_Cars]
+	 @CarId int,
+	 @Price varchar(20),
+	 @currentPageIndex int = 0,
+     @ItemsPerPage int = 100
 AS
 BEGIN
 
@@ -20,8 +21,8 @@ BEGIN
 	INNER join Firm f with (nolock) on c.FirmId = f.FirmId
 	inner join Model m with (nolock) on f.FirmId = m.FirmID
 	inner join Province p with(nolock) on p.ProvinceId = c.ProvinceId
-	inner join [User] u with(nolock) on u.UserId = c.UserId
-	Where (@FirmName is NULL or @FirmName = '' or f.Name = @FirmName)
-		 and (@Model is NULL or @Model = '' or m.Name =  @Model )
+	inner join [User] u  with(nolock) on u.UserId = c.UserId
+	Where (c.CurrencyVN between @Price - @Price/10 and @Price + @Price/10)
+		and (c.CarId <> @CarId)
 	
 END

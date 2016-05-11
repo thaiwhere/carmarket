@@ -10,9 +10,11 @@ namespace Car.Model.Criteria
     /// <summary>
     /// 
     /// </summary>
-    public class CarSearchingImportDomesticCriteria : CriteriaBase
-    {       
-        public short IsImport { get; set; }
+    public class CarSearchingSimilarModelCriteria : CriteriaBase
+    {
+        public int CarId { get; set; }
+
+        public string Model { get; set; }
 
         public int CurrentPageIndex { get; set; }
 
@@ -24,7 +26,7 @@ namespace Car.Model.Criteria
         /// <returns>Setting key of the criteria.</returns>
         public override string GetSettingKey()
         {
-            return "get_Import_Domestic_Cars";
+            return "get_Similar_Model_Cars";
         }
 
 

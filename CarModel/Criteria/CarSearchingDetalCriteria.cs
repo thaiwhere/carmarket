@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,9 @@ namespace Car.Model.Criteria
     /// <summary>
     /// 
     /// </summary>
-    public class CarSearchingImportDomesticCriteria : CriteriaBase
+    public class CarSearchingDetalCriteria : CriteriaBase
     {       
-        public short IsImport { get; set; }
-
-        public int CurrentPageIndex { get; set; }
-
-        public int ItemsPerPage { get; set; }
+        public int CarId { get; set; }        
 
         /// <summary>
         /// Gets Setting Key.
@@ -24,7 +21,7 @@ namespace Car.Model.Criteria
         /// <returns>Setting key of the criteria.</returns>
         public override string GetSettingKey()
         {
-            return "get_Import_Domestic_Cars";
+            return "get_Car_Detail";
         }
 
 

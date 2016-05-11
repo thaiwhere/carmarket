@@ -1,4 +1,6 @@
-﻿<script>
+﻿@model Car.Model.Entity.CarViewModel
+
+<script>
     function SearchingCarByCriteria() {
         var searchingUrl = "/Car/SearchingCars";
 
@@ -25,8 +27,8 @@
             ToPrice: $("#select_price_to").val(),
             Year: $("#select_year").val(),
             Province: $("#select_place").val(),
-            ItemsPerPage: itemsPerPage,
-            currentPageIndex: 0
+            ItemsPerPage: ItemsPerPage,
+            CurrentPageIndex: 0
         };
 
         SearchingCar.Searching(searchingUrl, criteria);
@@ -36,7 +38,7 @@
 </script>
 
 
-<div id="div_searching_criteria" class="div-car-tab">
+<div id="div_searching_tab" class="div-car-tab">
     <ul class="ul-car-tab">
         <li id="car_searching" class=""><a href="javascript:void(null);" title="Tìm kiếm xe bán">Tìm kiếm</a></li>
         <li id="car_for_you" class="tabactive"><a href="javascript:void(null);" title="Xe phù hợp nhất với bạn">Xe phù hợp với bạn</a></li>
@@ -44,6 +46,15 @@
         <li id="car_old" class=""><a href="javascript:void(null);" title="Xe cũ">Xe cũ</a></li>
         <li id="car_import" class=""><a href="javascript:void(null);" title="Xe nhập khẩu">Xe  nhập khẩu</a></li>
         <li id="car_domestic" class=""><a href="javascript:void(null);" title="Xe trong nước">Xe trong nước</a></li>
+    </ul>    
+</div>
+
+<div id="div_searching_tab_car_detail" class="div-car-tab" style="display:none">
+    <ul class="ul-car-detail-tab">        
+        <li>
+            <a href="/home/index">Trang chủ</a> >> <a href="/car/SearchingCars?firm=@Model.Firm">@Model.Firm</a> >> <a href="/car/SearchingCars?firm=@Model.Firm&model=@Model.Model">@Model.Model</a>
+            >> @Model.Title
+        </li>
     </ul>
 </div>
 

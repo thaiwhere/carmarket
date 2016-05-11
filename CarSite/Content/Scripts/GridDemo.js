@@ -39,7 +39,7 @@ var gridOptions =
         gridExpandHeight: 100,
         showPager: true,
         pagerOption: {
-            itemsPerPage: 100,
+            ItemsPerPage: 100,
             currentPage: 0,
             itemsPerPageArray: [50, 100, 500],
             showDetail: true

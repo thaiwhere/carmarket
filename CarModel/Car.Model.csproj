@@ -42,6 +42,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Criteria\CarSearchingDetalCriteria.cs" />
+    <Compile Include="Criteria\CarSearchingSimilarPriceCriteria.cs" />
+    <Compile Include="Criteria\CarSearchingSimilarModelCriteria.cs" />
     <Compile Include="Criteria\CarSearchingLikeModelCriteria.cs" />
     <Compile Include="Criteria\CarSearchingImportDomesticCriteria.cs" />
     <Compile Include="Criteria\CarSearchingNewOldCriteria.cs" />
@@ -49,6 +52,7 @@
     <Compile Include="Criteria\CarSearchingTop10Criteria.cs" />
     <Compile Include="Criteria\CarSearchingForYouCriteria.cs" />
     <Compile Include="Criteria\CarSearchingCriteria.cs" />
+    <Compile Include="Entity\CarViewModel.cs" />
     <Compile Include="Entity\CarModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

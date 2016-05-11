@@ -6,13 +6,13 @@
     margin-top:5px;
 }
 
-.div-car-tab .ul-car-tab{
+.div-car-tab .ul-car-tab, .ul-car-detail-tab{
     margin: 0;
     padding: 0px 0;
     height: 34px;
 }
 
-.div-car-tab .ul-car-tab li{
+.div-car-tab .ul-car-tab li,{
     display: block;
     float: left;
     background: none;
@@ -42,6 +42,21 @@
     text-decoration: none;
     line-height: 30px;
     padding: 0 8px;
+}
+
+.div-car-tab ul.ul-car-detail-tab li{
+    display: block;
+    float: left;
+    background: #eeeeee url(../../Images/common/tab.png) repeat-x scroll center center;
+    border: 1px solid #dedede;
+    margin: 0 auto;
+    text-decoration: none;
+    line-height: 30px;
+    padding: 0 8px;
+}
+
+.div-car-tab ul.ul-car-detail-tab li a{    
+    text-decoration: none;    
 }
 
 #car_detail_slide{
@@ -164,7 +179,7 @@
     font-style: italic;
     color:#0000FF;
     margin-top:15px;
-    width: 150px;
+    width: 100%
 }
 
 .car-contact-view{
@@ -172,7 +187,7 @@
     font-style: italic;
     color:#FFA500;
     margin-top:5px;
-    width: 150px;
+    width: 100%
 }
 
 .car-contact-user
@@ -180,7 +195,7 @@
 	background: url('../../Images/common/people.png') no-repeat left;
     padding-left: 25px;
     float: left;
-    width: 150px;
+    width: 100%;
     font: 14px/21px 'Arial';
     color: #222;
     margin-top: 4px;
@@ -192,7 +207,7 @@
     background: url('../../Images/common/phone.png') no-repeat left;
     padding-left: 25px;
     float: left;
-    width: 180px;
+    width: 100%;
     font: 14px/21px 'Arial';
     color: #222;
     margin-top: 4px;
@@ -204,7 +219,7 @@
     background: url('../../Images/common/address.png') no-repeat left;
     padding-left: 25px;
     float: left;
-    width: 180px;
+    width: 100%;
     font: 14px/21px 'Arial';
     color: #222;
     margin-top: 4px;

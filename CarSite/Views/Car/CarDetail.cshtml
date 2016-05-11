@@ -5,23 +5,27 @@
 @section Styles{
 
 }
-@model List<string>
+@model Car.Model.Entity.CarViewModel
 
 <div id="div_car_detail" class="car_list_box">
 
-    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml", null); }
+    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml", Model); }    
 
     <div class="car-item-all row-car">
 
         <div class="car-detail">
 
-            @{ Html.RenderPartial("~/Views/Car/CarDetailImages.cshtml", null); }
+            @{ Html.RenderPartial("~/Views/Car/CarDetailImages.cshtml", Model); }
 
         </div>
 
         <div class="car-detail">
             <div class="car-detail-section title">
-                Tôi cần bán xe Daewoo Laceti sản xuất năm 2009 tên tư nhân xe gia đình sử dụng nên còn chất lượng máy móc êm nội thất đẹp lốp mới đăng kiểm còn dài giá tốt 318 triệu liên hệ Mr Hải 0915558358.
+                <b>@Model.Title</b>
+            </div>
+
+            <div class="car-detail-section title">
+                @Model.Description
             </div>
 
         </div>
@@ -41,46 +45,46 @@
                 <div class="car-detail-section info">
                     <div class="row">
                         <label class="car-label-detail"> Tình trạng </label>
-                        <span>:&nbsp;Xe cũ (2012)</span>
+                        <span>:&nbsp;@Model.IsNew (@Model.Year)</span>
                     </div>
                     <div class="row">
                         <label class="car-label-detail">Xuất xứ</label>
-                        <span>:&nbsp;Nhập khẩu</span>
+                        <span>:&nbsp;@Model.IsImport</span>
                     </div>
                     <div class="row">
                         <label class="car-label-detail">Dòng xe</label>
-                        <span>:&nbsp;Sedan</span>
+                        <span>:&nbsp;@Model.Type</span>
                     </div>
                     <div class="row">
                         <label class="car-label-detail">Hộp số</label>
-                        <span>:&nbsp;Tự động</span>
+                        <span>:&nbsp;@Model.GearBox</span>
                     </div>
                     <div class="row">
                         <label class="car-label-detail">Số Km đã đi</label>
-                        <span>:&nbsp;40.000 km</span>
+                        <span>:&nbsp;@Model.Km km</span>
                     </div>
                 </div>
 
                 <div class="car-detail-section info">
                     <div class="row">
                         <label class="car-label-detail">Số cửa</label>
-                        <span>:&nbsp;5 cửa</span>
+                        <span>:&nbsp;@Model.WindowNo cửa</span>
                     </div>
                     <div class="row">
                         <label class="car-label-detail">Số chỗ ngồi</label>
-                        <span>:&nbsp;5 chỗ</span>
+                        <span>:&nbsp;@Model.SeatNo chỗ</span>
                     </div>
                     <div class="row">
                         <label class="car-label-detail">Màu ngoại thất</label>
-                        <span>:&nbsp;Vàng</span>
+                        <span>:&nbsp;@Model.ExteriorColor</span>
                     </div>
                     <div class="row">
                         <label class="car-label-detail">Màu nội thất</label>
-                        <span>:&nbsp;Vàng</span>
+                        <span>:&nbsp;@Model.InteriorColor</span>
                     </div>
                     <div class="row">
                         <label class="car-label-detail">Tiêu thụ nhiên liệu</label>
-                        <span>:&nbsp;5L/100km</span>
+                        <span>:&nbsp;@Model.FuelConsumption</span>
                     </div>
                 </div>
 
@@ -91,20 +95,20 @@
                 <div class="car-detail-section info">
                     <div class="row">
                         <label class="car-label-detail"> Nhiên liệu</label>
-                        <span>:&nbsp;Xăng</span>
+                        <span>:&nbsp;@Model.Fuel</span>
                     </div>
                     <div class="row">
                         <label class="car-label-detail">Hệ thống nạp nhiên liệu</label>
-                        <span>:&nbsp;Phun điện ư3</span>
+                        <span>:&nbsp;@Model.FuelSystem</span>
                     </div>
 
                     <div class="row">
                         <label class="car-label-detail">Dẫn động</label>
-                        <span>:&nbsp;Dẫn động cầu trươc</span>
+                        <span>:&nbsp;@Model.WheelDrive</span>
                     </div>                    
                     <div class="row">
                         <label class="car-label-detail">Dung tích bình nhiên liệu</label>
-                        <span>:&nbsp;10 (lít)</span>
+                        <span>:&nbsp; (lít)</span>
                     </div>
                 </div>
 
@@ -144,8 +148,15 @@
 </div>
 
 <div class="grid-container">
-    <div id="gridCarSimilar" class="freegrid"></div>
+    <div id="gridCarSimilarModel" class="freegrid"></div>
+    <div id="gridCarSimilarPrice" class="freegrid"></div>
 </div>
+
+<script>
+    var carDetailId = '@Model.CarId' 
+    var carDetailModel ='@Model.Model'
+    var carDetailPrice = '@Model.CurrencyVN'
+</script>
 
 @section Scripts
 {

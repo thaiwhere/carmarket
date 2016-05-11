@@ -35,7 +35,7 @@
     },
 
     setSearchingActiveTab:function(){
-        handler.inActiveTab($("#div_searching_criteria"));
+        handler.inActiveTab($("#div_searching_tab"));
         var tabIndex = $.cookie("tabIndex");
         if (tabIndex != 'undefined') {
             switch (tabIndex) {
@@ -72,7 +72,7 @@
             handler.showResultSearching();
 
             var searchingUrl = "";            
-            var criteria = { itemsPerPage: itemsPerPage, currentPageIndex: 0 };
+            var criteria = { ItemsPerPage: ItemsPerPage, CurrentPageIndex: 0 };
 
             switch(index)
             {
@@ -100,7 +100,7 @@
             SearchingCar.Searching(searchingUrl, criteria);
         }
 
-        handler.inActiveTab($("#div_searching_criteria"));
+        handler.inActiveTab($("#div_searching_tab"));
     },
 
     bindEvents: function () {
@@ -137,12 +137,19 @@
 
         $("#car_similar_model").click(function () {
             handler.inActiveTab($("#div_car_detail_similar"));
+            $("#gridCarSimilarModel").show();
+            $("#gridCarSimilarPrice").hide();            
             $("#car_similar_model").addClass("tabactive");            
         });
 
         $("#car_similar_price").click(function () {
             handler.inActiveTab($("#div_car_detail_similar"));
-            $("#car_similar_price").addClass("tabactive");            
+            $("#gridCarSimilarPrice").show();
+            $("#gridCarSimilarModel").hide();            
+            $("#car_similar_price").addClass("tabactive");
+
+            var CarDetail = new Car.CarDetail();
+            CarDetail.showSimilarPriceCarsList(carDetailId, carDetailPrice);
         });
 
         $("#car_detail_info_basic_tab").click(function () {

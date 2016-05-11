@@ -28,6 +28,15 @@ namespace Car.Service
             }
 
             return cars;
-        }                                                
+        }
+
+        public static CarViewModel SearchingCarDetail(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                return obj.QueryEntity<CarViewModel>(param);
+            }
+        }       
     }
 }

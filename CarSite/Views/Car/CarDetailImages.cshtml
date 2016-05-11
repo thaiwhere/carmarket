@@ -1,7 +1,7 @@
-﻿@model List<string>
+﻿@model Car.Model.Entity.CarViewModel
 
 @{
-    var carId = ViewBag.CarDetailId;
+    var carId = @Model.CarId;
     var imagesPath = "/Images/Cars_" + carId;
     var index =0;
 }
@@ -82,29 +82,29 @@
 
     <div class="car-detail-section">
         <div class="car-price">
-            350 triệu
+            @Model.CurrencyVN triệu
         </div>
         <div class="car-location">
-            <a href="/xe-toyota-vios-ha-noi">Hà Nội</a>
+            <a href="/xe-toyota-vios-ha-noi">@Model.Province</a>
         </div>
         <div class="car-contact-user">
-            Chị Oanh
+            @Model.ContactName
         </div>
         <div class="car-contact-tel">
-            0901500799
+            @Model.ContactTel
         </div>
         <div class="car-contact-address">
-            Đống Đa, HN
+            @Model.Address
         </div>
 
     </div>
 
     <div class="car-detail-section">
         <div class="car-contact-date">
-            Ngày đăng: 28/12/2015
+            Ngày đăng: @Model.CreatedDate
         </div>
         <div class="car-contact-view">
-            Luợt xem: 259
+            Luợt xem: 0
         </div>
     </div>
 </div>

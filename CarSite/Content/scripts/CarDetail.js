@@ -25,19 +25,29 @@ Car.CarDetail = function () {
         });
     };
 
-    $this.showSimilarCarsList = function (carId) {        
+    $this.showSimilarModelCarsList = function (carId, model) {        
         var callback = gridRender;
-        var searchingUrl = "/Car/SearchingSimilarCars";
-        var criteria = { carId: carId, itemsPerPage: itemsPerPage, currentPageIndex: 0 };
+        var searchingUrl = "/Car/SearchingCarsSimilarModel";
+        var criteria = { CarId: carId, Model: model, ItemsPerPage: ItemsPerPage, CurrentPageIndex: 0 };
 
-        getListSimilarCar("gridCarSimilar", searchingUrl, criteria, callback);
+        getListSimilarCar("gridCarSimilarModel", searchingUrl, criteria, callback);
+    };
+
+    $this.showSimilarPriceCarsList = function (carId, price) {
+        var callback = gridRender;
+        var searchingUrl = "/Car/SearchingCarsSimilarPrice";
+        var criteria = { CarId: carId, Price: price, ItemsPerPage: ItemsPerPage, CurrentPageIndex: 0 };
+
+        getListSimilarCar("gridCarSimilarPrice", searchingUrl, criteria, callback);
     };
 
     $this.Initialize = function () {
-        handler.inActiveTab($("#div_searching_criteria"));
+        handler.inActiveTab($("#div_searching_tab"));
+        $("#div_searching_tab").hide();
+        $("#div_searching_tab_car_detail").show();
         
         handler.showResultSearching();
-        $this.showSimilarCarsList(1);
+        $this.showSimilarModelCarsList(carDetailId, carDetailModel);
     };    
 }
 

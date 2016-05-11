@@ -14,9 +14,9 @@ namespace Car.Model.Criteria
     {
         public short IsNew { get; set; }     
 
-        public int currentPageIndex { get; set; }
+        public int CurrentPageIndex { get; set; }
 
-        public int itemsPerPage { get; set; }
+        public int ItemsPerPage { get; set; }
 
         /// <summary>
         /// Gets Setting Key.

@@ -12,9 +12,9 @@ namespace Car.Model.Criteria
     /// </summary>
     public class CarSearchingTop10Criteria : CriteriaBase
     {
-        public int currentPageIndex { get; set; }
+        public int CurrentPageIndex { get; set; }
 
-        public int itemsPerPage { get; set; }
+        public int ItemsPerPage { get; set; }
 
         public int firm { get; set; }
 

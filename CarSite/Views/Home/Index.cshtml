@@ -8,7 +8,7 @@
 
 <div id="div-car-list" class="car_list_box">
 
-    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml"); }
+    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml", new Car.Model.Entity.CarViewModel()); }
 
     <div class="grid-container">
         <div id="gridSearchingCar" class="freegrid"></div>
@@ -29,8 +29,8 @@
         var searchingUrl = "/Car/SearchingCarsForYou";
 
         var criteria = {
-            itemsPerPage: itemsPerPage,
-            currentPageIndex: 0        
+            ItemsPerPage: ItemsPerPage,
+            CurrentPageIndex: 0        
         };
 
         SearchingCar.Searching(searchingUrl, criteria);

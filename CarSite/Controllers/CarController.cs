@@ -23,12 +23,17 @@ namespace CarSite.Controllers
             };
             
             return View("~/Views/Car/SearchingCar.cshtml", criteria);
-        }        
-    
-        public ActionResult CarDetail(int carId = 1)
-        {
-            ViewBag.CarDetailId = carId;            
-            return View();
+        }
+        
+        public ActionResult CarDetail(int id = 1)
+        {            
+            var criteria = new CarSearchingDetalCriteria
+            {
+                CarId = id
+            };
+
+            CarViewModel carDetail = CarService.SearchingCarDetail(criteria);
+            return View("~/Views/Car/CarDetail.cshtml", carDetail);
         }
 
         #endregion
@@ -41,6 +46,14 @@ namespace CarSite.Controllers
             var listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
         }
+
+        [HttpPost]
+        public JsonResult SearchingCarsByFirmModel(CarSearchingFirmModelCriteria criteria)
+        {
+            var listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
+        }
+
 
         [HttpPost]
         public JsonResult SearchingCarsForYou(CarSearchingForYouCriteria criteria)
@@ -64,11 +77,18 @@ namespace CarSite.Controllers
         }        
                 
         [HttpPost]
-        public JsonResult SearchingSimilarCars(CarSearchingImportDomesticCriteria criteria)
+        public JsonResult SearchingCarsSimilarModel(CarSearchingSimilarModelCriteria criteria)
         {
             List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
-        }        
+        }
+
+        [HttpPost]
+        public JsonResult SearchingCarsSimilarPrice(CarSearchingSimilarPriceCriteria criteria)
+        {
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
+        }     
 
         #endregion
     }

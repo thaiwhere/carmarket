@@ -87,7 +87,7 @@ var gridRender = function (gridId, data) {
 
         if (!shrinkGrid) {
             gridObj.width(785);            
-            $("#gridSearchingCar").find(".grid-container").width(800);            
+            gridObj.find(".grid-container").width(800);
         }
     }
 

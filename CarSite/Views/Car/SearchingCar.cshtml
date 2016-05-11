@@ -10,7 +10,7 @@
 
 <div id="div-car-list" class="car_list_box">
     
-    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml"); }
+    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml", new Car.Model.Entity.CarViewModel()); }
     
 
     @*<div class="car-list-header">
@@ -33,18 +33,18 @@
                         
         handler.showResultSearching();
       
-        var searchingUrl = "/Car/SearchingCars";
+        var searchingUrl = "/Car/SearchingCarsByFirmModel";
 
         var criteria = {
-            itemsPerPage: itemsPerPage,
-            currentPageIndex: 0,
+            ItemsPerPage: ItemsPerPage,
+            CurrentPageIndex: 0,
             FirmName: '@Model.FirmName',
             Model: '@Model.Model'
         };
 
         SearchingCar.Searching(searchingUrl, criteria);
         
-        handler.inActiveTab($("#div_searching_criteria"));
+        handler.inActiveTab($("#div_searching_tab"));
 
     </script>   
     
