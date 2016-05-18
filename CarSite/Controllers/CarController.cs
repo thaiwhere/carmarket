@@ -36,6 +36,17 @@ namespace CarSite.Controllers
             return View("~/Views/Car/CarDetail.cshtml", carDetail);
         }
 
+        public ActionResult UploadFiles()
+        {
+            return View("~/Views/Shared/UploadFiles.cshtml");
+        }
+
+        public ActionResult Insert()
+        {
+            return View("~/Views/Car/CarInsert.cshtml");
+        }
+        
+
         #endregion
 
         #region POST Methods

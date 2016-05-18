@@ -52,6 +52,7 @@
     <Compile Include="Criteria\CarSearchingTop10Criteria.cs" />
     <Compile Include="Criteria\CarSearchingForYouCriteria.cs" />
     <Compile Include="Criteria\CarSearchingCriteria.cs" />
+    <Compile Include="Entity\CarInsertEntity.cs" />
     <Compile Include="Entity\CarViewModel.cs" />
     <Compile Include="Entity\CarModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
