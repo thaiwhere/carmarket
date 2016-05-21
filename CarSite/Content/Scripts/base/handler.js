@@ -203,9 +203,9 @@
         );
 
         $("#select_firm").change(
-            function () {
-                SearchingHandler.renderModels(this.value);
-            }
-        );
+           function () {
+               RenderFactory.renderModels(this.value, "#select_model");
+           }
+       );
     }
 }

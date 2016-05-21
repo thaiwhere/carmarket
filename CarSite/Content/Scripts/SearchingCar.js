@@ -31,6 +31,3 @@ Car.SearchingCar = function () {
         getListCar("gridSearchingCar", searchingUrl, criteria, callback);
     }
 }
-
-var SearchingCar = new Car.SearchingCar();
-//SearchingCar.Initialize();

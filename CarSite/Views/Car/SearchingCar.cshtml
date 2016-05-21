@@ -11,13 +11,7 @@
 <div id="div-car-list" class="car_list_box">
     
     @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml", new Car.Model.Entity.CarViewModel()); }
-    
-
-    @*<div class="car-list-header">
-        <h3>@Model.Message</h3>
-    </div>*@
-    <!-- begin list car -->
-    
+        
     <div class="grid-container">
         <div id="gridSearchingCar" class="freegrid"></div>
     </div>
@@ -42,6 +36,7 @@
             Model: '@Model.Model'
         };
 
+        var SearchingCar = new Car.SearchingCar();
         SearchingCar.Searching(searchingUrl, criteria);
         
         handler.inActiveTab($("#div_searching_tab"));

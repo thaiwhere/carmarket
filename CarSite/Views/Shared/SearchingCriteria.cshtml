@@ -3,23 +3,10 @@
 <script>
     function SearchingCarByCriteria() {
         var searchingUrl = "/Car/SearchingCars";
-
-        var models = "";
-        if ($("#select-model-all").is(':checked')) {
-            models = "All";
-        }
-        else {
-            var selectedModels = [];
-            $('#search_model_box input:checked').each(function () {
-                selectedModels.push($(this).attr('name'));                
-            });
-            models = selectedModels.toString();
-                        
-        }
-
+        
         var criteria = {
             FirmName: $("#select_firm").val(),
-            Models: models,
+            Models: $("#select_firm").val(),
             IsGearBox: $("#select_gearbox").val(),
             IsNew: $("#select_status").val(),
             IsImport: $("#select_origin").val(),
@@ -144,30 +131,8 @@
         </div>
 
         <div class="search-section">
-            <label>Tình trạng:</label>
-            <select id="select_status">
-                <option value="-1" selected>Tất cả</option>
-                <option value="1">Mới</option>
-                <option value="0">Cũ</option>
-            </select>
-        </div>
-
-        <div class="search-section">
-            <label>Nơi bán:</label>
-            <select id="select_place">
-                <option value="08" selected>Hồ Chí Minh</option>
-                <option value="04">Hà Nội</option>
-                <option value="0511">Đà Nẵng</option>
-                <option value="0">Toàn Quốc</option>
-            </select>
-        </div>
-
-        <div class="search-section">
-            <label>Model:</label>
-            <input type="checkbox" checked="checked" id="select-model-all" /> <label style="font-weight:normal">All</label>
-        </div>
-
-        <div id="search_model_box" class="search-section" >            
+            <label>Dòng xe:</label>
+            <select id="select_model"></select>
         </div>
 
         <div class="search-section">
@@ -176,6 +141,58 @@
                 <option value="-1" selected>Tất cả</option>
                 <option value="0">Trong nước</option>
                 <option value="1">Nhập khẩu</option>
+            </select>
+        </div>
+
+        <div class="search-section">
+            <label>Tình trạng:</label>
+            <select id="select_status">
+                <option value="-1" selected>Tất cả</option>
+                <option value="1">Mới</option>
+                <option value="0">Cũ</option>
+            </select>
+        </div>        
+
+        <div class="search-section">
+            <label>Giá:</label>
+            <select id="select_price_from">
+                <option value="0" selected>Từ giá</option>
+                <option value="100">100 Triệu</option>
+                <option value="200">200 Triệu</option>
+                <option value="300">300 Triệu</option>
+                <option value="400">400 Triệu</option>
+                <option value="500">500 Triệu</option>
+                <option value="600">600 Triệu</option>
+                <option value="700">700 Triệu</option>
+                <option value="800">800 Triệu</option>
+                <option value="900">900 Triệu</option>
+                <option value="1000">1 Tỉ</option>
+                <option value="2000">2 Tỉ</option>
+                <option value="3000">3 Tỉ</option>
+                <option value="4000">4 Tỉ</option>
+                <option value="5000">>5 Tỉ</option>
+
+            </select>
+        </div>
+
+        <div class="search-section">            
+            <label> --- > </label>
+            <select id="select_price_to">
+                <option value="0" selected>Đến giá</option>
+                <option value="100">100 Triệu</option>
+                <option value="200">200 Triệu</option>
+                <option value="300">300 Triệu</option>
+                <option value="400">400 Triệu</option>
+                <option value="500">500 Triệu</option>
+                <option value="600">600 Triệu</option>
+                <option value="700">700 Triệu</option>
+                <option value="800">800 Triệu</option>
+                <option value="900">900 Triệu</option>
+                <option value="1000">1 Tỉ</option>
+                <option value="2000">2 Tỉ</option>
+                <option value="3000">3 Tỉ</option>
+                <option value="4000">4 Tỉ</option>
+                <option value="5000">>5 Tỉ</option>
             </select>
         </div>
 
@@ -189,6 +206,17 @@
         </div>
 
         <div class="search-section">
+            <label>Nơi bán:</label>
+            <select id="select_place">
+                <option value="08" selected>Hồ Chí Minh</option>
+                <option value="04">Hà Nội</option>
+                <option value="0511">Đà Nẵng</option>
+                <option value="0">Toàn Quốc</option>
+            </select>
+        </div>              
+        
+
+        @*<div class="search-section">
             <label>Năm SX:</label>
             <select id="select_year">
                 <option value="0" selected>Tất cả</option>
@@ -212,51 +240,9 @@
                 <option value="1999">--1999--</option>
                 <option value="1998">--1998--</option>
             </select>
-        </div>
+        </div>*@
 
-        <div class="search-section">
-            <label style="width:55px;">Giá:</label>
-            <select id="select_price_from">
-                <option value="0" selected>Từ giá</option>
-                <option value="100">100 Triệu</option>
-                <option value="200">200 Triệu</option>
-                <option value="300">300 Triệu</option>
-                <option value="400">400 Triệu</option>
-                <option value="500">500 Triệu</option>
-                <option value="600">600 Triệu</option>
-                <option value="700">700 Triệu</option>
-                <option value="800">800 Triệu</option>
-                <option value="900">900 Triệu</option>
-                <option value="1000">1 Tỉ</option>
-                <option value="2000">2 Tỉ</option>
-                <option value="3000">3 Tỉ</option>
-                <option value="4000">4 Tỉ</option>
-                <option value="5000">>5 Tỉ</option>
-
-            </select>
-        </div>
-
-        <div class="search-section">
-            <span style="float:left">&nbsp;&nbsp;-->&nbsp;&nbsp;</span>
-            <select id="select_price_to">
-                <option value="0" selected>Đến giá</option>
-                <option value="100">100 Triệu</option>
-                <option value="200">200 Triệu</option>
-                <option value="300">300 Triệu</option>
-                <option value="400">400 Triệu</option>
-                <option value="500">500 Triệu</option>
-                <option value="600">600 Triệu</option>
-                <option value="700">700 Triệu</option>
-                <option value="800">800 Triệu</option>
-                <option value="900">900 Triệu</option>
-                <option value="1000">1 Tỉ</option>
-                <option value="2000">2 Tỉ</option>
-                <option value="3000">3 Tỉ</option>
-                <option value="4000">4 Tỉ</option>
-                <option value="5000">>5 Tỉ</option>
-            </select>
-        </div>
-
+        
         <div id="searching">
             <a href="javascript:void(null);" onclick="SearchingCarByCriteria();" class="btn-search"></a>
         </div>

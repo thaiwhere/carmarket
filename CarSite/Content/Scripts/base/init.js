@@ -7,5 +7,5 @@ var tabIndex = $.cookie("tabIndex") || 0; // for set tab active in searching cri
 $(function () {
     handler.hideSearchCarFirm();
     handler.bindEvents();
-    SearchingHandler.renderModels("Acura");
+    RenderFactory.renderModels("", "#select_model");
 });

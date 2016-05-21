@@ -10,11 +10,12 @@
 }
 
 #search_car_firm label{    
+    width:80px;
     color:#2A55FF;
 }
 
-#search_model_box label{
-    color:#337ab7;
+#search_car_firm select{
+    width:110px;
 }
 
 .search-section{

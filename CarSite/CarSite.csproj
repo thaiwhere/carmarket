@@ -329,6 +329,7 @@
     <Content Include="Content\images\team\pic6.jpg" />
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
+    <Content Include="Content\scripts\base\RenderFactory.js" />
     <Content Include="Content\scripts\base\init.js" />
     <Content Include="Content\scripts\base\handler.js" />
     <Content Include="Content\scripts\base\namespace.js" />
