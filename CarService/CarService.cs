@@ -37,6 +37,15 @@ namespace Car.Service
                 var param = criteria.GetSpParams();
                 return obj.QueryEntity<CarViewModel>(param);
             }
-        }       
+        }
+
+        public static int InsertCar(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                return obj.ExecuteNonQuery(param);                
+            }
+        }
     }
 }

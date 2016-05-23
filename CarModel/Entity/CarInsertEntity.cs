@@ -8,6 +8,8 @@ namespace Car.Model.Entity
 {
     public class CarInsertEntity
     {
+        public int UserId { get; set; }
+
         [DisplayName("Tiêu đề")]
         public string Title { get; set; }
 
@@ -24,12 +26,12 @@ namespace Car.Model.Entity
         public bool IsImport { get; set; }
 
         [DisplayName("Kiểu dáng")]
-        public string Type { get; set; }
+        public string TypeId { get; set; }
 
         [DisplayName("Giá")]
         public double CurrencyVN { get; set; }
                 
-        [DisplayName("Đời xe")]
+        [DisplayName("Năm sản xuất")]
         public int Year { get; set; }
 
         [DisplayName("Số km đã đi")]

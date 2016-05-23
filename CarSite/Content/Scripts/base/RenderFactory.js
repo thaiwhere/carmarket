@@ -85,54 +85,66 @@ var RenderFactory = {
             case "Zotye": input = "T600,Z100,Z300,Z500,Khác"; break;            
         }
                 
-        RenderFactory.renderItems(input, elementId);
+        var inputIds = input;
+        var inputNames = input;
+        RenderFactory.renderItems(inputIds, inputNames, elementId);
     },
 
     renderTypes: function (elementId) {        
-        var input = "Convertible,Coupe,Crossover,Hatchback,Van/Minivan,Sedan,SUV,Truck,Wagon";
+        var inputIds = "Convertible,Coupe,Crossover,Hatchback,Van/Minivan,Sedan,SUV,Truck,Wagon";
+        var inputNames = "Convertible,Coupe,Crossover,Hatchback,Van/Minivan,Sedan,SUV,Truck,Wagon";
         
-        RenderFactory.renderItems(input, elementId);
+        RenderFactory.renderItems(inputIds, inputNames, elementId);
     },
 
-    renderProvinces: function (elementId) {
-        var input = "Lào Cai,Phú Thọ,Vĩnh Phúc,Hòa Bình,Hà Giang,Sơn La,Điện Biên,Lai Châu,Bắc Giang,Bắc Ninh,Lạng Sơn,Cao Bằng,Tuyên Quang,Thái Nguyên,Bắc Cạn,Yên Bái,Ninh Bình,Hải Phòng,Hải Dương,Hưng Yên,Quảng Ninh,Nam Định,Hà Nam,Thái Bình,Thanh Hóa,Nghệ An,Hà Tĩnh,HÀ NỘI,Đắc Lắc,Đắc Nông,Quảng Nam,Đà Nẵng,Quảng Bình,Quảng Trị,Thừa Thiên Huế,Quảng Ngãi,Bình Định,Phú Yên,Khánh Hòa,Gia Lai,Kom Tum,Đồng Nai,Bình Thuận,Lâm Đồng,Bà Rịa Vũng Tàu,Bình Dương,Bình Phước,Tây Ninh,Đồng Tháp,Ninh Thuận,Vĩnh Long,Cần Thơ,Hậu Giang,Long An,Tiền Giang,Trà Vinh,Bến Tre,An Giang,Kiên Giang,Cà Mau,Bạc Liêu,Sóc Trăng,TPHCM";
+    renderProvinces: function (elementId) {        
+        var inputIds = "076,064,0281,0240,0781,0241,075,056,0650,0651,062,0780,0710,026,0511,0500,0501,0230,061,067,059,0219,0351,04,039,0320,031,0711,0218,0321,058,077,060,0231,063,025,020,072,0350,038,030,068,0210,057,052,0510,055,033,053,079,022,066,036,0280,037,054,073,08,074,027,070,0211,029,";
+        var inputNames = "An Giang,Bà Rịa Vũng Tàu,Bắc Cạn,Bắc Giang,Bạc Liêu,Bắc Ninh,Bến Tre,Bình Định,Bình Dương,Bình Phước,Bình Thuận,Cà Mau,Cần Thơ,Cao Bằng,Đà Nẵng,Đắc Lắc,Đắc Nông,Điện Biên,Đồng Nai,Đồng Tháp,Gia Lai,Hà Giang,Hà Nam,HÀ NỘI,Hà Tĩnh,Hải Dương,Hải Phòng,Hậu Giang,Hòa Bình,Hưng Yên,Khánh Hòa,Kiên Giang,Kom Tum,Lai Châu,Lâm Đồng,Lạng Sơn,Lào Cai,Long An,Nam Định,Nghệ An,Ninh Bình,Ninh Thuận,Phú Thọ,Phú Yên,Quảng Bình,Quảng Nam,Quảng Ngãi,Quảng Ninh,Quảng Trị,Sóc Trăng,Sơn La,Tây Ninh,Thái Bình,Thái Nguyên,Thanh Hóa,Thừa Thiên Huế,Tiền Giang,TPHCM,Trà Vinh,Tuyên Quang,Vĩnh Long,Vĩnh Phúc,Yên Bái";
         
-        RenderFactory.renderItems(input, elementId);
+        RenderFactory.renderItems(inputIds, inputNames, elementId);
     },
 
     renderColors: function (elementId) {
-        var input = "Đen,Xanh,Nâu,Xanh,Tím,BẠC,Xám,GHI,Cát,Đồng,Đỏ,Hồng,Cam,Vàng,Kem,Trắng";        
+        var inputIds = "#979692,#FF7F50,#F0E68C,#000000,#FF0000,#FAFAD2,#C9BEAA,#FF69B4,#FFFFF0,#785947,#9400D3,#FFFFFF,#FFD700,#B5BACO,#7FFFD4,#00BFFF";
+        var inputNames = "BẠC,Cam,Cát,Đen,Đỏ,Đồng,GHI,Hồng,Kem,Nâu,Tím,Trắng,Vàng,Xám,Xanh,Xanh";        
 
-        RenderFactory.renderItems(input, elementId);        
+        RenderFactory.renderItems(inputIds, inputNames, elementId);
     },
 
     renderFuels: function (elementId) {
-        var input = "Diesel,Điện,Xăng,Hybrid,Loại khác";
-        RenderFactory.renderItems(input, elementId);
+        var inputIds = "Diesel,Electric,gasoline,Hybrid,Other";
+        var inputNames = "Diesel,Điện,Xăng,Hybrid,Loại khác";
+
+        RenderFactory.renderItems(inputIds, inputNames, elementId);
     },
 
     renderFuelSystems: function (elementId) {
-        var input = "Phun xăng điện tử,bec phun";
-        RenderFactory.renderItems(input, elementId);
+        var inputIds = "Phun xăng điện tử,bec phun";
+        var inputNames = "Phun xăng điện tử,bec phun";
+
+        RenderFactory.renderItems(inputIds, inputNames, elementId);
     },
 
     renderWheelDrive: function (elementId) {
-        var input = "Dẫn động 4 bánh,4 bánh toàn thời gian,Dẫn động cầu trước,Dẫn động cầu sau";
-        RenderFactory.renderItems(input, elementId);
+        var inputIds = "AWD,4WD,RWD,FWD";
+        var inputNames = "4 bánh toàn thời gian,Dẫn động 4 bánh,Dẫn động cầu sau,Dẫn động cầu trước";
+
+        RenderFactory.renderItems(inputIds, inputNames, elementId);
     },    
     
-    renderItems : function(input, id)
+    renderItems : function(inputIds, inputNames, elementId)
     {
-        var item = "<option value='@item'>@item</option>";        
+        var item = "<option value='@itemId'>@itemName</option>";        
         var ouput = "";
         
-        var array = input.split(',').sort();
+        var arrayIds = inputIds.split(',');
+        var arrayNames = inputNames.split(',');
         
-        for (var i = 0 ; i < array.length; i++) {
-            ouput += item.replace(new RegExp("@item", 'g'), array[i]);
+        for (var i = 0 ; i < arrayIds.length; i++) {
+            ouput += item.replace(new RegExp("@itemId", 'g'), arrayIds[i]).replace(new RegExp("@itemName", 'g'), arrayNames[i]);
         }
 
-        $(id).html(ouput);
+        $(elementId).html(ouput);
     }
 }
 

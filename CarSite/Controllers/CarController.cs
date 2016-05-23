@@ -41,6 +41,7 @@ namespace CarSite.Controllers
             return View("~/Views/Shared/UploadFiles.cshtml");
         }
 
+        [Authorize]
         public ActionResult Insert()
         {
             return View("~/Views/Car/CarInsert.cshtml");
@@ -99,6 +100,38 @@ namespace CarSite.Controllers
         {
             List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
+        }
+
+        [HttpPost]
+        public void InsertCar(CarInsertEntity carInsertEntity)
+        {
+            var criteria = new CarInsertCriteria
+            {
+                UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                Title = carInsertEntity.Title,
+                Firm = carInsertEntity.Firm,
+                Model = carInsertEntity.Model,
+                IsNew = carInsertEntity.IsNew,
+                IsImport = carInsertEntity.IsImport,
+                TypeId = carInsertEntity.TypeId,
+                CurrencyVN = carInsertEntity.CurrencyVN,
+                Year = carInsertEntity.Year,
+                Km = carInsertEntity.Km,
+                Description = carInsertEntity.Description,
+                ProvinceId = carInsertEntity.ProvinceId,
+                SeatNo = carInsertEntity.SeatNo,
+                GateNo = carInsertEntity.GateNo,
+                ExteriorColorId = carInsertEntity.ExteriorColorId,
+                InteriorColorId = carInsertEntity.InteriorColorId,
+                FuelConsumption = carInsertEntity.FuelConsumption,
+                FuelId = carInsertEntity.FuelId,
+                FuelSystem = carInsertEntity.FuelSystem,
+                GearBox = carInsertEntity.GearBox,
+                WheelDriveId =carInsertEntity.WheelDriveId,
+                CreatedDate = DateTime.Now.ToShortDateString()
+            };
+
+            CarService.InsertCar(criteria);            
         }     
 
         #endregion

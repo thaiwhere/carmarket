@@ -40,11 +40,14 @@ namespace CarSite.Controllers
                     // same operation on the user entered password here, But for now
                     // since the password is in plain text lets just authenticate directly
 
-                    bool userValid = entities.Users.Any(user => user.UserName == username && user.Password == password);
+                    var userLogin = entities.Users.Where(user => user.UserName == username).Where(user => user.Password == password).Single();
 
+                    //bool userValid = entities.Users.Any(user => user.UserName == username && user.Password == password);
+                    
                     // User found in the database
-                    if (userValid)
-                    {
+                    if (userLogin != null)
+                    {                        
+                        HttpContext.Session["UserId"] = userLogin.UserId;
 
                         FormsAuthentication.SetAuthCookie(username, false);
                         if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
@@ -54,7 +57,7 @@ namespace CarSite.Controllers
                         }
                         else
                         {
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction("Insert", "Car");
                         }
                     }
                     else
@@ -101,7 +104,7 @@ namespace CarSite.Controllers
                         }                      
                     }
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Insert", "Car");
                 }
             }
 

@@ -140,10 +140,10 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Type, new { @class = "control-label col-md-4" })
+                @Html.LabelFor(model => model.TypeId, new { @class = "control-label col-md-4" })
                 <div class="col-md-8">
-                    @Html.EditorFor(model => model.Type)
-                    @Html.ValidationMessageFor(model => model.Type)
+                    @Html.EditorFor(model => model.TypeId)
+                    @Html.ValidationMessageFor(model => model.TypeId)
 
                     <select id="carInsert_select_type"></select>
                 </div>
@@ -276,18 +276,18 @@
                     <select id="carInsert_select_WheelDrive"></select>
                 </div>
             </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-8">
-                    <input type="submit" value="Đăng tin" class="btn btn-default" />
-                </div>
-            </div>
+           
         </div>
 
+        <div class="images">
+            @{ Html.RenderPartial("~/Views/Shared/UploadFiles.cshtml", null); }
+        </div>
     </div>
 }
 
 <div>
+    <br />
+    <br />
     @Html.ActionLink("Trở về trang chủ", "Home/Index")
 </div>
 

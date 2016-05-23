@@ -34,7 +34,7 @@ namespace Car.Model.Criteria
 
         public string InteriorColor { get; set; }
 
-        public int WindowNo { get; set; }
+        public int GateNo { get; set; }
 
         public int SeatNo { get; set; }
 
