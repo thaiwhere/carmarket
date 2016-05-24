@@ -1,0 +1,23 @@
+﻿.car-insert{
+    float:left;
+    width:390px;
+}
+
+#divCarInsert label{
+    color:#2A55FF    
+}
+
+#divCarInsert input{
+    color:#337ab7    
+}
+
+#divCarInsert select{
+    color:#337ab7    
+}
+
+#uploadCar{
+    width:100px !important;
+    color:yellow !important;
+}
+
+.buttonUpload { display:inline-block; padding: 4px 10px 4px; text-align: center; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); background-color: #0074cc; -webkit-border-radius: 4px;-moz-border-radius: 4px; border-radius: 4px; border-color: #e6e6e6 #e6e6e6 #bfbfbf; border: 1px solid #cccccc; color:#fff; }

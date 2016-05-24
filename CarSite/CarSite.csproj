@@ -226,6 +226,7 @@
     </Content>
     <Content Include="Content\assets\icon-fonts\styles.css" />
     <Content Include="Content\css\animate.min.css" />
+    <Content Include="Content\css\base\car-insert.css" />
     <Content Include="Content\css\base\grid-custom.css" />
     <Content Include="Content\css\base\salon.css" />
     <Content Include="Content\css\base\grid-custom.css" />
@@ -275,6 +276,7 @@
     <Content Include="Content\css\grid.paging\PagerPagination.css" />
     <Content Include="Content\css\jquery.vegas.min.css" />
     <Content Include="Content\css\Justified-Nav.css" />
+    <Content Include="Content\css\dropzone.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.theme.css" />
     <Content Include="Content\css\pixeden-icons.css" />
@@ -360,6 +362,7 @@
     <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.vegas.min.js" />
+    <Content Include="Content\scripts\lib\dropzone.js" />
     <Content Include="Content\scripts\lib\multiupload.js" />
     <Content Include="Content\scripts\SearchingCar.js" />
     <Content Include="Content\scripts\lib\modernizr-2.6.2.js" />
@@ -457,6 +460,7 @@
     <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\Shared\UploadFiles.cshtml" />
     <Content Include="Views\Car\CarInsert.cshtml" />
+    <Content Include="Views\Shared\UploadImages.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
