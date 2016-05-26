@@ -1,37 +1,78 @@
-﻿
-@*http://www.9lessons.info/2012/09/multiple-file-drag-and-drop-upload.html*@
+﻿@** More info at [www.dropzonejs.com](http://www.dropzonejs.com)*@
 xxxxxxxxxx
 
 <h3>Chọn hình</h3>
 
+<link href="~/Content/css/file-upload/dropzone.css" rel="stylesheet" />
+<script src="~/Content/scripts/file-upload/dropzone.js"></script>
+<div class="jumbotron">
+    <form action="~/File/UploadFile" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm">
+        <div class="fallback">
+            <input name="file" type="file" multiple />
+            @*<input type="submit" value="Upload" />*@
+        </div>
+    </form>
+</div>
+
+<style type="text/css">
+    .dz-max-files-reached {
+        background-color: red;
+    }
+</style>
 
 <script type="text/javascript">
-    var config = {
-        support: "image/jpg,image/png,image/bmp,image/jpeg,image/gif",		// Valid file formats
-        form: "divCarInsert",					// Form ID
-        dragArea: "dragAndDropFiles",		// Upload Area ID
-        uploadUrl: "upload.php"				// Server side upload url
-    }
-    $(document).ready(function () {
-        initMultiUploader(config);
-    });
+
+    //File Upload response from the server
+    Dropzone.options.dropzoneForm = {
+        maxFiles: 10,
+        init: function () {
+            this.on("maxfilesexceeded", function (data) {
+                var res = eval('(' + data.xhr.responseText + ')');
+
+            });
+            this.on("addedfile", function (file) {
+
+                // Create the remove button
+                var removeButton = Dropzone.createElement("<button>Remove file</button>");
+
+
+                // Capture the Dropzone instance as closure.
+                var _this = this;
+
+                // Listen to the click event
+                removeButton.addEventListener("click", function (e) {
+                    // Make sure the button click doesn't submit the form:
+                    e.preventDefault();
+                    e.stopPropagation();
+                    // Remove the file preview.
+                    _this.removeFile(file);
+                    // If you want to the delete the file on the server as well,
+                    // you can do the AJAX request here.
+                    var deletedFile = { 'fileName': file.name };
+                    $.ajax({
+                        type: 'POST',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        url: "/File/RevmoveUploadedFile",
+                        data: JSON.stringify(deletedFile),
+                        success: function (result) {
+                        },
+                        error: function (xhr) {
+                        }
+                    });
+
+
+                });
+
+                // Add the button to the file preview element.
+                file.previewElement.appendChild(removeButton);
+            });
+        }
+    };
+
+
+
+
+
+
 </script>
-
-<link href="~/Content/css/multiupload.css" rel="stylesheet" />
-
-
-<div id="dragAndDropFiles" class="uploadArea">
-    <h1>Drop Images Here</h1>
-</div>
-
-<div>
-    <input type="file" name="multiUpload" id="multiUpload" multiple />
-    <br />
-    <input type="submit" id="uploadCar" value="Đăng tin" class="buttonUpload" />
-</div> 
-
-<div class="progressBar">
-    <div class="status"></div>
-</div>
-
-<script src="~/Content/scripts/lib/multiupload.js"></script>

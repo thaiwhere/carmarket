@@ -1,6 +1,7 @@
 ﻿using Car.Framework;
 using Car.Model.Criteria;
 using Car.Model.Entity;
+using System;
 using System.Collections.Generic;
 using TQQ.Data;
 using TQQ.Data.Repository;
@@ -44,7 +45,11 @@ namespace Car.Service
             using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
             {
                 var param = criteria.GetSpParams();
-                return obj.ExecuteNonQuery(param);                
+                obj.ExecuteNonQuery(param);
+
+                var carId = param["carid"];
+
+                return (carId is DBNull) ? 0 : Convert.ToInt32(carId);
             }
         }
     }

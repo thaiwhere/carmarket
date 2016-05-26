@@ -56,6 +56,8 @@ namespace Car.Model.Criteria
 
         public string CreatedDate { get; set; }
 
+        public int CarId { get; set; }
+
         /// <summary>
         /// Gets Setting Key.
         /// </summary>

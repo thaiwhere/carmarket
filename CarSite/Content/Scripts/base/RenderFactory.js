@@ -91,7 +91,7 @@ var RenderFactory = {
     },
 
     renderTypes: function (elementId) {        
-        var inputIds = "Convertible,Coupe,Crossover,Hatchback,Van/Minivan,Sedan,SUV,Truck,Wagon";
+        var inputIds = "Conver,Coupe,Crossover,Hatchback,Minivan,Sedan,SUV,Truck,Wagon";
         var inputNames = "Convertible,Coupe,Crossover,Hatchback,Van/Minivan,Sedan,SUV,Truck,Wagon";
         
         RenderFactory.renderItems(inputIds, inputNames, elementId);

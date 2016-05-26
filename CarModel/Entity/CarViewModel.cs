@@ -10,6 +10,8 @@ namespace Car.Model.Entity
     {
         public int CarId { get; set; }
 
+        public int UserId { get; set; }
+
         public string Firm{ get; set; }   
         public string Model { get; set; }
         

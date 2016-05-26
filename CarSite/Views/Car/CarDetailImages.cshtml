@@ -1,8 +1,9 @@
 ﻿@model Car.Model.Entity.CarViewModel
 
 @{
+    var userId = @Model.UserId;
     var carId = @Model.CarId;
-    var imagesPath = "/Images/Cars_" + carId;
+    var imagesPath = "/Images/Cars_" + userId + "_" + carId;
     var index =0;
 }
 

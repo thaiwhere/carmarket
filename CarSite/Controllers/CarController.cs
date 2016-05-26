@@ -3,6 +3,7 @@ using Car.Model.Entity;
 using Car.Service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -131,8 +132,25 @@ namespace CarSite.Controllers
                 CreatedDate = DateTime.Now.ToShortDateString()
             };
 
-            CarService.InsertCar(criteria);            
+            var carId = CarService.InsertCar(criteria);
+
+            ChangeFolderName(carId);
         }     
+
+        private void ChangeFolderName(int carId)
+        {
+            var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
+
+            string soureDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString());
+
+            string destDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString() + "_" + carId);
+
+            bool isExists = System.IO.Directory.Exists(soureDirName);
+            if (isExists)
+            {
+                System.IO.Directory.Move(soureDirName, destDirName);
+            }
+        }
 
         #endregion
     }

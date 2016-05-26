@@ -187,6 +187,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -276,7 +277,7 @@
     <Content Include="Content\css\grid.paging\PagerPagination.css" />
     <Content Include="Content\css\jquery.vegas.min.css" />
     <Content Include="Content\css\Justified-Nav.css" />
-    <Content Include="Content\css\dropzone.css" />
+    <Content Include="Content\css\file-upload\dropzone.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.theme.css" />
     <Content Include="Content\css\pixeden-icons.css" />
@@ -323,6 +324,8 @@
     <Content Include="Content\images\common\star.png" />
     <Content Include="Content\images\common\tab.png" />
     <Content Include="Content\images\common\user-alt-v2.png" />
+    <Content Include="Content\images\spritemap%402x.png" />
+    <Content Include="Content\images\spritemap.png" />
     <Content Include="Content\images\team\pic1.jpg" />
     <Content Include="Content\images\team\pic2.jpg" />
     <Content Include="Content\images\team\pic3.jpg" />
@@ -336,8 +339,13 @@
     <Content Include="Content\scripts\base\handler.js" />
     <Content Include="Content\scripts\base\namespace.js" />
     <Content Include="Content\scripts\AddCar.js" />
+    <Content Include="Content\scripts\file-upload\jquery.fileupload-ui.js" />
+    <Content Include="Content\scripts\file-upload\jquery.fileupload.js" />
+    <Content Include="Content\scripts\file-upload\jquery.iframe-transport.js" />
     <Content Include="Content\scripts\GridDemo.js" />
     <Content Include="Content\scripts\Index.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery-1.9.1.min.js" />
+    <Content Include="Content\scripts\lib\jquery\jquery-ui-1.9.2.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.cookie.js" />
     <Content Include="Content\scripts\base\SearchingHandler.js" />
     <Content Include="Content\scripts\CarDetail.js" />
@@ -362,7 +370,7 @@
     <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.vegas.min.js" />
-    <Content Include="Content\scripts\lib\dropzone.js" />
+    <Content Include="Content\scripts\file-upload\dropzone.js" />
     <Content Include="Content\scripts\lib\multiupload.js" />
     <Content Include="Content\scripts\SearchingCar.js" />
     <Content Include="Content\scripts\lib\modernizr-2.6.2.js" />
@@ -460,7 +468,6 @@
     <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\Shared\UploadFiles.cshtml" />
     <Content Include="Views\Car\CarInsert.cshtml" />
-    <Content Include="Views\Shared\UploadImages.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -519,7 +526,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52437</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52437/</IISUrl>
+          <IISUrl>http://localhost:7777/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
