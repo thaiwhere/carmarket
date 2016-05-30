@@ -4,7 +4,6 @@
     var userId = @Model.UserId;
     var carId = @Model.CarId;
     var imagesPath = "/Images/Cars_" + userId + "_" + carId;
-    var index =0;
 }
 
 <div id="car_detail_slide">
@@ -24,13 +23,14 @@
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">            
-            @foreach (var imgPath in Directory.GetFiles(Server.MapPath(imagesPath), "*.jpg"))
+        <div class="carousel-inner" role="listbox">
+            @if (System.IO.Directory.Exists(Server.MapPath(imagesPath)))
             {
-                var img = new FileInfo(imgPath);
-                if (!img.Name.Contains("small"))
-                { 
-                    if (index == 0) { 
+                foreach (var imgPath in Directory.GetFiles(Server.MapPath(imagesPath), "*.jpg"))
+                {
+                    var img = new FileInfo(imgPath);
+                    if (img.Name.Contains("01"))
+                    {
                         <div class="item active">
                             <img src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" />
                         </div>
@@ -40,10 +40,15 @@
                         <div class="item">
                             <img src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" />
                         </div>
-                    }                
-                    index++;
+                    }
                 }
-            }                        
+            }
+            else
+            {
+                <div class="item active">
+                    <img src="@Url.Content(String.Format("/Images/noimage.gif"))" />
+                </div>
+            }
         </div>
 
         <!-- Left and right controls -->
@@ -61,22 +66,26 @@
 <div id="img-section">
     <div class="car-detail-section">
 
-        <span>            
-            @{
-                index = 0;
-            }
-            @foreach (var imgPath in Directory.GetFiles(Server.MapPath(imagesPath), "*.jpg"))
+        <span>
+            @if (System.IO.Directory.Exists(Server.MapPath(imagesPath)))
             {
-                var img = new FileInfo(imgPath);
-                if (!img.Name.Contains("small"))
-                { 
-                    <a href="javascript:void(@index)">                    
-                        <img onclick="change_img(@index);"  src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" />
+                var index = 0;
+                foreach (var imgPath in Directory.GetFiles(Server.MapPath(imagesPath), "*.jpg"))
+                {
+                    var img = new FileInfo(imgPath);
+                    <a href="javascript:void(@index)">
+                        <img onclick="change_img(@index);" src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" />
                     </a>
-                
-                    index++;                
+
+                    index++;
                 }
-            }             
+            }
+            else
+            {
+                <a href="javascript:void(0)">                    
+                    <img src="@Url.Content(String.Format("/Images/noimage.gif"))" />
+                </a>
+            }
         </span>
 
     </div>

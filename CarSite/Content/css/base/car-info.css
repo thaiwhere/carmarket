@@ -67,6 +67,7 @@
 .car-detail-section{    
     margin: 0px 5px 5px 6px;    
     float: left;    
+    width:100%
 }
 
 .car-detail-section.info
@@ -260,4 +261,10 @@
 
 #car_detail_info_technical{    
     float:none;
+}
+
+.car-photo img{
+    width:120px;
+    height:105px;
+    background-image: url('/images/noimage.gif')
 }
