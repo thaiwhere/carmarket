@@ -229,8 +229,8 @@
 }
 
 .carousel-inner img{
-    width: 438px;
-    height: 330px;
+    width: 438px !important;
+    height: 330px !important;
 }
 
 #div_car_detail_info .row{

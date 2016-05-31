@@ -45,6 +45,10 @@ namespace CarSite.Controllers
         [Authorize]
         public ActionResult Insert()
         {
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             return View("~/Views/Car/CarInsert.cshtml");
         }
         
@@ -66,7 +70,6 @@ namespace CarSite.Controllers
             var listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
         }
-
 
         [HttpPost]
         public JsonResult SearchingCarsForYou(CarSearchingForYouCriteria criteria)
@@ -104,8 +107,13 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
-        public void InsertCar(CarInsertEntity carInsertEntity)
-        {
+        public JsonResult InsertCar(CarInsertEntity carInsertEntity)
+        {            
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return Json(-1);
+            }
+
             var criteria = new CarInsertCriteria
             {
                 UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
@@ -134,22 +142,76 @@ namespace CarSite.Controllers
 
             var carId = CarService.InsertCar(criteria);
 
-            ChangeFolderName(carId);
-        }     
+            if (carId == -1)
+            {
+                RemoveFolderName();                
+            }
+            else
+            {
+                ChangeFolderName(carId);
+                ChangeFileName(carId);
+            }
+
+            return Json(carId);
+        }        
+
+        #endregion
+
+        #region Utilities
+
+        private void RemoveFolderName()
+        {
+            var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
+
+            string sourceDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString());
+
+            bool isExists = System.IO.Directory.Exists(sourceDirName);
+            if (isExists)
+            {
+                System.IO.Directory.Delete(sourceDirName);
+            }
+        }
 
         private void ChangeFolderName(int carId)
         {
             var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
 
-            string soureDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString());
+            string sourceDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString());
 
             string destDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString() + "_" + carId);
 
-            bool isExists = System.IO.Directory.Exists(soureDirName);
+            bool isExists = System.IO.Directory.Exists(sourceDirName);
             if (isExists)
             {
-                System.IO.Directory.Move(soureDirName, destDirName);
+                System.IO.Directory.Move(sourceDirName, destDirName);
             }
+        }
+
+        private void ChangeFileName(int carId)
+        {
+            var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
+
+            string destDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString() + "_" + carId);
+
+            bool isExists = System.IO.Directory.Exists(destDirName);
+            if (isExists)
+            {
+                var index = 1;
+                foreach(var file in System.IO.Directory.EnumerateFiles(destDirName))
+                {                    
+                    var destinationFilename = string.Format("{0}\\{1}", destDirName, index + ".jpg");
+
+                    if (System.IO.File.Exists(destinationFilename))
+                    {
+                        System.IO.File.Delete(destinationFilename);
+                    }
+
+                    System.IO.File.Move(file, destinationFilename);
+
+                    index++;
+                }
+            }
+
         }
 
         #endregion

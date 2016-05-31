@@ -1,6 +1,5 @@
 ﻿$(function () {
 
-    //AddCarHandler.initFileUploadWithCheckingSize();
     AddCarHandler.bindingEvents();
     AddCarHandler.renderData();
     AddCarHandler.initData();
@@ -83,8 +82,7 @@ var AddCarHandler = {
 
         $("#uploadCar").click(
                function () {
-                   AddCarHandler.insertCar();
-                   //AddCarHandler.uploadFiles();
+                   AddCarHandler.insertCar();                   
                }
            );      
     },
@@ -156,79 +154,18 @@ var AddCarHandler = {
             url: "/Car/InsertCar",
             data: JSON.stringify(criteria),
             success: function (result) {
-                callback(gridId, result);
+                if (result > 0) {                    
+                    alert("Đăng tin thành công");
+                    window.location = '/home/index';
+                } else {
+                    alert("Lỗi đăng tin, vui lòng thử lại !");
+                }
             },
             error: function (xhr) {
-                common.HandleAjaxError(xhr);
+                alert("Lỗi đăng tin, vui lòng thử lại !");
+                //common.HandleAjaxError(xhr);
             }
         });
-    },
-
-    uploadFiles:function(){
-        if (jqXHRData) {
-            var isStartUpload = true;
-            var uploadFile = jqXHRData.files[0];
-
-            //jqXHRData.files = jqXHRData.originalFiles;
-
-            if (!(/\.(gif|jpg|jpeg|tiff|png)$/i).test(uploadFile.name)) {
-                alert('You must select an image file only');
-                isStartUpload = false;
-            } else if (uploadFile.size > 4000000) { // 4mb
-                alert('Please upload a smaller image, max size is 4 MB');
-                isStartUpload = false;
-            }
-            if (isStartUpload) {
-                jqXHRData.submit();
-            }
-        }
-    },
-
-    initFileUploadWithCheckingSize: function () {
-        'use strict';
-        
-        Dropzone.autoDiscover = false;
-        //Simple Dropzonejs
-        $("#dZUpload").dropzone({
-            url: "/File/ProcessRequest",
-            maxFiles: 5,
-            addRemoveLinks: true,
-            success: function (file, response) {
-                alert('success');
-                var imgName = response;
-                file.previewElement.classList.add("dz-success");
-                console.log("Successfully uploaded :" + imgName);
-            },
-            error: function (file, response) {
-                alert('failt');
-                file.previewElement.classList.add("dz-error");
-            }
-        });
-
-        //$('.dz-hidden-input').fileupload({
-        //    url: '/File/UploadFile',
-        //    dataType: 'json',
-        //    add: function (e, data) {
-        //        jqXHRData = data;
-        //        //Dropzone.prototype.addFile(data);
-        //    },
-        //    done: function (event, data) {
-        //        if (data.result.isUploaded) {
-
-        //        }
-        //        else {
-
-        //        }
-        //        alert(data.result.message);
-        //    },
-        //    fail: function (event, data) {
-        //        if (data.files[0].error) {
-        //            alert(data.files[0].error);
-        //        }
-        //    }
-        //});
-    }
-
-
+    }    
 }
 

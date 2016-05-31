@@ -93,6 +93,8 @@ namespace CarSite.Controllers
                     User user = new Models.User() { UserName = model.UserName, Password = model.Password, Roles = "user" };
                     entities.Users.Add(user);
 
+                    HttpContext.Session["UserId"] = user.UserId;
+
                     FormsAuthentication.SetAuthCookie(user.UserName, false);
 
                     if (entities.SaveChanges() > 0)

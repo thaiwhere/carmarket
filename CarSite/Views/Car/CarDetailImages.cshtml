@@ -29,7 +29,7 @@
                 foreach (var imgPath in Directory.GetFiles(Server.MapPath(imagesPath), "*.jpg"))
                 {
                     var img = new FileInfo(imgPath);
-                    if (img.Name.Contains("01"))
+                    if (img.Name.Equals("1.jpg"))
                     {
                         <div class="item active">
                             <img src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" />

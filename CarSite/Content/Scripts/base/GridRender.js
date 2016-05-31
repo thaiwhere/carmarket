@@ -4,7 +4,7 @@ function decorateData(cars) {
 
     for (var i = 0; i < cars.length; i++) {
         var href = "/Car/CarDetail/" + cars[i].CarId;
-        var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/01.jpg";
+        var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
         var title = cars[i].Title;
 
         var status = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe cũ";

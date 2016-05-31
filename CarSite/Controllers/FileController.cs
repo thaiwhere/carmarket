@@ -21,16 +21,14 @@ namespace TestAjaxUpload
         [HttpPost]
         public virtual ActionResult UploadFile()
         {
-            bool isSavedSuccessfully = true;
-            string fName = "";
-            foreach (string fileName in Request.Files)
+            bool isSavedSuccessfully = true;                        
+            try
             {
-                HttpPostedFileBase file = Request.Files[fileName];
-                //Save file content goes here
-                fName = file.FileName;
-                if (file != null && file.ContentLength > 0)
+                foreach (string fileName in Request.Files)
                 {
-                    if (file.ContentLength <= 1000000)
+                    HttpPostedFileBase file = Request.Files[fileName];
+
+                    if (file != null && file.ContentLength > 0)
                     {
                         var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
 
@@ -39,24 +37,23 @@ namespace TestAjaxUpload
                         bool isExists = System.IO.Directory.Exists(pathString);
 
                         if (!isExists)
+                        {
                             System.IO.Directory.CreateDirectory(pathString);
+                        }                       
 
-                        var path = string.Format("{0}\\{1}", pathString, fName);
+                        var path = string.Format("{0}\\{1}", pathString, file.FileName + ".jpg");
 
                         file.SaveAs(path);
                     }
+
                 }
-
             }
-
-            if (isSavedSuccessfully)
+            catch
             {
-                return Json(new { Message = fName });
+                isSavedSuccessfully = false;
             }
-            else
-            {
-                return Json(new { Message = "Error in saving file" });
-            }
+
+            return Json(isSavedSuccessfully);            
         }
 
         [HttpPost]
@@ -65,7 +62,9 @@ namespace TestAjaxUpload
 
             var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
 
-            string pathString = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString());
+            var folderName = "Cars_" + HttpContext.Session["UserId"].ToString();
+
+            string pathString = System.IO.Path.Combine(originalDirectory.ToString(), folderName);
 
             bool isExists = System.IO.Directory.Exists(pathString);
 
@@ -81,41 +80,6 @@ namespace TestAjaxUpload
             {
                 return Json(new { Message = "Error in removing file" });
             }
-        }
-
-        [HttpPost]
-        public ActionResult ProcessRequest(HttpContext context)
-        {
-            bool isUploaded = false;
-            string message = "File upload failed";
-
-            string dirFullPath = Server.MapPath("~/Uploads");
-            string[] files;
-            int numFiles;
-            files = System.IO.Directory.GetFiles(dirFullPath);
-            numFiles = files.Length;
-            numFiles = numFiles + 1;
-
-            string str_image = "";
-
-            foreach (string s in context.Request.Files)
-            {
-                HttpPostedFile file = context.Request.Files[s];
-                string fileName = file.FileName;
-                string fileExtension = file.ContentType;
-
-                if (!string.IsNullOrEmpty(fileName))
-                {
-                    fileExtension = Path.GetExtension(fileName);
-                    str_image = "MyPHOTO_" + numFiles.ToString() + fileExtension;
-                    string pathToSave = dirFullPath + str_image;
-                    file.SaveAs(pathToSave);
-                    isUploaded = true;
-                    message = "File uploaded successfully!";
-                }
-            }
-
-            return Json(new { isUploaded = isUploaded, message = message }, "text/html");
         }
 
         #endregion

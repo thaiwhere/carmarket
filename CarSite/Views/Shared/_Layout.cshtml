@@ -32,9 +32,12 @@
                <div id="div-search">
                     @{ Html.RenderPartial("~/Views/Shared/Search.cshtml"); }
                 </div>
-                <div id="div-user">
-                    @Html.Partial("_LoginPartial")
-                </div>
+                @if(System.Web.HttpContext.Current.Session["UserId"] !=null)
+                { 
+                    <div id="div-user">
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                }
             </div>
         </div>
         <div id="div-menu">

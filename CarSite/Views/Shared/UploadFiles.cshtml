@@ -9,7 +9,7 @@ xxxxxxxxxx
     <form action="~/File/UploadFile" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm">
         <div class="fallback">
             <input name="file" type="file" multiple />
-            @*<input type="submit" value="Upload" />*@
+            <input type="submit" value="Upload" />
         </div>
     </form>
 </div>
@@ -21,10 +21,11 @@ xxxxxxxxxx
 </style>
 
 <script type="text/javascript">
-
+    
     //File Upload response from the server
     Dropzone.options.dropzoneForm = {
-        maxFiles: 10,
+        maxFiles: 15,
+        maxFilesize: 4, //4MB
         init: function () {
             this.on("maxfilesexceeded", function (data) {
                 var res = eval('(' + data.xhr.responseText + ')');
@@ -46,6 +47,7 @@ xxxxxxxxxx
                     e.stopPropagation();
                     // Remove the file preview.
                     _this.removeFile(file);
+
                     // If you want to the delete the file on the server as well,
                     // you can do the AJAX request here.
                     var deletedFile = { 'fileName': file.name };
