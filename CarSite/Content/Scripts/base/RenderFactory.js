@@ -105,7 +105,7 @@ var RenderFactory = {
     },
 
     renderColors: function (elementId) {
-        var inputIds = "#979692,#FF7F50,#F0E68C,#000000,#FF0000,#FAFAD2,#C9BEAA,#FF69B4,#FFFFF0,#785947,#9400D3,#FFFFFF,#FFD700,#B5BACO,#7FFFD4,#00BFFF";
+        var inputIds = "#979692,#FF7F50,#F0E68C,#000000,#FF0000,#FAFAD2,#C9BEAA,#FF69B4,#FFFFF0,#785947,#9400D3,#FFFFFF,#FFD700,#B5BACO,#00BFFF";
         var inputNames = "BẠC,Cam,Cát,Đen,Đỏ,Đồng,GHI,Hồng,Kem,Nâu,Tím,Trắng,Vàng,Xám,Xanh,Xanh";        
 
         RenderFactory.renderItems(inputIds, inputNames, elementId);
@@ -130,14 +130,29 @@ var RenderFactory = {
         var inputNames = "4 bánh toàn thời gian,Dẫn động 4 bánh,Dẫn động cầu sau,Dẫn động cầu trước";
 
         RenderFactory.renderItems(inputIds, inputNames, elementId);
-    },    
+    },
+
+    renderGearBox: function (elementId)
+    {
+        var inputIds = "0,4,1";
+        var inputNames = "Tự động, Số sàn, Số hỗn hợp";
+
+        RenderFactory.renderItems(inputIds, inputNames, elementId);
+    },
+
+    renderGearBoxNumber: function (elementId) {        
+        var inputIds = "4,5,6,7";
+        var inputNames = "4 số,5 số,6 số,7 số";
+
+        RenderFactory.renderItems(inputIds, inputNames, elementId);
+    },
     
     renderItems : function(inputIds, inputNames, elementId)
     {
         var item = "<option value='@itemId'>@itemName</option>";        
         var ouput = "";
         
-        var arrayIds = inputIds.split(',');
+        var arrayIds = inputIds.trim().split(',');
         var arrayNames = inputNames.split(',');
         
         for (var i = 0 ; i < arrayIds.length; i++) {
@@ -145,6 +160,25 @@ var RenderFactory = {
         }
 
         $(elementId).html(ouput);
-    }
+    },
+
+    renderYear: function (elementId)
+    {
+        var min = new Date().getFullYear() - 10,
+        max = min + 10,
+        select = document.getElementById(elementId);
+
+        var opt = document.createElement('option');
+        opt.value = 2005;
+        opt.innerHTML = "<" + min;
+        select.appendChild(opt);
+
+        for (var i = min; i <= max; i++) {
+            var opt = document.createElement('option');
+            opt.value = i;
+            opt.innerHTML = i;
+            select.appendChild(opt);
+        }
+    }   
 }
 

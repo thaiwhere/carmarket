@@ -35,7 +35,7 @@ namespace Car.Model.Entity
         public string Address { get; set; }
         
         public int SeatNo { get; set; }//Số chỗ ngôi               
-        public int WindowNo { get; set; }
+        public int GateNo { get; set; }
 
         public string ExteriorColor { get; set; }
         public string InteriorColor { get; set; }
