@@ -10,7 +10,7 @@ namespace Car.Model.Entity
     {
         public int UserId { get; set; }
 
-        [DisplayName("Tiêu đề")]
+        [DisplayName("Tiêu đề (*)")]
         public string Title { get; set; }
 
         [DisplayName("Hãng xe")]
@@ -28,7 +28,7 @@ namespace Car.Model.Entity
         [DisplayName("Kiểu dáng")]
         public string TypeId { get; set; }
 
-        [DisplayName("Giá")]
+        [DisplayName("Giá (Triệu)")]
         public double CurrencyVN { get; set; }
                 
         [DisplayName("Năm sản xuất")]
@@ -37,7 +37,7 @@ namespace Car.Model.Entity
         [DisplayName("Số km đã đi")]
         public int Km { get; set; }        
 
-        [DisplayName("Thông tin mô tả")]
+        [DisplayName("Thông tin mô tả (*)")]
         public string Description { get; set; }
 
         [DisplayName("Tỉnh/Thành")]        
@@ -55,7 +55,7 @@ namespace Car.Model.Entity
         [DisplayName("Màu nội thất")]
         public string InteriorColorId { get; set; }
 
-        [DisplayName("Tiêu thụ")]
+        [DisplayName("Tiêu thụ (Lít/100km)")]
         public int FuelConsumption { get; set; } //6L/100km
 
         [DisplayName("Nhiên liệu")]

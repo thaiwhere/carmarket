@@ -3,12 +3,35 @@
     width:390px;
 }
 
+.car-insert-description{    
+    margin-left:30px;
+    margin-bottom:30px;
+}
+
+.car-insert-description input{
+    width:700px !important;    
+}
+
+.car-insert-description textarea{
+    width:700px;
+    height:150px;
+}
+
 #divCarInsert input{
     color:#337ab7    
 }
 
 #divCarInsert select{
     color:#337ab7    
+}
+
+#divCarInsert textarea{
+    color:#337ab7    
+}
+
+#divCarInsert label{
+    margin-top:-10px;  
+    color:#633E92;
 }
 
 #uploadCar{

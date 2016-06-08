@@ -16,16 +16,14 @@
 
 <div id="divCarInsert">
 
+    <div class="form-horizontal car-insert-description">        
+        @Html.LabelFor(model => model.Title, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Title)
+        @Html.ValidationMessageFor(model => model.Title)
+    </div>
+
     <div class="form-horizontal car-insert">
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-4" })
-            <div class="col-md-8">
-                @Html.EditorFor(model => model.Title, new { style = "width:80%" })
-                @Html.ValidationMessageFor(model => model.Title)
-            </div>
-        </div>
-
+      
         <div class="form-group">
             @Html.LabelFor(model => model.Firm, new { @class = "control-label col-md-4" })
             <div class="col-md-8">
@@ -139,6 +137,17 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.GearBox, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.GearBox)
+                @Html.ValidationMessageFor(model => model.GearBox)
+
+                <select id="carInsert_select_GearBox"></select>
+                <select id="GearBoxNumber"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.TypeId, new { @class = "control-label col-md-4" })
             <div class="col-md-8">
                 @Html.EditorFor(model => model.TypeId)
@@ -153,6 +162,8 @@
             <div class="col-md-8">
                 @Html.EditorFor(model => model.CurrencyVN)
                 @Html.ValidationMessageFor(model => model.CurrencyVN)
+
+                <input type="text" id="carInsert_select_CurrencyVN">
             </div>
         </div>
 
@@ -161,6 +172,8 @@
             <div class="col-md-8">
                 @Html.EditorFor(model => model.Year)
                 @Html.ValidationMessageFor(model => model.Year)
+
+                <select id="carInsert_select_year"></select>
             </div>
         </div>
 
@@ -169,14 +182,6 @@
             <div class="col-md-8">
                 @Html.EditorFor(model => model.Km)
                 @Html.ValidationMessageFor(model => model.Km)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-4" })
-            <div class="col-md-8">
-                @Html.TextAreaFor(model => model.Description, new { cols = 25, row = 10 })
-                @Html.ValidationMessageFor(model => model.Description)
             </div>
         </div>
 
@@ -259,14 +264,6 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GearBox, new { @class = "control-label col-md-4" })
-            <div class="col-md-8">
-                @Html.EditorFor(model => model.GearBox)
-                @Html.ValidationMessageFor(model => model.GearBox)
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.WheelDriveId, new { @class = "control-label col-md-4" })
             <div class="col-md-8">
                 @Html.EditorFor(model => model.WheelDriveId)
@@ -278,8 +275,16 @@
 
     </div>
 
+    <div class="form-horizontal car-insert-description">
+        @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+        <div>
+            @Html.TextAreaFor(model => model.Description, new { cols = 25, row = 10 })
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+    </div>
+
     <div class="images">
-        @{ Html.RenderPartial("~/Views/Shared/UploadFiles.cshtml", null); }        
+        @{ Html.RenderPartial("~/Views/Shared/UploadFiles.cshtml", null); }
     </div>
 
     <br />

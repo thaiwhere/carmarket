@@ -44,6 +44,12 @@ var AddCarHandler = {
                }
            );
 
+        $("#carInsert_select_year").change(
+              function () {
+                  $("#Year").val(this.value);
+              }
+          );
+
         $("#carInsert_select_province").change(
                function () {
                    $("#ProvinceId").val(this.value);
@@ -82,9 +88,43 @@ var AddCarHandler = {
 
         $("#uploadCar").click(
                function () {
-                   AddCarHandler.insertCar();                   
+                   if (AddCarHandler.validateData()) {
+                       AddCarHandler.insertCar();
+                   } else {
+                       alert("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                   }
                }
-           );      
+           );
+
+        $("#carInsert_select_CurrencyVN").change(
+                function () {
+                    $("#CurrencyVN").val(this.value);
+
+                    var value = common.FormatNumber(this.value);
+                    $(this).val(value);
+                }
+           );
+        
+        $("#carInsert_select_GearBox").click(
+                function () {
+
+                    $("#GearBox").val(this.value);
+
+                    if(this.value == "4")
+                    {
+                        $("#GearBoxNumber").show();                        
+                    }
+                    else {
+                        $("#GearBoxNumber").hide();
+                    }
+                }
+           );
+
+        $("#GearBoxNumber").click(
+              function () {
+                  $("#GearBox").val(this.value);                 
+              }
+         );
     },
 
     renderData: function () {
@@ -96,7 +136,10 @@ var AddCarHandler = {
         RenderFactory.renderFuels('#carInsert_select_Fuel');
         RenderFactory.renderFuelSystems('#carInsert_select_FuelSystem');
         RenderFactory.renderWheelDrive('#carInsert_select_WheelDrive');
+        RenderFactory.renderGearBox("#carInsert_select_GearBox");
+        RenderFactory.renderGearBoxNumber("#GearBoxNumber");
 
+        RenderFactory.renderYear("carInsert_select_year");
     },
 
     handlerElements: function () {
@@ -114,11 +157,20 @@ var AddCarHandler = {
         $("#FuelId").hide();
         $("#FuelSystem").hide();
         $("#WheelDriveId").hide();
+        $("#GearBox").hide();
+        $("#GearBoxNumber").hide();
+        $("#CurrencyVN").hide();
+        $("#Year").hide();
     },
 
     adjustWidth: function (width) {
         $("#divCarInsert input").width(width);
         $("#divCarInsert select").width(width);
+    },
+
+    validateData: function () {
+
+        return $("#Title").val() != "" && $("#Description").val() != "";       
     },
 
     insertCar: function () {
@@ -127,8 +179,8 @@ var AddCarHandler = {
             Title: $("#Title").val(),
             Firm: $("#Firm").val(),
             Model: $("#Model").val(),
-            IsNew: $("#IsNew").checked,
-            IsImport: $("#IsImport").checked,
+            IsNew: $("#IsNew").is(":checked"),
+            IsImport: $("#IsImport").is(":checked"),
             TypeId: $("#TypeId").val(),
             CurrencyVN: $("#CurrencyVN").val(),
             Year: $("#Year").val(),
