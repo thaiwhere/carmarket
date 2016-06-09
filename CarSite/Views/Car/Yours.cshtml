@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Quản lý đăng tin";
+}
+
+@section Styles{
+
+}
+
+<h2>Tin đăng cuả bạn</h2>
+
+
+<div id="div-car-yours" class="div-car-tab">
+    <ul class="ul-car-tab">
+        <li id="your_car" class="tabactive"><a href="javascript:void(null);" title="Các xe khác cùng model">Tin còn hiệu lực</a></li>
+        <li id="your_car_expired" class=""><a href="javascript:void(null);" title="Các xe khác có mức giá xấp xỉ (± 10%)">Tin hết hạn</a></li>
+    </ul>
+</div>
+
+<div class="grid-container">
+    <div id="gridYourCars" class="freegrid"></div>
+    <div id="gridYourCarsExpired" class="freegrid"></div>
+</div>           
+
+@section Scripts
+{    
+    <script src="~/Content/scripts/SearchingCar.js"></script>
+
+    <script>        
+
+        handler.showResultSearching();
+
+        var criteria = {
+            ItemsPerPage: ItemsPerPage,
+            CurrentPageIndex: 0        
+        };
+
+        var SearchingCar = new Car.SearchingCar();
+        SearchingCar.Yours("/Car/Yours", criteria);        
+
+        $("#gridYourCarsExpired").hide();
+    </script>
+
+}

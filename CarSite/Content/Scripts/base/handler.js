@@ -152,6 +152,24 @@
             CarDetail.showSimilarPriceCarsList(carDetailId, carDetailPrice);
         });
 
+        $("#your_car").click(function () {
+            handler.inActiveTab($("#div-car-yours"));
+            $("#gridYourCars").show();
+            $("#gridYourCarsExpired").hide();
+            $("#your_car").addClass("tabactive");
+        });
+
+        $("#your_car_expired").click(function () {
+            handler.inActiveTab($("#div-car-yours"));
+            $("#gridYourCarsExpired").show();
+            $("#gridYourCars").hide();
+            $("#your_car_expired").addClass("tabactive");
+
+            var SearchingCar = new Car.SearchingCar();            
+            SearchingCar.YoursExpired("/Car/YoursExpired", criteria);
+
+        });
+
         $("#car_detail_info_basic_tab").click(function () {
             handler.inActiveTab($("#div_car_detail_info"));
             $("#car_detail_info_basic_tab").addClass("tabactive");

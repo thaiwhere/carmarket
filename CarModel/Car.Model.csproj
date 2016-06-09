@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Criteria\CarInsertCriteria.cs" />
     <Compile Include="Criteria\CarSearchingDetalCriteria.cs" />
+    <Compile Include="Criteria\CarSearchingYoursExpired.cs" />
+    <Compile Include="Criteria\CarSearchingYours.cs" />
     <Compile Include="Criteria\CarSearchingSimilarPriceCriteria.cs" />
     <Compile Include="Criteria\CarSearchingSimilarModelCriteria.cs" />
     <Compile Include="Criteria\CarSearchingLikeModelCriteria.cs" />

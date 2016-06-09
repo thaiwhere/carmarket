@@ -20,6 +20,11 @@
     height:1800px !important;
 }
 
+#gridYourCars, #gridYourCarsExpired{
+    margin-top:-5px;
+    height:1800px !important;
+}
+
 #gridSearchingCar{
     /*margin-left:0px;
     width:766px !important;

@@ -467,6 +467,7 @@
     <Content Include="Views\Home\Salon.cshtml" />
     <Content Include="Views\Shared\UploadFiles.cshtml" />
     <Content Include="Views\Car\CarInsert.cshtml" />
+    <Content Include="Views\Car\Yours.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
