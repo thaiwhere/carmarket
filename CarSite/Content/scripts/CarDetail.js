@@ -45,6 +45,7 @@ Car.CarDetail = function () {
         handler.inActiveTab($("#div_searching_tab"));
         $("#div_searching_tab").hide();
         $("#div_searching_tab_car_detail").show();
+        $("#gridCarSimilarPrice").hide();
         
         handler.showResultSearching();
         $this.showSimilarModelCarsList(carDetailId, carDetailModel);
