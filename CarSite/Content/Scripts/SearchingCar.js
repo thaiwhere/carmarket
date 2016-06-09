@@ -30,4 +30,14 @@ Car.SearchingCar = function () {
         var callback = gridRender;
         getListCar("gridSearchingCar", searchingUrl, criteria, callback);
     }
+
+    $this.Yours = function (searchingUrl, criteria) {
+        var callback = gridRender;
+        getListCar("gridYourCars", searchingUrl, criteria, callback);
+    }
+
+    $this.YoursExpired = function (searchingUrl, criteria) {
+        var callback = gridRender;
+        getListCar("gridYourCarsExpired", searchingUrl, criteria, callback);
+    }
 }

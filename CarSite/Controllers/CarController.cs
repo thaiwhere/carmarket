@@ -47,9 +47,19 @@ namespace CarSite.Controllers
         {
             if (HttpContext.Session["UserId"] == null)
             {
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("Login", "Account", new { returnUrl = "/Car/Insert"} );
             }
             return View("~/Views/Car/CarInsert.cshtml");
+        }
+
+        [Authorize]
+        public ActionResult Yours()
+        {
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            return View("~/Views/Car/Yours.cshtml");
         }
         
 
@@ -153,8 +163,36 @@ namespace CarSite.Controllers
             }
 
             return Json(carId);
-        }        
+        }
 
+        [HttpPost]
+        public JsonResult Yours(CarSearchingYours criteria)
+        {
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return Json(-1);
+            }
+
+            criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
+
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
+        }
+
+        [HttpPost]
+        public JsonResult YoursExpired(CarSearchingYoursExpired criteria)
+        {
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return Json(-1);
+            }
+
+            criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
+
+            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            return Json(listCars);
+        }
+        
         #endregion
 
         #region Utilities
@@ -183,6 +221,11 @@ namespace CarSite.Controllers
             bool isExists = System.IO.Directory.Exists(sourceDirName);
             if (isExists)
             {
+                if (System.IO.Directory.Exists(destDirName))
+                {
+                    System.IO.Directory.Delete(destDirName);
+                }
+
                 System.IO.Directory.Move(sourceDirName, destDirName);
             }
         }
