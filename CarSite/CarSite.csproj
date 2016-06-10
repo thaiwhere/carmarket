@@ -278,6 +278,7 @@
     <Content Include="Content\css\jquery.vegas.min.css" />
     <Content Include="Content\css\Justified-Nav.css" />
     <Content Include="Content\css\file-upload\dropzone.css" />
+    <Content Include="Content\css\mdl.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.theme.css" />
     <Content Include="Content\css\pixeden-icons.css" />
@@ -371,7 +372,9 @@
     <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.vegas.min.js" />
     <Content Include="Content\scripts\file-upload\dropzone.js" />
+    <Content Include="Content\scripts\lib\mdl.js" />
     <Content Include="Content\scripts\lib\multiupload.js" />
+    <Content Include="Content\scripts\YourCar.js" />
     <Content Include="Content\scripts\SearchingCar.js" />
     <Content Include="Content\scripts\lib\modernizr-2.6.2.js" />
     <Content Include="Content\scripts\lib\owl.carousel.min.js" />

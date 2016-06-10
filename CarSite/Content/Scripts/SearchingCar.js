@@ -32,12 +32,12 @@ Car.SearchingCar = function () {
     }
 
     $this.Yours = function (searchingUrl, criteria) {
-        var callback = gridRender;
+        var callback = gridRenderMofify;
         getListCar("gridYourCars", searchingUrl, criteria, callback);
     }
 
     $this.YoursExpired = function (searchingUrl, criteria) {
-        var callback = gridRender;
+        var callback = gridRenderMofify;
         getListCar("gridYourCarsExpired", searchingUrl, criteria, callback);
     }
 }

@@ -192,21 +192,43 @@ namespace CarSite.Controllers
             List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
         }
+
+        [HttpPost]
+        public JsonResult DeleteCar(CarDeleteCriteria criteria)
+        {
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return Json(-1);
+            }
+
+            var carId = CarService.DeleteCar(criteria);
+
+            if(carId >0)
+            {
+                RemoveFolderName(carId);
+            }
+
+            return Json(carId);
+        }
         
         #endregion
 
         #region Utilities
 
-        private void RemoveFolderName()
+        private void RemoveFolderName(int carId = 0)
         {
             var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
 
             string sourceDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString());
+            if(carId>0)
+            {
+                sourceDirName += "_" + carId;
+            }
 
             bool isExists = System.IO.Directory.Exists(sourceDirName);
             if (isExists)
             {
-                System.IO.Directory.Delete(sourceDirName);
+                System.IO.Directory.Delete(sourceDirName, true);
             }
         }
 

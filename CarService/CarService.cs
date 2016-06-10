@@ -52,5 +52,18 @@ namespace Car.Service
                 return (carId is DBNull) ? 0 : Convert.ToInt32(carId);
             }
         }
+
+        public static int DeleteCar(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                obj.ExecuteNonQuery(param);
+
+                var carId = param["carid"];
+
+                return (carId is DBNull) ? 0 : Convert.ToInt32(carId);
+            }
+        }
     }
 }
