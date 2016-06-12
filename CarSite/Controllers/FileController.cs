@@ -20,7 +20,7 @@ namespace TestAjaxUpload
         /// <returns></returns>
         [HttpPost]
         public virtual ActionResult UploadFile()
-        {
+        {            
             bool isSavedSuccessfully = true;                        
             try
             {
@@ -39,9 +39,10 @@ namespace TestAjaxUpload
                         if (!isExists)
                         {
                             System.IO.Directory.CreateDirectory(pathString);
-                        }                       
-
-                        var path = string.Format("{0}\\{1}", pathString, file.FileName + ".jpg");
+                        }
+                        
+                        var additionName = string.Format("{0:yyyy-MM-dd_hh-mm-ss-tt}", DateTime.Now);
+                        var path = string.Format("{0}\\{1}", pathString, additionName + file.FileName);
 
                         file.SaveAs(path);
                     }

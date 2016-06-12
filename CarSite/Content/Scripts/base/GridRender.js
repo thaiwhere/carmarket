@@ -104,7 +104,7 @@ function decorateDataModify(cars) {
     for (var i = 0; i < cars.length; i++) {
         var href = "/Car/CarDetail/" + cars[i].CarId;
         var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
-        var hrefModify = "/Car/CarEdit/" + cars[i].CarId;
+        var hrefModify = "/Car/Edit/" + cars[i].CarId;
 
         var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
         var title = cars[i].Title;

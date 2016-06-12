@@ -1,27 +1,52 @@
 ﻿$(function () {
 
-    AddCarHandler.bindingEvents();
-    AddCarHandler.renderData();
-    AddCarHandler.initData();
-    AddCarHandler.handlerElements();    
+    EditCarHandler.bindingEvents();
+    EditCarHandler.renderData();
+    EditCarHandler.initData();
+    EditCarHandler.handlerElements();
+
+    EditCarHandler.loadImages(_images, _carPath);
 
 });
 
 var jqXHRData;
 
-var AddCarHandler = {
+var EditCarHandler = {
 
-    initData: function () {
-        $("#Firm").val($("#carInsert_select_firm").val());
-        $("#Model").val($("#carInsert_select_model").val());
-        $("#TypeId").val($("#carInsert_select_type").val());
-        $("#ProvinceId").val($("#carInsert_select_province").val());
+    loadImages: function (images, path) {
+        _images.forEach(function (fileName) {
+            if (fileName != "") {
+                EditCarHandler.attachFiles(fileName, path);
+            }
+        });
+    },
 
-        $("#ExteriorColorId").val($("#carInsert_select_exterior_color").val());
-        $("#InteriorColorId").val($("#carInsert_select_interior_color").val());
-        $("#FuelId").val($("#carInsert_select_Fuel").val());
-        $("#FuelSystem").val($("#carInsert_select_FuelSystem").val());
-        $("#WheelDriveId").val($("#carInsert_select_WheelDrive").val());
+    attachFiles: function (fileName, path) {
+        path += "/" + fileName;
+        var element = "<div class='dz-preview dz-processing dz-image-preview dz-success'>	<div class='dz-details'>    		<div class='dz-filename'><span data-dz-name=''>" + fileName + "</span></div>   		<div class='dz-size' data-dz-size=''><strong>17.3</strong> KiB</div>    		<img data-dz-thumbnail='' alt='"+ fileName +"' src='" +  path + "'>  	</div> 	<div class='dz-progress'>span class='dz-upload' data-dz-uploadprogress='' style='width: 100%;'></span></div>  	<div class='dz-success-mark'><span>✔</span></div>  	<div class='dz-error-mark'><span>✘</span></div>  	<div class='dz-error-message'><span data-dz-errormessage=''></span></div>	<button>Remove file</button> </div>"
+        $("#dropzoneForm").append(element);
+    },
+
+    initData: function () {        
+        $("#carInsert_select_firm").val($("#Firm").val())
+        RenderFactory.renderModels($("#Firm").val(), '#carInsert_select_model');
+
+        $("#carInsert_select_model").val($("#Model").val());
+
+        $("#carInsert_select_type").val($("#TypeId").val());
+        $("#carInsert_select_province").val($("#ProvinceId").val());
+
+        var currency = common.FormatNumber($("#CurrencyVN").val());
+        $("#carInsert_select_CurrencyVN").val(currency);        
+
+        $("#carInsert_select_year").val($("#Year").val());
+
+        $("#carInsert_select_exterior_color").val($("#ExteriorColorId").val());
+        $("#carInsert_select_interior_color").val($("#InteriorColorId").val());
+
+        $("#carInsert_select_Fuel").val($("#FuelId").val());
+        $("#carInsert_select_FuelSystem").val($("#FuelSystem").val());
+        $("#carInsert_select_WheelDrive").val($("#WheelDriveId").val());
     },
 
     bindingEvents: function () {
@@ -84,7 +109,7 @@ var AddCarHandler = {
                function () {
                    $("#WheelDriveId").val(this.value);
                }
-           );
+           );       
 
         $("#carInsert_select_CurrencyVN").change(
                 function () {
@@ -117,14 +142,14 @@ var AddCarHandler = {
          );
 
         $("#uploadCar").click(
-               function () {
-                   if (AddCarHandler.validateData()) {
-                       AddCarHandler.insertCar();
-                   } else {
-                       alert("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
-                   }
-               }
-           );
+              function () {
+                  if (EditCarHandler.validateData()) {
+                      EditCarHandler.editCar(_carId);
+                  } else {
+                      alert("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                  }
+              }
+          );
     },
 
     renderData: function () {
@@ -143,8 +168,8 @@ var AddCarHandler = {
     },
 
     handlerElements: function () {
-        AddCarHandler.hideElements();
-        AddCarHandler.adjustWidth(200);
+        EditCarHandler.hideElements();
+        EditCarHandler.adjustWidth(200);
     },
 
     hideElements: function () {
@@ -173,9 +198,10 @@ var AddCarHandler = {
         return $("#Title").val() != "" && $("#Description").val() != "";       
     },
 
-    insertCar: function () {
+    editCar: function (carId) {
 
         var criteria = {
+            CarId: carId,
             Title: $("#Title").val(),
             Firm: $("#Firm").val(),
             Model: $("#Model").val(),
@@ -203,18 +229,18 @@ var AddCarHandler = {
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
-            url: "/Car/InsertCar",
+            url: "/Car/EditCar",
             data: JSON.stringify(criteria),
-            success: function (result) {
-                if (result > 0) {                    
-                    alert("Đăng tin thành công");
+            success: function (error) {
+                if (error <= 0) {
+                    alert("Sửa tin thành công");
                     window.location = '/home/index';
                 } else {
-                    alert("Lỗi đăng tin, vui lòng thử lại !");
+                    alert("Lỗi sưả tin, vui lòng thử lại !");
                 }
             },
             error: function (xhr) {
-                alert("Lỗi đăng tin, vui lòng thử lại !");
+                alert("Lỗi sưả tin, vui lòng thử lại !");
                 //common.HandleAjaxError(xhr);
             }
         });

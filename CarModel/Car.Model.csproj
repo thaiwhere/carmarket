@@ -42,6 +42,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Criteria\CarGettingEditCriteria.cs" />
+    <Compile Include="Criteria\CarEditCriteria.cs" />
     <Compile Include="Criteria\CarInsertCriteria.cs" />
     <Compile Include="Criteria\CarSearchingDetalCriteria.cs" />
     <Compile Include="Criteria\CarDeleteCriteria.cs" />
@@ -56,6 +58,7 @@
     <Compile Include="Criteria\CarSearchingTop10Criteria.cs" />
     <Compile Include="Criteria\CarSearchingForYouCriteria.cs" />
     <Compile Include="Criteria\CarSearchingCriteria.cs" />
+    <Compile Include="Entity\CarEditEntity.cs" />
     <Compile Include="Entity\CarInsertEntity.cs" />
     <Compile Include="Entity\CarViewModel.cs" />
     <Compile Include="Entity\CarModel.cs" />
