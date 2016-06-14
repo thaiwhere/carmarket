@@ -7,7 +7,7 @@
 
 <div class="col-md-10">
     <section id="registerForm">
-        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             @Html.AntiForgeryToken()
             <h4>Tạo một tài khoản để rao tin.</h4>

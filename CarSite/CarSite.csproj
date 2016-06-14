@@ -278,6 +278,7 @@
     <Content Include="Content\css\jquery.vegas.min.css" />
     <Content Include="Content\css\Justified-Nav.css" />
     <Content Include="Content\css\file-upload\dropzone.css" />
+    <Content Include="Content\css\mdl.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.theme.css" />
     <Content Include="Content\css\pixeden-icons.css" />
@@ -314,13 +315,14 @@
     <Content Include="Content\images\common\bar.gif" />
     <Content Include="Content\images\common\collapse.png" />
     <Content Include="Content\images\common\expand.png" />
-    <Content Include="Content\images\common\icons.gif" />
+    <Content Include="Content\images\common\logo.gif" />
     <Content Include="Content\images\common\loading.gif" />
     <Content Include="Content\images\common\new.jpg" />
     <Content Include="Content\images\common\old.jpg" />
     <Content Include="Content\images\common\people.png" />
     <Content Include="Content\images\common\phone.png" />
     <Content Include="Content\images\common\pixel.gif" />
+    <Content Include="Content\images\common\searching.png" />
     <Content Include="Content\images\common\star.png" />
     <Content Include="Content\images\common\tab.png" />
     <Content Include="Content\images\common\user-alt-v2.png" />
@@ -334,6 +336,7 @@
     <Content Include="Content\images\team\pic6.jpg" />
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
+    <Content Include="Content\scripts\EditCar.js" />
     <Content Include="Content\scripts\base\RenderFactory.js" />
     <Content Include="Content\scripts\base\init.js" />
     <Content Include="Content\scripts\base\handler.js" />
@@ -371,7 +374,9 @@
     <Content Include="Content\scripts\lib\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.vegas.min.js" />
     <Content Include="Content\scripts\file-upload\dropzone.js" />
+    <Content Include="Content\scripts\lib\mdl.js" />
     <Content Include="Content\scripts\lib\multiupload.js" />
+    <Content Include="Content\scripts\DeleteCar.js" />
     <Content Include="Content\scripts\SearchingCar.js" />
     <Content Include="Content\scripts\lib\modernizr-2.6.2.js" />
     <Content Include="Content\scripts\lib\owl.carousel.min.js" />
@@ -468,6 +473,7 @@
     <Content Include="Views\Shared\UploadFiles.cshtml" />
     <Content Include="Views\Car\CarInsert.cshtml" />
     <Content Include="Views\Car\Yours.cshtml" />
+    <Content Include="Views\Car\CarEdit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

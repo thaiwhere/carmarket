@@ -23,9 +23,10 @@
 </div>           
 
 @section Scripts
-{    
+{        
     <script src="~/Content/scripts/SearchingCar.js"></script>
-
+    <script src="~/Content/scripts/DeleteCar.js"></script>
+    
     <script>        
 
         handler.showResultSearching();
@@ -39,6 +40,7 @@
         SearchingCar.Yours("/Car/Yours", criteria);        
 
         $("#gridYourCarsExpired").hide();
+       
     </script>
 
 }

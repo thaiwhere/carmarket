@@ -15,7 +15,7 @@ namespace CarSite.Controllers
     {
         #region GET Methods
 
-        public ActionResult SearchingCars(string firm="", string model="")
+        public ActionResult SearchingCars(string firm = "", string model = "")
         {                                 
             CarSearchingFirmModelCriteria criteria = new CarSearchingFirmModelCriteria
             {
@@ -47,9 +47,29 @@ namespace CarSite.Controllers
         {
             if (HttpContext.Session["UserId"] == null)
             {
-                return RedirectToAction("Login", "Account", new { returnUrl = "/Car/Insert"} );
+                return RedirectToAction("Login", "Account", new { returnUrl = "/Car/Insert" });
             }
+
             return View("~/Views/Car/CarInsert.cshtml");
+        }
+
+        [Authorize]
+        public ActionResult Edit(int id)
+        {
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return RedirectToAction("Login", "Account", new { returnUrl = "/Car/Edit" });
+            }
+
+            var criteria = new CarGettingEditCriteria
+            {
+                CarId = id
+            };
+
+            var carInfo = CarService.GetCarEditInfo(criteria);
+            carInfo.Images = this.GetListImages(id);
+
+            return View("~/Views/Car/CarEdit.cshtml", carInfo);
         }
 
         [Authorize]
@@ -59,9 +79,9 @@ namespace CarSite.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             return View("~/Views/Car/Yours.cshtml");
-        }
-        
+        }        
 
         #endregion
 
@@ -146,7 +166,7 @@ namespace CarSite.Controllers
                 FuelId = carInsertEntity.FuelId,
                 FuelSystem = carInsertEntity.FuelSystem,
                 GearBox = carInsertEntity.GearBox,
-                WheelDriveId =carInsertEntity.WheelDriveId,
+                WheelDriveId = carInsertEntity.WheelDriveId,
                 CreatedDate = DateTime.Now.ToShortDateString()
             };
 
@@ -163,6 +183,54 @@ namespace CarSite.Controllers
             }
 
             return Json(carId);
+        }
+
+        [HttpPost]
+        public JsonResult EditCar(CarEditEntity carEditEntity)
+        {
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return Json(-1);
+            }
+
+            var criteria = new CarEditCriteria
+            {
+                UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                CarId = carEditEntity.CarId,
+                Title = carEditEntity.Title,
+                Firm = carEditEntity.Firm,
+                Model = carEditEntity.Model,
+                IsNew = carEditEntity.IsNew,
+                IsImport = carEditEntity.IsImport,
+                TypeId = carEditEntity.TypeId,
+                CurrencyVN = carEditEntity.CurrencyVN,
+                Year = carEditEntity.Year,
+                Km = carEditEntity.Km,
+                Description = carEditEntity.Description,
+                ProvinceId = carEditEntity.ProvinceId,
+                SeatNo = carEditEntity.SeatNo,
+                GateNo = carEditEntity.GateNo,
+                ExteriorColorId = carEditEntity.ExteriorColorId,
+                InteriorColorId = carEditEntity.InteriorColorId,
+                FuelConsumption = carEditEntity.FuelConsumption,
+                FuelId = carEditEntity.FuelId,
+                FuelSystem = carEditEntity.FuelSystem,
+                GearBox = carEditEntity.GearBox,
+                WheelDriveId = carEditEntity.WheelDriveId,
+                ModifiedDate = DateTime.Now.ToShortDateString()
+            };
+
+            var error = CarService.EditCar(criteria);
+
+            if (error == 0)
+            {
+                CopyFileName(carEditEntity.CarId);
+                ChangeFileName(carEditEntity.CarId);
+            }
+
+            RemoveFolderName();
+
+            return Json(error);
         }
 
         [HttpPost]
@@ -192,21 +260,43 @@ namespace CarSite.Controllers
             List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
         }
+
+        [HttpPost]
+        public JsonResult DeleteCar(CarDeleteCriteria criteria)
+        {
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return Json(-1);
+            }
+
+            var carId = CarService.DeleteCar(criteria);
+
+            if (carId > 0)
+            {
+                RemoveFolderName(carId);
+            }
+
+            return Json(carId);
+        }
         
         #endregion
 
         #region Utilities
 
-        private void RemoveFolderName()
+        private void RemoveFolderName(int carId = 0)
         {
             var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
 
             string sourceDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString());
+            if (carId > 0)
+            {
+                sourceDirName += "_" + carId;
+            }
 
             bool isExists = System.IO.Directory.Exists(sourceDirName);
             if (isExists)
             {
-                System.IO.Directory.Delete(sourceDirName);
+                System.IO.Directory.Delete(sourceDirName, true);
             }
         }
 
@@ -240,21 +330,67 @@ namespace CarSite.Controllers
             if (isExists)
             {
                 var index = 1;
-                foreach(var file in System.IO.Directory.EnumerateFiles(destDirName))
+                foreach (var file in System.IO.Directory.EnumerateFiles(destDirName))
                 {                    
                     var destinationFilename = string.Format("{0}\\{1}", destDirName, index + ".jpg");
 
-                    if (System.IO.File.Exists(destinationFilename))
+                    if (!file.Equals(destinationFilename))
                     {
-                        System.IO.File.Delete(destinationFilename);
-                    }
+                        if (System.IO.File.Exists(destinationFilename))
+                        {
+                            System.IO.File.Delete(destinationFilename);
+                        }
 
-                    System.IO.File.Move(file, destinationFilename);
+                        System.IO.File.Move(file, destinationFilename);                        
+                    }
 
                     index++;
                 }
             }
+        }
 
+        private void CopyFileName(int carId)
+        {
+            var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
+
+            string sourceDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString());
+
+            string destDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString() + "_" + carId);
+
+            bool isExists = System.IO.Directory.Exists(sourceDirName);
+            if (isExists)
+            {                
+                if (!System.IO.Directory.Exists(destDirName))
+                {
+                    Directory.CreateDirectory(destDirName);
+                }
+
+                foreach (var file in System.IO.Directory.GetFiles(sourceDirName))
+                {
+                    System.IO.File.Copy(file, destDirName + "\\" + Path.GetFileName(file));
+                }
+            }
+        }
+
+        private string GetListImages(int carId)
+        {
+            string images = string.Empty;
+
+            var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
+            
+            string path = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString() + "_" + carId);
+
+            bool isExists = System.IO.Directory.Exists(path);
+            if (isExists)
+            {
+                string[] files = Directory.GetFiles(path);
+                for (int i = 0; i < files.Length; i++)
+                {
+                    images += Path.GetFileName(files[i]) + ",";
+                }
+            }
+
+            return images;
         }
 
         #endregion

@@ -40,7 +40,43 @@ namespace Car.Service
             }
         }
 
+        public static CarEditEntity GetCarEditInfo(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                return obj.QueryEntity<CarEditEntity>(param);
+            }
+        }
+
         public static int InsertCar(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                obj.ExecuteNonQuery(param);
+
+                var carId = param["carid"];
+
+                return (carId is DBNull) ? 0 : Convert.ToInt32(carId);
+            }
+        }
+
+        public static int EditCar(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                obj.ExecuteNonQuery(param);
+
+                var IsError = param["error"];
+
+                return (IsError is DBNull) ? 0 : Convert.ToInt32(IsError);
+            }
+        }
+
+
+        public static int DeleteCar(CriteriaBase criteria)
         {
             using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
             {

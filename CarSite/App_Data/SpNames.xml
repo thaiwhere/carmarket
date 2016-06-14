@@ -12,7 +12,11 @@
     <Setting Key="get_Similar_Model_Cars" SpName="get_Similar_Model_Cars" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_Similar_Price_Cars" SpName="get_Similar_Price_Cars" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_Car_Detail" SpName="get_Car_Detail" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="get_Car_Edit_Info" SpName="get_Car_Edit_Info" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_YourCars" SpName="get_YourCars" DbName="CarHome.Database" Plain="1"></Setting>
-    <Setting Key="get_YourCarsExpired" SpName="get_YourCarsExpired" DbName="CarHome.Database" Plain="1"></Setting>    
+    <Setting Key="get_YourCarsExpired" SpName="get_YourCarsExpired" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="delete_car" SpName="delete_car" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="edit_car" SpName="edit_car" DbName="CarHome.Database" Plain="1"></Setting>
+
   </Function>
 </Functions>
