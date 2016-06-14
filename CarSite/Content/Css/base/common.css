@@ -14,11 +14,12 @@
 /*Login*/
 #logo {
     float: left;
-    background: transparent url(../../Images/common/icons.gif) repeat-x scroll -0px 0px;
-    width: 340px;
+    background: transparent url(../../Images/common/logo.gif) repeat-x scroll 875px -107px;
+    width: 380px;
     height: 80px;
-    margin-top: 5px;
-    margin-left: 8px;
+    /*margin-top: 5px;
+    margin-left: 8px;*/
+    border-radius:5px;
     text-indent: -999px;
 }
 
@@ -37,9 +38,9 @@
 
 .btn-search{    
     float: right;
-    background: transparent url(../../Images/common/icons.gif) repeat-x scroll -2px -140px;
-    width: 78px;
-    height: 24px;
+    background: transparent url(../../Images/common/searching.png) repeat-x scroll -0px -3px;
+    width: 81px;
+    height: 28px;
 }
 
 #txt-search{

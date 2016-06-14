@@ -315,13 +315,14 @@
     <Content Include="Content\images\common\bar.gif" />
     <Content Include="Content\images\common\collapse.png" />
     <Content Include="Content\images\common\expand.png" />
-    <Content Include="Content\images\common\icons.gif" />
+    <Content Include="Content\images\common\logo.gif" />
     <Content Include="Content\images\common\loading.gif" />
     <Content Include="Content\images\common\new.jpg" />
     <Content Include="Content\images\common\old.jpg" />
     <Content Include="Content\images\common\people.png" />
     <Content Include="Content\images\common\phone.png" />
     <Content Include="Content\images\common\pixel.gif" />
+    <Content Include="Content\images\common\searching.png" />
     <Content Include="Content\images\common\star.png" />
     <Content Include="Content\images\common\tab.png" />
     <Content Include="Content\images\common\user-alt-v2.png" />
