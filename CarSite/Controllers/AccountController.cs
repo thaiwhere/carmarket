@@ -1,34 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CarSite.Models;
 using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin.Security;
-using CarSite.Models;
 using System.Web.Security;
-using System.Security.Principal;
 
 namespace CarSite.Controllers
 {
-   [Authorize]
-   public class AccountController : Controller
+    [Authorize]
+    public class AccountController : Controller
     {
-       [AllowAnonymous]
-        public ActionResult Login()
+        [AllowAnonymous]
+        public ActionResult Login(string returnUrl)
         {
+            if (string.IsNullOrEmpty(returnUrl) && Request.UrlReferrer != null)
+            {
+                returnUrl = Server.UrlEncode(Request.UrlReferrer.PathAndQuery);
+            }
+
+            if (Url.IsLocalUrl(returnUrl) && !string.IsNullOrEmpty(returnUrl))
+            {
+                ViewBag.ReturnURL = returnUrl;
+            }
+
             return View();
         }
 
-       [HttpPost]
-       [AllowAnonymous]
-       [ValidateAntiForgeryToken]
-       public ActionResult Login(LoginViewModel model, string returnUrl)
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(LoginViewModel model, string returnUrl)
         {
-            // Lets first check if the Model is valid or not
             if (ModelState.IsValid)
             {
                 using (CARWEBEntities entities = new CARWEBEntities())
@@ -36,24 +37,18 @@ namespace CarSite.Controllers
                     string username = model.UserName;
                     string password = model.Password;
 
-                    // Now if our password was enctypted or hashed we would have done the
-                    // same operation on the user entered password here, But for now
-                    // since the password is in plain text lets just authenticate directly
+                    bool userValid = entities.Users.Any(user => user.UserName == username && user.Password == password);
 
-                    var userLogin = entities.Users.Where(user => user.UserName == username).Where(user => user.Password == password).Single();
-
-                    //bool userValid = entities.Users.Any(user => user.UserName == username && user.Password == password);
-                    
-                    // User found in the database
-                    if (userLogin != null)
-                    {                        
+                    if (userValid)
+                    {
+                        var userLogin = entities.Users.Where(user => user.UserName == username && user.Password == password).Single();
                         HttpContext.Session["UserId"] = userLogin.UserId;
 
                         FormsAuthentication.SetAuthCookie(username, false);
                         if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                             && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                         {
-                            return RedirectToAction("Insert", "Car");
+                            return Redirect(returnUrl);
                         }
                         else
                         {
@@ -62,25 +57,30 @@ namespace CarSite.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                        ModelState.AddModelError(string.Empty, "The user name or password provided is incorrect.");
                     }
                 }
             }
 
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
-        //
-        // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult Register(string returnUrl)
         {
+            if (string.IsNullOrEmpty(returnUrl) && Request.UrlReferrer != null)
+            {
+                returnUrl = Server.UrlEncode(Request.UrlReferrer.PathAndQuery);
+            }
+
+            if (Url.IsLocalUrl(returnUrl) && !string.IsNullOrEmpty(returnUrl))
+            {
+                ViewBag.ReturnURL = returnUrl;
+            }
+
             return View();
         }
 
-        //
-        // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -98,27 +98,30 @@ namespace CarSite.Controllers
                     FormsAuthentication.SetAuthCookie(user.UserName, false);
 
                     if (entities.SaveChanges() > 0)
-                    {                        
+                    {
                         if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                             && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                         {
-                            
-                        }                      
+                            return Redirect(returnUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("Yours", "Car");
+                        }
                     }
 
                     return RedirectToAction("Insert", "Car");
                 }
             }
 
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
-            
-            return RedirectToAction("Index", "Home");            
+
+            return RedirectToAction("Index", "Home");
         }
-	}    
+    }
 }

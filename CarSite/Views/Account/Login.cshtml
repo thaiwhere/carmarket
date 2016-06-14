@@ -42,7 +42,7 @@
                 </div>
             </div>
             <p>
-                @Html.ActionLink("Đăng ký", "Register") nếu Bạn chưa có tài khoản.
+                @Html.ActionLink("Đăng ký", "Register", new { ReturnUrl = ViewBag.ReturnUrl }) nếu Bạn chưa có tài khoản.
             </p>
         }
     </section>
