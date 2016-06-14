@@ -375,7 +375,7 @@
     <Content Include="Content\scripts\file-upload\dropzone.js" />
     <Content Include="Content\scripts\lib\mdl.js" />
     <Content Include="Content\scripts\lib\multiupload.js" />
-    <Content Include="Content\scripts\YourCar.js" />
+    <Content Include="Content\scripts\DeleteCar.js" />
     <Content Include="Content\scripts\SearchingCar.js" />
     <Content Include="Content\scripts\lib\modernizr-2.6.2.js" />
     <Content Include="Content\scripts\lib\owl.carousel.min.js" />

@@ -1,4 +1,4 @@
-﻿function DeleteCar(carId) {
+﻿function DeleteCar(element, carId) {
     var result = confirm("Bạn muốn xoá tin này?");
     if (result) {
         var criteria = { CarId: carId };
@@ -10,7 +10,7 @@
             data: JSON.stringify(criteria),
             success: function (result) {
                 if (result) {
-                    $(this).parent().parent().parent().parent().remove();
+                    element.closest("tr").remove();
                     alert('Tin đã được xoá thành công');
                 }
                 else {
