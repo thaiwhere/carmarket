@@ -15,12 +15,13 @@ namespace CarSite.Controllers
     {
         #region GET Methods
 
-        public ActionResult SearchingCars(string firm = "", string model = "")
-        {                                 
-            CarSearchingFirmModelCriteria criteria = new CarSearchingFirmModelCriteria
+        public ActionResult SearchingCars(string firm = "", string model = "", string province = "")
+        {
+            CarSearchingFirmModelProvinceCriteria criteria = new CarSearchingFirmModelProvinceCriteria
             {
                 FirmName = firm,
-                Model = model
+                Model = model,
+                Province = province
             };
             
             return View("~/Views/Car/SearchingCar.cshtml", criteria);
@@ -95,7 +96,7 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
-        public JsonResult SearchingCarsByFirmModel(CarSearchingFirmModelCriteria criteria)
+        public JsonResult SearchingCarsByFirmModelProvince(CarSearchingFirmModelCriteria criteria)
         {
             var listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);

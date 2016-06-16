@@ -6,7 +6,7 @@
 
 }
 
-@model Car.Model.Criteria.CarSearchingFirmModelCriteria
+@model Car.Model.Criteria.CarSearchingFirmModelProvinceCriteria
 
 <div id="div-car-list" class="car_list_box">
     
@@ -27,7 +27,7 @@
                         
         handler.showResultSearching();
       
-        var searchingUrl = "/Car/SearchingCarsByFirmModel";
+        var searchingUrl = "/Car/SearchingCarsByFirmModelProvince";
 
         var criteria = {
             ItemsPerPage: ItemsPerPage,

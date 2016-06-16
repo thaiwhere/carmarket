@@ -228,6 +228,11 @@
     text-overflow: ellipsis;
 }
 
+#div-right .carousel-inner img{
+    width: 250px !important;
+    height: 250px !important;
+}
+
 .carousel-inner img{
     width: 438px !important;
     height: 330px !important;

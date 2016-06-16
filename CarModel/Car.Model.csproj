@@ -47,6 +47,7 @@
     <Compile Include="Criteria\CarInsertCriteria.cs" />
     <Compile Include="Criteria\CarSearchingDetalCriteria.cs" />
     <Compile Include="Criteria\CarDeleteCriteria.cs" />
+    <Compile Include="Criteria\CarSearchingFirmModelProvinceCriteria.cs" />
     <Compile Include="Criteria\CarSearchingYoursExpired.cs" />
     <Compile Include="Criteria\CarSearchingYours.cs" />
     <Compile Include="Criteria\CarSearchingSimilarPriceCriteria.cs" />
