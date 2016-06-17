@@ -431,6 +431,14 @@
     <Content Include="Images\Cars_3\11.jpg" />
     <Content Include="Images\Cars_3\12.jpg" />
     <Content Include="Images\Cars_3\small.jpg" />
+    <Content Include="Images\Cars_Showroom\01.jpg" />
+    <Content Include="Images\Cars_Showroom\02.jpg" />
+    <Content Include="Images\Cars_Showroom\03.jpg" />
+    <Content Include="Images\Cars_Showroom\04.jpg" />
+    <Content Include="Images\Cars_Showroom\05.jpg" />
+    <Content Include="Images\Cars_Showroom\06.jpg" />
+    <Content Include="Images\Cars_Showroom\07.jpg" />
+    <Content Include="Images\Cars_Showroom\08.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
