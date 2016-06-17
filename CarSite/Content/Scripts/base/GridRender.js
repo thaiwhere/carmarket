@@ -5,6 +5,7 @@ function decorateData(cars) {
     for (var i = 0; i < cars.length; i++) {
         var href = "/Car/CarDetail/" + cars[i].CarId;
         var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
+        var hrefProvince = hrefFirm + "&province=" + cars[i].Province;
 
         var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
         var title = cars[i].Title;
@@ -17,7 +18,7 @@ function decorateData(cars) {
         var firm = "<div class='car-info-firm'>" + "<a href='" + hrefFirm + "'>" + cars[i].FirmName + "</a></div>";
         var km = "<div class='car-info-item'>Km: " + cars[i].Km + " (km)</div>";
         var gearBox = "<div class='car-info-item'>Hộp số: " + (cars[i].GearBox == 0 ? "Số tự động" : "Số tay") + "</div>";
-        var price_location = "<div class='car-info-price'>" + cars[i].CurrencyVN + " triệu</div><div class='car-info-place'><a href='" + href + "'>" + cars[i].Province + "</a></div>";
+        var price_location = "<div class='car-info-price'>" + cars[i].CurrencyVN + " triệu</div><div class='car-info-place'><a href='" + hrefProvince + "'>" + cars[i].Province + "</a></div>";
         var contact = "<div class='car-info-user'>" + cars[i].ContactName + "</div><div class='car-info-tel'>" + cars[i].ContactTel + "</div>";
 
         var car = status + source + firm + photo

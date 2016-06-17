@@ -242,6 +242,8 @@
     <Content Include="Content\css\base\Site.css" />
     <Content Include="Content\css\bootstrap-dropdownhover.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrapValidator.min.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\grid.paging\PagerGrid.css" />
     <Content Include="Content\css\grid.paging\images\1350530947_page_excel.png" />
     <Content Include="Content\css\grid.paging\images\ajax-loader.gif" />
@@ -347,6 +349,7 @@
     <Content Include="Content\scripts\file-upload\jquery.iframe-transport.js" />
     <Content Include="Content\scripts\GridDemo.js" />
     <Content Include="Content\scripts\Index.js" />
+    <Content Include="Content\scripts\lib\bootstrapValidator.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery-1.9.1.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery-ui-1.9.2.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.cookie.js" />
@@ -367,6 +370,8 @@
     <Content Include="Content\scripts\lib\jquery\jquery.knob.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.nav.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <None Include="Content\scripts\lib\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.validate.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.validate.min.js" />
@@ -377,6 +382,8 @@
     <Content Include="Content\scripts\lib\mdl.js" />
     <Content Include="Content\scripts\lib\multiupload.js" />
     <Content Include="Content\scripts\DeleteCar.js" />
+    <Content Include="Content\scripts\recaptcha\api.js" />
+    <Content Include="Content\scripts\recaptcha\recaptcha__en.js" />
     <Content Include="Content\scripts\SearchingCar.js" />
     <Content Include="Content\scripts\lib\modernizr-2.6.2.js" />
     <Content Include="Content\scripts\lib\owl.carousel.min.js" />
@@ -453,7 +460,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Contact1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -482,6 +489,7 @@
     <Content Include="Views\Car\CarInsert.cshtml" />
     <Content Include="Views\Car\Yours.cshtml" />
     <Content Include="Views\Car\CarEdit.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

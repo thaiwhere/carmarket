@@ -189,7 +189,7 @@
         fullHeight: true,
         gridHeight: 400,
         gridWidth: 0,
-        noDataText: "There is no data",
+        noDataText: "Không có tin bán xe nào",
         language: 'en-US',
         autoFixFrozenRowHeight: false,
         autoResizeColumn: false,
@@ -2717,7 +2717,7 @@ if (typeof (PagerGridLanguage) === 'undefined') {
     /* File Created: December 4, 2013 */
     var PagerGridLanguage = {};
     PagerGridLanguage['en-US'] = {
-        noData: 'There is no data',
+        noData: 'Không có tin bán xe nào',
         pageSize: 'Page size',
         goToPage: 'Go To Page',
         pagingText: 'Displaying <b>{0}</b> to <b>{1}</b> of <b>{2}</b> item(s)'
