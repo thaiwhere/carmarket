@@ -338,6 +338,7 @@
     <Content Include="Content\images\team\pic6.jpg" />
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
+    <Content Include="Content\scripts\BuyingCar.js" />
     <Content Include="Content\scripts\EditCar.js" />
     <Content Include="Content\scripts\base\RenderFactory.js" />
     <Content Include="Content\scripts\base\init.js" />
@@ -490,6 +491,7 @@
     <Content Include="Views\Car\Yours.cshtml" />
     <Content Include="Views\Car\CarEdit.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Car\BuyingCar.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -82,6 +82,17 @@ namespace CarSite.Controllers
             }
 
             return View("~/Views/Car/Yours.cshtml");
+        }
+
+        [Authorize]
+        public ActionResult Buy()
+        {
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            return View("~/Views/Car/BuyingCar.cshtml");
         }        
 
         #endregion
@@ -279,7 +290,47 @@ namespace CarSite.Controllers
 
             return Json(carId);
         }
-        
+
+        [HttpPost]
+        public JsonResult BuyCar(CarBuyCriteria carBuyEntity)
+        {
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return Json(-1);
+            }
+
+            var criteria = new CarBuyCriteria
+            {
+                UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                Title = carBuyEntity.Title,
+                Firm = carBuyEntity.Firm,
+                Model = carBuyEntity.Model,
+                IsNew = carBuyEntity.IsNew,
+                IsImport = carBuyEntity.IsImport,
+                TypeId = carBuyEntity.TypeId,
+                PriceFromVN = carBuyEntity.PriceFromVN,
+                PriceToVN = carBuyEntity.PriceToVN,
+                Year = carBuyEntity.Year,
+                Km = carBuyEntity.Km,
+                Description = carBuyEntity.Description,
+                ProvinceId = carBuyEntity.ProvinceId,
+                SeatNo = carBuyEntity.SeatNo,
+                GateNo = carBuyEntity.GateNo,
+                ExteriorColorId = carBuyEntity.ExteriorColorId,
+                InteriorColorId = carBuyEntity.InteriorColorId,
+                FuelConsumption = carBuyEntity.FuelConsumption,
+                FuelId = carBuyEntity.FuelId,
+                FuelSystem = carBuyEntity.FuelSystem,
+                GearBox = carBuyEntity.GearBox,
+                WheelDriveId = carBuyEntity.WheelDriveId,
+                CreatedDate = DateTime.Now.ToShortDateString()
+            };
+
+            var carBuyId = CarService.InsertCar(criteria);
+            
+            return Json(carBuyId);
+        }
+
         #endregion
 
         #region Utilities

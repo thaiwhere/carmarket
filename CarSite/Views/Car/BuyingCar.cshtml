@@ -1,8 +1,8 @@
-﻿@model Car.Model.Entity.CarInsertEntity
+﻿@model Car.Model.Entity.CarBuyEntity
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Đăng tin bán xe";
+    ViewBag.Title = "Đăng tin mua xe";
 }
 
 <h2>&nbsp;&nbsp;@ViewBag.Title</h2>
@@ -16,14 +16,14 @@
 
 <div id="divCarInsert">
 
-    <div class="form-horizontal car-insert-description">        
+    <div class="form-horizontal car-insert-description">
         @Html.LabelFor(model => model.Title, new { @class = "control-label" })
         @Html.EditorFor(model => model.Title)
         @Html.ValidationMessageFor(model => model.Title)
     </div>
 
     <div class="form-horizontal car-insert">
-      
+
         <div class="form-group">
             @Html.LabelFor(model => model.Firm, new { @class = "control-label col-md-4" })
             <div class="col-md-8">
@@ -31,7 +31,8 @@
                 @Html.ValidationMessageFor(model => model.Firm)
 
                 <select id="carInsert_select_firm">
-                    <option value="Acura" selected>Acura</option>
+                    <option value="All" selected>Tất cả</option>
+                    <option value="Acura">Acura</option>
                     <option value="Audi">Audi</option>
                     <option value="Asia">Asia</option>
                     <option value="Aston Martin">Aston Martin</option>
@@ -158,12 +159,55 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CurrencyVN, new { @class = "control-label col-md-4" })
+            @Html.Label("Giá", new { @class = "control-label col-md-4" })
             <div class="col-md-8">
-                @Html.EditorFor(model => model.CurrencyVN)
-                @Html.ValidationMessageFor(model => model.CurrencyVN)
+                @Html.EditorFor(model => model.PriceFromVN)
+                @Html.ValidationMessageFor(model => model.PriceFromVN)
+                
+                <div style="float:left">                    
+                    <select id="select_price_from" style="width:80px;">
+                        <option value="0" selected>Từ giá</option>
+                        <option value="100">100 Triệu</option>
+                        <option value="200">200 Triệu</option>
+                        <option value="300">300 Triệu</option>
+                        <option value="400">400 Triệu</option>
+                        <option value="500">500 Triệu</option>
+                        <option value="600">600 Triệu</option>
+                        <option value="700">700 Triệu</option>
+                        <option value="800">800 Triệu</option>
+                        <option value="900">900 Triệu</option>
+                        <option value="1000">1 Tỉ</option>
+                        <option value="2000">2 Tỉ</option>
+                        <option value="3000">3 Tỉ</option>
+                        <option value="4000">4 Tỉ</option>
+                        <option value="5000">>5 Tỉ</option>
 
-                <input type="text" id="carInsert_select_CurrencyVN">
+                    </select>
+                </div>
+
+                @Html.EditorFor(model => model.PriceToVN)
+                @Html.ValidationMessageFor(model => model.PriceToVN)
+                
+                <div style="float:left">
+                    <label>&nbsp;&nbsp;---></label>
+                    <select id="select_price_to" style="width:80px">
+                        <option value="0" selected>Đến giá</option>
+                        <option value="100">100 Triệu</option>
+                        <option value="200">200 Triệu</option>
+                        <option value="300">300 Triệu</option>
+                        <option value="400">400 Triệu</option>
+                        <option value="500">500 Triệu</option>
+                        <option value="600">600 Triệu</option>
+                        <option value="700">700 Triệu</option>
+                        <option value="800">800 Triệu</option>
+                        <option value="900">900 Triệu</option>
+                        <option value="1000">1 Tỉ</option>
+                        <option value="2000">2 Tỉ</option>
+                        <option value="3000">3 Tỉ</option>
+                        <option value="4000">4 Tỉ</option>
+                        <option value="5000">>5 Tỉ</option>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -174,14 +218,6 @@
                 @Html.ValidationMessageFor(model => model.Year)
 
                 <select id="carInsert_select_year"></select>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Km, new { @class = "control-label col-md-4" })
-            <div class="col-md-8">
-                @Html.EditorFor(model => model.Km)
-                @Html.ValidationMessageFor(model => model.Km)
             </div>
         </div>
 
@@ -281,15 +317,11 @@
             @Html.TextAreaFor(model => model.Description, new { cols = 25, row = 10 })
             @Html.ValidationMessageFor(model => model.Description)
         </div>
-    </div>
-
-    <div class="images">
-        @{ Html.RenderPartial("~/Views/Shared/UploadFiles.cshtml", null); }
-    </div>
+    </div>  
 
     <br />
 
-    <input type="submit" id="uploadCar" value="Đăng tin" class="buttonUpload" />
+    <input type="submit" id="buyCar" value="Đăng tin" class="buttonUpload" />
 
 </div>
 
@@ -302,7 +334,7 @@
 
 @section Scripts
 {
-    <script src="~/Content/scripts/AddCar.js"></script>
+    <script src="~/Content/scripts/BuyingCar.js"></script>
     <script>
         handler.showResultSearching();
     </script>

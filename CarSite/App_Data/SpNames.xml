@@ -18,6 +18,7 @@
     <Setting Key="get_YourCarsExpired" SpName="get_YourCarsExpired" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="delete_car" SpName="delete_car" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="edit_car" SpName="edit_car" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="Car_Buying" SpName="Car_Buying" DbName="CarHome.Database" Plain="1"></Setting>
 
   </Function>
 </Functions>
