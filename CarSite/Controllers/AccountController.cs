@@ -57,7 +57,7 @@ namespace CarSite.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError(string.Empty, "The user name or password provided is incorrect.");
+                        ModelState.AddModelError(string.Empty, "Tên đăng nhập hoặc Mật khẩu không chính xác.");
                     }
                 }
             }
