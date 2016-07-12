@@ -382,6 +382,55 @@ var EditCarHandler = {
             //common.HandleAjaxError(xhr);
         }
     });
+    },
+
+    editCarBuying: function (carId) {
+
+    var criteria = {
+        CarId: carId,
+        Title: $("#Title").val(),
+        Firm: $("#Firm").val(),
+        Model: $("#Model").val(),
+        IsNew: $("#IsNew").is(":checked"),
+        IsImport: $("#IsImport").is(":checked"),
+        TypeId: $("#TypeId").val(),
+        PriceFromVN: $("#PriceFromVN").val(),
+        PriceToVN: $("#PriceToVN").val(),
+        Year: $("#Year").val(),
+        Km: $("#Km").val(),
+        Description: $("#Description").val(),
+
+        ProvinceId: $("#ProvinceId").val(),
+        SeatNo: $("#SeatNo").val(),
+        GateNo: $("#GateNo").val(),
+        ExteriorColorId: $("#ExteriorColorId").val(),
+        InteriorColorId: $("#InteriorColorId").val(),
+        FuelConsumption: $("#FuelConsumption").val(),
+        FuelId: $("#FuelId").val(),
+        FuelSystem: $("#FuelSystem").val(),
+        GearBox: $("#GearBox").val(),
+        WheelDriveId: $("#WheelDriveId").val()
+    };
+
+    $.ajax({
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        url: "/Car/EditCarBuying",
+        data: JSON.stringify(criteria),
+        success: function (error) {
+            if (error <= 0) {
+                alert("Sửa tin thành công");
+                window.location = '/home/index';
+            } else {
+                alert("Lỗi sưả tin, vui lòng thử lại !");
+            }
+        },
+        error: function (xhr) {
+            alert("Lỗi sưả tin, vui lòng thử lại !");
+            //common.HandleAjaxError(xhr);
+        }
+    });
 }    
 }
 

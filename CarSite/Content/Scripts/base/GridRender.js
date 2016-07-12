@@ -106,6 +106,10 @@ function decorateDataModify(cars) {
         var href = "/Car/CarDetail/" + cars[i].CarId;
         var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
         var hrefModify = "/Car/Edit/" + cars[i].CarId;        
+        if (cars[i].IsBuy == 1)
+        {
+            hrefModify = "/Car/EditCarBuying/" + cars[i].CarId;
+        }
 
         var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
 
