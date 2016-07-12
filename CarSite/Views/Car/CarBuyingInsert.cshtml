@@ -1,4 +1,4 @@
-﻿@model Car.Model.Entity.CarBuyEntity
+﻿@model Car.Model.Entity.CarBuyingEntity
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -165,7 +165,7 @@
                 @Html.ValidationMessageFor(model => model.PriceFromVN)
                 
                 <div style="float:left">                    
-                    <select id="select_price_from" style="width:80px;">
+                    <select id="select_price_from">
                         <option value="0" selected>Từ giá</option>
                         <option value="100">100 Triệu</option>
                         <option value="200">200 Triệu</option>
@@ -190,7 +190,7 @@
                 
                 <div style="float:left">
                     <label>&nbsp;&nbsp;---></label>
-                    <select id="select_price_to" style="width:80px">
+                    <select id="select_price_to">
                         <option value="0" selected>Đến giá</option>
                         <option value="100">100 Triệu</option>
                         <option value="200">200 Triệu</option>
@@ -333,10 +333,12 @@
 </div>
 
 @section Scripts
-{
-    <script src="~/Content/scripts/BuyingCar.js"></script>
+{    
     <script>
+        var _isBuy = true;
         handler.showResultSearching();
     </script>
+
+    <script src="~/Content/scripts/AddCar.js"></script>
 }
 

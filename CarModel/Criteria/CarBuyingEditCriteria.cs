@@ -10,9 +10,11 @@ namespace Car.Model.Criteria
 {
     /// <summary>    
     /// </summary>
-    public class CarBuyCriteria : CriteriaBase
+    public class CarBuyingEditCriteria : CriteriaBase
     {
         public int UserId { get; set; }
+
+        public int CarId { get; set; }
 
         public string Title { get; set; }
         
@@ -56,16 +58,17 @@ namespace Car.Model.Criteria
 
         public string WheelDriveId { get; set; }
 
-        public string CreatedDate { get; set; }
+        public string ModifiedDate { get; set; }
 
-        public int CarBuyId { get; set; }
+        public bool Error { get; set; }
+
         /// <summary>
         /// Gets Setting Key.
         /// </summary>
         /// <returns>Setting key of the criteria.</returns>
         public override string GetSettingKey()
         {
-            return "Car_Buying";
+            return "Car_Buying_Edit";
         }
     }
 }

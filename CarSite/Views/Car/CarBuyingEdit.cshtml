@@ -1,8 +1,8 @@
-﻿@model Car.Model.Entity.CarInsertEntity
+﻿@model Car.Model.Entity.CarBuyingEntity
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Đăng tin bán xe";
+    ViewBag.Title = "Sửa tin mua xe";    
 }
 
 <h2>&nbsp;&nbsp;@ViewBag.Title</h2>
@@ -14,16 +14,16 @@
 
 <hr />
 
-<div id="divCarInsert">
+<div id="divCarEdit">
 
-    <div class="form-horizontal car-insert-description">        
+    <div class="form-horizontal car-insert-description">
         @Html.LabelFor(model => model.Title, new { @class = "control-label" })
         @Html.EditorFor(model => model.Title)
         @Html.ValidationMessageFor(model => model.Title)
     </div>
 
     <div class="form-horizontal car-insert">
-      
+
         <div class="form-group">
             @Html.LabelFor(model => model.Firm, new { @class = "control-label col-md-4" })
             <div class="col-md-8">
@@ -158,12 +158,55 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CurrencyVN, new { @class = "control-label col-md-4" })
+            @Html.Label("Giá", new { @class = "control-label col-md-4" })
             <div class="col-md-8">
-                @Html.EditorFor(model => model.CurrencyVN)
-                @Html.ValidationMessageFor(model => model.CurrencyVN)
+                @Html.EditorFor(model => model.PriceFromVN)
+                @Html.ValidationMessageFor(model => model.PriceFromVN)
 
-                <input type="text" id="carInsert_select_CurrencyVN">
+                <div style="float:left">
+                    <select id="select_price_from" style="width:80px;">
+                        <option value="0" selected>Từ giá</option>
+                        <option value="100">100 Triệu</option>
+                        <option value="200">200 Triệu</option>
+                        <option value="300">300 Triệu</option>
+                        <option value="400">400 Triệu</option>
+                        <option value="500">500 Triệu</option>
+                        <option value="600">600 Triệu</option>
+                        <option value="700">700 Triệu</option>
+                        <option value="800">800 Triệu</option>
+                        <option value="900">900 Triệu</option>
+                        <option value="1000">1 Tỉ</option>
+                        <option value="2000">2 Tỉ</option>
+                        <option value="3000">3 Tỉ</option>
+                        <option value="4000">4 Tỉ</option>
+                        <option value="5000">>5 Tỉ</option>
+
+                    </select>
+                </div>
+
+                @Html.EditorFor(model => model.PriceToVN)
+                @Html.ValidationMessageFor(model => model.PriceToVN)
+
+                <div style="float:left">
+                    <label>&nbsp;&nbsp;---></label>
+                    <select id="select_price_to" style="width:80px">
+                        <option value="0" selected>Đến giá</option>
+                        <option value="100">100 Triệu</option>
+                        <option value="200">200 Triệu</option>
+                        <option value="300">300 Triệu</option>
+                        <option value="400">400 Triệu</option>
+                        <option value="500">500 Triệu</option>
+                        <option value="600">600 Triệu</option>
+                        <option value="700">700 Triệu</option>
+                        <option value="800">800 Triệu</option>
+                        <option value="900">900 Triệu</option>
+                        <option value="1000">1 Tỉ</option>
+                        <option value="2000">2 Tỉ</option>
+                        <option value="3000">3 Tỉ</option>
+                        <option value="4000">4 Tỉ</option>
+                        <option value="5000">>5 Tỉ</option>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -283,13 +326,9 @@
         </div>
     </div>
 
-    <div class="images">
-        @{ Html.RenderPartial("~/Views/Shared/UploadFiles.cshtml", null); }
-    </div>
-
     <br />
 
-    <input type="submit" id="uploadCar" value="Đăng tin" class="buttonUpload" />
+    <input type="submit" id="buyCar" value="Sửa tin" class="buttonUpload" />
 
 </div>
 
@@ -301,11 +340,16 @@
 </div>
 
 @section Scripts
-{    
-    <script>        
+{        
+    <script>
+        var _isBuy = true;
+        var _images = '@Model.Images'.split(",");        
+        var _carId = '@Model.CarId';
+        var _userId = '@Model.UserId';
+        var _carPath = '/Images/Cars_' + _userId + '_' + _carId;
         handler.showResultSearching();
     </script>
 
-    <script src="~/Content/scripts/AddCar.js"></script>
+    <script src="~/Content/scripts/EditCar.js"></script>
 }
 

@@ -10,7 +10,7 @@ namespace Car.Model.Criteria
 {
     /// <summary>    
     /// </summary>
-    public class CarGettingEditCriteria : CriteriaBase
+    public class CarGettingForEditCriteria : CriteriaBase
     {       
         public int CarId { get; set; }
       

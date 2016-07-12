@@ -105,9 +105,16 @@ function decorateDataModify(cars) {
     for (var i = 0; i < cars.length; i++) {
         var href = "/Car/CarDetail/" + cars[i].CarId;
         var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
-        var hrefModify = "/Car/Edit/" + cars[i].CarId;
+        var hrefModify = "/Car/Edit/" + cars[i].CarId;        
 
         var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
+
+        if (cars[i].IsBuy == 1) {
+            hrefModify = "/Car/EditCarBuying/" + cars[i].CarId;
+            image = "/images/noimage_buy.gif";
+        }
+
+
         var title = cars[i].Title;
 
         var status = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe cũ";

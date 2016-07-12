@@ -27,7 +27,9 @@ namespace Car.Model.Entity
         
         public string SeatCount { get; set; }//Số chỗ ngôi
         public string DoorCount { get; set; }//Số cửa xe
-        public string Fuel { get; set; }//Hệ thống nhiên liệu                 
+        public string Fuel { get; set; }//Hệ thống nhiên liệu             
+
+        public short IsBuy { get; set; }
     }
      
 }

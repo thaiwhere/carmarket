@@ -49,6 +49,15 @@ namespace Car.Service
             }
         }
 
+        public static CarBuyingEntity GetCarBuyEditInfo(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                return obj.QueryEntity<CarBuyingEntity>(param);
+            }
+        }
+
         public static int InsertCar(CriteriaBase criteria)
         {
             using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))

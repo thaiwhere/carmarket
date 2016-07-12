@@ -1,6 +1,7 @@
 USE [CARWEB]
 GO
 
+/****** Object:  Table [dbo].[CarForSale]    Script Date: 7/12/2016 6:21:30 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -32,12 +33,12 @@ CREATE TABLE [dbo].[CarForBuy](
 	[Description] [nvarchar](max) NULL,
 	[GearBox] [smallint] NULL,
 	[FuelSystem] [nvarchar](20) NULL,
-	[FuelConsumption] [nvarchar](20) NULL,
 	[CreatedDate] [smalldatetime] NULL,
 	[ModifiedDate] [smalldatetime] NULL,
 	[ExpiredDate] [smalldatetime] NULL,
 	[Firm] [varchar](20) NULL,
 	[Model] [varchar](20) NULL,
+	[FuelConsumption] [smallint] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[CarId] ASC

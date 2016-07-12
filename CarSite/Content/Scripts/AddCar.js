@@ -1,7 +1,17 @@
 ﻿$(function () {
 
     AddCarHandler.bindingEvents();
-    AddCarHandler.renderData();
+
+    if(typeof(_isBuy) !== 'undefined' && _isBuy == true)
+    {
+        AddCarHandler.renderDataForBuying();
+    }
+    else
+    {
+        AddCarHandler.renderData();
+    }
+
+    
     AddCarHandler.initData();
     AddCarHandler.handlerElements();    
 
@@ -94,6 +104,18 @@ var AddCarHandler = {
                     $(this).val(value);
                 }
            );
+
+        $("#select_price_from").change(
+               function () {
+                   $("#PriceFromVN").val(this.value);                    
+               }
+          );
+        
+        $("#select_price_to").change(
+               function () {
+                   $("#PriceToVN").val(this.value);
+               }
+          );
         
         $("#carInsert_select_GearBox").click(
                 function () {
@@ -125,6 +147,16 @@ var AddCarHandler = {
                    }
                }
            );
+
+        $("#buyCar").click(
+             function () {
+                 if (AddCarHandler.validateData()) {
+                     AddCarHandler.insertCarBuying();
+                 } else {
+                     alert("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                 }
+             }
+         );
     },
 
     renderData: function () {
@@ -140,6 +172,21 @@ var AddCarHandler = {
         RenderFactory.renderGearBoxNumber("#GearBoxNumber");
 
         RenderFactory.renderYear("carInsert_select_year");
+    },
+
+    renderDataForBuying: function () {
+        RenderFactory.renderModels('', '#carInsert_select_model');
+        RenderFactory.renderTypes('#carInsert_select_type', true);
+        RenderFactory.renderProvinces('#carInsert_select_province', true);
+        RenderFactory.renderColors('#carInsert_select_exterior_color', true);
+        RenderFactory.renderColors('#carInsert_select_interior_color', true);
+        RenderFactory.renderFuels('#carInsert_select_Fuel', true);
+        RenderFactory.renderFuelSystems('#carInsert_select_FuelSystem', true);
+        RenderFactory.renderWheelDrive('#carInsert_select_WheelDrive', true);
+        RenderFactory.renderGearBox("#carInsert_select_GearBox", true);
+        RenderFactory.renderGearBoxNumber("#GearBoxNumber");
+
+        RenderFactory.renderYear("carInsert_select_year", true);
     },
 
     handlerElements: function () {
@@ -160,12 +207,17 @@ var AddCarHandler = {
         $("#GearBox").hide();
         $("#GearBoxNumber").hide();
         $("#CurrencyVN").hide();
+        $("#PriceFromVN").hide();
+        $("#PriceToVN").hide();
         $("#Year").hide();
     },
 
     adjustWidth: function (width) {
         $("#divCarInsert input").width(width);
         $("#divCarInsert select").width(width);
+
+        $("#select_price_from").width(80);
+        $("#select_price_to").width(80);
     },
 
     validateData: function () {
@@ -218,6 +270,55 @@ var AddCarHandler = {
                 //common.HandleAjaxError(xhr);
             }
         });
+    },
+
+    insertCarBuying: function () {
+
+        var criteria = {
+            Title: $("#Title").val(),
+            Firm: $("#Firm").val(),
+            Model: $("#Model").val(),
+            IsNew: $("#IsNew").is(":checked"),
+            IsImport: $("#IsImport").is(":checked"),
+            TypeId: $("#TypeId").val(),
+            PriceFromVN: $("#PriceFromVN").val(),
+            PriceToVN: $("#PriceToVN").val(),
+            Year: $("#Year").val(),
+            Km: $("#Km").val(),
+            Description: $("#Description").val(),
+
+            ProvinceId: $("#ProvinceId").val(),
+            SeatNo: $("#SeatNo").val(),
+            GateNo: $("#GateNo").val(),
+            ExteriorColorId: $("#ExteriorColorId").val(),
+            InteriorColorId: $("#InteriorColorId").val(),
+            FuelConsumption: $("#FuelConsumption").val(),
+            FuelId: $("#FuelId").val(),
+            FuelSystem: $("#FuelSystem").val(),
+            GearBox: $("#GearBox").val(),
+            WheelDriveId: $("#WheelDriveId").val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            url: "/Car/BuyCar",
+            data: JSON.stringify(criteria),
+            success: function (result) {
+                if (result >= 0) {                    
+                    alert("Đăng tin mua xe thành công");
+                    window.location = '/car/yours';
+                } else {
+                    alert("Lỗi đăng tin, vui lòng thử lại !");
+                }
+            },
+            error: function (xhr) {
+                alert("Lỗi đăng tin, vui lòng thử lại !");
+                //common.HandleAjaxError(xhr);
+            }
+        });
     }    
+    
 }
 

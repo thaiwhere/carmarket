@@ -2,10 +2,10 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Sửa tin";    
+    ViewBag.Title = "Sửa tin bán xe";    
 }
 
-<h2>Sửa tin</h2>
+<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
 
 
 @Html.AntiForgeryToken()
@@ -14,7 +14,7 @@
 
 <hr />
 
-<div id="divCarInsert">
+<div id="divCarEdit">
 
     <div class="form-horizontal car-insert-description">
         @Html.LabelFor(model => model.Title, new { @class = "control-label" })
@@ -301,14 +301,15 @@
 </div>
 
 @section Scripts
-{    
-    <script src="~/Content/scripts/EditCar.js"></script>
-    <script>
+{        
+    <script>        
         var _images = '@Model.Images'.split(",");        
         var _carId = '@Model.CarId';
         var _userId = '@Model.UserId';
         var _carPath = '/Images/Cars_' + _userId + '_' + _carId;
         handler.showResultSearching();
     </script>
+
+    <script src="~/Content/scripts/EditCar.js"></script>
 }
 

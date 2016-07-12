@@ -58,7 +58,7 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult RevmoveUploadedFile(string fileName)
+        public ActionResult RemoveUploadedFile(string fileName)
         {
 
             var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
@@ -71,9 +71,11 @@ namespace CarSite.Controllers
 
             if (isExists)
             {
-                var path = string.Format("{0}\\{1}", pathString, fileName);
-
-                System.IO.File.Delete(path);
+                var files = System.IO.Directory.GetFiles(pathString, "*" + fileName + "*");
+                foreach (var file in files)
+                {                    
+                    System.IO.File.Delete(file);
+                }
 
                 return Json(new { Message = fileName });
             }
@@ -81,6 +83,28 @@ namespace CarSite.Controllers
             {
                 return Json(new { Message = "Error in removing file" });
             }
+        }
+
+        [HttpPost]
+        public ActionResult RemoveUploadedFileForEditing(string fileName)
+        {
+            try
+            {
+                fileName = fileName.Substring(1, fileName.Length - 1).Replace('/','\\');
+
+                var originalDirectory = new DirectoryInfo(string.Format("{0}", Server.MapPath(@"\")));
+
+                var fileDeleted = originalDirectory.ToString() + fileName;
+
+                System.IO.File.Delete(fileDeleted);
+
+                return Json(new { Message = fileName });
+
+            }
+            catch
+            {
+                return Json(new { Message = "Error in removing file" });
+            }            
         }
 
         #endregion
