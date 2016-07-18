@@ -203,14 +203,14 @@ namespace CarSite.Controllers
 
             var carId = CarService.InsertCar(criteria);
 
-            if (carId == -1)
-            {
-                RemoveFolderName();                
-            }
-            else
+            if (carId > 0)
             {
                 ChangeFolderName(carId);
                 ChangeFileName(carId);
+            }
+            else
+            {
+                RemoveFolderName();                                
             }
 
             return Json(carId);

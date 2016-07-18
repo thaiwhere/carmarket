@@ -47,6 +47,7 @@
     <Compile Include="Criteria\CarGettingForEditCriteria.cs" />
     <Compile Include="Criteria\CarEditCriteria.cs" />
     <Compile Include="Criteria\CarBuyingInsertCriteria.cs" />
+    <Compile Include="Criteria\ContactCriteria.cs" />
     <Compile Include="Criteria\CarInsertCriteria.cs" />
     <Compile Include="Criteria\CarSearchingDetalCriteria.cs" />
     <Compile Include="Criteria\CarDeleteCriteria.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Entity\CarBuyingEntity.cs" />
     <Compile Include="Entity\CarEditEntity.cs" />
     <Compile Include="Entity\CarInsertEntity.cs" />
+    <Compile Include="Entity\Contact.cs" />
     <Compile Include="Entity\CarViewModel.cs" />
     <Compile Include="Entity\CarModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

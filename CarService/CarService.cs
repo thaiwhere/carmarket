@@ -65,7 +65,7 @@ namespace Car.Service
                 var param = criteria.GetSpParams();
                 obj.ExecuteNonQuery(param);
 
-                var carId = param["carid"];
+                var carId = obj.GetParameterValue("carid");
 
                 return (carId is DBNull) ? 0 : Convert.ToInt32(carId);
             }
@@ -78,7 +78,7 @@ namespace Car.Service
                 var param = criteria.GetSpParams();
                 obj.ExecuteNonQuery(param);
 
-                var IsError = param["error"];
+                var IsError = obj.GetParameterValue("error");
 
                 return (IsError is DBNull) ? 0 : Convert.ToInt32(IsError);
             }
@@ -92,7 +92,7 @@ namespace Car.Service
                 var param = criteria.GetSpParams();
                 obj.ExecuteNonQuery(param);
 
-                var carId = param["carid"];
+                var carId = obj.GetParameterValue("carid");
 
                 return (carId is DBNull) ? 0 : Convert.ToInt32(carId);
             }

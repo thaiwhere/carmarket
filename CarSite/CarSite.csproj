@@ -181,6 +181,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettings.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -348,6 +349,7 @@
     <Content Include="Content\scripts\file-upload\jquery.fileupload.js" />
     <Content Include="Content\scripts\file-upload\jquery.iframe-transport.js" />
     <Content Include="Content\scripts\GridDemo.js" />
+    <Content Include="Content\scripts\Contact.js" />
     <Content Include="Content\scripts\Index.js" />
     <Content Include="Content\scripts\lib\bootstrapValidator.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery-1.9.1.min.js" />
