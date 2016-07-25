@@ -3,14 +3,25 @@
     ViewBag.Title = "Đăng ký";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
+<br />
+
+@{
+    if (@ViewBag.ExistedUser == "")
+    {
+        <h4><span style="margin-left:20px;">Tạo một tài khoản để rao tin.</span></h4>
+    }
+    else
+    {
+        <h5><span style="color: red; margin-left: 20px;">@ViewBag.ExistedUser</span></h5>
+    }
+}
 
 <div class="col-md-10">
     <section id="registerForm">
         @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
-            @Html.AntiForgeryToken()
-            <h4>Tạo một tài khoản để rao tin.</h4>
+            @Html.AntiForgeryToken()            
             <hr />
             @Html.ValidationSummary()
             <div class="form-group">

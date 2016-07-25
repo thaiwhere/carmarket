@@ -57,7 +57,7 @@ namespace CarSite.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Nhập lại Mật khẩu")]
-        [Compare("Password", ErrorMessage = "Mật khẩu và Nhập lại mật khẩu không khớp.")]
+        [System.Web.Mvc.Compare("Password", ErrorMessage = "Mật khẩu và Nhập lại mật khẩu không khớp.")]        
         public string ConfirmPassword { get; set; }
     }
 }

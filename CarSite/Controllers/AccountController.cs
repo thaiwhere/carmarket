@@ -68,6 +68,8 @@ namespace CarSite.Controllers
         [AllowAnonymous]
         public ActionResult Register(string returnUrl)
         {
+            ViewBag.ExistedUser = string.Empty;
+
             if (string.IsNullOrEmpty(returnUrl) && Request.UrlReferrer != null)
             {
                 returnUrl = Server.UrlEncode(Request.UrlReferrer.PathAndQuery);
@@ -90,27 +92,34 @@ namespace CarSite.Controllers
             {
                 using (CARWEBEntities entities = new CARWEBEntities())
                 {
-                    User user = new Models.User() { UserName = model.UserName, Password = model.Password, Roles = "user" };
-                    entities.Users.Add(user);
-
-                    HttpContext.Session["UserId"] = user.UserId;
-
-                    FormsAuthentication.SetAuthCookie(user.UserName, false);
-
-                    if (entities.SaveChanges() > 0)
+                    if (entities.Users.Select(u => u.UserName.Equals(model.UserName)).Any())
                     {
-                        if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                            && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
-                        {
-                            return Redirect(returnUrl);
-                        }
-                        else
-                        {
-                            return RedirectToAction("Yours", "Car");
-                        }
+                        ViewBag.ExistedUser = "Tên truy cập đã tồn tại, vui lòng chọn tên khác.";
                     }
+                    else
+                    {
+                        User user = new Models.User() { UserName = model.UserName, Password = model.Password, Roles = "user" };
+                        entities.Users.Add(user);
 
-                    return RedirectToAction("Insert", "Car");
+                        HttpContext.Session["UserId"] = user.UserId;
+
+                        FormsAuthentication.SetAuthCookie(user.UserName, false);
+
+                        if (entities.SaveChanges() > 0)
+                        {
+                            if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                            {
+                                return Redirect(returnUrl);
+                            }
+                            else
+                            {
+                                return RedirectToAction("Yours", "Car");
+                            }
+                        }
+
+                        return RedirectToAction("Insert", "Car");
+                    }
                 }
             }
 
