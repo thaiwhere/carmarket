@@ -1,14 +1,27 @@
 ﻿using CarSite.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.Configuration;
+using Car.Framework;
 
 namespace CarSite.Controllers
 {
     [Authorize]
     public class AccountController : Controller
-    {
+    {        
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error);
+            }
+        }
+     
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -35,7 +48,7 @@ namespace CarSite.Controllers
                 using (CARWEBEntities entities = new CARWEBEntities())
                 {
                     string username = model.UserName;
-                    string password = model.Password;
+                    string password = EncryptionHelper.Encrypt(model.Password);
 
                     bool userValid = entities.Users.Any(user => user.UserName == username && user.Password == password);
 
@@ -98,7 +111,7 @@ namespace CarSite.Controllers
                     }
                     else
                     {
-                        User user = new Models.User() { UserName = model.UserName, Password = model.Password, Roles = "user" };
+                        User user = new Models.User() { UserName = model.UserName, Password = EncryptionHelper.Encrypt(model.Password), Roles = "user" };
                         entities.Users.Add(user);
 
                         HttpContext.Session["UserId"] = user.UserId;
@@ -126,11 +139,67 @@ namespace CarSite.Controllers
             return View(model);
         }
 
+
+        [Authorize]
+        public ActionResult Manage()
+        {
+            ViewBag.HasError = "";
+            ViewBag.ReturnUrl = Url.Action("Manage");
+
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult Manage(ManageUserViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var newPassword = EncryptionHelper.Encrypt(model.NewPassword);
+                var oldPassword = EncryptionHelper.Encrypt(model.OldPassword);
+
+                if (newPassword.Equals(oldPassword))
+                {
+                    ViewBag.HasError = "ERROR";
+                    ViewBag.StatusMessage = "Mập khẩu mới trùng với mật khẩu cũ.";
+                }
+                else
+                {
+                    using (CARWEBEntities entities = new CARWEBEntities())
+                    {
+                        var userId = int.Parse(HttpContext.Session["UserId"].ToString());
+                        bool userValid = entities.Users.Any(user => user.UserId == userId && EncryptionHelper.Encrypt(user.Password).Equals(oldPassword));
+
+                        if (userValid)
+                        {
+                            var userLogin = entities.Users.Where(user => user.UserId == userId && EncryptionHelper.Encrypt(user.Password).Equals(oldPassword)).Single();
+                            if (userLogin != null)
+                            {
+                                ViewBag.HasError = "";
+                                ViewBag.StatusMessage = "Mập khẩu đã được thay đổi thành công.";
+                                userLogin.Password = newPassword;
+                                entities.SaveChanges();
+                            }
+                        }
+                        else
+                        {
+                            ViewBag.HasError = "ERROR";
+                            ViewBag.StatusMessage = "Mập khẩu cũ không khớp.";
+                        }
+                    }
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
 
             return RedirectToAction("Index", "Home");
-        }
+        }       
     }
 }

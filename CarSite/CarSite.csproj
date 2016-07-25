@@ -522,6 +522,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Car.Framework\Car.Framework.csproj">
+      <Project>{e6f40e0c-1135-43c6-a137-3c085ea15825}</Project>
+      <Name>Car.Framework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CarModel\Car.Model.csproj">
       <Project>{9ae42ca2-f40f-43ca-bef9-0392cb24e132}</Project>
       <Name>Car.Model</Name>

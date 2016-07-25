@@ -11,20 +11,20 @@ namespace CarSite.Models
 
     public class ManageUserViewModel
     {
-        [Required]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Mật khẩu cũ không để trống.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Display(Name = "Mật khẩu cũ")]
         public string OldPassword { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Mật khẩu mới không để trống.")]
+        [StringLength(100, ErrorMessage = "{0} phải có ít nhất {2} ký tự.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "Mật khẩu mới")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Display(Name = "Xác nhận Mật khẩu mới")]
+        [System.Web.Mvc.Compare("NewPassword", ErrorMessage = "Mật khẩu và Xác nhận mật khẩu không khớp.")]        
         public string ConfirmPassword { get; set; }
     }
 
@@ -56,8 +56,8 @@ namespace CarSite.Models
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Nhập lại Mật khẩu")]
-        [System.Web.Mvc.Compare("Password", ErrorMessage = "Mật khẩu và Nhập lại mật khẩu không khớp.")]        
+        [Display(Name = "Xác nhận Mật khẩu")]
+        [System.Web.Mvc.Compare("Password", ErrorMessage = "Mật khẩu và Xác nhận mật khẩu không khớp.")]        
         public string ConfirmPassword { get; set; }
     }
 }

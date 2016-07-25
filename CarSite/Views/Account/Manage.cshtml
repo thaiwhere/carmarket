@@ -1,27 +1,32 @@
 ﻿@using CarSite.Models;
 @using Microsoft.AspNet.Identity;
 @{
-    ViewBag.Title = "Manage Account";
+    ViewBag.Title = "Thay đổi Password";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
 
-<p class="text-success">@ViewBag.StatusMessage</p>
 <div class="row">
-    <div class="col-md-12">
-        @if (ViewBag.HasLocalPassword)
-        {
-            @Html.Partial("_ChangePasswordPartial")
+    <div class="col-md-10">
+        @{
+            if (string.IsNullOrEmpty(ViewBag.HasError))
+            {         
+                if (!string.IsNullOrEmpty(ViewBag.StatusMessage))
+                {
+                    <h4><span style="color: blue; margin-left: 20px;">@ViewBag.StatusMessage</span></h4>
+                }
+                else
+                {
+                    @Html.Partial("_ChangePasswordPartial")
+                }
+            }
+            else
+            {                
+                <h4><span style="color: red; margin-left: 20px;">@ViewBag.StatusMessage</span></h4>
+                @Html.Partial("_ChangePasswordPartial")
+            }
         }
-        else
-        {
-            @Html.Partial("_SetPasswordPartial")
-        }
-
-        <section id="externalLogins">
-            @Html.Action("RemoveAccountList")
-            @Html.Partial("_ExternalLoginsListPartial", new { Action = "LinkLogin", ReturnUrl = ViewBag.ReturnUrl })
-        </section>
+                 
     </div>
 </div>
 @section Scripts {

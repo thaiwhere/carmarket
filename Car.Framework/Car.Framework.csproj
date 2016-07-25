@@ -49,6 +49,7 @@
     <Compile Include="Cache\Memcached.cs" />
     <Compile Include="Cache\RuntimeCache.cs" />
     <Compile Include="CommandResult.cs" />
+    <Compile Include="EncryptionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
