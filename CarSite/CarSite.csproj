@@ -438,6 +438,13 @@
     <Content Include="Images\Cars_3\11.jpg" />
     <Content Include="Images\Cars_3\12.jpg" />
     <Content Include="Images\Cars_3\small.jpg" />
+    <Content Include="Images\Cars_4\Dangky.png" />
+    <Content Include="Images\Cars_4\dangnhap.png" />
+    <Content Include="Images\Cars_4\O6Dangtin_banxe2.png" />
+    <Content Include="Images\Cars_4\O6Dangtin_banxe_2.png" />
+    <Content Include="Images\Cars_4\Tindangcuaban.png" />
+    <Content Include="Images\Cars_4\Tinhethan.png" />
+    <Content Include="Images\Cars_4\Tin_hieuluc.png" />
     <Content Include="Images\Cars_Showroom\01.jpg" />
     <Content Include="Images\Cars_Showroom\02.jpg" />
     <Content Include="Images\Cars_Showroom\03.jpg" />
@@ -492,6 +499,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Car\CarBuyingInsert.cshtml" />
     <Content Include="Views\Car\CarBuyingEdit.cshtml" />
+    <Content Include="Views\Home\Guide.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

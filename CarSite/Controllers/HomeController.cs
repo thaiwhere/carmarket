@@ -30,6 +30,13 @@ namespace CarSite.Controllers
             return View();
         }
 
+        public ActionResult Guide()
+        {
+            ViewBag.Message = "Your Guide page.";
+
+            return View();
+        }
+  
         public ActionResult Salon()
         {
             return View();
