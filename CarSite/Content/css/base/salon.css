@@ -34,3 +34,23 @@
     background: url('../../images/common/address.png') no-repeat left;
     background-position: 0 3px;
 }
+.guide-section{    
+    float:left;
+    width:100%; 
+    height:250px;
+   
+}
+.guide-photo {
+    float: left;
+    width:100%;
+    height: 220px;
+    padding-right: 0px;
+    margin-bottom:25px;
+}
+.guide-news {
+    float: left;
+    width:100%;
+    height: 220px;
+    padding-right: 0px;
+    margin-bottom:25px;
+}

@@ -48,6 +48,8 @@ namespace CarSite.Models
         [Required]
         [Display(Name = "Tên đăng nhập")]
         public string UserName { get; set; }
+      
+
 
         [Required]
         [StringLength(100, ErrorMessage = "{0} phải có ít nhất {2} ký tự.", MinimumLength = 6)]
@@ -59,5 +61,9 @@ namespace CarSite.Models
         [Display(Name = "Xác nhận Mật khẩu")]
         [System.Web.Mvc.Compare("Password", ErrorMessage = "Mật khẩu và Xác nhận mật khẩu không khớp.")]        
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Điện thoại")]
+        public string Tel { get; set; }
     }
 }
