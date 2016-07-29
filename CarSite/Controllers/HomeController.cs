@@ -78,12 +78,16 @@ namespace CarSite.Controllers
         {
             string from = AppSettings.SendEmailFrom;
             string to = contact.Email;
+            string companyEmail = AppSettings.SendEmailFrom;
 
-            System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage();
-            m.Subject = "Contact from " + contact.Name;
-            m.Body = contact.Message;
-            m.From = new MailAddress(from);
-            m.To.Add(new MailAddress(to));
+            string body = string.Join(null, "Chúng tôi đã nhận được thông tin liên hệ từ khách hàng <b>", contact.Name, "</b>", "<br>", contact.Message, "<br> Chúng tôi sẽ phản hồi sớm nhất. Xin cảm ơn !");
+
+            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
+            mail.Subject = "Liện hệ từ khách hàng <b>" + contact.Name + "</b>";
+            mail.Body = body;
+            mail.From = new MailAddress(from);
+            mail.To.Add(new MailAddress(to));
+            mail.To.Add(new MailAddress(companyEmail));
 
             SmtpClient smtp = new SmtpClient();
             smtp.Host = AppSettings.SendEmailHost;
@@ -94,7 +98,7 @@ namespace CarSite.Controllers
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = authinfo;
             smtp.EnableSsl = true;
-            smtp.Send(m);
+            smtp.Send(mail);
         }
     }
 }
