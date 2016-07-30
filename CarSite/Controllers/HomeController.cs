@@ -46,13 +46,10 @@ namespace CarSite.Controllers
         public JsonResult SendMessage(Contact contact)
         {          
             try
-            {                
-                if (InsertMessage(contact) > 0)
-                {
-                    SendEmail(contact);
-
-                }
-
+            {
+                InsertMessage(contact);
+                SendEmail(contact);
+                
                 return Json(true);
             }
             catch
@@ -79,11 +76,22 @@ namespace CarSite.Controllers
             string from = AppSettings.SendEmailFrom;
             string to = contact.Email;
             string companyEmail = AppSettings.SendEmailFrom;
+            string phone = !string.IsNullOrEmpty(contact.Phone) ? " ( SĐT: " + contact.Phone + " )" : string.Empty;
 
-            string body = string.Join(null, "Chúng tôi đã nhận được thông tin liên hệ từ khách hàng <b>", contact.Name, "</b>", "<br>", contact.Message, "<br> Chúng tôi sẽ phản hồi sớm nhất. Xin cảm ơn !");
+            string body = string.Join(null, 
+                "Chúng tôi đã nhận được thông tin liên hệ từ khách hàng <b>", contact.Name, "</b>", phone,
+                "<br/><br/>----------------------------------------- Nội dung liên hệ -----------------------------------------<br/>", 
+                contact.Message,
+                "<br/>---------------------------------------------------------------------------------------------------------<br/><br/>",
+                "Chúng tôi sẽ phản hồi sớm nhất cho quí khách.",
+                "<br/><br/>",
+                "Xin cảm ơn quí khách !",
+                "<br/><br/>----------------------------------------------------------------------------------------------------<br/>", 
+                "<b>P/S: Đây là Email tự động. Xin đừng phản hồi qua email này </b>");
 
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
-            mail.Subject = "Liện hệ từ khách hàng <b>" + contact.Name + "</b>";
+            mail.IsBodyHtml = true;
+            mail.Subject = "Ôtô Thái Dương - Liện hệ từ khách hàng " + contact.Name;
             mail.Body = body;
             mail.From = new MailAddress(from);
             mail.To.Add(new MailAddress(to));

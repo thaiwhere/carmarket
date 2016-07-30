@@ -71,7 +71,7 @@
                 async: true,
                 success: function (result) {
                     $('#contactForm').hide();
-                    $('#status').html("Cảm ơn, Chúng tôi đã nhận thông điệp từ Bạn và sẽ phản hồi sớm nhất !");
+                    $('#status').html("<br>Xin cảm ơn! . Chúng tôi đã nhận thông điệp từ Quí khách và sẽ phản hồi sớm nhất !");
                 }
             });
         }
