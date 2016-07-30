@@ -15,13 +15,8 @@
 @Html.AntiForgeryToken()
 
 <div id="div_contact">
-    <div style="padding-left:20px;line-height:18px;color:#555;">
-        <b>Công ty TNHH Dịch vụ Thái Dương</b><br><br />
-        <b>Địa chỉ văn phòng làm việc:</b>&nbsp; 1/9 ĐHT11, Phuờng Đông Hưng Thuận, Quận 12, Tp.HCM<br>
-        <b>Điện thoại:</b>&nbsp;0909 685 024<br>
-        <b>Email:</b>&nbsp;thaiwhere@gmail.com        
-    </div>    
-
+    @{ Html.RenderPartial("~/Views/Home/Company.cshtml", null); }    
+    
     <div style="width:98%;max-width:500px;">
         <form id="contactForm" class="form-horizontal bv-form" method="post" action="" novalidate="novalidate">
             <button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>

@@ -1,9 +1,9 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Guide";
+    ViewBag.Title = "Hướng dẫn";
 }
 
-<h2>Hướng dẫn </h2>
+<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
 
 
 @section Styles{
@@ -12,21 +12,19 @@
     <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />    
 }
 
-<div id="div_contact">
-    <div style="padding-left:20px;line-height:18px;color:#555;">
-        Công ty TNHH Oto Thái Dương Việt Nam <br>
-        Địa chỉ văn phòng làm việc: 1/9 ĐHT11, Quận 12, Tp.HCM <br>
-        Điện thoại: 0909 685 024 <br>
-        Email:thaiwhere@gmail.com <br />
+<div id="div_guide">
+    @{ Html.RenderPartial("~/Views/Home/Company.cshtml", null); }
+    
+    <div style="padding-left:20px;line-height:18px;color:#555;">        
         <br />
-        Làm thế nào để trở thành thành viên của OtoViet.com?  <br />
-        Để trở thành thành viên của OtoViet.com này bạn vui lòng click vào link <a href="/Account/Register/">Đăng ký</a>  <br />
+        <b>1. Làm thế nào để trở thành thành viên của OtoViet.com? </b> <br /><br />
+        Để trở thành thành viên của OtoViet.com, Bạn vui lòng click vào link <a href="/Account/Register/">Đăng ký</a>  <br /><br/>
         Nhập các thông tin bắt buộc phải có: <br />
         <ul>
             <li> Tên đăng nhập: </li>
             <li> Mật khẩu. <br /></li>
             <li> Nhập lại mật khẩu <br /></li>
-            <li> Lưu ý: Địa chỉ <b> <font color="red">Email - Số Mobile - Tên đăng nhập phải là duy nhất.</font> </b>   <br /></li>
+            <li> Lưu ý: Địa chỉ <b> <font color="red">Email - Tên đăng nhập phải là duy nhất.</font> </b>   <br /></li>
         </ul>
           
     </div>
@@ -36,7 +34,7 @@
         </div>
     </div>  
     <div style="padding-left:20px;line-height:18px;color:#555;">
-       Đăng nhập vào hệ thống <a href="/Account/Login/" onclick="open_dialog('login-dlg','username1');return false;">Đăng nhập</a>
+       <b>2. Đăng nhập vào hệ thống </b><a href="/Account/Login/" onclick="open_dialog('login-dlg','username1');return false;">Đăng nhập</a>
     </div>
     <div class="guide-section">
         <div class="guide-photo">
@@ -64,7 +62,7 @@
         </div>
     </div>
     <div style="padding-left:20px;line-height:18px;color:#555;">
-        Làm thế nào đăng tin trên OtoViet.com
+        <b>3. Làm thế nào đăng tin trên OtoViet.com </b>
      </div>
     <div class="guide-section">
         <div class="guide-photo">
