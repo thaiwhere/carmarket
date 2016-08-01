@@ -28,5 +28,10 @@ namespace CarSite
         {
             get { return ConfigurationManager.AppSettings["SendEmailPass"].ToString(); }
         }
+
+        public static bool IsGetFromCache
+        {
+            get { return bool.Parse(ConfigurationManager.AppSettings["IsGetFromCache"].ToString()); }
+        }
     }
 }

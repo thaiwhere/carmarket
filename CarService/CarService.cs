@@ -13,48 +13,125 @@ namespace Car.Service
     /// </summary>
     public static class CarService
     {
-        public static IEnumerable<CarModel> SearchingCars(CriteriaBase criteria)
+        public static IEnumerable<CarModel> SearchingCars(CriteriaBase criteria, bool isGetFromCache = false)
         {
-            var cache = CacheManager.GetInstance();
-            var cars = cache.GetCache<IEnumerable<CarModel>>(criteria.GetSettingKey());
-
-            //if (cars == null)
-            {
-                using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
-                {
-                    var param = criteria.GetSpParams();                    
-                    cars = obj.Query<CarModel>(param);
-                    cache.SetCache(criteria.GetSettingKey(), cars);
-                }
-            }
-
-            return cars;
-        }
-
-        public static CarViewModel SearchingCarDetail(CriteriaBase criteria)
-        {
-            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            var carId = string.Empty;
+            var cacheKey = string.Empty;
+            ICache cache = null;            
+            IEnumerable<CarModel> cars = null;
+                        
+            try
             {
                 var param = criteria.GetSpParams();
-                return obj.QueryEntity<CarViewModel>(param);
+                if (param["carid"] != null)
+                {
+                    carId = param["carid"].ToString();
+                }
+
+                if (isGetFromCache && !string.IsNullOrEmpty(carId))
+                {
+                    cache = CacheManager.GetInstance();
+                    cacheKey = criteria.GetSettingKey() + carId;
+                    cars = cache.GetCache<IEnumerable<CarModel>>(cacheKey);
+                }
+
+                if (cars == null)
+                {
+                    using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+                    {                        
+                        cars = obj.Query<CarModel>(param);
+
+                        if (isGetFromCache && cache != null)
+                        {
+                            cache.SetCache(cacheKey, cars);
+                        }
+                    }
+                }
+
+                return cars;
             }
+            catch (Exception ex)
+            {                
+                LogService.Error("SearchingCars - " + ex.Message, ex);
+                return new List<CarModel>();
+            }            
+        }
+
+        public static CarViewModel SearchingCarDetail(CriteriaBase criteria, bool isGetFromCache = false)
+        {            
+            var carId = string.Empty;
+            var cacheKey = string.Empty;
+            ICache cache = null;
+            CarViewModel carViewModel = null;
+
+            try
+            {
+                var param = criteria.GetSpParams();
+                if (param["carid"] != null)
+                {
+                    carId = param["carid"].ToString();
+                }
+
+                if (isGetFromCache && !string.IsNullOrEmpty(carId))
+                {
+                    cache = CacheManager.GetInstance();
+                    cacheKey = criteria.GetSettingKey() + carId;                    
+                    carViewModel = cache.GetCache<CarViewModel>(cacheKey);
+                }
+
+                if (carViewModel == null)
+                {
+                    using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+                    {                        
+                        carViewModel = obj.QueryEntity<CarViewModel>(param);
+
+                        if (isGetFromCache && cache != null)
+                        {
+                            cache.SetCache(cacheKey, carViewModel);
+                        }
+                    }
+                }
+
+                return carViewModel;
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("SearchingCarDetail - " + ex.Message, ex);
+                return new CarViewModel();
+            }                       
         }
 
         public static CarEditEntity GetCarEditInfo(CriteriaBase criteria)
         {
-            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            try
             {
-                var param = criteria.GetSpParams();
-                return obj.QueryEntity<CarEditEntity>(param);
+                using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+                {
+                    var param = criteria.GetSpParams();
+                    return obj.QueryEntity<CarEditEntity>(param);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("GetCarEditInfo - " + ex.Message, ex);
+                return new CarEditEntity();
             }
         }
 
         public static CarBuyingEntity GetCarBuyEditInfo(CriteriaBase criteria)
         {
-            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            try
             {
-                var param = criteria.GetSpParams();
-                return obj.QueryEntity<CarBuyingEntity>(param);
+                using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+                {
+                    var param = criteria.GetSpParams();
+                    return obj.QueryEntity<CarBuyingEntity>(param);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("GetCarBuyEditInfo - " + ex.Message, ex);
+                return new CarBuyingEntity();
             }
         }
 

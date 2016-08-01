@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Configuration;
 using Car.Framework;
+using System;
 
 namespace CarSite.Controllers
 {
@@ -45,33 +46,40 @@ namespace CarSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (CARWEBEntities entities = new CARWEBEntities())
+                try
                 {
-                    string username = model.UserName;
-                    string password = EncryptionHelper.Encrypt(model.Password);
-
-                    bool userValid = entities.Users.Any(user => user.UserName == username && user.Password == password);
-
-                    if (userValid)
+                    using (CARWEBEntities entities = new CARWEBEntities())
                     {
-                        var userLogin = entities.Users.Where(user => user.UserName == username && user.Password == password).Single();
-                        HttpContext.Session["UserId"] = userLogin.UserId;
+                        string username = model.UserName;
+                        string password = EncryptionHelper.Encrypt(model.Password);
 
-                        FormsAuthentication.SetAuthCookie(username, false);
-                        if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                            && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                        bool userValid = entities.Users.Any(user => user.UserName == username && user.Password == password);
+
+                        if (userValid)
                         {
-                            return Redirect(returnUrl);
+                            var userLogin = entities.Users.Where(user => user.UserName == username && user.Password == password).Single();
+                            HttpContext.Session["UserId"] = userLogin.UserId;
+
+                            FormsAuthentication.SetAuthCookie(username, false);
+                            if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                            {
+                                return Redirect(returnUrl);
+                            }
+                            else
+                            {
+                                return RedirectToAction("Yours", "Car");
+                            }
                         }
                         else
                         {
-                            return RedirectToAction("Yours", "Car");
+                            ModelState.AddModelError(string.Empty, "Tên đăng nhập hoặc Mật khẩu không chính xác.");
                         }
                     }
-                    else
-                    {
-                        ModelState.AddModelError(string.Empty, "Tên đăng nhập hoặc Mật khẩu không chính xác.");
-                    }
+                }
+                catch(Exception ex)
+                {
+                    LogService.Error("Login - " + ex.Message, ex);
                 }
             }
 
@@ -103,36 +111,43 @@ namespace CarSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (CARWEBEntities entities = new CARWEBEntities())
+                try
                 {
-                    if (entities.Users.Select(u => u.UserName.Equals(model.UserName)).Any())
+                    using (CARWEBEntities entities = new CARWEBEntities())
                     {
-                        ViewBag.ExistedUser = "Tên truy cập đã tồn tại, vui lòng chọn tên khác.";
-                    }
-                    else
-                    {
-                        User user = new Models.User() { UserName = model.UserName, Password = EncryptionHelper.Encrypt(model.Password), Roles = "user" };
-                        entities.Users.Add(user);
-
-                        HttpContext.Session["UserId"] = user.UserId;
-
-                        FormsAuthentication.SetAuthCookie(user.UserName, false);
-
-                        if (entities.SaveChanges() > 0)
+                        if (entities.Users.Select(u => u.UserName.Equals(model.UserName)).Any())
                         {
-                            if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
-                            {
-                                return Redirect(returnUrl);
-                            }
-                            else
-                            {
-                                return RedirectToAction("Yours", "Car");
-                            }
+                            ViewBag.ExistedUser = "Tên truy cập đã tồn tại, vui lòng chọn tên khác.";
                         }
+                        else
+                        {
+                            User user = new Models.User() { UserName = model.UserName, Password = EncryptionHelper.Encrypt(model.Password), Roles = "user" };
+                            entities.Users.Add(user);
 
-                        return RedirectToAction("Insert", "Car");
+                            HttpContext.Session["UserId"] = user.UserId;
+
+                            FormsAuthentication.SetAuthCookie(user.UserName, false);
+
+                            if (entities.SaveChanges() > 0)
+                            {
+                                if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                                    && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                                {
+                                    return Redirect(returnUrl);
+                                }
+                                else
+                                {
+                                    return RedirectToAction("Yours", "Car");
+                                }
+                            }
+
+                            return RedirectToAction("Insert", "Car");
+                        }
                     }
+                }
+                catch(Exception ex)
+                {
+                    LogService.Error("Register - " + ex.Message, ex);
                 }
             }
 
@@ -156,38 +171,45 @@ namespace CarSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                var newPassword = EncryptionHelper.Encrypt(model.NewPassword);
-                var oldPassword = EncryptionHelper.Encrypt(model.OldPassword);
+                try
+                {
+                    var newPassword = EncryptionHelper.Encrypt(model.NewPassword);
+                    var oldPassword = EncryptionHelper.Encrypt(model.OldPassword);
 
-                if (newPassword.Equals(oldPassword))
-                {
-                    ViewBag.HasError = "ERROR";
-                    ViewBag.StatusMessage = "Mập khẩu mới trùng với mật khẩu cũ.";
-                }
-                else
-                {
-                    using (CARWEBEntities entities = new CARWEBEntities())
+                    if (newPassword.Equals(oldPassword))
                     {
-                        var userId = int.Parse(HttpContext.Session["UserId"].ToString());
-                        bool userValid = entities.Users.Any(user => user.UserId == userId && EncryptionHelper.Encrypt(user.Password).Equals(oldPassword));
-
-                        if (userValid)
+                        ViewBag.HasError = "ERROR";
+                        ViewBag.StatusMessage = "Mập khẩu mới trùng với mật khẩu cũ.";
+                    }
+                    else
+                    {
+                        using (CARWEBEntities entities = new CARWEBEntities())
                         {
-                            var userLogin = entities.Users.Where(user => user.UserId == userId && EncryptionHelper.Encrypt(user.Password).Equals(oldPassword)).Single();
-                            if (userLogin != null)
+                            var userId = int.Parse(HttpContext.Session["UserId"].ToString());
+                            bool userValid = entities.Users.Any(user => user.UserId == userId && EncryptionHelper.Encrypt(user.Password).Equals(oldPassword));
+
+                            if (userValid)
                             {
-                                ViewBag.HasError = "";
-                                ViewBag.StatusMessage = "Mập khẩu đã được thay đổi thành công.";
-                                userLogin.Password = newPassword;
-                                entities.SaveChanges();
+                                var userLogin = entities.Users.Where(user => user.UserId == userId && EncryptionHelper.Encrypt(user.Password).Equals(oldPassword)).Single();
+                                if (userLogin != null)
+                                {
+                                    ViewBag.HasError = "";
+                                    ViewBag.StatusMessage = "Mập khẩu đã được thay đổi thành công.";
+                                    userLogin.Password = newPassword;
+                                    entities.SaveChanges();
+                                }
+                            }
+                            else
+                            {
+                                ViewBag.HasError = "ERROR";
+                                ViewBag.StatusMessage = "Mập khẩu cũ không khớp.";
                             }
                         }
-                        else
-                        {
-                            ViewBag.HasError = "ERROR";
-                            ViewBag.StatusMessage = "Mập khẩu cũ không khớp.";
-                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    LogService.Error("Manage - " + ex.Message, ex);
                 }
             }
 

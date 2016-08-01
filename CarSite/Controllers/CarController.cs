@@ -1,4 +1,5 @@
-﻿using Car.Model.Criteria;
+﻿using Car.Framework;
+using Car.Model.Criteria;
 using Car.Model.Entity;
 using Car.Service;
 using System;
@@ -34,7 +35,7 @@ namespace CarSite.Controllers
                 CarId = id
             };
 
-            CarViewModel carDetail = CarService.SearchingCarDetail(criteria);
+            CarViewModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
             return View("~/Views/Car/CarDetail.cshtml", carDetail);
         }
 
@@ -135,7 +136,7 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult SearchingCarsForYou(CarSearchingForYouCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
@@ -156,150 +157,179 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult SearchingCarsSimilarModel(CarSearchingSimilarModelCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsSimilarPrice(CarSearchingSimilarPriceCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult InsertCar(CarInsertEntity carInsertEntity)
-        {            
-            if (HttpContext.Session["UserId"] == null)
+        {
+            var carId = 0;
+
+            try
             {
-                return Json(-1);
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                var criteria = new CarInsertCriteria
+                {
+                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                    Title = carInsertEntity.Title,
+                    Firm = carInsertEntity.Firm,
+                    Model = carInsertEntity.Model,
+                    IsNew = carInsertEntity.IsNew,
+                    IsImport = carInsertEntity.IsImport,
+                    TypeId = carInsertEntity.TypeId,
+                    CurrencyVN = carInsertEntity.CurrencyVN,
+                    Year = carInsertEntity.Year,
+                    Km = carInsertEntity.Km,
+                    Description = carInsertEntity.Description,
+                    ProvinceId = carInsertEntity.ProvinceId,
+                    SeatNo = carInsertEntity.SeatNo,
+                    GateNo = carInsertEntity.GateNo,
+                    ExteriorColorId = carInsertEntity.ExteriorColorId,
+                    InteriorColorId = carInsertEntity.InteriorColorId,
+                    FuelConsumption = carInsertEntity.FuelConsumption,
+                    FuelId = carInsertEntity.FuelId,
+                    FuelSystem = carInsertEntity.FuelSystem,
+                    GearBox = carInsertEntity.GearBox,
+                    WheelDriveId = carInsertEntity.WheelDriveId,
+                    CreatedDate = DateTime.Now.ToShortDateString()
+                };
+
+                carId = CarService.InsertCar(criteria);
+
+                if (carId > 0)
+                {
+                    ChangeFolderName(carId);
+                    ChangeFileName(carId);
+                }
+                else
+                {
+                    RemoveFolderName();
+                }                
             }
-
-            var criteria = new CarInsertCriteria
+            catch(Exception ex)
             {
-                UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
-                Title = carInsertEntity.Title,
-                Firm = carInsertEntity.Firm,
-                Model = carInsertEntity.Model,
-                IsNew = carInsertEntity.IsNew,
-                IsImport = carInsertEntity.IsImport,
-                TypeId = carInsertEntity.TypeId,
-                CurrencyVN = carInsertEntity.CurrencyVN,
-                Year = carInsertEntity.Year,
-                Km = carInsertEntity.Km,
-                Description = carInsertEntity.Description,
-                ProvinceId = carInsertEntity.ProvinceId,
-                SeatNo = carInsertEntity.SeatNo,
-                GateNo = carInsertEntity.GateNo,
-                ExteriorColorId = carInsertEntity.ExteriorColorId,
-                InteriorColorId = carInsertEntity.InteriorColorId,
-                FuelConsumption = carInsertEntity.FuelConsumption,
-                FuelId = carInsertEntity.FuelId,
-                FuelSystem = carInsertEntity.FuelSystem,
-                GearBox = carInsertEntity.GearBox,
-                WheelDriveId = carInsertEntity.WheelDriveId,
-                CreatedDate = DateTime.Now.ToShortDateString()
-            };
-
-            var carId = CarService.InsertCar(criteria);
-
-            if (carId > 0)
-            {
-                ChangeFolderName(carId);
-                ChangeFileName(carId);
-            }
-            else
-            {
-                RemoveFolderName();                                
+                LogService.Error("InsertCar - " + ex.Message, ex);
             }
 
             return Json(carId);
+            
         }
 
         [HttpPost]
         public JsonResult EditCar(CarEditEntity carEditEntity)
         {
-            if (HttpContext.Session["UserId"] == null)
+            var error = 0;
+
+            try
             {
-                return Json(-1);
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                var criteria = new CarEditCriteria
+                {
+                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                    CarId = carEditEntity.CarId,
+                    Title = carEditEntity.Title,
+                    Firm = carEditEntity.Firm,
+                    Model = carEditEntity.Model,
+                    IsNew = carEditEntity.IsNew,
+                    IsImport = carEditEntity.IsImport,
+                    TypeId = carEditEntity.TypeId,
+                    CurrencyVN = carEditEntity.CurrencyVN,
+                    Year = carEditEntity.Year,
+                    Km = carEditEntity.Km,
+                    Description = carEditEntity.Description,
+                    ProvinceId = carEditEntity.ProvinceId,
+                    SeatNo = carEditEntity.SeatNo,
+                    GateNo = carEditEntity.GateNo,
+                    ExteriorColorId = carEditEntity.ExteriorColorId,
+                    InteriorColorId = carEditEntity.InteriorColorId,
+                    FuelConsumption = carEditEntity.FuelConsumption,
+                    FuelId = carEditEntity.FuelId,
+                    FuelSystem = carEditEntity.FuelSystem,
+                    GearBox = carEditEntity.GearBox,
+                    WheelDriveId = carEditEntity.WheelDriveId,
+                    ModifiedDate = DateTime.Now.ToShortDateString()
+                };
+
+                error = CarService.EditCar(criteria);
+
+                if (error == 0)
+                {
+                    CopyFileName(carEditEntity.CarId);
+                    ChangeFileName(carEditEntity.CarId);
+                }
+
+                RemoveFolderName();
+
             }
-
-            var criteria = new CarEditCriteria
+            catch(Exception ex)
             {
-                UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
-                CarId = carEditEntity.CarId,
-                Title = carEditEntity.Title,
-                Firm = carEditEntity.Firm,
-                Model = carEditEntity.Model,
-                IsNew = carEditEntity.IsNew,
-                IsImport = carEditEntity.IsImport,
-                TypeId = carEditEntity.TypeId,
-                CurrencyVN = carEditEntity.CurrencyVN,
-                Year = carEditEntity.Year,
-                Km = carEditEntity.Km,
-                Description = carEditEntity.Description,
-                ProvinceId = carEditEntity.ProvinceId,
-                SeatNo = carEditEntity.SeatNo,
-                GateNo = carEditEntity.GateNo,
-                ExteriorColorId = carEditEntity.ExteriorColorId,
-                InteriorColorId = carEditEntity.InteriorColorId,
-                FuelConsumption = carEditEntity.FuelConsumption,
-                FuelId = carEditEntity.FuelId,
-                FuelSystem = carEditEntity.FuelSystem,
-                GearBox = carEditEntity.GearBox,
-                WheelDriveId = carEditEntity.WheelDriveId,
-                ModifiedDate = DateTime.Now.ToShortDateString()
-            };
-
-            var error = CarService.EditCar(criteria);
-
-            if (error == 0)
-            {
-                CopyFileName(carEditEntity.CarId);
-                ChangeFileName(carEditEntity.CarId);
+                LogService.Error("EditCar - " + ex.Message, ex);
             }
-
-            RemoveFolderName();
-
             return Json(error);
         }
 
         [HttpPost]
         public JsonResult BuyCar(CarBuyingEntity carBuyEntity)
         {
-            if (HttpContext.Session["UserId"] == null)
+            var carBuyId = 0;
+
+            try
             {
-                return Json(-1);
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                var criteria = new CarBuyingInsertCriteria
+                {
+                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                    Title = carBuyEntity.Title,
+                    Firm = carBuyEntity.Firm,
+                    Model = carBuyEntity.Model,
+                    IsNew = carBuyEntity.IsNew,
+                    IsImport = carBuyEntity.IsImport,
+                    TypeId = carBuyEntity.TypeId,
+                    PriceFromVN = carBuyEntity.PriceFromVN,
+                    PriceToVN = carBuyEntity.PriceToVN,
+                    Year = carBuyEntity.Year,
+                    Km = carBuyEntity.Km,
+                    Description = carBuyEntity.Description,
+                    ProvinceId = carBuyEntity.ProvinceId,
+                    SeatNo = carBuyEntity.SeatNo,
+                    GateNo = carBuyEntity.GateNo,
+                    ExteriorColorId = carBuyEntity.ExteriorColorId,
+                    InteriorColorId = carBuyEntity.InteriorColorId,
+                    FuelConsumption = carBuyEntity.FuelConsumption,
+                    FuelId = carBuyEntity.FuelId,
+                    FuelSystem = carBuyEntity.FuelSystem,
+                    GearBox = carBuyEntity.GearBox,
+                    WheelDriveId = carBuyEntity.WheelDriveId,
+                    CreatedDate = DateTime.Now.ToShortDateString()
+                };
+
+                carBuyId = CarService.InsertCar(criteria);
+
             }
-
-            var criteria = new CarBuyingInsertCriteria
+            catch(Exception ex)
             {
-                UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
-                Title = carBuyEntity.Title,
-                Firm = carBuyEntity.Firm,
-                Model = carBuyEntity.Model,
-                IsNew = carBuyEntity.IsNew,
-                IsImport = carBuyEntity.IsImport,
-                TypeId = carBuyEntity.TypeId,
-                PriceFromVN = carBuyEntity.PriceFromVN,
-                PriceToVN = carBuyEntity.PriceToVN,
-                Year = carBuyEntity.Year,
-                Km = carBuyEntity.Km,
-                Description = carBuyEntity.Description,
-                ProvinceId = carBuyEntity.ProvinceId,
-                SeatNo = carBuyEntity.SeatNo,
-                GateNo = carBuyEntity.GateNo,
-                ExteriorColorId = carBuyEntity.ExteriorColorId,
-                InteriorColorId = carBuyEntity.InteriorColorId,
-                FuelConsumption = carBuyEntity.FuelConsumption,
-                FuelId = carBuyEntity.FuelId,
-                FuelSystem = carBuyEntity.FuelSystem,
-                GearBox = carBuyEntity.GearBox,
-                WheelDriveId = carBuyEntity.WheelDriveId,
-                CreatedDate = DateTime.Now.ToShortDateString()
-            };
-
-            var carBuyId = CarService.InsertCar(criteria);
+                LogService.Error("BuyCar - " + ex.Message, ex);
+            }
 
             return Json(carBuyId);
         }
@@ -307,40 +337,48 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult EditCarBuying(CarBuyingEntity carEditEntity)
         {
-            if (HttpContext.Session["UserId"] == null)
+            var error = 0;
+            try
             {
-                return Json(-1);
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                var criteria = new CarBuyingEditCriteria
+                {
+                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                    CarId = carEditEntity.CarId,
+                    Title = carEditEntity.Title,
+                    Firm = carEditEntity.Firm,
+                    Model = carEditEntity.Model,
+                    IsNew = carEditEntity.IsNew,
+                    IsImport = carEditEntity.IsImport,
+                    TypeId = carEditEntity.TypeId,
+                    PriceFromVN = carEditEntity.PriceFromVN,
+                    PriceToVN = carEditEntity.PriceToVN,
+                    Year = carEditEntity.Year,
+                    Km = carEditEntity.Km,
+                    Description = carEditEntity.Description,
+                    ProvinceId = carEditEntity.ProvinceId,
+                    SeatNo = carEditEntity.SeatNo,
+                    GateNo = carEditEntity.GateNo,
+                    ExteriorColorId = carEditEntity.ExteriorColorId,
+                    InteriorColorId = carEditEntity.InteriorColorId,
+                    FuelConsumption = carEditEntity.FuelConsumption,
+                    FuelId = carEditEntity.FuelId,
+                    FuelSystem = carEditEntity.FuelSystem,
+                    GearBox = carEditEntity.GearBox,
+                    WheelDriveId = carEditEntity.WheelDriveId,
+                    ModifiedDate = DateTime.Now.ToShortDateString()
+                };
+
+                error = CarService.EditCar(criteria);
             }
-
-            var criteria = new CarBuyingEditCriteria
+            catch (Exception ex)
             {
-                UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
-                CarId = carEditEntity.CarId,
-                Title = carEditEntity.Title,
-                Firm = carEditEntity.Firm,
-                Model = carEditEntity.Model,
-                IsNew = carEditEntity.IsNew,
-                IsImport = carEditEntity.IsImport,
-                TypeId = carEditEntity.TypeId,
-                PriceFromVN = carEditEntity.PriceFromVN,
-                PriceToVN = carEditEntity.PriceToVN,
-                Year = carEditEntity.Year,
-                Km = carEditEntity.Km,
-                Description = carEditEntity.Description,
-                ProvinceId = carEditEntity.ProvinceId,
-                SeatNo = carEditEntity.SeatNo,
-                GateNo = carEditEntity.GateNo,
-                ExteriorColorId = carEditEntity.ExteriorColorId,
-                InteriorColorId = carEditEntity.InteriorColorId,
-                FuelConsumption = carEditEntity.FuelConsumption,
-                FuelId = carEditEntity.FuelId,
-                FuelSystem = carEditEntity.FuelSystem,
-                GearBox = carEditEntity.GearBox,
-                WheelDriveId = carEditEntity.WheelDriveId,
-                ModifiedDate = DateTime.Now.ToShortDateString()
-            };
-
-            var error = CarService.EditCar(criteria);            
+                LogService.Error("EditCarBuying - " + ex.Message, ex);
+            }
 
             return Json(error);
         }
@@ -348,44 +386,71 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult Yours(CarSearchingYours criteria)
         {
-            if (HttpContext.Session["UserId"] == null)
+            List<CarModel> listCars = new List<CarModel>();
+            try
             {
-                return Json(-1);
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
+
+                listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("Yours - " + ex.Message, ex);
             }
 
-            criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
-
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult YoursExpired(CarSearchingYoursExpired criteria)
         {
-            if (HttpContext.Session["UserId"] == null)
+            List<CarModel> listCars = new List<CarModel>();
+            try
             {
-                return Json(-1);
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
+
+                listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("YoursExpired - " + ex.Message, ex);
             }
 
-            criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
-
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult DeleteCar(CarDeleteCriteria criteria)
         {
-            if (HttpContext.Session["UserId"] == null)
+            var carId = 0;
+            try
             {
-                return Json(-1);
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                carId = CarService.DeleteCar(criteria);
+
+                if (carId > 0)
+                {
+                    RemoveFolderName(carId);
+                }
+
             }
-
-            var carId = CarService.DeleteCar(criteria);
-
-            if (carId > 0)
+            catch (Exception ex)
             {
-                RemoveFolderName(carId);
+                LogService.Error("DeleteCar - " + ex.Message, ex);
             }
 
             return Json(carId);

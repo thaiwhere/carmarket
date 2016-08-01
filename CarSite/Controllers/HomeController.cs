@@ -1,4 +1,5 @@
-﻿using Car.Model.Criteria;
+﻿using Car.Framework;
+using Car.Model.Criteria;
 using Car.Model.Entity;
 using Car.Service;
 using System;
@@ -46,14 +47,15 @@ namespace CarSite.Controllers
         public JsonResult SendMessage(Contact contact)
         {          
             try
-            {
+            {                
                 InsertMessage(contact);
                 SendEmail(contact);
                 
                 return Json(true);
             }
-            catch
+            catch(Exception ex)
             {
+                LogService.Error("SendMessage - " + ex.Message, ex);
                 return Json(false);
             }
         }
