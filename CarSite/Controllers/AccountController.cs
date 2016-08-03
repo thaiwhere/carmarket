@@ -115,21 +115,31 @@ namespace CarSite.Controllers
                 {
                     using (CARWEBEntities entities = new CARWEBEntities())
                     {
-                        if (entities.Users.Select(u => u.UserName.Equals(model.UserName)).Any())
+                        if (entities.Users.Where(u => u.UserName.Equals(model.UserName)).Count() >0 )
                         {
                             ViewBag.ExistedUser = "Tên truy cập đã tồn tại, vui lòng chọn tên khác.";
                         }
                         else
                         {
-                            User user = new Models.User() { UserName = model.UserName, Password = EncryptionHelper.Encrypt(model.Password), Roles = "user" };
-                            entities.Users.Add(user);
+                            User user = new Models.User() { 
+                                UserName = model.UserName, 
+                                Password = EncryptionHelper.Encrypt(model.Password), 
+                                Roles = "user",
+                                Tel = model.Tel,
+                                CreatedDate = DateTime.Now,
+                                IsActive = true
+                            };
 
-                            HttpContext.Session["UserId"] = user.UserId;
+                            entities.Users.Add(user);                            
 
                             FormsAuthentication.SetAuthCookie(user.UserName, false);
 
                             if (entities.SaveChanges() > 0)
                             {
+                                var registedUser = entities.Users.Select(u => u).Where(u => u.UserName.Equals(model.UserName)).First();
+
+                                HttpContext.Session["UserId"] = registedUser.UserId.ToString();
+
                                 if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                                     && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                                 {

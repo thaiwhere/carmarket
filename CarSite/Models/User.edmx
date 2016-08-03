@@ -11,12 +11,10 @@
           </Key>
           <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="10" />
+          <Property Name="Password" Type="varchar" MaxLength="30" />
           <Property Name="Roles" Type="varchar" MaxLength="10" />
-          <Property Name="Name" Type="nvarchar" MaxLength="200" />
           <Property Name="Email" Type="varchar" MaxLength="20" />
-          <Property Name="Tel1" Type="varchar" MaxLength="20" />
-          <Property Name="Tel2" Type="varchar" MaxLength="20" />
+          <Property Name="Tel" Type="varchar" MaxLength="20" />          
           <Property Name="Address" Type="nvarchar" MaxLength="100" />
           <Property Name="ProvinceId" Type="varchar" MaxLength="10" />
           <Property Name="CreatedDate" Type="smalldatetime" />
@@ -37,12 +35,10 @@
           </Key>
           <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Roles" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Roles" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />          
           <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Tel1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Tel2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />          
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ProvinceId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="CreatedDate" Type="DateTime" Precision="0" />
@@ -64,11 +60,9 @@
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Roles" ColumnName="Roles" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Roles" ColumnName="Roles" />                
                 <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Tel1" ColumnName="Tel1" />
-                <ScalarProperty Name="Tel2" ColumnName="Tel2" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />                
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
