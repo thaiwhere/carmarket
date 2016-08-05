@@ -343,6 +343,7 @@
     <Content Include="Content\images\team\pic6.jpg" />
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
+    <Content Include="Content\scripts\Register.js" />
     <Content Include="Content\scripts\EditCar.js" />
     <Content Include="Content\scripts\base\RenderFactory.js" />
     <Content Include="Content\scripts\base\init.js" />

@@ -106,9 +106,9 @@ namespace CarSite.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterViewModel model, string returnUrl)
-        {
+        //[ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterViewModel model, string returnUrl = "")
+        {            
             if (ModelState.IsValid)
             {
                 try

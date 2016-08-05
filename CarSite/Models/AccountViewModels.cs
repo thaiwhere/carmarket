@@ -44,12 +44,10 @@ namespace CarSite.Models
     }
 
     public class RegisterViewModel
-    {
-        [Required]
+    {        
         [Display(Name = "Tên đăng nhập")]
         public string UserName { get; set; }
-      
-        [Required]
+           
         [StringLength(100, ErrorMessage = "{0} phải có ít nhất {2} ký tự.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Mật khẩu")]
@@ -62,5 +60,8 @@ namespace CarSite.Models
         
         [Display(Name = "Điện thoại")]
         public string Tel { get; set; }
+
+        [Display(Name = "Email")]
+        public string Email { get; set; }
     }
 }
