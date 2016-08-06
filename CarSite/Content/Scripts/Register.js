@@ -61,7 +61,7 @@
     $("#Register").click(function () {
 
         if (checkRegisterValid() == true) {            
-                        
+                                    
             var userInfo = {
                 UserName: $("#UserName").val(),
                 Password: $("#Password").val(),
@@ -70,16 +70,8 @@
                 Email: $("#Email").val(),
                 returnURL : '@ViewBag.ReturnUrl'
             };
-
-            //var userInfo ={ 
-            //    "UserName": $("#UserName").val(), 
-            //    "Password": $("#Password").val(), 
-            //    "ConfirmPassword": $("#ConfirmPassword").val(), 
-            //    "Tel": $("#Tel").val(), 
-            //    "Email": $("#Email").val() 
-            //};
-
-            //__RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+            
+            var token = $('[name=__RequestVerificationToken]').val();            
 
             $.ajax({
                 type: "POST",
@@ -87,6 +79,7 @@
                 data: JSON.stringify(userInfo),                
                 contentType: "application/json; charset=utf-8",
                 cache: false,
+                headers: { '__RequestVerificationToken': token },
                 async: true,
                 dataType: 'JSON',
                 //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
