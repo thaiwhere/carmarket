@@ -50,8 +50,4 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-ALTER TABLE [dbo].[CarForBuy]  WITH CHECK ADD FOREIGN KEY([UserId])
-REFERENCES [dbo].[User] ([UserId])
-GO
-
 

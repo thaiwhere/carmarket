@@ -6,7 +6,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER PROCEDURE [dbo].[get_Car_Edit_Info]
+CREATE PROCEDURE [dbo].[get_Car_Edit_Info]
 	 @CarId int	 
 AS
 
@@ -34,8 +34,7 @@ BEGIN
 		c.GearBox,
 		c.CurrencyVN,
 		c.ProvinceId,
-		u.Name as ContactName,
-		u.Tel1 as ContactTel,
+		u.UserName ContactName,		
 		u.Address as [Address],
 		c.SeatNo,
 		c.GateNo,
