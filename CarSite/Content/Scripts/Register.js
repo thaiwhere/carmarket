@@ -61,24 +61,57 @@
     $("#Register").click(function () {
 
         if (checkRegisterValid() == true) {            
-            
-            function addRequestVerificationToken(data) {
-                data.__RequestVerificationToken = $('input[name=__RequestVerificationToken]').val();
-                return data;
+                        
+            var userInfo = {
+                UserName: $("#UserName").val(),
+                Password: $("#Password").val(),
+                ConfirmPassword: $("#ConfirmPassword").val(),
+                Tel: $("#Tel").val(),
+                Email: $("#Email").val(),
+                returnURL : '@ViewBag.ReturnUrl'
             };
+
+            //var userInfo ={ 
+            //    "UserName": $("#UserName").val(), 
+            //    "Password": $("#Password").val(), 
+            //    "ConfirmPassword": $("#ConfirmPassword").val(), 
+            //    "Tel": $("#Tel").val(), 
+            //    "Email": $("#Email").val() 
+            //};
+
+            //__RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
 
             $.ajax({
                 type: "POST",
-                url: "/account/Register",
-                //data: addRequestVerificationToken({ model: JSON.stringify({ UserName: $("#UserName").val(), Password: $("#Password").val(), ConfirmPassword: $("#ConfirmPassword").val(), Tel: $("#Tel").val(), Email: $("#Email").val() }) }),
-                data: JSON.stringify({ UserName: $("#UserName").val(), Password: $("#Password").val(), ConfirmPassword: $("#ConfirmPassword").val(), Tel: $("#Tel").val(), Email: $("#Email").val() }),
+                url: "/account/register",                
+                data: JSON.stringify(userInfo),                
                 contentType: "application/json; charset=utf-8",
                 cache: false,
                 async: true,
-                success: function (result) {                  
+                dataType: 'JSON',
+                //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                success: function (result) {
+                    if(result.userId > 0)
+                    {
+                        alert('Đăng ký thành công tài khoản ' + $("#UserName").val());
+
+                        if(result.returnUrl != "")
+                        {
+                            location.href = result.returnUrl;
+                        }
+                        else
+                        {
+                            location.href = "/car/insert";
+                        }
+                    }
+                    else
+                    {
+                        alert('Lỗi đăng ký. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                    }
                 },
-                error: function (xhr) {                    
+                error: function (x, h, r) {
                     //common.HandleAjaxError(xhr);
+                    alert('Lỗi đăng ký. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
                 }
             });
         }

@@ -107,7 +107,7 @@ namespace CarSite.Controllers
         [HttpPost]
         [AllowAnonymous]
         //[ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterViewModel model, string returnUrl = "")
+        public JsonResult Register(RegisterViewModel model, string returnUrl = "")
         {            
             if (ModelState.IsValid)
             {
@@ -141,17 +141,16 @@ namespace CarSite.Controllers
                                 HttpContext.Session["UserId"] = registedUser.UserId.ToString();
 
                                 if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                                    && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                                 {
-                                    return Redirect(returnUrl);
+                                    return Json(new { userId = registedUser.UserId.ToString(), returnUrl = returnUrl} );
                                 }
                                 else
                                 {
-                                    return RedirectToAction("Yours", "Car");
+                                    return Json(new { userId = registedUser.UserId.ToString(), returnUrl = string.Empty });
                                 }
-                            }
-
-                            return RedirectToAction("Insert", "Car");
+                                
+                            }                            
                         }
                     }
                 }
@@ -161,7 +160,7 @@ namespace CarSite.Controllers
                 }
             }
 
-            return View(model);
+            return Json(new { userId = 0, returnUrl = string.Empty });
         }
 
 
