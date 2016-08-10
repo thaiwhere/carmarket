@@ -1,14 +1,11 @@
-﻿$(document).ready(function () {    
-    var frm = $('#registerForm');
+﻿$(document).ready(function () {
+    var frm = $('#loginForm');
     frm.bootstrapValidator({
         fields: {
             UserName: {
                 validators: {
                     notEmpty: {
-                        message: 'Nhập Họ và tên'
-                    },
-                    callback: {
-                        message: "Tên truy cập đã tồn tại, vui lòng chọn tên khác."
+                        message: 'Nhập Tên đăng nhập'
                     }
                 }
             },
@@ -19,34 +16,24 @@
                     },
                     stringLength: {
                         min: 6,
-                        message: 'Mật khẩu phải có ít nhất 6 ký tự'                        
-                    }
-                }
-            },            
-            ConfirmPassword: {
-                validators: {
-                    notEmpty: {
-                        message: 'Nhập xác nhận Mật khẩu'
+                        message: 'Mật khẩu phải có ít nhất 6 ký tự'
                     },
-                    identical: {
-                        field: 'Password',
-                        message: 'Mật khẩu và xác nhận Mật khẩu không khớp'
+                    callback: {
+                        message: "Tên đăng nhập hoặc Mật khẩu không chính xác."
                     }
                 }
             }
         }
     })
     .on('success.form.bv', function (e) {
-        e.preventDefault();        
+        e.preventDefault();
 
         if (checkRegisterValid() == true) {
 
             var userInfo = {
                 UserName: $("#UserName").val(),
                 Password: $("#Password").val(),
-                ConfirmPassword: $("#ConfirmPassword").val(),
-                Tel: $("#Tel").val(),
-                Email: $("#Email").val(),
+                RememberMe: $("#RememberMe").val(),
                 returnURL: $("#returnURLId").data("value")
             };
 
@@ -54,7 +41,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "/account/register",
+                url: "/account/login",
                 data: JSON.stringify(userInfo),
                 contentType: "application/json; charset=utf-8",
                 cache: false,
@@ -64,8 +51,6 @@
                 //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
                 success: function (result) {
                     if (result.userId > 0) {
-                        alert('Đăng ký thành công tài khoản ' + $("#UserName").val());
-
                         if (result.returnUrl != "") {
                             location.href = result.returnUrl;
                         }
@@ -76,12 +61,12 @@
                     else {
                         var $form = $(e.target);
                         var bv = $form.data('bootstrapValidator');
-                        bv.updateStatus('UserName', 'INVALID', 'callback');
+                        bv.updateStatus('Password', 'INVALID', 'callback');
                     }
                 },
                 error: function (x, h, r) {
                     //common.HandleAjaxError(xhr);
-                    alert('Lỗi đăng ký. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                    alert('Lỗi đăng nhập. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
                 }
             });
         }
@@ -100,14 +85,8 @@
             isValid = false;
         }
 
-        if ($("#ConfirmPassword").val() == "") {
-            $("#ConfirmPassword").addClass("has-error");
-            isValid = false;
-        }
-
         return isValid;
-    };     
-
+    };
 });
 
 

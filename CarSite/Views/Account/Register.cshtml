@@ -12,24 +12,14 @@
     <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />
 }
 
-@{
-    if (@ViewBag.ExistedUser == "")
-    {
-        <h4><span style="margin-left:20px;">Tạo một tài khoản để rao tin.</span></h4>
-    }
-    else
-    {
-        <h5><span style="color: red; margin-left: 20px;">@ViewBag.ExistedUser</span></h5>
-    }
-}
+<h4><span style="margin-left:20px; font-style:italic">Tạo một tài khoản để rao tin.</span></h4>
 
 <hr />
 
-<div id="div_register" class="col-md-12">
-
+<div id="div_register" class="col-md-12">    
+    <input type="hidden" id="returnURLId" data-value="@ViewBag.ReturnUrl" />
     <form id="registerForm" class="form-horizontal bv-form" method="post" action="" novalidate="novalidate">
-        @Html.AntiForgeryToken()
-        <button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+        @Html.AntiForgeryToken()        
         <fieldset class="col-sm-12">
 
             <div class="form-group">
@@ -89,7 +79,7 @@
             <div class="form-group">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-5" align="center">
-                    <button type="submit" id="Register" class="btn btn-primary btn-lg">Đăng ký</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Đăng ký</button>
                 </div>
             </div>
 

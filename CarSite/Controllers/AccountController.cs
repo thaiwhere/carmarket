@@ -25,7 +25,7 @@ namespace CarSite.Controllers
      
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
-        {
+        {            
             if (string.IsNullOrEmpty(returnUrl) && Request.UrlReferrer != null)
             {
                 returnUrl = Server.UrlEncode(Request.UrlReferrer.PathAndQuery);
@@ -41,8 +41,9 @@ namespace CarSite.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginViewModel model, string returnUrl)
+        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryTokenOnAllPosts]
+        public JsonResult Login(LoginViewModel model, string returnUrl = "")
         {
             if (ModelState.IsValid)
             {
@@ -58,23 +59,21 @@ namespace CarSite.Controllers
                         if (userValid)
                         {
                             var userLogin = entities.Users.Where(user => user.UserName == username && user.Password == password).Single();
-                            HttpContext.Session["UserId"] = userLogin.UserId;
-
+                            
                             FormsAuthentication.SetAuthCookie(username, false);
+                            HttpContext.Session["UserId"] = userLogin.UserId.ToString();
+
                             if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                            && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                             {
-                                return Redirect(returnUrl);
+                                return Json(new { userId = userLogin.UserId.ToString(), returnUrl = returnUrl });
                             }
                             else
                             {
-                                return RedirectToAction("Yours", "Car");
+                                return Json(new { userId = userLogin.UserId.ToString(), returnUrl = string.Empty });
                             }
-                        }
-                        else
-                        {
-                            ModelState.AddModelError(string.Empty, "Tên đăng nhập hoặc Mật khẩu không chính xác.");
-                        }
+                                
+                       }                       
                     }
                 }
                 catch(Exception ex)
@@ -83,7 +82,7 @@ namespace CarSite.Controllers
                 }
             }
 
-            return View(model);
+            return Json(new { userId = 0, returnUrl = string.Empty });
         }
 
         [AllowAnonymous]
@@ -115,12 +114,10 @@ namespace CarSite.Controllers
                 try
                 {
                     using (CARWEBEntities entities = new CARWEBEntities())
-                    {
-                        if (entities.Users.Where(u => u.UserName.Equals(model.UserName)).Count() >0 )
-                        {
-                            ViewBag.ExistedUser = "Tên truy cập đã tồn tại, vui lòng chọn tên khác.";
-                        }
-                        else
+                    {                        
+                        bool userValid = entities.Users.Any(user => user.UserName == model.UserName) == false;
+
+                        if (userValid)                        
                         {
                             User user = new Models.User() { 
                                 UserName = model.UserName, 
@@ -131,14 +128,13 @@ namespace CarSite.Controllers
                                 IsActive = true
                             };
 
-                            entities.Users.Add(user);                            
-
-                            FormsAuthentication.SetAuthCookie(user.UserName, false);
+                            entities.Users.Add(user);                                                        
 
                             if (entities.SaveChanges() > 0)
                             {
                                 var registedUser = entities.Users.Select(u => u).Where(u => u.UserName.Equals(model.UserName)).First();
 
+                                FormsAuthentication.SetAuthCookie(user.UserName, false);
                                 HttpContext.Session["UserId"] = registedUser.UserId.ToString();
 
                                 if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
