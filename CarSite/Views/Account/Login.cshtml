@@ -25,8 +25,8 @@
         <fieldset class="col-sm-12">
 
             <div class="form-group">
-                <label for="UserName" class="col-sm-3 control-label">Tên đăng nhập</label>
-                <div class="col-sm-6">
+                <label for="UserName" class="col-sm-4 control-label">Tên đăng nhập</label>
+                <div class="col-sm-7">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
                         <input type="text" id="UserName" name="UserName" class="form-control" placeholder="* Nhập Tên đăng nhập" data-bv-field="UserName">
@@ -36,18 +36,18 @@
             </div>
 
             <div class="form-group">
-                <label for="Password" class="col-sm-3 control-label">Mật khẩu</label>
-                <div class="col-sm-6">
+                <label for="Password" class="col-sm-4 control-label">Mật khẩu</label>
+                <div class="col-sm-7">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                        <input type="password" id="Password" name="Password" class="form-control" placeholder="* Nhập Mật khẩu" data-bv-field="Password">
+                        <input type="password" id="Password" name="Password" maxlength="20" class="form-control" placeholder="* Nhập Mật khẩu" data-bv-field="Password">
                     </div>
                     <small class="help-block" data-bv-validator="notEmpty" data-bv-for="Password" data-bv-result="NOT_VALIDATED" style="display: none;">Nhập Mật khẩu</small>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-offset-4 col-md-10">
+                <div class="col-md-offset-5 col-md-10">
                     <div class="checkbox">
                         @Html.CheckBoxFor(m => m.RememberMe)
                         @Html.LabelFor(m => m.RememberMe)
@@ -56,8 +56,8 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-5" align="center">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-5">
                     <button type="submit" class="btn btn-primary btn-lg">Đăng nhập</button>
                 </div>
             </div>
@@ -81,10 +81,5 @@
     <script src="~/Content/scripts/lib/bootstrapValidator.min.js"></script>
     @*<script src="~/Content/scripts/recaptcha/api.js"></script>*@
 
-    <script src="~/Content/scripts/Login.js"></script>
-
-    <script>
-        handler.showResultSearching();
-    </script>
-
+    <script src="~/Content/scripts/Login.js"></script>    
 }

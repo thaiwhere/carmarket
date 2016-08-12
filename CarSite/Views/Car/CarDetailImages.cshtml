@@ -26,21 +26,31 @@
         <div class="carousel-inner" role="listbox">
             @if (System.IO.Directory.Exists(Server.MapPath(imagesPath)))
             {
-                foreach (var imgPath in Directory.GetFiles(Server.MapPath(imagesPath), "*.jpg"))
+                var images = Directory.GetFiles(Server.MapPath(imagesPath), "*.jpg");
+                if(images.Count() > 0)
+                { 
+                    foreach (var imgPath in Directory.GetFiles(Server.MapPath(imagesPath), "*.jpg"))
+                    {
+                        var img = new FileInfo(imgPath);
+                        if (img.Name.Equals("1.jpg"))
+                        {
+                            <div class="item active">
+                                <img src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="item">
+                                <img src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" />
+                            </div>
+                        }
+                    }
+                }
+                else
                 {
-                    var img = new FileInfo(imgPath);
-                    if (img.Name.Equals("1.jpg"))
-                    {
-                        <div class="item active">
-                            <img src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" />
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="item">
-                            <img src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" />
-                        </div>
-                    }
+                    <div class="item active">
+                        <img src="@Url.Content(String.Format("/Images/noimage.gif"))" />
+                    </div>
                 }
             }
             else

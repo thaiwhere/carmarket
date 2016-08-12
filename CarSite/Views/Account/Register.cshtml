@@ -23,8 +23,8 @@
         <fieldset class="col-sm-12">
 
             <div class="form-group">
-                <label for="UserName" class="col-sm-3 control-label">Tên đăng nhập</label>
-                <div class="col-sm-6">
+                <label for="UserName" class="col-sm-4 control-label">Tên đăng nhập</label>
+                <div class="col-sm-7">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
                         <input type="text" id="UserName" name="UserName" class="form-control" placeholder="* Nhập Tên đăng nhập" data-bv-field="UserName">
@@ -34,30 +34,30 @@
             </div>
 
             <div class="form-group">
-                <label for="Password" class="col-sm-3 control-label">Mật khẩu</label>
-                <div class="col-sm-6">
+                <label for="Password" class="col-sm-4 control-label">Mật khẩu</label>
+                <div class="col-sm-7">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                        <input type="password" id="Password" name="Password" class="form-control" placeholder="* Nhập Mật khẩu" data-bv-field="Password">
+                        <input type="password" id="Password" name="Password" maxlength="20" class="form-control" placeholder="* Nhập Mật khẩu" data-bv-field="Password">
                     </div>
                     <small class="help-block" data-bv-validator="notEmpty" data-bv-for="Password" data-bv-result="NOT_VALIDATED" style="display: none;">Nhập Mật khẩu</small>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="ConfirmPassword" class="col-sm-3 control-label">Xác nhận Mật khẩu</label>
-                <div class="col-sm-6">
+                <label for="ConfirmPassword" class="col-sm-4 control-label">Xác nhận Mật khẩu</label>
+                <div class="col-sm-7">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                        <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="* Nhập xác nhận Mật khẩu" data-bv-field="ConfirmPassword">
+                        <input type="password" id="ConfirmPassword" name="ConfirmPassword" maxlength="20" class="form-control" placeholder="* Nhập xác nhận Mật khẩu" data-bv-field="ConfirmPassword">
                     </div>
                     <small class="help-block" data-bv-validator="notEmpty" data-bv-for="ConfirmPassword" data-bv-result="NOT_VALIDATED" style="display: none;">Nhập xác nhận Mật khẩu</small>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="Tel" class="col-sm-3 control-label">Số điện thoại </label>
-                <div class="col-sm-6">
+                <label for="Tel" class="col-sm-4 control-label">Số điện thoại </label>
+                <div class="col-sm-7">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-phone fa-fw"></i></span>
                         <input type="text" id="Tel" name="Tel" class="form-control" placeholder="Nhập số điện thoại">
@@ -66,19 +66,19 @@
             </div>
 
             <div class="form-group">
-                <label for="Email" class="col-sm-3 control-label">Email</label>
-                <div class="col-sm-6">
+                <label for="Email" class="col-sm-4 control-label">Email</label>
+                <div class="col-sm-7">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
-                        <input type="text" id="Email" name="Email" class="form-control" placeholder="Nhập Email" data-bv-field="Email">
-                        <small class="help-block" data-bv-validator="emailAddress" data-bv-for="Email" data-bv-result="NOT_VALIDATED" style="display: none;">Email không hợp lệ</small>
+                        <input type="text" id="Email" name="Email" class="form-control" placeholder="Nhập Email" data-bv-field="Email">                        
                     </div>
+                    <small class="help-block" data-bv-validator="emailAddress" data-bv-for="Email" data-bv-result="NOT_VALIDATED" style="display: none;">Email không hợp lệ</small>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-5" align="center">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-5">
                     <button type="submit" class="btn btn-primary btn-lg">Đăng ký</button>
                 </div>
             </div>
@@ -99,7 +99,7 @@
 
     <script>
 
-        handler.showResultSearching();
+        //handler.showResultSearching();
     </script>
 
 }

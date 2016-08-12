@@ -54,11 +54,11 @@ namespace CarSite.Controllers
                         string username = model.UserName;
                         string password = EncryptionHelper.Encrypt(model.Password);
 
-                        bool userValid = entities.Users.Any(user => user.UserName == username && user.Password == password);
-
-                        if (userValid)
+                        var userValid = entities.Users.Where(user => user.UserName == username && user.Password == password);                        
+                        
+                        if (userValid.Count() > 0)
                         {
-                            var userLogin = entities.Users.Where(user => user.UserName == username && user.Password == password).Single();
+                            var userLogin = userValid.Single();
                             
                             FormsAuthentication.SetAuthCookie(username, false);
                             HttpContext.Session["UserId"] = userLogin.UserId.ToString();
@@ -164,53 +164,54 @@ namespace CarSite.Controllers
         [Authorize]
         public ActionResult Manage()
         {
-            ViewBag.HasError = "";
-            ViewBag.ReturnUrl = Url.Action("Manage");
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
             return View();
         }
 
         [HttpPost]
         [Authorize]
-        [ValidateAntiForgeryToken]
-        public ActionResult Manage(ManageUserViewModel model)
+        [ValidateAntiForgeryTokenOnAllPosts]
+        public JsonResult Manage(ManageUserViewModel model)
         {
             if (ModelState.IsValid)
             {
                 try
-                {
-                    var newPassword = EncryptionHelper.Encrypt(model.NewPassword);
+                {                    
                     var oldPassword = EncryptionHelper.Encrypt(model.OldPassword);
 
-                    if (newPassword.Equals(oldPassword))
+                    using (CARWEBEntities entities = new CARWEBEntities())
                     {
-                        ViewBag.HasError = "ERROR";
-                        ViewBag.StatusMessage = "Mập khẩu mới trùng với mật khẩu cũ.";
-                    }
-                    else
-                    {
-                        using (CARWEBEntities entities = new CARWEBEntities())
+                        var userId = int.Parse(HttpContext.Session["UserId"].ToString());
+                        var userValid = entities.Users.Where(user => user.UserId == userId && user.Password.Equals(oldPassword));
+                        
+                        if (userValid.Count() > 0)
                         {
-                            var userId = int.Parse(HttpContext.Session["UserId"].ToString());
-                            bool userValid = entities.Users.Any(user => user.UserId == userId && EncryptionHelper.Encrypt(user.Password).Equals(oldPassword));
+                            var userLogin = userValid.Single();
 
-                            if (userValid)
+                            if (!string.IsNullOrEmpty(model.NewPassword))
                             {
-                                var userLogin = entities.Users.Where(user => user.UserId == userId && EncryptionHelper.Encrypt(user.Password).Equals(oldPassword)).Single();
-                                if (userLogin != null)
-                                {
-                                    ViewBag.HasError = "";
-                                    ViewBag.StatusMessage = "Mập khẩu đã được thay đổi thành công.";
-                                    userLogin.Password = newPassword;
-                                    entities.SaveChanges();
-                                }
+                                userLogin.Password = EncryptionHelper.Encrypt(model.NewPassword);
                             }
-                            else
+
+                            if(!string.IsNullOrEmpty(model.Tel))
                             {
-                                ViewBag.HasError = "ERROR";
-                                ViewBag.StatusMessage = "Mập khẩu cũ không khớp.";
+                                userLogin.Tel = model.Tel;
                             }
-                        }
+
+                            if(!string.IsNullOrWhiteSpace(model.Email))
+                            {
+                                userLogin.Email = model.Email;
+                            }
+
+                            if (entities.SaveChanges() > 0)
+                            {
+                                return Json(new { userId = userId, returnUrl = string.Empty });
+                            }                            
+                        }                        
                     }
                 }
                 catch (Exception ex)
@@ -220,7 +221,7 @@ namespace CarSite.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return Json(new { userId = 0, returnUrl = string.Empty });
         }
 
         public ActionResult LogOff()
