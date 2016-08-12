@@ -100,10 +100,14 @@ var AddCarHandler = {
                 function () {
                     $("#CurrencyVN").val(this.value);
 
-                    var value = common.FormatNumber(this.value);
-                    $(this).val(value);
+                    //var value = common.FormatNumber(this.value);
+                    //$(this).val(value);
                 }
            );
+
+        $("#carInsert_select_CurrencyVN").on("keydown", function (event) {
+            common.PreventChars(event);
+        });        
 
         $("#select_price_from").change(
                function () {
