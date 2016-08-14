@@ -84,13 +84,18 @@ var gridRender = function (gridId, data) {
 
     customGrid = function () {
         var gridObj = $("#" + gridId);                
-        gridObj.find($(".free-cell")).remove();
-        var width = gridObj.width() - 17;
-        gridObj.width(width);
+        gridObj.find($(".free-cell")).remove();        
 
         if (!shrinkGrid) {
-            gridObj.width(785);            
-            gridObj.find(".grid-container").width(800);
+            gridObj.width(787);
+            $("#grid-pager-top").width(785);
+            $("#grid-pager-bottom").width(785);
+            $(".col_header").width(785);
+            gridObj.find(".grid-container").width(787);
+        }
+        else {
+            var width = gridObj.width() - 17;
+            gridObj.width(width);
         }
     }
 

@@ -1,8 +1,35 @@
-﻿<form name=fsearch id=fsearch action="oto/" method=post>
-    <div id="search" class="search-box">       
-        <div class="search-input">
-            <input type="text" class="text-input" name="search_txt" id="txt-search" />
-            <a href="javascript:void(null);" onclick="$('#fsearch').submit();" class="btn-search"></a>
-        </div>
-    </div>
-</form>
+﻿<div class="search-box">
+    <input type="text" class="text-input" name="search_txt" id="txt-search" />
+    <a href="javascript:void(null);" id="btnSearch" class="btn-search"></a>
+</div>
+
+<script>
+
+    $("#txt-search").on("keydown", function (event) {
+        if (event.which == 13)
+            search();
+    });
+
+    $("#btnSearch").click(function () {        
+        search();
+    });
+
+    function search() {
+        handler.showResultSearching();
+
+        var searchingUrl = "/Car/SearchingCarsByText";
+
+        var criteria = {
+            ItemsPerPage: ItemsPerPage,
+            CurrentPageIndex: 0,
+            Text: $("#txt-search").val()
+        };
+
+        var SearchingCar = new Car.SearchingCar();
+        SearchingCar.Searching(searchingUrl, criteria);
+
+        handler.inActiveTab($("#div_searching_tab"));
+    }
+
+</script>
+

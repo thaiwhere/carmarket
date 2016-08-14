@@ -1,10 +1,10 @@
 ﻿var handler = {
     expandDivCenter: function () {
-        $("#div-center").removeClass("div-center").addClass("div-center-searching");
+        $("#div-center").removeClass("narrow-div-center").addClass("div-center-searching");
     },
 
     collapseDivCenter: function () {
-        $("#div-center").removeClass("div-center-searching").addClass("div-center");
+        $("#div-center").removeClass("div-center-searching").addClass("narrow-div-center");
     },
 
     hideDivLeft: function () {

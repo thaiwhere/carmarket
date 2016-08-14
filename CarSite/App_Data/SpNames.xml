@@ -22,7 +22,7 @@
     <Setting Key="Car_Buying_Insert" SpName="Car_Buying_Insert" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="Car_Buying_Edit" SpName="Car_Buying_Edit" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="Contact_Insert" SpName="Contact_Insert" DbName="CarHome.Database" Plain="1"></Setting>    
-
+    <Setting Key="Car_Searching_By_Text" SpName="Car_Searching_By_Text" DbName="CarHome.Database" Plain="1"></Setting>    
 
   </Function>
 </Functions>

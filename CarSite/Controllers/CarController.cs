@@ -456,6 +456,21 @@ namespace CarSite.Controllers
             return Json(carId);
         }
 
+        public JsonResult SearchingCarsByText(string text)
+        {
+            List<CarModel> listCars = new List<CarModel>();
+            try
+            {
+                var criteria = new CarSearchingByText { Text = text };
+                listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("SearchingCarsByText - " + ex.Message, ex);
+            }
+
+            return Json(listCars);
+        }
         #endregion
 
         #region Utilities
