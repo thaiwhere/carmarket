@@ -117,14 +117,13 @@ legend {
     background:url('../../images/common/expand.png') no-repeat left; 
 }
 
-.div-center{    
-    width:565px;      
-}
-
 .div-center-searching{
     width:796px;
 }
 
+.narrow-div-center{    
+    width:563px;      
+}
 
 .new-label-searching{
     color:#FFFF00 !important;

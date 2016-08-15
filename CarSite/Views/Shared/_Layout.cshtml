@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE htm
 <html>
 <head>
     <meta charset="utf-8" />
@@ -17,17 +17,15 @@
 <body>    
     <div id="div-parent">
         <div id="div-header">
-            <a id="logo" href="http://www.bonbanh.com/" title="oto, mua ban oto">
+            <a id="logo" href="http://xecon.com" title="oto, mua ban oto">
                 <h1>oto, mua ban oto</h1>
             </a>
             <div id="div-support">
                <div id="div-login" style="width:100%">
                     <ul>
                         <li><a href="/Account/Register/">Đăng ký</a></li>
-                        <li><a href="/Account/Login/" onclick="open_dialog('login-dlg','username1');return false;">Đăng nhập</a></li>
-                        @*<li><a href="/Account/Guide/">Hướng dẫn</a></li>*@
-                        <li class=""><a href="/Home/Guide">Hướng dẫn</a></li>    
-                                                @*<li><a href="gioi-thieu/">Hướng dẫn</a></li>*@
+                        <li><a href="/Account/Login/" onclick="open_dialog('login-dlg','username1');return false;">Đăng nhập</a></li>                        
+                        <li class=""><a href="/Home/Guide">Hướng dẫn</a></li>                                                    
                         <li class=""><a href="/Home/Contact">Liên hệ</a></li>                         
                     </ul>                   
                 </div>
@@ -55,7 +53,7 @@
                 </div>                
          
             </div>
-            <div id="div-center" class="div-center">
+            <div id="div-center" class="narrow-div-center">
                 @RenderBody()
             </div>
             <div id="div-right">
@@ -64,7 +62,24 @@
             </div>
         </div>
         <div id="div-footer">
-            <p>Oto2018 Corp.</p>
+            <div class="f-menu">
+                <a href="/home/index" class="f-link" title="oto, mua ban oto">Trang chủ</a> <span>|</span>                
+                <a href="/home/guide" class="f-link">Qui định đăng tin</a> <span>|</span>
+                <a href="/home/guide" class="f-link">Trợ giúp</a> <span>|</span>
+                <a href="/home/contact" class="f-link">Liên hệ</a>
+            </div>
+            <div class="f-copyright">
+                <div style="float: left; width: 746px;">
+                    Xem tốt nhất trên trình duyệt <a rel="nofollow" class="f-copyright" target="_blank" href="http://www.mozilla.com/vi/" title="Tải Mozilla FireFox phiên bản Tiếng Việt về máy tính(miễn phí)"><b>FireFox</b></a> , <a rel="nofollow" class="f-copyright" target="_blank" href="http://www.google.com/chrome?hl=vi" title="Tải Google Chrome phiên bản Tiếng Việt về máy tính(miễn phí)"><b>Chrome</b></a>, <b>Opera</b>, <b>Safari</b> hoặc <b>IE 7</b> trở lên với độ phân giải từ 1024x768 trở lên.<br>
+                    Điện thoại: 0909685024 . Email: thaiwhere@gmail.com                                 
+                    <br /> 
+                    <span style="color:red">Xecon.com không bán xe trực tiếp, quý khách mua xe vui lòng liên hệ trực tiếp người đăng tin.<br></span>
+                    Copyright © 2016-2017 <a href="http://xecon.com" title="oto, mua ban oto, oto nhap khau">xecon.com</a> - Mã số doanh nghiệp: xxxx
+                </div>
+                <div style="float: right; width: 200px;margin-top:3px">
+                    @*<a rel="nofollow" href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=8610" target="_blank"><img src="img/bct.gif" title="xecon.com đã đăng ký với Bộ Công Thương" alt=""></a>*@
+                </div>
+            </div>
         </div>
     </div>
     
