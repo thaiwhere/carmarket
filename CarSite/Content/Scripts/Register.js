@@ -34,6 +34,29 @@
                     }
                 }
             }
+            ,
+            Tel: {
+                validators: {
+                    notEmpty: {
+                        message: 'Nhập Số điện thoại'
+                    },
+                    stringLength: {
+                        min: 10,
+                        message: "Số điện thoại phải có ít nhất 10 ký tự"
+                    }
+                }
+            },
+            Email: {
+                validators: {
+                    notEmpty: {
+                        message: 'Nhập Email'
+                    },
+                    emailAddress: {
+                        message: "Email không hợp lệ"
+                    }
+                }
+            },
+
         }
     })
     .on('success.form.bv', function (e) {
@@ -45,6 +68,7 @@
             ConfirmPassword: $("#ConfirmPassword").val(),
             Tel: $("#Tel").val(),
             Email: $("#Email").val(),
+            Address: $("#Address").val(),
             returnURL: $("#returnURLId").data("value")
         };
 
@@ -71,10 +95,13 @@
                         location.href = "/car/insert";
                     }
                 }
-                else {
+                else if (result.userId == 0) {
                     var $form = $(e.target);
                     var bv = $form.data('bootstrapValidator');
                     bv.updateStatus('UserName', 'INVALID', 'callback');
+                }
+                else {
+                    alert('Lỗi đăng ký. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
                 }
             },
             error: function (x, h, r) {

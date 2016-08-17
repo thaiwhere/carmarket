@@ -32,6 +32,9 @@ namespace CarSite.Models
 
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Display(Name = "Address")]
+        public string Address { get; set; }
     }
 
     public class LoginViewModel
@@ -69,5 +72,8 @@ namespace CarSite.Models
 
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Display(Name = "Address")]
+        public string Address { get; set; }
     }
 }
