@@ -5,7 +5,7 @@
             OldPassword: {
                 validators: {
                     notEmpty: {
-                        message: 'Nhập Mật khẩu'
+                        message: 'Nhập Mật khẩu để thay đổi thông tin'
                     },
                     stringLength: {
                         min: 6,
@@ -31,17 +31,33 @@
                         message: 'Mật khẩu mới và xác nhận Mật khẩu mới không khớp'
                     }
                 }
+            },
+            Email: {
+                validators: {             
+                    emailAddress: {
+                        message: "Email không hợp lệ"
+                    }
+                }
             }
         }
     })     
     .on('success.form.bv', function (e) {
         e.preventDefault();        
+       
+
+        if ($("#NewPassword").val() == "" && $("#Tel").val() == "" && $("#Email").val() == "" && $("#Address").val() == "")
+        {            
+            alert("Vui lòng chọn thông tin cần thay đổi");
+            $("#NewPassword").focus();
+            return;
+        }
 
         var userInfo = {           
             OldPassword: $("#OldPassword").val(),
             NewPassword: $("#NewPassword").val(),
             Tel: $("#Tel").val(),
-            Email: $("#Email").val()            
+            Email: $("#Email").val(),
+            Address: $("#Address").val()
         };
 
         var token = $('[name=__RequestVerificationToken]').val();
@@ -62,12 +78,18 @@
 
                     if (result.returnUrl != "") {
                         location.href = result.returnUrl;
-                    }                   
+                    }
+                    else {
+                        location.href = "/home/index";
+                    }
                 }
-                else {
+                else if (result.userId == 0) {
                     var $form = $(e.target);
                     var bv = $form.data('bootstrapValidator');
                     bv.updateStatus('OldPassword', 'INVALID', 'callback');
+                }
+                else {
+                    alert('Lỗi cập nhật. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
                 }
             },
             error: function (x, h, r) {

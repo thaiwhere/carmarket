@@ -124,6 +124,8 @@ namespace CarSite.Controllers
                                 Password = EncryptionHelper.Encrypt(model.Password), 
                                 Roles = "user",
                                 Tel = model.Tel,
+                                Email = model.Email,
+                                Address = model.Address,
                                 CreatedDate = DateTime.Now,
                                 IsActive = true
                             };
@@ -147,7 +149,11 @@ namespace CarSite.Controllers
                                     return Json(new { userId = registedUser.UserId.ToString(), returnUrl = string.Empty });
                                 }
                                 
-                            }                            
+                            }
+                            else
+                            {
+                                return Json(new { userId = 0, returnUrl = string.Empty });
+                            }
                         }
                     }
                 }
@@ -157,7 +163,7 @@ namespace CarSite.Controllers
                 }
             }
 
-            return Json(new { userId = 0, returnUrl = string.Empty });
+            return Json(new { userId = -1, returnUrl = string.Empty });
         }
 
 
@@ -207,11 +213,20 @@ namespace CarSite.Controllers
                                 userLogin.Email = model.Email;
                             }
 
+                            if (!string.IsNullOrWhiteSpace(model.Address))
+                            {
+                                userLogin.Address = model.Address;
+                            }
+
                             if (entities.SaveChanges() > 0)
                             {
                                 return Json(new { userId = userId, returnUrl = string.Empty });
                             }                            
-                        }                        
+                        }
+                        else
+                        {
+                            return Json(new { userId = 0, returnUrl = string.Empty });
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -221,7 +236,7 @@ namespace CarSite.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return Json(new { userId = 0, returnUrl = string.Empty });
+            return Json(new { userId = -1, returnUrl = string.Empty });
         }
 
         public ActionResult LogOff()

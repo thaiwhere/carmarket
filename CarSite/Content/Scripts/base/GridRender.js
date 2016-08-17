@@ -23,7 +23,7 @@ function decorateData(cars) {
 
         var car = status + source + firm + photo
         var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";
-        var description = "<div class='car-des'>" + cars[i].Description; + "</div>";
+        var description = "<div class='car-des'>" + cars[i].Description.substring(0,200) + "..." + "</div>";
         var info = "<div class='car-info'>" + km + gearBox + price_location + contact + "</div>";
 
         var row = {
@@ -139,7 +139,7 @@ function decorateDataModify(cars) {
 
         var car = status + source + firm + photo
         var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";
-        var description = "<div class='car-des'>" + cars[i].Description; + "</div>";
+        var description = "<div class='car-des'>" + cars[i].Description.substring(0,200); + "</div>";
         var info = "<div class='car-info'>" + km + gearBox + price_location + contact + "</div>";
         var modify = "<div class='car-info'>" + "<a href='" + hrefModify + "'>Edit</a>" + "   " + "<a href='javascript:void(0);' onclick=\"return DeleteCar(this, '" + cars[i].CarId + "');\">Delete</a></div>";
 
