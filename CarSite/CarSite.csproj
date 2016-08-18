@@ -510,6 +510,7 @@
     <Content Include="Views\Car\CarBuyingEdit.cshtml" />
     <Content Include="Views\Home\Guide.cshtml" />
     <Content Include="Views\Home\Company.cshtml" />
+    <Content Include="Views\Home\ActivitiesPolicy.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

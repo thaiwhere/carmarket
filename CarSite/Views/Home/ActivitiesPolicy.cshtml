@@ -1,0 +1,110 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Qui chế hoạt động";
+}
+
+<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
+
+
+@section Styles{
+        
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />    
+}
+
+<div id="div_guide">
+    @{ Html.RenderPartial("~/Views/Home/Company.cshtml", null); }
+    
+    <div style="padding-left:20px;line-height:18px;color:#555;">        
+            xecon.com là nơi phục vụ hỗ trợ nhu cầu mua bán trực tuyến chuyên về thị trường ô tô bao gồm : Đăng tin rao bán ô tô cá nhân, môi giới và các salon ô tô,giới thiệu về các salon/showroom ô tô, đăng tin cần mua ô tô … 
+            Mục tiêu của sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a> hướng tới sẽ là cầu nối thương mại tin cậy nhanh chóng hiệu quả giữa người bán và người mua, giữa doanh nghiệp với doanh nghiệp  
+        <br/>
+        <br/> <b> I.　Hoạt động của sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a></b>
+        <br/>
+        <br/> <ul>
+                    <li>Thành viên trên sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a> là các cá nhân, môi giới, salon/showroom có nhu cầu về mua bán quản bá lĩnh vực ô tô, được <a href="http://xecon.com">xecon.com</a> chính thức công nhận và được phép sử dụng dịch vụ do sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a> và các bên liên quan cung cấp. </li>
+                    <li>Tổ chức, cá nhân tham gia giao dịch tại sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a> tự do thỏa thuận trên cơ sở tôn trọng quyền và lợi ích hợp pháp của các bên tham gia hoạt động mua bán hàng hóa, sản phẩm, dịch vụ thông qua hợp đồng, không trái với qui định của pháp luật.</li>
+                    <li>Thông tin đăng tải trên sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a> phải đáp ứng đầy đủ các quy định của pháp luật có liên quan, không thuộc các trường hợp cấm kinh doanh, cấm quảng cáo theo quy định của pháp luật </li>
+              </ul>
+         
+        <br/> <b> II.　Qúa trình giao dịch </b>
+        <br/>
+        <br/><ul>
+                    <li><i>Đối với người mua xe</i>: Đăng ký làm thành viên của sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a> hoặc không. Bằng cách truy cập vào địa chỉ <a href="http://xecon.com">xecon.com</a> người dùng có thể tìm danh sách các xe mà mình quan tâm . Nếu người dùng có nhu cầu mua sẽ liên hệ trực tiếp với người đăng tin để xem xe  và thỏa thuận việc giao dịch giữa 2 bên cụ thể. <a href="http://xecon.com">xecon.com</a> sẽ không tham gia và không chịu trách nhiệm liên quan vào quá trình giao dịch giữa người mua và người bán. </li>
+                    
+                    <li><i>Đối với người bán /đăng tin xe</i>: Bắt buộc phải đăng ký làm thành viên của <a href="http://xecon.com">xecon.com</a> và phải đăng nhập vào hệ thống website sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a>. Cách thức đăng ký thành viên và đăng nhập theo hướng dẫn tại : <a href="/Home/Guide">Hướng dẫn</a> </li>
+            </ul> 
+         
+        <br/> <b> III. Quyền và nghĩa vụ của thành viên </b>
+        <br/>
+        <br/> <i>- Quyền của thành viên</i>
+        <br />
+        <br/> <ul>
+                    <li>Khi đăng ký trở thành thành viên của <a href="http://xecon.com">xecon.com</a> và được <a href="http://xecon.com">xecon.com</a>  đồng ý, thành viên sẽ được quyền đăng tin để giới thiệu tài sản và tiến hành giao dịch kinh doanh cũng như quảng bá doanh nghiệp của mình trên sàn giao dịch thương mại điện tử  <a href="http://xecon.com">xecon.com</a>.</li> 
+                    <li>Thành viên sẽ được nhân viên của sàn giao dịch thương mại điện tử  <a href="http://xecon.com">xecon.com</a> hướng dẫn sử dụng được các công cụ, các tính năng phục vụ cho việc quản lý đăng tin, tiến hành giao dịch và sử dụng các dịch vụ tiện ích trên sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a>.</li>
+                    <li>Thành viên sẽ được hưởng các chính sách ưu đãi do sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a>.  Các chính sách ưu đãi này sẽ được đăng tải trực tiếp trên sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a> hoặc được gửi trực tiếp đến các thành viên</li>
+                    <li>Thành viên có quyền đóng góp ý kiến cho sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a> trong quá trình hoạt động. Các ý kiến góp ý được gửi trực tiếp bằng thư, fax hoặc email đến cho sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a></li>
+              </ul>
+        <br/> <i>- Nghĩa vụ của thành viên </i>
+        <br />
+        <br/> <ul>
+                    <li>Thành viên sẽ tự chịu trách nhiệm về bảo mật và lưu giữ và mọi hoạt động sử dụng dịch vụ dưới tên đăng ký, mật khẩu và số điện thoại của mình. Thành viên có trách nhiệm thông báo kịp thời cho sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a> về những hành vi sử dụng trái phép, lạm dụng tài khoản của mình để hai bên cùng hợp tác xử lý.</li>
+                    <li>Thành viên tự chịu trách nhiệm về nội dung, hình ảnh của thông tin Doanh nghiệp và các thông tin khác cũng như toàn bộ quá trình giao dịch với các đối tác trên sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a></li>
+                    <li>Thành viên cam kết, đồng ý không sử dụng dịch vụ của sàn giao dịch thương mại điện tử <a href="http://xecon.com">xecon.com</a> vào những mục đích bất hợp pháp./</li>
+              </ul>
+        
+    </div>
+  
+   
+    
+</div>
+
+@section Scripts{
+
+<script async="" src="~/Content/scripts/recaptcha/recaptcha__en.js"></script>
+<script src="~/Content/scripts/lib/bootstrapValidator.min.js"></script>
+
+<script src="~/Content/scripts/recaptcha/api.js"></script>    
+
+    <script>
+        $(document).ready(function () {
+            var frm = $('#contactForm');
+            frm.bootstrapValidator({
+                fields: {
+                    Name: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Your name is required'
+                            }
+                        }
+                    },
+                    Email: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Your email is required'
+                            },
+                            emailAddress: {
+                                message: 'Your email is not valid'
+                            }
+                        }
+                    },
+                    Message: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Your message is required'
+                            }
+                        }
+                    }
+                }
+            })
+            .on('success.form.bv', function (e) {
+                e.preventDefault();
+                $('#contactForm').hide();
+                $('#status').html("Sending form, please wait...");
+                $('#status').html("Thank you, we've received your message.");
+            });
+        });
+
+        handler.showResultSearching();
+    </script>
+}
