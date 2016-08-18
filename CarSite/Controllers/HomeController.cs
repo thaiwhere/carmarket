@@ -37,7 +37,12 @@ namespace CarSite.Controllers
 
             return View();
         }
-  
+        public ActionResult ActivitiesPolicy()
+        {
+            ViewBag.Message = "Your Activities Policy page.";
+
+            return View();
+        }
         public ActionResult Salon()
         {
             return View();
