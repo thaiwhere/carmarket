@@ -241,7 +241,7 @@
 
 .freegrid .scrollbar-y-content, .free-cell-bottom-right div
 {
-    width: 19px;
+    width: 0px;
 }
 .freegrid .free-cell-bottom-right
 {

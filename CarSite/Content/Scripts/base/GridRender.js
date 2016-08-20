@@ -17,9 +17,9 @@ function decorateData(cars) {
         var photo = "<div class='car-photo'>" + "<a href='" + href + "'><img title='" + title + "' src='" + image + "' alt='" + title + "'></a></div>";
         var firm = "<div class='car-info-firm'>" + "<a href='" + hrefFirm + "'>" + cars[i].FirmName + "</a></div>";
         var km = "<div class='car-info-item'>Km: " + cars[i].Km + " (km)</div>";
-        var gearBox = "<div class='car-info-item'>Hộp số: " + (cars[i].GearBox == 0 ? "Số tự động" : "Số tay") + "</div>";
+        var gearBox = "<div class='car-info-item'>Hộp số: " + (cars[i].GearBox == 0 ? "Tự động" : "Số tay") + "</div>";
         var price_location = "<div class='car-info-price'>" + cars[i].CurrencyVN + " triệu</div><div class='car-info-place'><a href='" + hrefProvince + "'>" + cars[i].Province + "</a></div>";
-        var contact = "<div class='car-info-user'>" + cars[i].ContactName + "</div><div class='car-info-tel'>" + cars[i].ContactTel + "</div>";
+        var contact = "<div class='car-info-item car-info-user'>" + cars[i].ContactName + "</div><div class='car-info-item car-info-tel'>" + cars[i].ContactTel + "</div>";
 
         var car = status + source + firm + photo
         var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";
@@ -46,13 +46,12 @@ var gridRender = function (gridId, data) {
         gridOptions =
             {
                 columns: [
-                { HeaderText: "Hình", Width: 145, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
-                { HeaderText: "Mô tả", Width: 460, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
-                { HeaderText: "Thông tin", Width: 150, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
+                { HeaderText: "Hình", Width: 140, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Mô tả", Width: 470, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Thông tin", Width: 180, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
                 ],
-                bodyRows: decorateData(data),
-                scrollWidth: 0, //// Default is 24px
-                gridExpandHeight: 100,
+                bodyRows: decorateData(data),                
+                gridExpandHeight: 100,                
                 showPager: true,
                 pagerOption: {
                     itemsPerPage: 10,
@@ -66,9 +65,9 @@ var gridRender = function (gridId, data) {
         gridOptions =
             {
                 columns: [
-                { HeaderText: "Hình", Width: 145, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Hình", Width: 140, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
                 { HeaderText: "Mô tả", Width: 260, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
-                { HeaderText: "Thông tin", Width: 135, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
+                { HeaderText: "Thông tin", Width: 140, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
                 ],
                 bodyRows: decorateData(data),
                 scrollWidth: 0, //// Default is 24px
@@ -81,26 +80,9 @@ var gridRender = function (gridId, data) {
                 }
             };
     }
-
-    customGrid = function () {
-        var gridObj = $("#" + gridId);                
-        gridObj.find($(".free-cell")).remove();        
-
-        if (!shrinkGrid) {
-            gridObj.width(787);
-            $("#grid-pager-top").width(785);
-            $("#grid-pager-bottom").width(785);
-            $(".col_header").width(785);
-            gridObj.find(".grid-container").width(787);
-        }
-        else {
-            var width = gridObj.width() - 17;
-            gridObj.width(width);
-        }
-    }
-
+    
     $("#" + gridId).PagerGrid(gridOptions);
-    customGrid();
+    customGrid(gridId);
     
 };
 
@@ -133,9 +115,9 @@ function decorateDataModify(cars) {
         var photo = "<div class='car-photo'>" + "<a href='" + href + "'><img title='" + title + "' src='" + image + "' alt='" + title + "'></a></div>";
         var firm = "<div class='car-info-firm'>" + "<a href='" + hrefFirm + "'>" + cars[i].FirmName + "</a></div>";
         var km = "<div class='car-info-item'>Km: " + cars[i].Km + " (km)</div>";
-        var gearBox = "<div class='car-info-item'>Hộp số: " + (cars[i].GearBox == 0 ? "Số tự động" : "Số tay") + "</div>";
+        var gearBox = "<div class='car-info-item'>Hộp số: " + (cars[i].GearBox == 0 ? "Tự động" : "Số tay") + "</div>";
         var price_location = "<div class='car-info-price'>" + cars[i].CurrencyVN + " triệu</div><div class='car-info-place'><a href='" + href + "'>" + cars[i].Province + "</a></div>";
-        var contact = "<div class='car-info-user'>" + cars[i].ContactName + "</div><div class='car-info-tel'>" + cars[i].ContactTel + "</div>";
+        var contact = "<div class='car-info-item car-info-user'>" + cars[i].ContactName + "</div><div class='car-info-item car-info-tel'>" + cars[i].ContactTel + "</div>";
 
         var car = status + source + firm + photo
         var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";
@@ -166,10 +148,10 @@ var gridRenderMofify = function (gridId, data) {
     gridOptions =
               {
                   columns: [
-                  { HeaderText: "Hình", Width: 150, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Hình", Width: 140, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Mô tả", Width: 425, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Thông tin", Width: 135, Name: "Info", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Chỉnhsửa", Width: 43, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
+                  { HeaderText: "Thông tin", Width: 160, Name: "Info", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Chỉnhsửa", Width: 20, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
                   ],
                   bodyRows: decorateDataModify(data),
                   scrollWidth: 0, //// Default is 24px
@@ -181,19 +163,32 @@ var gridRenderMofify = function (gridId, data) {
                       showDetail: true
                   }
               };
-    customGrid = function () {
-        var gridObj = $("#" + gridId);
-        gridObj.find($(".free-cell")).remove();
-        var width = gridObj.width() - 17;
-        gridObj.width(width);
-
-        if (!shrinkGrid) {
-            gridObj.width(785);
-            gridObj.find(".grid-container").width(800);
-        }
-    }
-
+    
     $("#" + gridId).PagerGrid(gridOptions);
-    customGrid();
+    customGrid(gridId);
 
 };
+
+function customGrid(gridId) {
+    var gridObj = $("#" + gridId);
+    gridObj.find($(".free-cell")).remove();
+
+    if (!shrinkGrid) {
+        var width = gridObj.width() + 30;
+        //gridObj.width(gridObj.width() + 10);
+        $("#grid-pager-top").width(width);
+        $("#grid-pager-bottom").width(width);
+        $(".col_header").width(width);
+        gridObj.find(".grid-container").width(width);
+    }
+    else {
+        var width = gridObj.width() - 45;
+        var width2 = width + 20;
+        gridObj.width(width);
+        $("#grid-pager-top").width(width2);
+        $("#grid-pager-bottom").width(width2);
+        $(".col_header").width(width2);
+        gridObj.find(".grid-container").width(width2);
+        $(".car-info-user").css("maxWidth", 140);
+    }
+}

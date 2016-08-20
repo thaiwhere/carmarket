@@ -2232,52 +2232,52 @@
             var o = $(this);
             
             //Render Free Cell
-            var freeCellTpl = '<div class="free-cell free-bottom-left">\
-                    <table class="grid-fixed-table">\
-                        <thead>\
-                            <tr>\
-                                <th class="free-cell-bottom-left">\
-                                    <div>\
-                                    </div>\
-                                </th>\
-                            </tr>\
-                        </thead>\
-                    </table>\
-                </div>\
-                <div class="free-cell free-top-right">\
-                    <table class="grid-fixed-table">\
-                        <thead>\
-                            <tr>\
-                                <th class="free-cell-top-right">\
-                                    <div>\
-                                    </div>\
-                                </th>\
-                            </tr>\
-                        </thead>\
-                    </table>\
-                </div>\
-                <div class="free-cell free-bottom-right">\
-                    <table class="grid-fixed-table">\
-                        <thead>\
-                            <tr>\
-                                <th class="free-cell-bottom-right">\
-                                    <div>\
-                                    </div>\
-                                </th>\
-                            </tr>\
-                        </thead>\
-                    </table>\
-                </div>';
-            o.append(freeCellTpl);
+            //var freeCellTpl = '<div class="free-cell free-bottom-left">\
+            //        <table class="grid-fixed-table">\
+            //            <thead>\
+            //                <tr>\
+            //                    <th class="free-cell-bottom-left">\
+            //                        <div>\
+            //                        </div>\
+            //                    </th>\
+            //                </tr>\
+            //            </thead>\
+            //        </table>\
+            //    </div>\
+            //    <div class="free-cell free-top-right">\
+            //        <table class="grid-fixed-table">\
+            //            <thead>\
+            //                <tr>\
+            //                    <th class="free-cell-top-right">\
+            //                        <div>\
+            //                        </div>\
+            //                    </th>\
+            //                </tr>\
+            //            </thead>\
+            //        </table>\
+            //    </div>\
+            //    <div class="free-cell free-bottom-right">\
+            //        <table class="grid-fixed-table">\
+            //            <thead>\
+            //                <tr>\
+            //                    <th class="free-cell-bottom-right">\
+            //                        <div>\
+            //                        </div>\
+            //                    </th>\
+            //                </tr>\
+            //            </thead>\
+            //        </table>\
+            //    </div>';
+            //o.append(freeCellTpl);
             //Render Scrollbar
-            var scrollbarTpl = '<div class="y-scrollbar">\
-                    <div class="scrollbar-y-content">\
-                        &nbsp;</div>\
-                </div>\
-                <div class="x-scrollbar">\
-                    <div class="scrollbar-x-content">\
-                        &nbsp;</div>\
-                </div>';
+            //var scrollbarTpl = '<div class="y-scrollbar">\
+            //        <div class="scrollbar-y-content">\
+            //            &nbsp;</div>\
+            //    </div>\
+            //    <div class="x-scrollbar">\
+            //        <div class="scrollbar-x-content">\
+            //            &nbsp;</div>\
+            //    </div>';
             //o.append(scrollbarTpl);
             if (options.isShowPager) {
                 var pagerTpl = '<div id="grid-pager-bottom" class="grid-pager">\
@@ -2306,7 +2306,7 @@
             colFooterContainer.css("width", "");
             colHeaderContainer.find(".header-container").css("width", "");
             o.find(".footer-container").css("width", "");
-            o.find(".scrollbar-x-content").css("width", "");
+            //o.find(".scrollbar-x-content").css("width", "");
             o.find(".free-cell-bottom-left").css("width", "");
         });
     };
@@ -2386,17 +2386,17 @@
 
             var gridWidth = options.fullWidth ? ((parentWidth < options.minWidth ? options.minWidth : parentWidth) - options.marginRight) : options.gridWidth;
             var isScrollX = gridWidth < tblWidth + 17;
-            gridWidth = isScrollX ? gridWidth : (tblWidth + bar);
+            //gridWidth = isScrollX ? gridWidth : (tblWidth + bar);
 
             o.css("width", gridWidth + "px");
-            o.find(".content-container").css("width", tblWidth + "px");
-            o.find(".col_header_content").css("width", tblWidth + "px");
+            o.find(".content-container").css("width", gridWidth + "px");
+            o.find(".col_header_content").css("width", gridWidth + "px");
             container.css("width", gridWidth + "px");
             xscrollbar.css("width", (gridWidth - freezeWidth - bar - (options.padding) * 2 - 1) + "px");
             colHeaderContainer.css("width", gridWidth + "px");
-            colHeaderContainer.find(".header-container").css("width", tblWidth + "px");
-            o.find(".footer-container").css("width", tblWidth + "px");
-            o.find(".scrollbar-x-content").css("width", (tblWidth - freezeWidth - (isOnChromeBrowser ? 5 : 0)) + "px");
+            colHeaderContainer.find(".header-container").css("width", gridWidth + "px");
+            o.find(".footer-container").css("width", gridWidth + "px");
+            //o.find(".scrollbar-x-content").css("width", (tblWidth - freezeWidth - (isOnChromeBrowser ? 5 : 0)) + "px");
             o.find(".free-cell-bottom-left").css("width", freezeWidth + "px");
             pager.css("width", gridWidth + "px");
             rowHeaderContainer.css({
@@ -2431,14 +2431,14 @@
                 o.find(".free-cell-bottom-right").css("height", (freezeFooterHeight + (isScrollX ? bar : 0) + 1) + "px");
             }
             freeCellBottom.css("top", (gridHeight - pagerHeight - freezeFooterHeight - bar) + "px");
-            o.find(".scrollbar-y-content").css("height", (tblHeight - freezeHeight) + "px");
+            //o.find(".scrollbar-y-content").css("height", (tblHeight - freezeHeight) + "px");
 
             //// Fixed bug for IE10, wrong body Height
-            var newTblHeight = tblContent.height();
-            if (ub.msie && tblHeight !== newTblHeight) {
-                tblHeight = newTblHeight;
-                o.find(".scrollbar-y-content").css("height", (tblHeight - freezeHeight) + "px");
-            }
+            //var newTblHeight = tblContent.height();
+            //if (ub.msie && tblHeight !== newTblHeight) {
+            //    tblHeight = newTblHeight;
+            //    o.find(".scrollbar-y-content").css("height", (tblHeight - freezeHeight) + "px");
+            //}
 
             yscrollbar.css("top", (freezeHeight + titleHeight -
                                     (ub.chrome ? (colHeaderContainer.find("thead tr").length - 2) : 0) +
