@@ -103,8 +103,8 @@ var RenderFactory = {
     },
 
     renderProvinces: function (elementId, isBuy) {        
-        var inputIds = "076,064,0281,0240,0781,0241,075,056,0650,0651,062,0780,0710,026,0511,0500,0501,0230,061,067,059,0219,0351,04,039,0320,031,0711,0218,0321,058,077,060,0231,063,025,020,072,0350,038,030,068,0210,057,052,0510,055,033,053,079,022,066,036,0280,037,054,073,08,074,027,070,0211,029,";
-        var inputNames = "An Giang,Bà Rịa Vũng Tàu,Bắc Cạn,Bắc Giang,Bạc Liêu,Bắc Ninh,Bến Tre,Bình Định,Bình Dương,Bình Phước,Bình Thuận,Cà Mau,Cần Thơ,Cao Bằng,Đà Nẵng,Đắc Lắc,Đắc Nông,Điện Biên,Đồng Nai,Đồng Tháp,Gia Lai,Hà Giang,Hà Nam,HÀ NỘI,Hà Tĩnh,Hải Dương,Hải Phòng,Hậu Giang,Hòa Bình,Hưng Yên,Khánh Hòa,Kiên Giang,Kom Tum,Lai Châu,Lâm Đồng,Lạng Sơn,Lào Cai,Long An,Nam Định,Nghệ An,Ninh Bình,Ninh Thuận,Phú Thọ,Phú Yên,Quảng Bình,Quảng Nam,Quảng Ngãi,Quảng Ninh,Quảng Trị,Sóc Trăng,Sơn La,Tây Ninh,Thái Bình,Thái Nguyên,Thanh Hóa,Thừa Thiên Huế,Tiền Giang,TPHCM,Trà Vinh,Tuyên Quang,Vĩnh Long,Vĩnh Phúc,Yên Bái";
+        var inputIds = "08,04,076,064,0281,0240,0781,0241,075,056,0650,0651,062,0780,0710,026,0511,0500,0501,0230,061,067,059,0219,0351,039,0320,031,0711,0218,0321,058,077,060,0231,063,025,020,072,0350,038,030,068,0210,057,052,0510,055,033,053,079,022,066,036,0280,037,054,073,074,027,070,0211,029";
+        var inputNames = "TPHCM, Hà Nội, An Giang,Bà Rịa Vũng Tàu,Bắc Cạn,Bắc Giang,Bạc Liêu,Bắc Ninh,Bến Tre,Bình Định,Bình Dương,Bình Phước,Bình Thuận,Cà Mau,Cần Thơ,Cao Bằng,Đà Nẵng,Đắc Lắc,Đắc Nông,Điện Biên,Đồng Nai,Đồng Tháp,Gia Lai,Hà Giang,Hà Nam,Hà Tĩnh,Hải Dương,Hải Phòng,Hậu Giang,Hòa Bình,Hưng Yên,Khánh Hòa,Kiên Giang,Kom Tum,Lai Châu,Lâm Đồng,Lạng Sơn,Lào Cai,Long An,Nam Định,Nghệ An,Ninh Bình,Ninh Thuận,Phú Thọ,Phú Yên,Quảng Bình,Quảng Nam,Quảng Ngãi,Quảng Ninh,Quảng Trị,Sóc Trăng,Sơn La,Tây Ninh,Thái Bình,Thái Nguyên,Thanh Hóa,Thừa Thiên Huế,Tiền Giang,Trà Vinh,Tuyên Quang,Vĩnh Long,Vĩnh Phúc,Yên Bái";
         
         if (isBuy == true) {
             inputIds = "0, " + inputIds;

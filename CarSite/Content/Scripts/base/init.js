@@ -8,4 +8,6 @@ $(function () {
     handler.hideSearchCarFirm();
     handler.bindEvents();
     RenderFactory.renderModels("", "#select_model");
+
+    $('[data-toggle="tooltip"]').tooltip();
 });

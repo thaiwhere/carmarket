@@ -93,11 +93,9 @@
 	height:130px;
 	background:#F4FAFC;
 	margin-bottom:10px;       
-}
-
-#div-footer{
-    border:1px solid #3b8a4b;
+    border:1px solid #8dd27f;
     text-align:center;
+    border-radius:5px;
 }
 
 .car_list_box{

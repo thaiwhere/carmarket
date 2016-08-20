@@ -10,7 +10,7 @@ function decorateData(cars) {
         var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
         var title = cars[i].Title;
 
-        var status = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe cũ";
+        var status = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe đã sử dụng";
         status += " (" + cars[i].Year + ")</div>";
 
         var source = "<div class='car-info-source'>" + (cars[i].IsImport == true ? "Nhập khẩu" : "Trong nước") + "</div>";
@@ -46,8 +46,8 @@ var gridRender = function (gridId, data) {
         gridOptions =
             {
                 columns: [
-                { HeaderText: "Hình", Width: 150, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
-                { HeaderText: "Mô tả", Width: 470, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Hình", Width: 145, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Mô tả", Width: 460, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
                 { HeaderText: "Thông tin", Width: 150, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
                 ],
                 bodyRows: decorateData(data),
@@ -66,9 +66,9 @@ var gridRender = function (gridId, data) {
         gridOptions =
             {
                 columns: [
-                { HeaderText: "Hình", Width: 150, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Hình", Width: 145, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
                 { HeaderText: "Mô tả", Width: 260, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
-                { HeaderText: "Thông tin", Width: 130, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
+                { HeaderText: "Thông tin", Width: 135, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
                 ],
                 bodyRows: decorateData(data),
                 scrollWidth: 0, //// Default is 24px
@@ -126,7 +126,7 @@ function decorateDataModify(cars) {
 
         var title = cars[i].Title;
 
-        var status = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe cũ";
+        var status = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe đã sử dụng";
         status += " (" + cars[i].Year + ")</div>";
 
         var source = "<div class='car-info-source'>" + (cars[i].IsImport == true ? "Nhập khẩu" : "Trong nước") + "</div>";
@@ -167,9 +167,9 @@ var gridRenderMofify = function (gridId, data) {
               {
                   columns: [
                   { HeaderText: "Hình", Width: 150, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Mô tả", Width: 420, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Thông tin", Width: 130, Name: "Info", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Chỉnhsửa", Width: 40, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
+                  { HeaderText: "Mô tả", Width: 425, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Thông tin", Width: 135, Name: "Info", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Chỉnhsửa", Width: 43, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
                   ],
                   bodyRows: decorateDataModify(data),
                   scrollWidth: 0, //// Default is 24px
