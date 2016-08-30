@@ -344,6 +344,7 @@
     <Content Include="Content\images\team\pic6.jpg" />
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
+    <Content Include="Content\scripts\RecoverPass.js" />
     <Content Include="Content\scripts\Login.js" />
     <Content Include="Content\scripts\Manage.js" />
     <Content Include="Content\scripts\Register.js" />
@@ -511,6 +512,7 @@
     <Content Include="Views\Home\Guide.cshtml" />
     <Content Include="Views\Home\Company.cshtml" />
     <Content Include="Views\Home\ActivitiesPolicy.cshtml" />
+    <Content Include="Views\Account\RecoverPass.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

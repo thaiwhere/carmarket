@@ -239,6 +239,23 @@ namespace CarSite.Controllers
             return Json(new { userId = -1, returnUrl = string.Empty });
         }
 
+        [AllowAnonymous]
+        public ActionResult RecoverPass(string returnUrl)
+        {
+            if (string.IsNullOrEmpty(returnUrl) && Request.UrlReferrer != null)
+            {
+                returnUrl = Server.UrlEncode(Request.UrlReferrer.PathAndQuery);
+            }
+
+            if (Url.IsLocalUrl(returnUrl) && !string.IsNullOrEmpty(returnUrl))
+            {
+                ViewBag.ReturnURL = returnUrl;
+            }
+
+            return View();
+        }
+
+
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();

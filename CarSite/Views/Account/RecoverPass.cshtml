@@ -1,8 +1,7 @@
-﻿@model CarSite.Models.LoginViewModel
-
+﻿
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Đăng nhập";
+    ViewBag.Title = "Quên Mật khẩu";
 }
 
 <h2>&nbsp;&nbsp;@ViewBag.Title</h2>
@@ -14,7 +13,7 @@
     <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />
 }
 
-<h4><span style="margin-left:20px;font-style:italic;">Nhập thông tin để đăng tin.</span></h4>
+<h5><span style="margin-left:20px;font-style:italic;">Nếu bạn không nhớ mật khẩu, xin hãy điền <b>tên đăng nhập</b> hoặc <b>email</b> tương ứng với tên đăng nhập của bạn. XeGiaĐinhViet sẽ giúp bạn khôi phục lại mật khẩu của mình!.</span></h5>
 
 <hr />
 
@@ -34,35 +33,25 @@
                     <small class="help-block" data-bv-validator="notEmpty" data-bv-for="UserName" data-bv-result="NOT_VALIDATED" style="display: none;">Nhập Tên đăng nhập</small>
                 </div>
             </div>
-
+            
             <div class="form-group">
-                <label for="Password" class="col-sm-4 control-label">Mật khẩu</label>
+                <label for="Email" class="col-sm-4 control-label">Email</label>
                 <div class="col-sm-7">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                        <input type="password" id="Password" name="Password" maxlength="20" class="form-control" placeholder="* Nhập Mật khẩu" data-bv-field="Password">
+                        <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+                        <input type="text" id="Email" name="Email" class="form-control" placeholder="Nhập Email" data-bv-field="Email">
                     </div>
-                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="Password" data-bv-result="NOT_VALIDATED" style="display: none;">Nhập Mật khẩu</small>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-5 col-md-10">
-                    <div class="checkbox">
-                        @Html.CheckBoxFor(m => m.RememberMe)
-                        @Html.LabelFor(m => m.RememberMe)
-                    </div>
+                    <small class="help-block" data-bv-validator="emailAddress" data-bv-for="Email" data-bv-result="NOT_VALIDATED" style="display: none;">Email không hợp lệ</small>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-8">
-                    <button type="submit" class="btn btn-primary btn-lg">Đăng nhập</button>&nbsp;
-                    @Html.ActionLink("Quên mật khẩu?", "RecoverPass", new { ReturnUrl = ViewBag.ReturnUrl })
+                    <button type="submit" class="btn btn-primary btn-lg">Khôi phục</button>&nbsp;                    
                 </div>
             </div>
-            
+
         </fieldset>
 
         <p>            
@@ -71,16 +60,9 @@
 
     </form>    
 </div>
-@*<div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>*@
 
 @section Scripts {
     @*<script async="" src="~/Content/scripts/recaptcha/recaptcha__en.js"></script>*@
     <script src="~/Content/scripts/lib/bootstrapValidator.min.js"></script>
-    @*<script src="~/Content/scripts/recaptcha/api.js"></script>*@
-
-    <script src="~/Content/scripts/Login.js"></script>    
+    @*<script src="~/Content/scripts/recaptcha/api.js"></script>*@    
 }
