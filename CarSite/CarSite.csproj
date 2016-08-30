@@ -235,6 +235,7 @@
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\base\car-insert.css" />
     <Content Include="Content\css\base\grid-custom.css" />
+    <Content Include="Content\css\base\showroom.css" />
     <Content Include="Content\css\base\salon.css" />
     <Content Include="Content\css\base\grid-custom.css" />
     <Content Include="Content\css\base\div-panel.css" />
