@@ -9,6 +9,7 @@ using System.Web.Security;
 using System.Configuration;
 using Car.Framework;
 using System;
+using Car.Model.Entity;
 
 namespace CarSite.Controllers
 {
@@ -255,6 +256,72 @@ namespace CarSite.Controllers
             return View();
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryTokenOnAllPosts]
+        public JsonResult RecoverPass(RecoverPassViewModel model, string returnUrl = "")
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var userName = model.UserName;
+                    var email = model.Email;
+
+                    using (CARWEBEntities entities = new CARWEBEntities())
+                    {
+                        var userValid = entities.Users.Where(user => user.UserName == userName || user.Email == email);
+
+                        if (userValid.Count() > 0)
+                        {
+                            var userLogin = userValid.First();
+
+                            var companyHost = new CompanyHost
+                            {
+                                Email = AppSettings.SendEmailFrom,
+                                Host = AppSettings.SendEmailHost,
+                                Port = AppSettings.SendEmailPort,
+                                SecurePass = AppSettings.SendEmailPass
+                            };                          
+                            
+                            string subject = AppSettings.DomainName + " - Phục hồi mật khẩu - Khách hàng: " + userName;
+
+                            string message = string.Join(null, "Xin chào {0}, <br /> <br /> Mật khẩu cuả quý khách là <b>{1}</b>"
+                                ,"<br /> <br />Vui lòng liên hệ {2} ({3}) nếu cần thêm sự hỗ trợ."
+                                ,"<br/><br/>Xin cảm ơn quí khách !"
+                                ,"<br /> <br />http://www.xegiadinhviet.com"
+                                ,"<br/><br/>----------------------------------------------------------------------------------------------------<br/>"                                
+                                ,"<b>P/S: Đây là Email tự động. Xin đừng phản hồi qua email này </b>");
+
+                            string body = string.Format(message, userName, userLogin.Password, AppSettings.DomainName, "http://www.xegiadinhviet/home/contact"); 
+
+                            EmailUtility.SendEmail(companyHost, subject, body, userLogin.Email);
+
+                            if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                            {
+                                return Json(new { userId = userLogin.UserId.ToString(), email = userLogin.Email, returnUrl = returnUrl });
+                            }
+                            else
+                            {
+                                return Json(new { userId = userLogin.UserId.ToString(), email = userLogin.Email, returnUrl = string.Empty });
+                            }
+                        }
+                        else
+                        {
+                            return Json(new { userId = 0, returnUrl = string.Empty });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogService.Error("RecoverPass - " + ex.Message, ex);
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return Json(new { userId = -1, returnUrl = string.Empty });
+        }
 
         public ActionResult LogOff()
         {

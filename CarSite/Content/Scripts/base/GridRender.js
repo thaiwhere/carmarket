@@ -191,4 +191,6 @@ function customGrid(gridId) {
         gridObj.find(".grid-container").width(width2);
         $(".car-info-user").css("maxWidth", 140);
     }
+
+    $(".grid-container").height("100%");
 }

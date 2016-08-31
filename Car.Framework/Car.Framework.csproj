@@ -52,12 +52,19 @@
     <Compile Include="Cache\Memcached.cs" />
     <Compile Include="Cache\RuntimeCache.cs" />
     <Compile Include="CommandResult.cs" />
+    <Compile Include="EmailUtility.cs" />
     <Compile Include="EncryptionHelper.cs" />
     <Compile Include="LogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarModel\Car.Model.csproj">
+      <Project>{9ae42ca2-f40f-43ca-bef9-0392cb24e132}</Project>
+      <Name>Car.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

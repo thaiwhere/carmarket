@@ -76,4 +76,14 @@ namespace CarSite.Models
         [Display(Name = "Address")]
         public string Address { get; set; }
     }
+
+    public class RecoverPassViewModel
+    {
+        [Display(Name = "Tên đăng nhập")]
+        public string UserName { get; set; }
+        
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+        
+    }
 }

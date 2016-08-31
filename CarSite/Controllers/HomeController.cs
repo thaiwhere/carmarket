@@ -80,40 +80,33 @@ namespace CarSite.Controllers
 
         private static void SendEmail(Contact contact)
         {
-            string from = AppSettings.SendEmailFrom;
-            string to = contact.Email;
-            string companyEmail = AppSettings.SendEmailFrom;
+            var companyHost = new CompanyHost
+            {
+                Email = AppSettings.SendEmailFrom,
+                Host = AppSettings.SendEmailHost,
+                Port = AppSettings.SendEmailPort,
+                SecurePass = AppSettings.SendEmailPass
+            };
+                                    
             string phone = !string.IsNullOrEmpty(contact.Phone) ? " ( SĐT: " + contact.Phone + " )" : string.Empty;
 
-            string body = string.Join(null, 
-                "Chúng tôi đã nhận được thông tin liên hệ từ khách hàng <b>", contact.Name, "</b>", phone,
+            string subject = AppSettings.DomainName + " - Liện hệ từ khách hàng " + contact.Name;
+            
+            string message = string.Join(null,
+                "Chúng tôi đã nhận được thông tin liên hệ từ khách hàng <b>{0}</b> SĐT({1}) ",
                 "<br/><br/>----------------------------------------- Nội dung liên hệ -----------------------------------------<br/>", 
-                contact.Message,
+                "{2}",
                 "<br/>---------------------------------------------------------------------------------------------------------<br/><br/>",
                 "Chúng tôi sẽ phản hồi sớm nhất cho quí khách.",
-                "<br/><br/>",
-                "Xin cảm ơn quí khách !",
+                "<br /> <br />Vui lòng liên hệ {3} ({4}) nếu cần thêm sự hỗ trợ.",
+                "<br/><br/>Xin cảm ơn quí khách !",
+                "<br /> <br />http://www.xegiadinhviet.com",
                 "<br/><br/>----------------------------------------------------------------------------------------------------<br/>", 
                 "<b>P/S: Đây là Email tự động. Xin đừng phản hồi qua email này </b>");
 
-            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
-            mail.IsBodyHtml = true;
-            mail.Subject = "Ôtô Thái Dương - Liện hệ từ khách hàng " + contact.Name;
-            mail.Body = body;
-            mail.From = new MailAddress(from);
-            mail.To.Add(new MailAddress(to));
-            mail.To.Add(new MailAddress(companyEmail));
+            string body = string.Format(message, contact.Name, phone, contact.Message, AppSettings.DomainName, "http://www.xegiadinhviet/home/contact"); 
 
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = AppSettings.SendEmailHost;
-            smtp.Port = AppSettings.SendEmailPort;
-            //smtp.TargetName = "STARTTLS/smtp.gmail.com";
-
-            NetworkCredential authinfo = new NetworkCredential(from, AppSettings.SendEmailPass);
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = authinfo;
-            smtp.EnableSsl = true;
-            smtp.Send(mail);
+            EmailUtility.SendEmail(companyHost, subject, body, contact.Email);
         }
     }
 }

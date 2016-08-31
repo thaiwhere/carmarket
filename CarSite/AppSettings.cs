@@ -8,6 +8,11 @@ namespace CarSite
 {
     public static class AppSettings
     {
+        public static string DomainName
+        {
+            get { return "XeGiaDinhViet"; }
+        }
+
         public static string SendEmailHost
         {
             get { return ConfigurationManager.AppSettings["SendEmailHost"].ToString(); }

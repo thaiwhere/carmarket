@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Quên Mật khẩu";
 }
@@ -13,13 +12,13 @@
     <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />
 }
 
-<h5><span style="margin-left:20px;font-style:italic;">Nếu bạn không nhớ mật khẩu, xin hãy điền <b>tên đăng nhập</b> hoặc <b>email</b> tương ứng với tên đăng nhập của bạn. XeGiaĐinhViet sẽ giúp bạn khôi phục lại mật khẩu của mình!.</span></h5>
+<h5><span style="margin-left:20px;font-style:italic;line-height:20px">Nếu bạn không nhớ mật khẩu, xin hãy điền <b>tên đăng nhập</b> hoặc <b>email</b> tương ứng với tên đăng nhập của bạn. XeGiaĐinhViet sẽ giúp bạn khôi phục lại mật khẩu của mình!.</span></h5>
 
 <hr />
 
 <div class="col-md-12">
     <input type="hidden" id="returnURLId" data-value="@ViewBag.ReturnUrl" />
-    <form id="loginForm" class="form-horizontal bv-form" method="post" action="" novalidate="novalidate">
+    <form id="recoverPassForm" class="form-horizontal bv-form" method="post" action="" novalidate="novalidate">
         @Html.AntiForgeryToken()
         <fieldset class="col-sm-12">
 
@@ -28,9 +27,9 @@
                 <div class="col-sm-7">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-                        <input type="text" id="UserName" name="UserName" class="form-control" placeholder="* Nhập Tên đăng nhập" data-bv-field="UserName">
+                        <input type="text" id="UserName" name="UserName" class="form-control" placeholder="Nhập Tên đăng nhập" data-bv-field="UserName">
                     </div>
-                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="UserName" data-bv-result="NOT_VALIDATED" style="display: none;">Nhập Tên đăng nhập</small>
+                    @*<small class="help-block" data-bv-validator="notEmpty" data-bv-for="UserName" data-bv-result="NOT_VALIDATED" style="display: none;">Nhập Tên đăng nhập</small>*@
                 </div>
             </div>
             
@@ -42,6 +41,13 @@
                         <input type="text" id="Email" name="Email" class="form-control" placeholder="Nhập Email" data-bv-field="Email">
                     </div>
                     <small class="help-block" data-bv-validator="emailAddress" data-bv-for="Email" data-bv-result="NOT_VALIDATED" style="display: none;">Email không hợp lệ</small>
+                </div>
+            </div>
+                       
+            <div class="form-group">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8">                    
+                    <small id="error" class="help-block" style="color: red; display: none;">Nhập Tên đăng nhập hoặc Email</small>
                 </div>
             </div>
 
@@ -65,4 +71,6 @@
     @*<script async="" src="~/Content/scripts/recaptcha/recaptcha__en.js"></script>*@
     <script src="~/Content/scripts/lib/bootstrapValidator.min.js"></script>
     @*<script src="~/Content/scripts/recaptcha/api.js"></script>*@    
+
+    <script src="~/Content/scripts/RecoverPass.js"></script>
 }
