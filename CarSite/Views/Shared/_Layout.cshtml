@@ -49,7 +49,7 @@
                     @{ Html.RenderPartial("~/Views/Shared/CarList.cshtml"); }
                 </div>
                 <div id="div-left-advertise">
-                    @{ Html.RenderPartial("~/Views/Shared/AdvertiseLeft.cshtml"); }
+                    @{ Html.RenderPartial("~/Views/Shared/PanelLeft.cshtml"); }
                 </div>                
          
             </div>
@@ -57,14 +57,14 @@
                 @RenderBody()
             </div>
             <div id="div-right">
-                @{ Html.RenderPartial("~/Views/Shared/AdvertiseRight.cshtml"); }
+                @{ Html.RenderPartial("~/Views/Shared/Slider.cshtml"); }
                 @{ Html.RenderPartial("~/Views/Shared/ShowRoom.cshtml"); }                
             </div>
         </div>
         <div id="div-footer">
             <div class="f-menu">
                 <a href="/home/index" class="f-link" title="oto, mua ban oto">Trang chủ</a> <span>|</span>                
-                <a href="/home/ActivitiesPolicy" class="f-link">Qui định đăng tin</a> <span>|</span>
+                <a href="/home/Policy" class="f-link">Qui định đăng tin</a> <span>|</span>
                 <a href="/home/guide" class="f-link">Trợ giúp</a> <span>|</span>
                 <a href="/home/contact" class="f-link">Liên hệ</a>
             </div>

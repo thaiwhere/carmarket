@@ -37,7 +37,7 @@ namespace CarSite.Controllers
 
             return View();
         }
-        public ActionResult ActivitiesPolicy()
+        public ActionResult Policy()
         {
             ViewBag.Message = "Your Activities Policy page.";
 

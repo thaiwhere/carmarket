@@ -293,7 +293,7 @@ namespace CarSite.Controllers
                                 ,"<br/><br/>----------------------------------------------------------------------------------------------------<br/>"                                
                                 ,"<b>P/S: Đây là Email tự động. Xin đừng phản hồi qua email này </b>");
 
-                            string body = string.Format(message, userName, userLogin.Password, AppSettings.DomainName, "http://www.xegiadinhviet/home/contact"); 
+                            string body = string.Format(message, userName, EncryptionHelper.Decrypt(userLogin.Password), AppSettings.DomainName, "http://www.xegiadinhviet/home/contact"); 
 
                             EmailUtility.SendEmail(companyHost, subject, body, userLogin.Email);
 

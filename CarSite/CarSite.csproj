@@ -499,7 +499,6 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\AdvertiseRight.cshtml" />
     <Content Include="Views\Shared\AnimationDemo.cshtml" />
     <Content Include="Views\Shared\CarList.cshtml" />
     <Content Include="Views\Shared\Menu.cshtml" />
@@ -507,7 +506,6 @@
     <Content Include="Views\Shared\Search.cshtml" />
     <Content Include="Views\Shared\ShowRoom.cshtml" />
     <Content Include="Views\Shared\SearchingCriteria.cshtml" />
-    <Content Include="Views\Shared\AdvertiseLeft.cshtml" />
     <Content Include="Views\Car\SearchingCar.cshtml" />
     <Content Include="Views\Car\CarDetail.cshtml" />
     <Content Include="Views\Car\CarDetailImages.cshtml" />
@@ -521,7 +519,9 @@
     <Content Include="Views\Car\CarBuyingEdit.cshtml" />
     <Content Include="Views\Home\Guide.cshtml" />
     <Content Include="Views\Home\Company.cshtml" />
-    <Content Include="Views\Home\ActivitiesPolicy.cshtml" />
+    <Content Include="Views\Home\Policy.cshtml" />
+    <Content Include="Views\Shared\PanelLeft.cshtml" />
+    <Content Include="Views\Shared\Slider.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
