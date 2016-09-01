@@ -288,6 +288,13 @@
     <Content Include="Content\css\Justified-Nav.css" />
     <Content Include="Content\css\file-upload\dropzone.css" />
     <Content Include="Content\css\mdl.css" />
+    <Content Include="Content\css\MsgBox\images\alert.png" />
+    <Content Include="Content\css\MsgBox\images\btn-close.png" />
+    <Content Include="Content\css\MsgBox\images\confirm.png" />
+    <Content Include="Content\css\MsgBox\images\error.png" />
+    <Content Include="Content\css\MsgBox\images\info.png" />
+    <Content Include="Content\css\MsgBox\images\question.png" />
+    <Content Include="Content\css\MsgBox\msgbox-0.0.1.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.theme.css" />
     <Content Include="Content\css\pixeden-icons.css" />

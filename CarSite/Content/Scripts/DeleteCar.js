@@ -1,7 +1,7 @@
 ﻿function DeleteCar(element, carId) {
-    var result = confirm("Bạn muốn xoá tin này?");
-    if (result) {
+    common.ShowConfirmMessage("Bạn muốn xoá tin này?", function () {
         var criteria = { CarId: carId };
+
         $.ajax({
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
@@ -11,15 +11,15 @@
             success: function (result) {
                 if (result) {
                     element.closest("tr").remove();
-                    alert('Tin đã được xoá thành công');
+                    common.ShowInfoMessage('Tin đã được xoá thành công');
                 }
                 else {
-                    alert('Lỗi xoá tin');
+                    common.ShowErrorMessage('Lỗi xoá tin');
                 }
             },
             error: function (xhr) {
-                common.HandleAjaxError(xhr);
+                common.ShowErrorMessage('Lỗi xoá tin');
             }
         });
-    }
+    });    
 }

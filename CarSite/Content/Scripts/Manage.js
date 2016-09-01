@@ -62,6 +62,10 @@
 
         var token = $('[name=__RequestVerificationToken]').val();
 
+        $("#status").show();
+        $('#status').html("Đang xử lý, vui lòng chờ ...");
+        $(":button").prop('disabled', 'disabled');
+
         $.ajax({
             type: "POST",
             url: "/account/manage",
@@ -73,28 +77,37 @@
             dataType: 'JSON',
             //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             success: function (result) {
-                if (result.userId > 0) {
-                    alert('Cập nhật thông tin thành công');
 
-                    if (result.returnUrl != "") {
-                        location.href = result.returnUrl;
-                    }
-                    else {
-                        location.href = "/home/index";
-                    }
+                $(":button").prop('disabled', '');
+
+                if (result.userId > 0) {
+                    $('#status').html('Cập nhật thông tin thành công');
+
+                    setTimeout(function () {
+                        if (result.returnUrl != "") {
+                            location.href = result.returnUrl;
+                        }
+                        else {
+                            location.href = "/home/index";
+                        }
+                    }, 3000);                    
                 }
                 else if (result.userId == 0) {
+
+                    $("#status").hide();
+
                     var $form = $(e.target);
                     var bv = $form.data('bootstrapValidator');
                     bv.updateStatus('OldPassword', 'INVALID', 'callback');
                 }
                 else {
-                    alert('Lỗi cập nhật. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                    $('#status').html('Lỗi cập nhật. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
                 }
             },
             error: function (x, h, r) {
                 //common.HandleAjaxError(xhr);
-                alert('Lỗi cập nhật. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                $('#status').html('Lỗi cập nhật. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                $(":button").prop('disabled', '');
             }
         });
     });

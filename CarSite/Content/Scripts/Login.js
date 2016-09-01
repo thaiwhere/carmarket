@@ -6,6 +6,9 @@
                 validators: {
                     notEmpty: {
                         message: 'Nhập Tên đăng nhập'
+                    },
+                    callback: {
+                        message: "Tên đăng nhập"
                     }
                 }
             },
@@ -19,7 +22,7 @@
                         message: 'Mật khẩu phải có ít nhất 6 ký tự'
                     },
                     callback: {
-                        message: "Tên đăng nhập hoặc Mật khẩu không chính xác."
+                        message: "hoặc Mật khẩu không chính xác."
                     }
                 }
             }
@@ -37,6 +40,10 @@
 
         var token = $('[name=__RequestVerificationToken]').val();
 
+        $("#status").show();
+        $('#status').html("Đang xử lý, vui lòng chờ ...");
+        $(":button").prop('disabled', 'disabled');
+
         $.ajax({
             type: "POST",
             url: "/account/login",
@@ -48,6 +55,9 @@
             dataType: 'JSON',
             //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             success: function (result) {
+
+                $(":button").prop('disabled', '');
+
                 if (result.userId > 0) {
                     if (result.returnUrl != "") {
                         location.href = result.returnUrl;
@@ -57,14 +67,19 @@
                     }
                 }
                 else {
+                    $("#status").hide();
+
                     var $form = $(e.target);
                     var bv = $form.data('bootstrapValidator');
+                    bv.updateStatus('UserName', 'INVALID', 'callback');
                     bv.updateStatus('Password', 'INVALID', 'callback');
+                    $("#UserName").focus();
                 }
             },
             error: function (x, h, r) {
                 //common.HandleAjaxError(xhr);
-                alert('Lỗi đăng nhập. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                $('#status').html('Lỗi đăng nhập. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                $(":button").prop('disabled', '');
             }
         });
     });

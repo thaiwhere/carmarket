@@ -2,12 +2,10 @@
 
     EditCarHandler.bindingEvents();
 
-    if(typeof(_isBuy) !== 'undefined' && _isBuy == true)
-    {
+    if (typeof (_isBuy) !== 'undefined' && _isBuy == true) {
         EditCarHandler.renderDataForBuying();
     }
-    else
-    {
+    else {
         EditCarHandler.renderData();
     }
 
@@ -33,20 +31,20 @@ var EditCarHandler = {
     attachFiles: function (fileName, path) {
 
         path += "/" + fileName;
-        
-        var idImage = "div_" + fileName.replace('.','');
+
+        var idImage = "div_" + fileName.replace('.', '');
 
         var divImage = Dropzone.createElement("<div id='" + idImage + "' class='dz-preview dz-processing dz-image-preview dz-success'>	<div class='dz-details'>    		<div class='dz-filename'><span data-dz-name=''>" + fileName + "</span></div>   		<div class='dz-size' data-dz-size=''><strong>17.3</strong> KiB</div>    		<img data-dz-thumbnail='' alt='" + fileName + "' src='" + path + "'>  	</div> 	<div class='dz-progress'>span class='dz-upload' data-dz-uploadprogress='' style='width: 100%;'></span></div>  	<div class='dz-success-mark'><span>✔</span></div>  	<div class='dz-error-mark'><span>✘</span></div>  	<div class='dz-error-message'><span data-dz-errormessage=''></span></div> </div>");
 
         // Create the remove button
         var removeButton = Dropzone.createElement("<button>Remove file</button>");
-                
+
         // Listen to the click event
         removeButton.addEventListener("click", function (e) {
             // Make sure the button click doesn't submit the form:
             e.preventDefault();
             e.stopPropagation();
-        
+
             // If you want to the delete the file on the server as well,
             // you can do the AJAX request here.
             var deletedFile = { 'fileName': path };
@@ -56,8 +54,8 @@ var EditCarHandler = {
                 dataType: 'json',
                 url: "/File/RemoveUploadedFileForEditing",
                 data: JSON.stringify(deletedFile),
-                success: function (result) {                    
-                    $("#" + idImage).remove();                    
+                success: function (result) {
+                    $("#" + idImage).remove();
                 },
                 error: function (xhr) {
                 }
@@ -69,7 +67,7 @@ var EditCarHandler = {
         $("#dropzoneForm").append(divImage);
     },
 
-    initData: function () {        
+    initData: function () {
         $("#carInsert_select_firm").val($("#Firm").val())
         RenderFactory.renderModels($("#Firm").val(), '#carInsert_select_model');
 
@@ -80,9 +78,9 @@ var EditCarHandler = {
 
         var currency = common.FormatNumber($("#CurrencyVN").val());
         $("#carInsert_select_CurrencyVN").val(currency);
-                
+
         $("#select_price_from").val($("#PriceFromVN").val());
-        
+
         $("#select_price_to").val($("#PriceToVN").val());
 
         $("#carInsert_select_year").val($("#Year").val());
@@ -155,7 +153,7 @@ var EditCarHandler = {
                function () {
                    $("#WheelDriveId").val(this.value);
                }
-           );       
+           );
 
         $("#carInsert_select_CurrencyVN").change(
                 function () {
@@ -168,10 +166,10 @@ var EditCarHandler = {
 
         $("#select_price_from").change(
                 function () {
-                    $("#PriceFromVN").val(this.value);                    
+                    $("#PriceFromVN").val(this.value);
                 }
            );
-        
+
         $("#select_price_to").change(
                function () {
                    $("#PriceToVN").val(this.value);
@@ -183,9 +181,8 @@ var EditCarHandler = {
 
                     $("#GearBox").val(this.value);
 
-                    if(this.value == "4")
-                    {
-                        $("#GearBoxNumber").show();                        
+                    if (this.value == "4") {
+                        $("#GearBoxNumber").show();
                     }
                     else {
                         $("#GearBoxNumber").hide();
@@ -195,7 +192,7 @@ var EditCarHandler = {
 
         $("#GearBoxNumber").click(
               function () {
-                  $("#GearBox").val(this.value);                 
+                  $("#GearBox").val(this.value);
               }
          );
 
@@ -203,8 +200,15 @@ var EditCarHandler = {
               function () {
                   if (EditCarHandler.validateData()) {
                       EditCarHandler.editCar(_carId);
-                  } else {
-                      alert("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                  } else {                      
+                      common.ShowInfoMessage("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                      if($("#Title").val() == "")
+                      {
+                          $("#Title").focus();
+                      }
+                      else {
+                          $("#Description").focus();
+                      }
                   }
               }
           );
@@ -214,7 +218,13 @@ var EditCarHandler = {
                   if (EditCarHandler.validateData()) {
                       EditCarHandler.editCarBuying(_carId);
                   } else {
-                      alert("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                      common.ShowInfoMessage("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                      if ($("#Title").val() == "") {
+                          $("#Title").focus();
+                      }
+                      else {
+                          $("#Description").focus();
+                      }
                   }
               }
           );
@@ -279,12 +289,12 @@ var EditCarHandler = {
 
         $("#select_price_from").width(80);
         $("#select_price_to").width(80);
-        
+
     },
 
     validateData: function () {
 
-        return $("#Title").val() != "" && $("#Description").val() != "";       
+        return $("#Title").val() != "" && $("#Description").val() != "";
     },
 
     editCar: function (carId) {
@@ -322,115 +332,65 @@ var EditCarHandler = {
             data: JSON.stringify(criteria),
             success: function (error) {
                 if (error <= 0) {
-                    alert("Sửa tin thành công");
-                    window.location = '/car/yours';
+                    common.ShowInfoMessage("Sửa tin thành công", function () { setTimeout(function() { location.href = '/car/yours'; }, 3000) });                    
                 } else {
-                    alert("Lỗi sưả tin, vui lòng thử lại !");
+                    common.ShowErrorMessage("Lỗi sưả tin, vui lòng thử lại !");
                 }
             },
             error: function (xhr) {
-                alert("Lỗi sưả tin, vui lòng thử lại !");
-                //common.HandleAjaxError(xhr);
+                common.ShowErrorMessage("Lỗi sưả tin, vui lòng thử lại !");                
             }
         });
     },
 
     editCarBuying: function (carId) {
 
-    var criteria = {
-        CarId: carId,
-        Title: $("#Title").val(),
-        Firm: $("#Firm").val(),
-        Model: $("#Model").val(),
-        IsNew: $("#IsNew").is(":checked"),
-        IsImport: $("#IsImport").is(":checked"),
-        TypeId: $("#TypeId").val(),
-        PriceFromVN: $("#PriceFromVN").val(),
-        PriceToVN: $("#PriceToVN").val(),
-        Year: $("#Year").val(),
-        Km: $("#Km").val(),
-        Description: $("#Description").val(),
+        var criteria = {
+            CarId: carId,
+            Title: $("#Title").val(),
+            Firm: $("#Firm").val(),
+            Model: $("#Model").val(),
+            IsNew: $("#IsNew").is(":checked"),
+            IsImport: $("#IsImport").is(":checked"),
+            TypeId: $("#TypeId").val(),
+            PriceFromVN: $("#PriceFromVN").val(),
+            PriceToVN: $("#PriceToVN").val(),
+            Year: $("#Year").val(),
+            Km: $("#Km").val(),
+            Description: $("#Description").val(),
 
-        ProvinceId: $("#ProvinceId").val(),
-        SeatNo: $("#SeatNo").val(),
-        GateNo: $("#GateNo").val(),
-        ExteriorColorId: $("#ExteriorColorId").val(),
-        InteriorColorId: $("#InteriorColorId").val(),
-        FuelConsumption: $("#FuelConsumption").val(),
-        FuelId: $("#FuelId").val(),
-        FuelSystem: $("#FuelSystem").val(),
-        GearBox: $("#GearBox").val(),
-        WheelDriveId: $("#WheelDriveId").val()
-    };
+            ProvinceId: $("#ProvinceId").val(),
+            SeatNo: $("#SeatNo").val(),
+            GateNo: $("#GateNo").val(),
+            ExteriorColorId: $("#ExteriorColorId").val(),
+            InteriorColorId: $("#InteriorColorId").val(),
+            FuelConsumption: $("#FuelConsumption").val(),
+            FuelId: $("#FuelId").val(),
+            FuelSystem: $("#FuelSystem").val(),
+            GearBox: $("#GearBox").val(),
+            WheelDriveId: $("#WheelDriveId").val()
+        };
 
-    $.ajax({
-        type: 'POST',
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        url: "/Car/EditCarBuying",
-        data: JSON.stringify(criteria),
-        success: function (error) {
-            if (error <= 0) {
-                alert("Sửa tin thành công");
-                window.location = '/car/yours';
-            } else {
-                alert("Lỗi sưả tin, vui lòng thử lại !");
+        $.ajax({
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            url: "/Car/EditCarBuying",
+            data: JSON.stringify(criteria),
+            success: function (error) {
+                if (error <= 0) {                    
+                    common.ShowInfoMessage("Sửa tin thành công", function () { setTimeout(function () { location.href = '/car/yours'; }, 3000) });
+                    window.location = '/car/yours';
+                }
+                else {
+                    common.ShowErrorMessage("Lỗi sưả tin, vui lòng thử lại !");
+                }
+
+            },
+            error: function (xhr) {
+                common.ShowErrorMessage("Lỗi sưả tin, vui lòng thử lại !");
             }
-        },
-        error: function (xhr) {
-            alert("Lỗi sưả tin, vui lòng thử lại !");
-            //common.HandleAjaxError(xhr);
-        }
-    });
-    },
-
-    editCarBuying: function (carId) {
-
-    var criteria = {
-        CarId: carId,
-        Title: $("#Title").val(),
-        Firm: $("#Firm").val(),
-        Model: $("#Model").val(),
-        IsNew: $("#IsNew").is(":checked"),
-        IsImport: $("#IsImport").is(":checked"),
-        TypeId: $("#TypeId").val(),
-        PriceFromVN: $("#PriceFromVN").val(),
-        PriceToVN: $("#PriceToVN").val(),
-        Year: $("#Year").val(),
-        Km: $("#Km").val(),
-        Description: $("#Description").val(),
-
-        ProvinceId: $("#ProvinceId").val(),
-        SeatNo: $("#SeatNo").val(),
-        GateNo: $("#GateNo").val(),
-        ExteriorColorId: $("#ExteriorColorId").val(),
-        InteriorColorId: $("#InteriorColorId").val(),
-        FuelConsumption: $("#FuelConsumption").val(),
-        FuelId: $("#FuelId").val(),
-        FuelSystem: $("#FuelSystem").val(),
-        GearBox: $("#GearBox").val(),
-        WheelDriveId: $("#WheelDriveId").val()
-    };
-
-    $.ajax({
-        type: 'POST',
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        url: "/Car/EditCarBuying",
-        data: JSON.stringify(criteria),
-        success: function (error) {
-            if (error <= 0) {
-                alert("Sửa tin thành công");
-                window.location = '/home/index';
-            } else {
-                alert("Lỗi sưả tin, vui lòng thử lại !");
-            }
-        },
-        error: function (xhr) {
-            alert("Lỗi sưả tin, vui lòng thử lại !");
-            //common.HandleAjaxError(xhr);
-        }
-    });
-}    
+        });
+    }
 }
 

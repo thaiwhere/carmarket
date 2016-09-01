@@ -74,6 +74,10 @@
 
         var token = $('[name=__RequestVerificationToken]').val();
 
+        $("#status").show();
+        $('#status').html("Đang xử lý, vui lòng chờ ...");
+        $(":button").prop('disabled', 'disabled');
+
         $.ajax({
             type: "POST",
             url: "/account/register",
@@ -85,28 +89,37 @@
             dataType: 'JSON',
             //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             success: function (result) {
-                if (result.userId > 0) {
-                    alert('Đăng ký thành công tài khoản ' + $("#UserName").val());
 
-                    if (result.returnUrl != "") {
-                        location.href = result.returnUrl;
-                    }
-                    else {
-                        location.href = "/car/insert";
-                    }
+                $(":button").prop('disabled', '');
+
+                if (result.userId > 0) {                    
+                    $('#status').html('Đăng ký thành công tài khoản ' + $("#UserName").val());
+
+                    setTimeout(function () { 
+                        if (result.returnUrl != "") {
+                            location.href = result.returnUrl;
+                        }
+                        else {
+                            location.href = "/car/insert";
+                        }
+                    }, 3000);
                 }
                 else if (result.userId == 0) {
+
+                    $("#status").hide();
+
                     var $form = $(e.target);
                     var bv = $form.data('bootstrapValidator');
                     bv.updateStatus('UserName', 'INVALID', 'callback');
                 }
                 else {
-                    alert('Lỗi đăng ký. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                    $('#status').html('Lỗi đăng ký. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
                 }
             },
             error: function (x, h, r) {
                 //common.HandleAjaxError(xhr);
-                alert('Lỗi đăng ký. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                $('#status').html('Lỗi đăng ký. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                $(":button").prop('disabled', '');
             }
         });
     });   

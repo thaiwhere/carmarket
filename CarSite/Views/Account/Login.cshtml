@@ -58,6 +58,13 @@
             <div class="form-group">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-8">
+                    <small id="status" class="help-block" style="color: red; display: none;"></small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8">
                     <button type="submit" class="btn btn-primary btn-lg">Đăng nhập</button>&nbsp;
                     @Html.ActionLink("Quên mật khẩu?", "RecoverPass", new { ReturnUrl = ViewBag.ReturnUrl })
                 </div>

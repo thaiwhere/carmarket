@@ -147,7 +147,13 @@ var AddCarHandler = {
                    if (AddCarHandler.validateData()) {
                        AddCarHandler.insertCar();
                    } else {
-                       alert("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                       common.ShowInfoMessage("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                       if ($("#Title").val() == "") {
+                           $("#Title").focus();
+                       }
+                       else {
+                           $("#Description").focus();
+                       }
                    }
                }
            );
@@ -157,7 +163,13 @@ var AddCarHandler = {
                  if (AddCarHandler.validateData()) {
                      AddCarHandler.insertCarBuying();
                  } else {
-                     alert("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                     common.ShowInfoMessage("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                     if ($("#Title").val() == "") {
+                         $("#Title").focus();
+                     }
+                     else {
+                         $("#Description").focus();
+                     }
                  }
              }
          );
@@ -254,7 +266,7 @@ var AddCarHandler = {
             GearBox: $("#GearBox").val(),
             WheelDriveId: $("#WheelDriveId").val()
         };
-
+        
         $.ajax({
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
@@ -262,16 +274,16 @@ var AddCarHandler = {
             url: "/Car/InsertCar",
             data: JSON.stringify(criteria),
             success: function (result) {
-                if (result > 0) {                    
-                    alert("Đăng tin thành công");
-                    window.location = '/home/index';
-                } else {
-                    alert("Lỗi đăng tin, vui lòng thử lại !");
+                if (result >= 0) {
+                    common.ShowInfoMessage("Đăng tin bán xe thành công", function () { setTimeout(function () { location.href = '/home/index'; }, 3000) });                    
                 }
+                else {
+                    common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
+                }
+                
             },
             error: function (xhr) {
-                alert("Lỗi đăng tin, vui lòng thử lại !");
-                //common.HandleAjaxError(xhr);
+                common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
             }
         });
     },
@@ -302,7 +314,7 @@ var AddCarHandler = {
             GearBox: $("#GearBox").val(),
             WheelDriveId: $("#WheelDriveId").val()
         };
-
+        
         $.ajax({
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
@@ -310,16 +322,16 @@ var AddCarHandler = {
             url: "/Car/BuyCar",
             data: JSON.stringify(criteria),
             success: function (result) {
-                if (result >= 0) {                    
-                    alert("Đăng tin mua xe thành công");
-                    window.location = '/car/yours';
-                } else {
-                    alert("Lỗi đăng tin, vui lòng thử lại !");
+
+                if (result >= 0) {
+                    common.ShowInfoMessage("Đăng tin mua xe thành công", function () { setTimeout(function () { location.href = '/home/index'; }, 3000) });                    
+                }
+                else {
+                    common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
                 }
             },
             error: function (xhr) {
-                alert("Lỗi đăng tin, vui lòng thử lại !");
-                //common.HandleAjaxError(xhr);
+                common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
             }
         });
     }    

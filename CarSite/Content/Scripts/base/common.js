@@ -50,6 +50,10 @@
         domElements.divMsgBox.showInfo(message, { duration: 3000, position: ['top: 40', 'center'] });
     };
 
+    $this.ShowInfoMessage = function (message, callback) {
+        domElements.divMsgBox.showInfo(message, { duration: 3000, position: ['top: 40', 'center'], afterShow : callback });
+    };
+
     $this.ShowConfirmMessage = function (message, callbackFunc) {
         var options = {
             modal: true,

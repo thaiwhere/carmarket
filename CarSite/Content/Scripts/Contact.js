@@ -60,7 +60,9 @@
 
         if (checkValid() == true) {
 
+            $("#status").show();
             $('#status').html("Đang gửi, vui lòng chờ ...");
+            $(":button").prop('disabled', 'disabled');
 
             $.ajax({
                 type: "POST",
@@ -69,9 +71,14 @@
                 contentType: "application/json; charset=utf-8",
                 cache: false,
                 async: true,
-                success: function (result) {
-                    $('#contactForm').hide();
+                success: function (result) {                    
                     $('#status').html("<br>Xin cảm ơn! . Chúng tôi đã nhận thông điệp từ Quí khách và sẽ phản hồi sớm nhất !");
+                    $(":button").prop('disabled', '');
+                },
+                error: function (x, h, r) {
+                    //common.HandleAjaxError(xhr);
+                    $('#status').html("Lỗi gửi thông điệp. Vui lòng thử lại hoặc Liên hệ với chúng tôi");
+                    $(":button").prop('disabled', '');
                 }
             });
         }

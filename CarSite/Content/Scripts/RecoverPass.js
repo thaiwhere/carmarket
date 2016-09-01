@@ -38,12 +38,16 @@
         };
 
         if (userInfo.UserName == "" && userInfo.Email == "") {
-            $("#error").show();
+            $("#status").show();
             $("#UserName").focus();
             return;
         }        
         
         var token = $('[name=__RequestVerificationToken]').val();
+
+        $("#status").show();
+        $('#status').html("Đang gửi, vui lòng chờ ...");
+        $(":button").prop('disabled', 'disabled');
 
         $.ajax({
             type: "POST",
@@ -56,15 +60,15 @@
             dataType: 'JSON',
             //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             success: function (result) {
+
+                $(":button").prop('disabled', '');
+
                 if (result.userId > 0) {
-
-                    alert("Mật khẩu đã đuợc gửi đến email: " + result.email);
-
-                    if (result.returnUrl != "") {
-                        location.href = result.returnUrl;
-                    }                    
+                    $('#status').html("Mật khẩu đã đuợc gửi đến email: <b>" + result.email + "</b>");
                 }
                 else {
+                    $("#status").hide();
+
                     var $form = $(e.target);
                     var bv = $form.data('bootstrapValidator');
 
@@ -78,7 +82,8 @@
             },
             error: function (x, h, r) {
                 //common.HandleAjaxError(xhr);
-                alert('Lỗi phục hồi Mật khẩu. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                $('#status').html("Lỗi phục hồi Mật khẩu. Vui lòng thử lại hoặc Liên hệ với chúng tôi");
+                $(":button").prop('disabled', '');
             }
         });
     });
