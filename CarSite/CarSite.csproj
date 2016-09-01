@@ -235,6 +235,7 @@
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\base\car-insert.css" />
     <Content Include="Content\css\base\grid-custom.css" />
+    <Content Include="Content\css\base\showroom.css" />
     <Content Include="Content\css\base\salon.css" />
     <Content Include="Content\css\base\grid-custom.css" />
     <Content Include="Content\css\base\div-panel.css" />
@@ -302,9 +303,17 @@
     <Content Include="Content\images\advertise_left\07.jpg" />
     <Content Include="Content\images\advertise_left\08.jpg" />
     <Content Include="Content\images\advertise_left\09.jpg" />
+    <Content Include="Content\images\advertise_left\1.jpg" />
     <Content Include="Content\images\advertise_left\10.jpg" />
     <Content Include="Content\images\advertise_left\11.jpg" />
     <Content Include="Content\images\advertise_left\12.jpg" />
+    <Content Include="Content\images\advertise_left\2.png" />
+    <Content Include="Content\images\advertise_left\3.gif" />
+    <Content Include="Content\images\advertise_left\4.gif" />
+    <Content Include="Content\images\advertise_left\5.gif" />
+    <Content Include="Content\images\advertise_left\6.jpg" />
+    <Content Include="Content\images\advertise_left\7.jpg" />
+    <Content Include="Content\images\advertise_left\8.jpg" />
     <Content Include="Content\images\advertise_left\quangcao_1.gif" />
     <Content Include="Content\images\advertise_left\quangcao_2.gif" />
     <Content Include="Content\images\advertise_slide\01.jpg" />
