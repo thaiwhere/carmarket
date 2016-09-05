@@ -332,7 +332,7 @@ var EditCarHandler = {
             data: JSON.stringify(criteria),
             success: function (error) {
                 if (error <= 0) {
-                    common.ShowInfoMessage("Sửa tin thành công", function () { setTimeout(function() { location.href = '/car/yours'; }, 3000) });                    
+                    common.ShowInfoMessage("Sửa tin thành công", function () { $(":button").prop('disabled', 'disabled'); }, function () { setTimeout(function () { location.href = '/car/yours'; }, 1000) });
                 } else {
                     common.ShowErrorMessage("Lỗi sưả tin, vui lòng thử lại !");
                 }
@@ -379,7 +379,7 @@ var EditCarHandler = {
             data: JSON.stringify(criteria),
             success: function (error) {
                 if (error <= 0) {                    
-                    common.ShowInfoMessage("Sửa tin thành công", function () { setTimeout(function () { location.href = '/car/yours'; }, 3000) });
+                    common.ShowInfoMessage("Sửa tin thành công", function () { $(":button").prop('disabled', 'disabled'); }, function () { setTimeout(function () { location.href = '/car/yours'; }, 1000) });
                     window.location = '/car/yours';
                 }
                 else {

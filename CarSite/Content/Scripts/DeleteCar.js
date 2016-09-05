@@ -9,9 +9,8 @@
             url: '/Car/DeleteCar',
             data: JSON.stringify(criteria),
             success: function (result) {
-                if (result) {
-                    element.closest("tr").remove();
-                    common.ShowInfoMessage('Tin đã được xoá thành công');
+                if (result) {                    
+                    common.ShowInfoMessage("Tin đã được xoá thành công", function () { $(":button").prop('disabled', 'disabled'); }, function () { setTimeout(function () { location.href = '/car/yours'; }, 1000) });
                 }
                 else {
                     common.ShowErrorMessage('Lỗi xoá tin');

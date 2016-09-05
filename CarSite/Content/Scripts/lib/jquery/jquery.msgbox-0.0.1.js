@@ -285,7 +285,35 @@
             var _this = this,
                 $this = _this.target,
                 header = $('<div class="msgbox-header">' + title + '</div>'),
-                cmdBtns = '<div class="msgbox-btn-wrap">' + _this.options.tpl.yesBtn + ' ' + +_this.options.tpl.noBtn + ' ' + _this.options.tpl.cancelBtn + '</div>';
+                cmdBtns = '<div class="msgbox-btn-wrap">' + _this.options.tpl.yesBtn + ' ' + _this.options.tpl.noBtn + '</div>';
+
+            _this.checkDomExistence();
+            _this.show(msg, $.extend(options, { type: 'confirm' }));
+            _this.target.append(cmdBtns);
+
+            if (options.header) {
+                $(_this.options.tpl.closeBtn).appendTo(header).click(function () { _this.close(); });
+                _this.target.prepend(header);
+            }
+
+            clearTimeout(_this.timeout);
+
+            $this.find('.yes').click(function () {
+                _this.close();
+                if ($.isFunction(yesCallback)) yesCallback.apply($this.get(0), []);
+            });
+
+            $this.find('.no').click(function () {
+                _this.close();
+                if ($.isFunction(noCallback)) noCallback.apply($this.get(0), []);
+            });
+        },
+
+        yesNoCancelConfirm: function (title, msg, yesCallback, noCallback, options) {
+            var _this = this,
+                $this = _this.target,
+                header = $('<div class="msgbox-header">' + title + '</div>'),
+                cmdBtns = '<div class="msgbox-btn-wrap">' + _this.options.tpl.yesBtn + ' ' + _this.options.tpl.noBtn + ' ' + _this.options.tpl.cancelBtn + '</div>';
 
             _this.checkDomExistence();
             _this.show(msg, $.extend(options, { type: 'confirm' }));

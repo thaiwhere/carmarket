@@ -275,12 +275,11 @@ var AddCarHandler = {
             data: JSON.stringify(criteria),
             success: function (result) {
                 if (result >= 0) {
-                    common.ShowInfoMessage("Đăng tin bán xe thành công", function () { setTimeout(function () { location.href = '/home/index'; }, 3000) });                    
+                    common.ShowYesNoConfirmMessage("Đăng tin", "Đăng tin bán xe thành công. Bạn muốn đăng tin tiếp?", function () { location.href = '/car/insert'; }, function () { location.href = '/car/yours'; });                    
                 }
                 else {
                     common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
-                }
-                
+                }                
             },
             error: function (xhr) {
                 common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
@@ -324,7 +323,8 @@ var AddCarHandler = {
             success: function (result) {
 
                 if (result >= 0) {
-                    common.ShowInfoMessage("Đăng tin mua xe thành công", function () { setTimeout(function () { location.href = '/home/index'; }, 3000) });                    
+                    common.ShowYesNoConfirmMessage("Đăng tin", "Đăng tin mua xe thành công. Bạn muốn đăng tin tiếp?", function () { location.href = '/car/buy'; }, function () { location.href = '/car/yours'; });
+                    //common.ShowInfoMessage("Đăng tin mua xe thành công", function () { $(":button").prop('disabled', 'disabled'); }, function () { setTimeout(function () { location.href = '/car/yours'; }, 1000) });
                 }
                 else {
                     common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
