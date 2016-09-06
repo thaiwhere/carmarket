@@ -1,3 +1,5 @@
 USE [CARWEB]
-ALTER TABLE [dbo].[CarForBuy]
+GO
+
+ALTER TABLE [dbo].[CarForSale]
 	ADD CountVisit bigint

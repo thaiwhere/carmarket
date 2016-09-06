@@ -34,7 +34,7 @@ namespace CarSite.Controllers
             {
                 CarId = id
             };
-
+           
             CarViewModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
             return View("~/Views/Car/CarDetail.cshtml", carDetail);
         }
@@ -471,6 +471,12 @@ namespace CarSite.Controllers
 
             return Json(listCars);
         }
+
+        public long VisitCar(CarVisitedCriteria criteria)
+        {
+            return CarService.VisitCar(criteria);         
+        }
+
         #endregion
 
         #region Utilities

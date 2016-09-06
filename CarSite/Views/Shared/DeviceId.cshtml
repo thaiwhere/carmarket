@@ -1,0 +1,48 @@
+﻿@model Car.Model.Entity.CarViewModel
+
+<input type="hidden" id="deviceId" />
+<input type="hidden" id="deviceCode" />
+<input id="detecas-analysis" type="hidden" name="detecas-analysis" value="{}" />
+
+<script>var Detecas = {};</script> 
+
+<script src="//sc.detecas.com/di/activator.ashx" type="text/javascript" async=""></script>
+<script src="~/Content/scripts/lib/ScriptsUtility/Detecas.JSON.js"></script>
+<script src="~/Content/scripts/lib/ScriptsUtility/Detecas.Base64.js"></script>
+<script src="~/Content/scripts/lib/ScriptsUtility/Detecas.Rc4.js"></script>
+<script src="~/Content/scripts/lib/ScriptsUtility/Detecas.Hex.js"></script>
+
+<script type="text/javascript">
+
+    (function (json, base64, rc4, hex) {
+        setTimeout(function () {
+            var deviceIdInput = document.getElementById('deviceId');
+            var deviceCodeInput = document.getElementById('deviceCode');
+
+            var collectedDeviceInfo = document.getElementById('__di').value;
+
+            collectedDeviceInfo = base64.decode(collectedDeviceInfo);
+            collectedDeviceInfo = json.parse(collectedDeviceInfo);
+            var deviceId = collectedDeviceInfo.deviceId;
+            deviceIdInput.value = deviceId;
+            var deviceCode = collectedDeviceInfo.deviceCode;
+            deviceCodeInput.value = deviceCode;
+
+            $.ajax({
+                type: "POST",
+                url: "/Car/VisitCar",
+                data: JSON.stringify({ DeviceId: $("#deviceId").val(), CarId: @Model.CarId }),
+                contentType: "application/json; charset=utf-8",
+                cache: false,
+                async: true,
+                success: function (result) {
+                    $("#countvisit").html(result);
+                },
+                error: function (x, h, r) {
+                }
+            });
+
+        }, 3000);
+
+        })(Detecas.JSON, Detecas.Base64, Detecas.Rc4, Detecas.Hex);
+</script>

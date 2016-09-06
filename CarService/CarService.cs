@@ -174,5 +174,18 @@ namespace Car.Service
                 return (carId is DBNull) ? 0 : Convert.ToInt32(carId);
             }
         }
+
+        public static long VisitCar(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                obj.ExecuteNonQuery(param);
+
+                var countVisit = obj.GetParameterValue("countvisit");
+
+                return (countVisit is DBNull) ? 0 : Convert.ToInt64(countVisit);
+            }
+        }
     }
 }
