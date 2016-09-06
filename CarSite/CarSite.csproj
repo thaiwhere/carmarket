@@ -360,6 +360,14 @@
     <Content Include="Content\images\team\pic6.jpg" />
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
+    <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Base64.js" />
+    <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Extensions.js" />
+    <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Hex.js" />
+    <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.JSON.js" />
+    <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Md5.js" />
+    <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Rc4.js" />
+    <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Sha1.js" />
+    <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.ua-parser-js.js" />
     <Content Include="Content\scripts\RecoverPass.js" />
     <Content Include="Content\scripts\Login.js" />
     <Content Include="Content\scripts\Manage.js" />
@@ -529,6 +537,8 @@
     <Content Include="Views\Home\Policy.cshtml" />
     <Content Include="Views\Shared\PanelLeft.cshtml" />
     <Content Include="Views\Shared\Slider.cshtml" />
+    <Content Include="Views\Shared\DeviceId.cshtml" />
+    <Content Include="Views\Car\CarDetailInfo.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

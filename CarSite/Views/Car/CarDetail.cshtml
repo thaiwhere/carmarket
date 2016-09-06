@@ -7,6 +7,8 @@
 }
 @model Car.Model.Entity.CarViewModel
 
+@{ Html.RenderPartial("~/Views/Shared/DeviceId.cshtml", Model); }  
+
 <div id="div_car_detail" class="car_list_box">
 
     @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml", Model); }    
@@ -134,7 +136,7 @@
 
     </div>
 
-</div>
+</div>  
 
 @*<div id="car_detai_banner">
     <a target="_blank" href="http://www.hoanggiamobile.com"><img src=""></a>

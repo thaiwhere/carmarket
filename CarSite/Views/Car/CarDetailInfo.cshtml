@@ -1,0 +1,28 @@
+﻿
+<div class="car-detail-section">
+    <div class="car-price">
+        @Model.CurrencyVN triệu
+    </div>
+    <div class="car-location">
+        <a href="/Car/SearchingCars?firm=@Model.Firm&province=@Model.Province">@Model.Province</a>
+    </div>
+    <div class="car-contact-user">
+        @Model.ContactName
+    </div>
+    <div class="car-contact-tel">
+        @Model.ContactTel
+    </div>
+    <div class="car-contact-address">
+        @Model.Address
+    </div>
+
+</div>
+
+<div class="car-detail-section">
+    <div class="car-contact-date">
+        Ngày đăng: @Model.CreatedDate
+    </div>
+    <div class="car-contact-view">
+        Luợt xem: <label id="countvisit">@Model.CountVisit</label>
+    </div>
+</div>
