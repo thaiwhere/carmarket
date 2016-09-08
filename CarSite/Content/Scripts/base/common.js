@@ -64,7 +64,19 @@
 
         callbackFunc = callbackFunc || function () { };
         domElements.divMsgBox.confirm(message, callbackFunc, options);
-    };  
+    };
+
+    $this.ShowTitleConfirmMessage = function (title, message, callbackFunc) {
+        var options = {
+            modal: true,
+            closeBtn: false,
+            header: true,
+            css: 'custom-confirm'
+        };
+
+        callbackFunc = callbackFunc || function () { };
+        domElements.divMsgBox.titleConfirm(title, message, callbackFunc, options);
+    };
 
     $this.ShowYesNoConfirmMessage = function (title, message, yesCallback, noCallback) {
         var options = {

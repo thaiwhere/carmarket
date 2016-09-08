@@ -123,7 +123,7 @@ function decorateDataModify(cars) {
         var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";
         var description = "<div class='car-des'>" + cars[i].Description.substring(0,200); + "</div>";
         var info = "<div class='car-info'>" + km + gearBox + price_location + contact + "</div>";
-        var modify = "<div class='car-info'>" + "<a href='" + hrefModify + "'>Edit</a>" + "   " + "<a href='javascript:void(0);' onclick=\"return DeleteCar(this, '" + cars[i].CarId + "');\">Delete</a></div>";
+        var modify = "<div class='car-info'>" + "<a href='" + hrefModify + "'>Sưả</a>" + "   " + "<a href='javascript:void(0);' onclick=\"return DeleteCar(this, '" + cars[i].CarId + "');\">Xoá</a></div>";
 
         //var modify = "<div class='mdl car-info'>" + "<a href='" + hrefModify + "'>Edit</a>" + "   " + "<a id='btn-2' class='btn' data-overlayclick='true' data-fullscreen='false' data-type='confirm'> Confirm Dialog</a></div>";
 

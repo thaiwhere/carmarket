@@ -1,5 +1,5 @@
 ﻿function DeleteCar(element, carId) {
-    common.ShowConfirmMessage("Bạn muốn xoá tin này?", function () {
+    common.ShowTitleConfirmMessage("Xoá tin", "Bạn muốn xoá tin này?", function () {
         var criteria = { CarId: carId };
 
         $.ajax({
