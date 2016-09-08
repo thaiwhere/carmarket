@@ -22,5 +22,6 @@ BEGIN
 	inner join [User] u  with(nolock) on u.UserId = c.UserId
 	Where (c.CurrencyVN between @Price - @Price/10 and @Price + @Price/10)
 		and (c.CarId <> @CarId)
+		and c.IsReview = 1 
 	
 END

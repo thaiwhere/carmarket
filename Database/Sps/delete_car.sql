@@ -14,7 +14,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	Delete [dbo].[CarForSale]
-	Where CarId = @CarId
+	Where CarId = @CarId and IsReview = 1
 	IF @@ERROR <> 0
 		return -1
 	Else

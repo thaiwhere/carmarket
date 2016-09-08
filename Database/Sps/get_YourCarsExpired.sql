@@ -21,7 +21,7 @@ BEGIN
 	from [dbo].[CarForSale] c with(nolock)	
 	inner join Province p with(nolock) on p.ProvinceId = c.ProvinceId
 	inner join [User] u  with(nolock) on u.UserId = c.UserId
-	Where c.UserId = @UserId and ExpiredDate < GETDATE()
+	Where c.UserId = @UserId and ExpiredDate < GETDATE() and c.IsReview = 1
 
 	UNION
 
@@ -29,6 +29,6 @@ BEGIN
 	from [dbo].[CarForBuy] b with(nolock)	
 	left join Province p with(nolock) on p.ProvinceId = b.ProvinceId
 	inner join [User] u  with(nolock) on u.UserId = b.UserId
-	Where b.UserId = @UserId and ExpiredDate < GETDATE()
+	Where b.UserId = @UserId and ExpiredDate < GETDATE() and b.IsReview = 1
 	
 END

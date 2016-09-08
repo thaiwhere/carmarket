@@ -1,4 +1,4 @@
-/*
+﻿/*
 * msgBox - jQuery Plugin
 * msgBox is a jQuery plugin that makes managing notifications easier than ever
 *
@@ -53,9 +53,9 @@
                 tpl: {
                     closeBtn: '<a href="javascript:;" class="msgbox-close"></a>',
                     okBtn: '<a href="javascript:;" class="msgbox-btn ok">OK</a>',
-                    cancelBtn: '<a href="javascript:;" class="msgbox-btn cancel">Cancel</a>',
-                    yesBtn: '<a href="javascript:;" class="msgbox-btn yes">Yes</a>',
-                    noBtn: '<a href="javascript:;" class="msgbox-btn no">No</a>',
+                    cancelBtn: '<a href="javascript:;" class="msgbox-btn cancel">Huỷ</a>',
+                    yesBtn: '<a href="javascript:;" class="msgbox-btn yes">Có</a>',
+                    noBtn: '<a href="javascript:;" class="msgbox-btn no">Không</a>',
                     textbox: '<input type="text" class="msgbox-txt" />'
                 },
 
