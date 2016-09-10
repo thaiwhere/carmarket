@@ -253,6 +253,20 @@
         return parseFloat(num).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
     };
 
+    $this.ShowVietnameseCurrency = function (number) {
+        var currency = number.toString();        
+        var length = currency.length;
+
+        if(length <=3)
+        {
+            return currency + " Triệu";
+        }
+        else {
+            var index = length - 3;
+            return currency.substring(0, index) + " Tỷ, " + currency.substring(index) + " Triệu";
+        }
+    };
+
     $this.PreventChars = function (e) {
 
         // Allow: backspace, delete, tab, escape, enter and .
