@@ -3,90 +3,78 @@
     ViewBag.Title = "Hướng dẫn";
 }
 
-<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
-
+<h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
 
 @section Styles{
-        
+
     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />    
+    <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />
 }
 
-<div id="div_guide">
-    @{ Html.RenderPartial("~/Views/Home/Company.cshtml", null); }
-    
-    <div style="padding-left:20px;line-height:18px;color:#555;">        
-        <br />
-        <b>1. Làm thế nào để trở thành thành viên của XEGIADINHVIET.com? </b> <br /><br />
-        Để trở thành thành viên của OtoViet.com, Bạn vui lòng click vào link <a href="/Account/Register/">Đăng ký</a>  <br /><br/>
-        Nhập các thông tin bắt buộc phải có: <br />
-        <ul>
-            <li> Tên đăng nhập: </li>
-            <li> Mật khẩu. <br /></li>
-            <li> Nhập lại mật khẩu <br /></li>
-            <li> Lưu ý: Địa chỉ <b> <font color="red">Email - Tên đăng nhập phải là duy nhất.</font> </b>   <br /></li>
-        </ul>
-          
-    </div>
-    <div class="guide-section">
-        <div class="guide-photo">
-            <img src="~/Images/Cars_4/Dangky.png" width="350" height="220" />
-        </div>
-    </div>  
-    <div style="padding-left:20px;line-height:18px;color:#555;">
-       <b>2. Đăng nhập vào hệ thống </b><a href="/Account/Login/" onclick="open_dialog('login-dlg','username1');return false;">Đăng nhập</a>
-    </div>
-    <div class="guide-section">
-        <div class="guide-photo">
-           <img src="~/Images/Cars_4/dangnhap.png" width="350" height="220" />
-        </div>
+@{ Html.RenderPartial("~/Views/Home/Company.cshtml", null); }
 
-    </div> 
-    <div style="padding-left:20px;line-height:18px;color:#555;">
-        Sau khi đăng nhập vào hệ thống, hệ thống thể hiện Tin đăng của bạn, gồm Tin còn hiệu lực và Tin hết hạn
-    </div>
-    <div class="guide-section">
-        <div class="guide-photo">
-            <img src="~/Images/Cars_4/Tindangcuaban.png" width="350" height="220" />
-         </div>
-    </div> 
-     <div class="guide-section">
-         <div class="guide-photo">
-             @*<img src="~/Images/Cars_4/Tinhieuluc.png" width="750" height="220" />*@
-             <img src="~/Images/Cars_4/Tin_hieuluc.png" width="750" height="220" />
-         </div>
-    </div> 
-    <div class="guide-section">
-        <div class="guide-photo">
-            <img src="~/Images/Cars_4/Tinhethan.png" width="750" height="220" />
-        </div>
-    </div>
-    <div style="padding-left:20px;line-height:18px;color:#555;">
-        <b>3. Làm thế nào đăng tin trên XEGIADINHVIET.com </b>
-     </div>
-    <div class="guide-section">
-        <div class="guide-photo">
-              <img src="~/Images/Cars_4/O6Dangtin_banxe_2.png" width="750" height="220" />
-          
-        </div>
-    </div>
-    @*<div class="guide-section">
-        <div class="guide-photo">
-          <img src="~/Images/Cars_4/O6Dangtin_banxe2.png" width="750" height="220" />
-        </div>
-    </div>*@
-   
-    @*<div style="padding:20px;color:red;font-size:14px">Chú ý: không đăng tin bán xe / mua xe tại đây !</div>*@
+<div style="padding-left:20px;line-height:18px;color:#555;">
+    <br />
+    <b>1. Làm thế nào để trở thành thành viên của XEGIADINHVIET.com? </b> <br /><br />
+    Để trở thành thành viên của OtoViet.com, Bạn vui lòng click vào link <a href="/Account/Register/">Đăng ký</a>  <br /><br />
+    Nhập các thông tin bắt buộc phải có: <br />
+    <ul>
+        <li> Tên đăng nhập: </li>
+        <li> Mật khẩu. <br /></li>
+        <li> Nhập lại mật khẩu <br /></li>
+        <li> Lưu ý: Địa chỉ <b> <font color="red">Email - Tên đăng nhập phải là duy nhất.</font> </b>   <br /></li>
+    </ul>
 
-    
+</div>
+<div class="guide-section">
+    <div class="guide-photo">
+        <img src="~/Images/Cars_4/Dangky.png" width="350" height="220" />
+    </div>
+</div>
+<div style="padding-left:20px;line-height:18px;color:#555;">
+    <b>2. Đăng nhập vào hệ thống </b><a href="/Account/Login/" onclick="open_dialog('login-dlg','username1');return false;">Đăng nhập</a>
+</div>
+<div class="guide-section">
+    <div class="guide-photo">
+        <img src="~/Images/Cars_4/dangnhap.png" width="350" height="220" />
+    </div>
+
+</div>
+<div style="padding-left:20px;line-height:18px;color:#555;">
+    Sau khi đăng nhập vào hệ thống, hệ thống thể hiện Tin đăng của bạn, gồm Tin còn hiệu lực và Tin hết hạn
+</div>
+<div class="guide-section">
+    <div class="guide-photo">
+        <img src="~/Images/Cars_4/Tindangcuaban.png" width="350" height="220" />
+    </div>
+</div>
+<div class="guide-section">
+    <div class="guide-photo">
+        @*<img src="~/Images/Cars_4/Tinhieuluc.png" width="750" height="220" />*@
+        <img src="~/Images/Cars_4/Tin_hieuluc.png" width="750" height="220" />
+    </div>
+</div>
+<div class="guide-section">
+    <div class="guide-photo">
+        <img src="~/Images/Cars_4/Tinhethan.png" width="750" height="220" />
+    </div>
+</div>
+<div style="padding-left:20px;line-height:18px;color:#555;">
+    <b>3. Làm thế nào đăng tin trên XEGIADINHVIET.com </b>
+</div>
+<div class="guide-section">
+    <div class="guide-photo">
+        <img src="~/Images/Cars_4/O6Dangtin_banxe_2.png" width="750" height="220" />
+
+    </div>
 </div>
 
 @section Scripts{
 
-<script async="" src="~/Content/scripts/recaptcha/recaptcha__en.js"></script>
-<script src="~/Content/scripts/lib/bootstrapValidator.min.js"></script>
+    <script async="" src="~/Content/scripts/recaptcha/recaptcha__en.js"></script>
+    <script src="~/Content/scripts/lib/bootstrapValidator.min.js"></script>
 
-<script src="~/Content/scripts/recaptcha/api.js"></script>    
+    <script src="~/Content/scripts/recaptcha/api.js"></script>
 
     <script>
         $(document).ready(function () {

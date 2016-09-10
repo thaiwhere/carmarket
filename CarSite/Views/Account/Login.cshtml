@@ -5,18 +5,17 @@
     ViewBag.Title = "Đăng nhập";
 }
 
-<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
-<br />
-
 @section Styles{
 
     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />
 }
 
-<h4><span style="margin-left:20px;font-style:italic;">Nhập thông tin để đăng tin.</span></h4>
-
+<h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
 <hr />
+
+<h4><span class="title-des">Đăng nhập để đăng tin mua & bán xe.</span></h4>
+<br />
 
 <div class="col-md-12">
     <input type="hidden" id="returnURLId" data-value="@ViewBag.ReturnUrl" />
@@ -71,8 +70,8 @@
             </div>
             
         </fieldset>
-
-        <p>            
+        
+        <p>                    
             @Html.ActionLink("Đăng ký", "Register", new { ReturnUrl = ViewBag.ReturnUrl }) nếu Bạn chưa có tài khoản.
         </p>
 

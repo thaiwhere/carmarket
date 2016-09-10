@@ -7,18 +7,17 @@
     ViewBag.Title = "Thay đổi thông tin";
 }
 
-<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
-<br />
-
 @section Styles{
 
     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />
 }
 
-<h4><span style="margin-left:20px;font-style:italic;">Bạn đang đăng nhập với <strong>@User.Identity.GetUserName()</strong></span></h4>
-
+<h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
 <hr />
+
+<h4><span class="title-des">Bạn đang đăng nhập với <strong>@User.Identity.GetUserName()</strong>.</span></h4>
+<br />
 
 <div class="row">
     <div class="col-md-12">

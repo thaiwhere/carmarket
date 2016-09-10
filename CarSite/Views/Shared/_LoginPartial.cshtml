@@ -2,5 +2,5 @@
 @if (Request.IsAuthenticated)
 {    
     <a href="/Account/Logoff/">&nbsp;&nbsp;&nbsp;Đăng xuất</a>   
-    @Html.ActionLink("Xin chào " + User.Identity.GetUserName() + " !", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage", @style = "color:#af0c7b" })    
+    @Html.ActionLink("Xin chào " + User.Identity.GetUserName() + " !", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage", @style = "color:#0caf12" })    
 }

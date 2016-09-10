@@ -3,18 +3,17 @@
     ViewBag.Title = "Đăng ký";
 }
 
-<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
-<br />
-
 @section Styles{
 
     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />
 }
 
-<h4><span style="margin-left:20px; font-style:italic">Tạo một tài khoản để rao tin.</span></h4>
-
+<h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
 <hr />
+
+<h4><span class="title-des">Tạo một tài khoản để rao tin.</span></h4>
+<br />
 
 <div id="div_register" class="col-md-12">    
     <input type="hidden" id="returnURLId" data-value="@ViewBag.ReturnUrl" />

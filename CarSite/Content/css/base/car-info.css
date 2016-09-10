@@ -80,12 +80,21 @@
 .car-detail-section.info span{        
     float: left;    
     padding: .2em .6em .3em;    
-    text-align: left;    
+    text-align: left;   
+    color:rgb(34, 34, 34);
+    font:16px/30px "Open Sans";     
 }
 
 .car-detail-section.title{
     margin:5px 0px;
     line-height: 30px;
+    font-size:15px;
+}
+
+.car-detail-section.desc{
+    margin:5px 0px;
+    line-height: 30px;
+    font-size:14px;
 }
 
 .car-detail-section img {
@@ -145,7 +154,7 @@
     width: 100px;
     height: 30px;
     text-align: left;
-    color: chocolate;
+    color: #eee;
     background-color: #4db748;
     font: bold 14px/23px 'Arial';    
     border-radius: 3px;
@@ -251,8 +260,7 @@
 .car-label-detail{
     padding: 0.2em .2em .2em .2em;
     font-weight:bold;    
-    float:left;
-    /*color:#0035FF;*/
+    float:left;    
 }
 
 #div_car_detail_similar{
