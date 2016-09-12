@@ -461,6 +461,7 @@ namespace CarSite.Controllers
                     return Json(-1);
                 }
 
+                criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
                 carId = CarService.DeleteCar(criteria);
 
                 if (carId > 0)

@@ -7,14 +7,15 @@ SET QUOTED_IDENTIFIER ON
 GO
 --exec [delete_car] 6
 ALTER PROCEDURE [dbo].[delete_car]		 
-	 @CarId INT	 
+	 @CarId INT	 ,
+	 @UserId INT
 AS
 BEGIN
 
 	SET NOCOUNT ON;
 
 	Delete [dbo].[CarForSale]
-	Where CarId = @CarId and IsReview = 1
+	Where CarId = @CarId and UserId = @UserId and IsReview = 1
 	IF @@ERROR <> 0
 		return -1
 	Else
