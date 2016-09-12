@@ -48,7 +48,7 @@ namespace Car.Service
                     }
                 }
 
-                return cars;
+                return cars ?? new List<CarModel>();
             }
             catch (Exception ex)
             {                

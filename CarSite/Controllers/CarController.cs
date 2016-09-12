@@ -28,7 +28,7 @@ namespace CarSite.Controllers
             return View("~/Views/Car/SearchingCar.cshtml", criteria);
         }
         
-        public ActionResult CarDetail(int id = 1)
+        public ActionResult CarDetail(int id = 0)
         {            
             var criteria = new CarSearchingDetalCriteria
             {
@@ -36,7 +36,14 @@ namespace CarSite.Controllers
             };
            
             CarViewModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
-            return View("~/Views/Car/CarDetail.cshtml", carDetail);
+            if (carDetail != null)
+            {
+                return View("~/Views/Car/CarDetail.cshtml", carDetail);
+            }
+            else
+            {
+                return View("~/Views/Car/CarNoDetail.cshtml");
+            }
         }
 
         public ActionResult UploadFiles()
@@ -56,7 +63,7 @@ namespace CarSite.Controllers
         }
 
         [Authorize]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
             if (HttpContext.Session["UserId"] == null)
             {
@@ -68,14 +75,21 @@ namespace CarSite.Controllers
                 CarId = id
             };
 
-            var carInfo = CarService.GetCarEditInfo(criteria);
-            carInfo.Images = this.GetListImages(id);
+            var carInfo = CarService.GetCarEditInfo(criteria);            
 
-            return View("~/Views/Car/CarEdit.cshtml", carInfo);
+            if (carInfo != null)
+            {
+                carInfo.Images = this.GetListImages(id);
+                return View("~/Views/Car/CarEdit.cshtml", carInfo);
+            }
+            else
+            {
+                return View("~/Views/Car/CarNoDetail.cshtml");
+            }
         }
 
         [Authorize]
-        public ActionResult EditCarBuying(int id)
+        public ActionResult EditCarBuying(int id = 0)
         {
             if (HttpContext.Session["UserId"] == null)
             {
@@ -90,7 +104,14 @@ namespace CarSite.Controllers
             var carInfo = CarService.GetCarBuyEditInfo(criteria);
             carInfo.Images = this.GetListImages(id);
 
-            return View("~/Views/Car/CarBuyingEdit.cshtml", carInfo);
+            if (carInfo != null)
+            {
+                return View("~/Views/Car/CarBuyingEdit.cshtml", carInfo);
+            }
+            else
+            {
+                return View("~/Views/Car/CarNoDetail.cshtml");
+            }
         }
 
         [Authorize]

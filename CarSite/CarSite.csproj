@@ -539,6 +539,7 @@
     <Content Include="Views\Shared\Slider.cshtml" />
     <Content Include="Views\Shared\DeviceId.cshtml" />
     <Content Include="Views\Car\CarDetailInfo.cshtml" />
+    <Content Include="Views\Car\CarNoDetail.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
