@@ -540,6 +540,7 @@
     <Content Include="Views\Shared\DeviceId.cshtml" />
     <Content Include="Views\Car\CarDetailInfo.cshtml" />
     <Content Include="Views\Car\CarNoDetail.cshtml" />
+    <Content Include="Views\Car\CarEditNoPermission.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

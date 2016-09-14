@@ -72,7 +72,8 @@ namespace CarSite.Controllers
 
             var criteria = new CarGettingForEditCriteria
             {
-                CarId = id
+                CarId = id,
+                UserId = int.Parse(HttpContext.Session["UserId"].ToString())
             };
 
             var carInfo = CarService.GetCarEditInfo(criteria);            
@@ -84,7 +85,7 @@ namespace CarSite.Controllers
             }
             else
             {
-                return View("~/Views/Car/CarNoDetail.cshtml");
+                return View("~/Views/Car/CarEditNoPermission.cshtml");
             }
         }
 
