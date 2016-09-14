@@ -1363,6 +1363,12 @@
                     return;
                 }
 
+                if (options.customGrid && options.customGrid === true) {
+                    if (options.pagerOption.customSelectCallBack !== undefined) {
+                        options.pagerOption.customSelectCallBack(options.gridId);
+                    }
+                }
+                
                 if (options.customPager && options.customPager === true) {
                     pagerOption =
                     {

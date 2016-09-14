@@ -50,13 +50,16 @@ var gridRender = function (gridId, data) {
                 { HeaderText: "Mô tả", Width: 470, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
                 { HeaderText: "Thông tin", Width: 180, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
                 ],
+                gridId: gridId,
                 bodyRows: decorateData(data),                
                 gridExpandHeight: 100,                
                 showPager: true,
+                customGrid: true,
                 pagerOption: {
                     itemsPerPage: 10,
                     currentPage: 0,
-                    showDetail: true
+                    showDetail: true,
+                    customSelectCallBack: reRenderAfterPaged
                 }
             };
     }
@@ -69,21 +72,22 @@ var gridRender = function (gridId, data) {
                 { HeaderText: "Mô tả", Width: 260, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
                 { HeaderText: "Thông tin", Width: 140, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
                 ],
+                gridId: gridId,
                 bodyRows: decorateData(data),
                 scrollWidth: 0, //// Default is 24px
                 gridExpandHeight: 100,
                 showPager: true,
+                customGrid: true,
                 pagerOption: {
                     itemsPerPage: 10,
                     currentPage: 0,
-                    showDetail: true
+                    showDetail: true,
+                    customSelectCallBack: reRenderAfterPaged
                 }
             };
     }
     
-    $("#" + gridId).PagerGrid(gridOptions);
-    customGrid(gridId);
-    
+    $("#" + gridId).PagerGrid(gridOptions);        
 };
 
 function decorateDataModify(cars) {
@@ -153,20 +157,21 @@ var gridRenderMofify = function (gridId, data) {
                   { HeaderText: "Thông tin", Width: 160, Name: "Info", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Chỉnhsửa", Width: 20, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
                   ],
+                  gridId: gridId,
                   bodyRows: decorateDataModify(data),
                   scrollWidth: 0, //// Default is 24px
                   gridExpandHeight: 100,
                   showPager: true,
+                  customGrid: true,
                   pagerOption: {
                       itemsPerPage: 10,
                       currentPage: 0,
-                      showDetail: true
+                      showDetail: true,
+                      customSelectCallBack: reRenderAfterPaged
                   }
               };
     
-    $("#" + gridId).PagerGrid(gridOptions);
-    customGrid(gridId);
-
+    $("#" + gridId).PagerGrid(gridOptions);    
 };
 
 function customGrid(gridId) {
@@ -193,4 +198,9 @@ function customGrid(gridId) {
     }
 
     $(".grid-container").height("100%");
+}
+
+function reRenderAfterPaged(gridId) {    
+    customGrid(gridId);    
+    return false;
 }
