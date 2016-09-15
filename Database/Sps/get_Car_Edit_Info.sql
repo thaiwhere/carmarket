@@ -49,6 +49,6 @@ BEGIN
 		Convert(varchar(10), c.CreatedDate,120)  as CreatedDate
 	from [dbo].[CarForSale] c with(nolock)		
 	inner join [User] u  with(nolock) on u.UserId = c.UserId		
-	Where c.CarId = @CarId and c.UserId = @UserId and c.IsReview = 1
+	Where c.CarId = @CarId and c.UserId = @UserId
 	
 END

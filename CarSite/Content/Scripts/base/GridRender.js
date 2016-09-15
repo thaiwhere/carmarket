@@ -127,7 +127,8 @@ function decorateDataModify(cars) {
         var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";
         var description = "<div class='car-des'>" + cars[i].Description.substring(0,200); + "</div>";
         var info = "<div class='car-info'>" + km + gearBox + price_location + contact + "</div>";
-        var modify = "<div class='car-info'>" + "<a href='" + hrefModify + "'>Sửa</a>" + "   " + "<a href='javascript:void(0);' onclick=\"return DeleteCar(this, '" + cars[i].CarId + "');\">Xoá</a></div>";
+        var status = cars[i].Status == 0 ? "Chờ duyệt" : cars[i].Status == 1 ? "Đã duyệt" : "Từ chối";
+        var modify = "<div class='car-info'>" + "<b>" + status + "<br/>------------</b><br/><a href='" + hrefModify + "'>Sửa</a>" + "   " + "<br/><a href='javascript:void(0);' onclick=\"return DeleteCar(this, '" + cars[i].CarId + "');\">Xoá</a></div>";
 
         //var modify = "<div class='mdl car-info'>" + "<a href='" + hrefModify + "'>Edit</a>" + "   " + "<a id='btn-2' class='btn' data-overlayclick='true' data-fullscreen='false' data-type='confirm'> Confirm Dialog</a></div>";
 
@@ -155,7 +156,7 @@ var gridRenderMofify = function (gridId, data) {
                   { HeaderText: "Hình", Width: 140, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Mô tả", Width: 425, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Thông tin", Width: 160, Name: "Info", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Chỉnhsửa", Width: 20, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
+                  { HeaderText: "Chỉnhsửa", Width: 70, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
                   ],
                   gridId: gridId,
                   bodyRows: decorateDataModify(data),

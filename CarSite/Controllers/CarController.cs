@@ -99,7 +99,8 @@ namespace CarSite.Controllers
 
             var criteria = new CarBuyingGettingForEditCriteria
             {
-                CarId = id
+                CarId = id,
+                UserId = int.Parse(HttpContext.Session["UserId"].ToString())
             };
 
             var carInfo = CarService.GetCarBuyEditInfo(criteria);

@@ -2,4 +2,9 @@ USE [CARWEB]
 GO
 
 ALTER TABLE [dbo].[CarForSale]
-	ADD IsReview BIT
+	DROP COLUMN IsReview	
+
+	ALTER TABLE [dbo].[CarForSale]	
+	ADD [Status] tinyint
+
+
