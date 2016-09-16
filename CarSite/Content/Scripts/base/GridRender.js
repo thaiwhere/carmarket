@@ -112,32 +112,28 @@ function decorateDataModify(cars) {
 
         var title = cars[i].Title;
 
-        var status = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe đã sử dụng";
-        status += " (" + cars[i].Year + ")</div>";
+        var isNew = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe đã sử dụng";
+        isNew += " (" + cars[i].Year + ")</div>";
 
         var source = "<div class='car-info-source'>" + (cars[i].IsImport == true ? "Nhập khẩu" : "Trong nước") + "</div>";
         var photo = "<div class='car-photo'>" + "<a href='" + href + "'><img title='" + title + "' src='" + image + "' alt='" + title + "'></a></div>";
         var firm = "<div class='car-info-firm'>" + "<a href='" + hrefFirm + "'>" + cars[i].FirmName + "</a></div>";
-        var km = "<div class='car-info-item'>Km: " + cars[i].Km + " (km)</div>";
-        var gearBox = "<div class='car-info-item'>Hộp số: " + (cars[i].GearBox == 0 ? "Tự động" : "Số tay") + "</div>";
-        var price_location = "<div class='car-info-price'>" + common.ShowVietnameseCurrency(cars[i].CurrencyVN) + "</div><div class='car-info-place'><a href='" + href + "'>" + cars[i].Province + "</a></div>";
-        var contact = "<div class='car-info-item car-info-user'>" + cars[i].ContactName + "</div><div class='car-info-item car-info-tel'>" + cars[i].ContactTel + "</div>";
-
-        var car = status + source + firm + photo
-        var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";
-        var description = "<div class='car-des'>" + cars[i].Description.substring(0,200); + "</div>";
-        var info = "<div class='car-info'>" + km + gearBox + price_location + contact + "</div>";
+        
+        var car = isNew + source + firm + photo
+        var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";                
         var status = cars[i].Status == 0 ? "Chờ duyệt" : cars[i].Status == 1 ? "Đã duyệt" : "Từ chối";
-        var modify = "<div class='car-info'>" + "<b>" + status + "<br/>------------</b><br/><a href='" + hrefModify + "'>Sửa</a>" + "   " + "<br/><a href='javascript:void(0);' onclick=\"return DeleteCar(this, '" + cars[i].CarId + "');\">Xoá</a></div>";
 
-        //var modify = "<div class='mdl car-info'>" + "<a href='" + hrefModify + "'>Edit</a>" + "   " + "<a id='btn-2' class='btn' data-overlayclick='true' data-fullscreen='false' data-type='confirm'> Confirm Dialog</a></div>";
+        var modify = "<div class='car-info'><br/><a href='" + hrefModify + "'>Sửa</a>" + "   " + "<br/><a href='javascript:void(0);' onclick=\"return DeleteCar(this, '" + cars[i].CarId + "');\">Xoá</a></div>";
 
+        
         
         var row = {
             Columns: [
                     { Name: "Car", Value: car },
-                    { Name: "Description", Value: title + description },
-                    { Name: "Info", Value: info },
+                    { Name: "Title", Value: title},
+                    { Name: "Status", Value: status },
+                    { Name: "ModifiedDate", Value: cars[i].ModifiedDate },
+                    { Name: "CountView", Value: cars[i].CountVisit },
                     { Name: "Modify", Value: modify }
             ]
         };
@@ -153,10 +149,12 @@ var gridRenderMofify = function (gridId, data) {
     gridOptions =
               {
                   columns: [
-                  { HeaderText: "Hình", Width: 140, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Mô tả", Width: 425, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Thông tin", Width: 160, Name: "Info", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Chỉnhsửa", Width: 70, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
+                  { HeaderText: "Xe", Width: 140, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Tiêu đề", Width: 250, Name: "Title", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Trạng thái", Width: 100, Name: "Status", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Ngày cập nhật", Width: 100, Name: "ModifiedDate", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Luợt xem", Width: 100, Name: "CountView", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Chỉnh sửa", Width: 200, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
                   ],
                   gridId: gridId,
                   bodyRows: decorateDataModify(data),

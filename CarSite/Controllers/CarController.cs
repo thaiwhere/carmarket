@@ -145,49 +145,49 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult SearchingCars(CarSearchingCriteria criteria)
         {            
-            var listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            var listCars = CarService.SearchingCars<CarModel>(criteria).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsByFirmModelProvince(CarSearchingFirmModelCriteria criteria)
         {
-            var listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            var listCars = CarService.SearchingCars < CarModel>(criteria).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsForYou(CarSearchingForYouCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars <CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsNewOld(CarSearchingNewOldCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsImportDomestic(CarSearchingImportDomesticCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars <CarModel>(criteria).ToList<CarModel>();
             return Json(listCars);
         }        
                 
         [HttpPost]
         public JsonResult SearchingCarsSimilarModel(CarSearchingSimilarModelCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsSimilarPrice(CarSearchingSimilarPriceCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
@@ -409,7 +409,7 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult Yours(CarSearchingYours criteria)
         {
-            List<CarModel> listCars = new List<CarModel>();
+            List<YourCarModel> listCars = new List<YourCarModel>();
             try
             {
                 if (HttpContext.Session["UserId"] == null)
@@ -419,7 +419,7 @@ namespace CarSite.Controllers
 
                 criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
 
-                listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+                listCars = CarService.SearchingCars <YourCarModel>(criteria, AppSettings.IsGetFromCache).ToList<YourCarModel>();
             }
             catch (Exception ex)
             {
@@ -432,7 +432,7 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult YoursExpired(CarSearchingYoursExpired criteria)
         {
-            List<CarModel> listCars = new List<CarModel>();
+            List<YourCarModel> listCars = new List<YourCarModel>();
             try
             {
                 if (HttpContext.Session["UserId"] == null)
@@ -442,7 +442,7 @@ namespace CarSite.Controllers
 
                 criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
 
-                listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+                listCars = CarService.SearchingCars<YourCarModel>(criteria, AppSettings.IsGetFromCache).ToList<YourCarModel>();
             }
             catch (Exception ex)
             {
@@ -486,7 +486,7 @@ namespace CarSite.Controllers
             try
             {
                 var criteria = new CarSearchingByText { Text = text };
-                listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+                listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             }
             catch (Exception ex)
             {

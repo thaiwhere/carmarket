@@ -68,6 +68,7 @@
     <Compile Include="Entity\CarBuyingEntity.cs" />
     <Compile Include="Entity\CarEditEntity.cs" />
     <Compile Include="Entity\CarInsertEntity.cs" />
+    <Compile Include="Entity\YourCarModel.cs" />
     <Compile Include="Entity\CompanyHost.cs" />
     <Compile Include="Entity\Contact.cs" />
     <Compile Include="Entity\CarViewModel.cs" />

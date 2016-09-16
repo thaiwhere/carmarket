@@ -13,12 +13,12 @@ namespace Car.Service
     /// </summary>
     public static class CarService
     {
-        public static IEnumerable<CarModel> SearchingCars(CriteriaBase criteria, bool isGetFromCache = false)
+        public static IEnumerable<T> SearchingCars<T>(CriteriaBase criteria, bool isGetFromCache = false)
         {
             var carId = string.Empty;
             var cacheKey = string.Empty;
             ICache cache = null;            
-            IEnumerable<CarModel> cars = null;
+            IEnumerable<T> cars = null;
                         
             try
             {
@@ -32,14 +32,14 @@ namespace Car.Service
                 {
                     cache = CacheManager.GetInstance();
                     cacheKey = criteria.GetSettingKey() + carId;
-                    cars = cache.GetCache<IEnumerable<CarModel>>(cacheKey);
+                    cars = cache.GetCache<IEnumerable<T>>(cacheKey);
                 }
 
                 if (cars == null)
                 {
                     using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
                     {                        
-                        cars = obj.Query<CarModel>(param);
+                        cars = obj.Query<T>(param);
 
                         if (isGetFromCache && cache != null)
                         {
@@ -48,12 +48,12 @@ namespace Car.Service
                     }
                 }
 
-                return cars ?? new List<CarModel>();
+                return cars ?? new List<T>();
             }
             catch (Exception ex)
             {                
                 LogService.Error("SearchingCars - " + ex.Message, ex);
-                return new List<CarModel>();
+                return new List<T>();
             }            
         }
 

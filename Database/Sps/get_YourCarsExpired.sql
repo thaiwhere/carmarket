@@ -17,7 +17,7 @@ BEGIN
 
 	SET NOCOUNT ON;
 
-	SELECT distinct c.CarId, u.UserId, c.IsNew, c.IsImport, c.[year], c.Firm as FirmName, c.Title, c.[Description], c.Km, c.GearBox, c.CurrencyVN, p.Name as Province, u.UserName ContactName, u.Tel ContactTel, 0  as IsBuy, c.Status
+	SELECT distinct c.CarId, u.UserId, c.IsNew, c.IsImport, c.[year], c.Firm as FirmName, c.Title, 0 as IsBuy, c.Status, c.ModifiedDate, c.CountVisit
 	from [dbo].[CarForSale] c with(nolock)	
 	inner join Province p with(nolock) on p.ProvinceId = c.ProvinceId
 	inner join [User] u  with(nolock) on u.UserId = c.UserId
@@ -25,7 +25,7 @@ BEGIN
 
 	UNION
 
-	SELECT distinct b.CarId, u.UserId, b.IsNew, b.IsImport, b.[year], b.Firm as FirmName, b.Title, b.[Description], b.Km, b.GearBox, b.[PriceFromVN] as CurrencyVN , p.Name as Province, u.UserName ContactName, u.Tel ContactTel, 1 as IsBuy, b.Status
+	SELECT distinct b.CarId, u.UserId, b.IsNew, b.IsImport, b.[year], b.Firm as FirmName, b.Title, 1 as IsBuy, b.Status, b.ModifiedDate, b.CountVisit
 	from [dbo].[CarForBuy] b with(nolock)	
 	left join Province p with(nolock) on p.ProvinceId = b.ProvinceId
 	inner join [User] u  with(nolock) on u.UserId = b.UserId
