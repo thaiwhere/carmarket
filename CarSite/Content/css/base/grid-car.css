@@ -142,6 +142,7 @@
     width:100%;
     border:none;
     padding-left:2px;
+    margin-top:5px;
 }
 
 .status-icon{
@@ -162,7 +163,7 @@
 }
 
 .car-info-status-new{
-    color:#EA100B;
+    color:#ea0bcd;
 }
 
 .car-info-status-old{

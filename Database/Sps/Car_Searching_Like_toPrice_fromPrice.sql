@@ -12,7 +12,7 @@ BEGIN
 	from [dbo].[CarForSale] c with(nolock)	
 	inner join Province p with(nolock) on p.ProvinceId = c.ProvinceId
 	inner join [User] u with(nolock) on u.UserId = c.UserId
-	Where  c.Status = 1 and c.CurrencyVN = @Price
+	Where  c.Status = 1 and c.CurrencyVN = @Price and ExpiredDate >= GETDATE()
 	
 END
 

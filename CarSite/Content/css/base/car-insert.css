@@ -19,19 +19,19 @@
 
 .uploadCar input{    
     color:rgb(34, 34, 34);
-    font:16px/30px "Open Sans";
+    font:14px/30px "Open Sans";
     line-height:15px;
 }
 
 .uploadCar select{
     /*color:#337ab7;*/    
     color:rgb(34, 34, 34);
-    font:16px/30px "Open Sans";    
+    font:14px/30px "Open Sans";    
 }
 
 .uploadCar textarea{    
     color:rgb(34, 34, 34);
-    font:16px/30px "Open Sans";
+    font:14px/30px "Open Sans";
 }
 
 .uploadCar label{

@@ -5,8 +5,8 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
---exec [delete_car] 6
-ALTER PROCEDURE [dbo].[delete_car]		 
+--exec [car_saled] 6
+ALTER PROCEDURE [dbo].[car_saled]		 
 	 @CarId INT	 ,
 	 @UserId INT,
 	 @Result  BIT = 0 OUTPUT
@@ -19,8 +19,10 @@ BEGIN
 				Where CarId = @CarId and UserId = @UserId
 				))
 	BEGIN
-		Delete [dbo].[CarForSale]
+		UPDATE [dbo].[CarForSale]
+		SET [Status] = 2
 		Where CarId = @CarId and UserId = @UserId
+
 		set @Result = 1
 	END
 

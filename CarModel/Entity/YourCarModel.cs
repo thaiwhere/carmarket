@@ -21,7 +21,7 @@ namespace Car.Model.Entity
         public short IsBuy { get; set; }
         public byte Status { get; set; }
 
-        public DateTime ModifiedDate { get; set; }
+        public string ModifiedDate { get; set; }
         public int CountVisit { get; set; }
     }
      

@@ -17,13 +17,14 @@
     <Setting Key="get_Car_Buy_Edit_Info" SpName="get_Car_Buy_Edit_Info" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_YourCars" SpName="get_YourCars" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_YourCarsExpired" SpName="get_YourCarsExpired" DbName="CarHome.Database" Plain="1"></Setting>
-    <Setting Key="delete_car" SpName="delete_car" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="delete_car" SpName="delete_car" DbName="CarHome.Database" Plain="1"></Setting>    
     <Setting Key="edit_car" SpName="edit_car" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="Car_Buying_Insert" SpName="Car_Buying_Insert" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="Car_Buying_Edit" SpName="Car_Buying_Edit" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="Contact_Insert" SpName="Contact_Insert" DbName="CarHome.Database" Plain="1"></Setting>    
     <Setting Key="Car_Searching_By_Text" SpName="Car_Searching_By_Text" DbName="CarHome.Database" Plain="1"></Setting>
-    <Setting Key="Car_Visited" SpName="Car_Visited" DbName="CarHome.Database" Plain="1"></Setting>    
+    <Setting Key="Car_Visited" SpName="Car_Visited" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="car_saled" SpName="car_saled" DbName="CarHome.Database" Plain="1"></Setting>
 
   </Function>
 </Functions>

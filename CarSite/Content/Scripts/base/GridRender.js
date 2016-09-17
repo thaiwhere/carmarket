@@ -46,7 +46,7 @@ var gridRender = function (gridId, data) {
         gridOptions =
             {
                 columns: [
-                { HeaderText: "Hình", Width: 140, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Xe", Width: 140, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
                 { HeaderText: "Mô tả", Width: 470, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
                 { HeaderText: "Thông tin", Width: 180, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
                 ],
@@ -121,9 +121,25 @@ function decorateDataModify(cars) {
         
         var car = isNew + source + firm + photo
         var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";                
-        var status = cars[i].Status == 0 ? "Chờ duyệt" : cars[i].Status == 1 ? "Đã duyệt" : "Từ chối";
 
-        var modify = "<div class='car-info'><br/><a href='" + hrefModify + "'>Sửa</a>" + "   " + "<br/><a href='javascript:void(0);' onclick=\"return DeleteCar(this, '" + cars[i].CarId + "');\">Xoá</a></div>";
+        var status = "";
+        switch(cars[i].Status)
+        {
+            case 0: status = "Chờ duyệt <span class='glyphicon glyphicon-dashboard'></span>"; break;
+            case 1: status = "<font color='#0000ff'>Đang đăng <span class='glyphicon glyphicon-thumbs-up'></span></font>"; break;
+            case 2: status = "<font color='#ff8707'>Đã bán <span class='glyphicon glyphicon-usd'></span></font>"; break;
+            case 3: status = "<font color='#ff0000'>Không duyệt <span class='glyphicon glyphicon-thumbs-down'></span></font>"; break;
+            case 4: status = "<font color='#ff0000'>Hết hạn <span class='glyphicon glyphicon-thumbs-down'></span></font>"; break;
+
+        }
+        var saled = "";
+        if (cars[i].Status == 1) {
+            saled = "<a href='javascript:void(0);' onclick='return SaledCar(this, \"" + cars[i].CarId + "\");'><font color='#ff8707'>Đã bán<span class='glyphicon glyphicon-usd'></span></font></a>";
+        }
+
+        var edit = "<a href='" + hrefModify + "'>Sửa <span class='glyphicon glyphicon-pencil'></span></a>";
+        var remove = "<a href='javascript:void(0);' onclick='return DeleteCar(this, \"" + cars[i].CarId + "\");'><font color='#ff0000'>Xoá <span class='glyphicon glyphicon-remove'></span></font></a>";
+        var modify = "<div class='car-info'>" + saled + "<br/><br/>" + edit + "<br/><br/>" + remove + "</div>";
 
         
         
@@ -149,12 +165,12 @@ var gridRenderMofify = function (gridId, data) {
     gridOptions =
               {
                   columns: [
-                  { HeaderText: "Xe", Width: 140, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Tiêu đề", Width: 250, Name: "Title", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Xe", Width: 150, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Tiêu đề", Width: 280, Name: "Title", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Trạng thái", Width: 100, Name: "Status", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Ngày cập nhật", Width: 100, Name: "ModifiedDate", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Luợt xem", Width: 100, Name: "CountView", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Chỉnh sửa", Width: 200, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
+                  { HeaderText: "Luợt xem", Width: 70, Name: "CountView", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Chỉnh sửa", Width: 110, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
                   ],
                   gridId: gridId,
                   bodyRows: decorateDataModify(data),
@@ -166,7 +182,7 @@ var gridRenderMofify = function (gridId, data) {
                       itemsPerPage: 10,
                       currentPage: 0,
                       showDetail: true,
-                      customSelectCallBack: reRenderAfterPaged
+                      customSelectCallBack: reRenderGridModifyAfterPaged
                   }
               };
     
@@ -203,3 +219,12 @@ function reRenderAfterPaged(gridId) {
     customGrid(gridId);    
     return false;
 }
+
+function reRenderGridModifyAfterPaged(gridId) {
+    customGrid(gridId);    
+    $(".col_header").css("top", 30);
+    $(".grid-container").css("top", 30);
+
+    return false;
+}
+

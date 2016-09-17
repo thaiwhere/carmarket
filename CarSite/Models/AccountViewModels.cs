@@ -13,7 +13,7 @@ namespace CarSite.Models
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Mật khẩu cũ không để trống.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Mật khẩu cũ")]
+        [Display(Name = "Mật khẩu")]
         public string OldPassword { get; set; }
 
         //[Required(AllowEmptyStrings = false, ErrorMessage = "Mật khẩu mới không để trống.")]

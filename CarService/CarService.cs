@@ -169,9 +169,22 @@ namespace Car.Service
                 var param = criteria.GetSpParams();
                 obj.ExecuteNonQuery(param);
 
-                var carId = obj.GetParameterValue("carid");
+                var result = obj.GetParameterValue("result");
 
-                return (carId is DBNull) ? 0 : Convert.ToInt32(carId);
+                return (result is DBNull) ? 0 : Convert.ToInt32(result);
+            }
+        }
+
+        public static int SaledCar(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                obj.ExecuteNonQuery(param);
+
+                var result = obj.GetParameterValue("result");
+
+                return (result is DBNull) ? 0 : Convert.ToInt32(result);
             }
         }
 

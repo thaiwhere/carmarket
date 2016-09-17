@@ -282,21 +282,19 @@
         </div>
     </div>
 
-    <div class="images">
-        @{ Html.RenderPartial("~/Views/Shared/UploadFiles.cshtml", null); }
+    <div style="margin-left:10px;">
+        <div class="images">
+            @{ Html.RenderPartial("~/Views/Shared/UploadFiles.cshtml", null); }
+        </div>
+
+        <br />
+
+        <button type="submit" id="uploadCar" class="btn btn-primary btn-lg">Đăng tin</button>
+        <br />
+        <br />
+        @Html.ActionLink("Trở về trang chủ", "Home/Index")
     </div>
-
-    <br />
-
-    <button type="submit" id="uploadCar" class="btn btn-primary btn-lg">Đăng tin</button>
-
-</div>
-
-
-<div>
-    <br />
-    <br />
-    @Html.ActionLink("Trở về trang chủ", "Home/Index")
+   
 </div>
 
 @section Scripts

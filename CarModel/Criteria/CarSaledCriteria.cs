@@ -10,21 +10,20 @@ namespace Car.Model.Criteria
     /// <summary>
     /// 
     /// </summary>
-    public class CarDeleteCriteria : CriteriaBase
+    public class CarSaledCriteria : CriteriaBase
     {
         public int CarId { get; set; }
 
         public int UserId { get; set; }
 
         public bool Result { get; set; }
-
         /// <summary>
         /// Gets Setting Key.
         /// </summary>
         /// <returns>Setting key of the criteria.</returns>
         public override string GetSettingKey()
         {
-            return "delete_car";
+            return "car_saled";
         }
 
 

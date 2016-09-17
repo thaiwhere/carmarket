@@ -318,21 +318,18 @@
         </div>
     </div>
 
-    <br />
+    <div style="margin-left:10px;">
+        <br />
+        <button type="submit" id="buyCar" class="btn btn-primary btn-lg">Đăng tin</button>
+        <br />
+        <br />
+        @Html.ActionLink("Trở về trang chủ", "Home/Index")
+    </div>
 
-    <input type="submit" id="buyCar" value="Đăng tin" class="buttonUpload" />
-
-</div>
-
-
-<div>
-    <br />
-    <br />
-    @Html.ActionLink("Trở về trang chủ", "Home/Index")
 </div>
 
 @section Scripts
-{    
+{
     <script>
         var _isBuy = true;
         handler.showResultSearching();

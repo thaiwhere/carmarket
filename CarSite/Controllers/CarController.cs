@@ -455,7 +455,7 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult DeleteCar(CarDeleteCriteria criteria)
         {
-            var carId = 0;
+            var result = 0;
             try
             {
                 if (HttpContext.Session["UserId"] == null)
@@ -464,11 +464,11 @@ namespace CarSite.Controllers
                 }
 
                 criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
-                carId = CarService.DeleteCar(criteria);
+                result = CarService.DeleteCar(criteria);
 
-                if (carId > 0)
+                if (result > 0)
                 {
-                    RemoveFolderName(carId);
+                    RemoveFolderName(criteria.CarId);
                 }
 
             }
@@ -477,7 +477,29 @@ namespace CarSite.Controllers
                 LogService.Error("DeleteCar - " + ex.Message, ex);
             }
 
-            return Json(carId);
+            return Json(result);
+        }
+
+        [HttpPost]
+        public JsonResult SaledCar(CarSaledCriteria criteria)
+        {
+            var result = 0;
+            try
+            {
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
+                result = CarService.SaledCar(criteria);                
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("SaledCar - " + ex.Message, ex);
+            }
+
+            return Json(result);
         }
 
         public JsonResult SearchingCarsByText(string text)

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Criteria\CarBuyingEditCriteria.cs" />
     <Compile Include="Criteria\CarBuyingGettingForEditCriteria.cs" />
+    <Compile Include="Criteria\CarSaledCriteria.cs" />
     <Compile Include="Criteria\CarGettingForEditCriteria.cs" />
     <Compile Include="Criteria\CarEditCriteria.cs" />
     <Compile Include="Criteria\CarBuyingInsertCriteria.cs" />

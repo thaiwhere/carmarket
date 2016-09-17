@@ -50,6 +50,6 @@ BEGIN
 		Convert(varchar(10), c.CreatedDate,120)  as CreatedDate
 	from [dbo].[CarForBuy] c with(nolock)		
 	inner join [User] u  with(nolock) on u.UserId = c.UserId		
-	Where c.CarId = @CarId and c.UserId = @UserId
+	Where c.CarId = @CarId and c.UserId = @UserId and ExpiredDate >= GETDATE()
 	
 END
