@@ -68,13 +68,13 @@ var gridRender = function (gridId, data) {
         gridOptions =
             {
                 columns: [
-                { HeaderText: "Hình", Width: 140, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
-                { HeaderText: "Mô tả", Width: 260, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
-                { HeaderText: "Thông tin", Width: 140, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
+                { HeaderText: "Xe", Width: 135, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Mô tả", Width: 250, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Thông tin", Width: 170, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
                 ],
                 gridId: gridId,
                 bodyRows: decorateData(data),
-                scrollWidth: 0, //// Default is 24px
+                //scrollWidth: 0, //// Default is 24px
                 gridExpandHeight: 100,
                 showPager: true,
                 customGrid: true,
@@ -90,77 +90,77 @@ var gridRender = function (gridId, data) {
     $("#" + gridId).PagerGrid(gridOptions);        
 };
 
-function decorateDataModify(cars) {
+function decorateDataModify(cars, carStatus) {
     var list = [];
 
     for (var i = 0; i < cars.length; i++) {
-        var href = "/Car/CarDetail/" + cars[i].CarId;
-        var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
-        var hrefModify = "/Car/Edit/" + cars[i].CarId;        
-        if (cars[i].IsBuy == 1)
-        {
-            hrefModify = "/Car/EditCarBuying/" + cars[i].CarId;
+
+        if (cars[i].Status == carStatus) {
+
+            var href = "/Car/CarDetail/" + cars[i].CarId;
+            var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
+            var hrefModify = "/Car/Edit/" + cars[i].CarId;
+            if (cars[i].IsBuy == 1) {
+                hrefModify = "/Car/EditCarBuying/" + cars[i].CarId;
+            }
+
+            var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
+
+            if (cars[i].IsBuy == 1) {
+                hrefModify = "/Car/EditCarBuying/" + cars[i].CarId;
+                image = "/images/noimage_buy.gif";
+            }
+
+
+            var title = cars[i].Title;
+
+            var isNew = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe đã sử dụng";
+            isNew += " (" + cars[i].Year + ")</div>";
+
+            var source = "<div class='car-info-source'>" + (cars[i].IsImport == true ? "Nhập khẩu" : "Trong nước") + "</div>";
+            var photo = "<div class='car-photo'>" + "<a href='" + href + "'><img title='" + title + "' src='" + image + "' alt='" + title + "'></a></div>";
+            var firm = "<div class='car-info-firm'>" + "<a href='" + hrefFirm + "'>" + cars[i].FirmName + "</a></div>";
+
+            var car = isNew + source + firm + photo
+            var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";
+
+            var status = "";
+            switch (cars[i].Status) {
+                case 0: status = "Chờ duyệt <span class='glyphicon glyphicon-dashboard'></span>"; break;
+                case 1: status = "<font color='#0000ff'>Đang đăng <span class='glyphicon glyphicon-thumbs-up'></span></font>"; break;
+                case 2: status = "<font color='#ff8707'>Đã bán <span class='glyphicon glyphicon-usd'></span></font>"; break;
+                case 3: status = "<font color='#ff0000'>Không duyệt <span class='glyphicon glyphicon-thumbs-down'></span></font>"; break;
+                case 4: status = "<font color='#ff0000'>Hết hạn <span class='glyphicon glyphicon-thumbs-down'></span></font>"; break;
+
+            }
+            var saled = "";
+            if (cars[i].Status == 1) {
+                saled = "<a href='javascript:void(0);' onclick='return SaledCar(this, \"" + cars[i].CarId + "\");'><font color='#ff8707'><span class='glyphicon glyphicon-usd'></span> Đã bán</font></a>";
+            }
+
+            var edit = "<a href='" + hrefModify + "'><span class='glyphicon glyphicon-pencil'></span> Sửa</a>";
+            var remove = "<a href='javascript:void(0);' onclick='return DeleteCar(this, \"" + cars[i].CarId + "\");'><font color='#ff0000'><span class='glyphicon glyphicon-remove'></span> Xoá</font></a>";
+            var modify = "<div class='car-info' style='margin-left:20px' >" + saled + "<br/><br/>" + edit + "<br/><br/>" + remove + "</div>";
+
+            var row = {
+                Columns: [
+                        { Name: "Car", Value: car },
+                        { Name: "Title", Value: title },
+                        { Name: "Status", Value: status },
+                        { Name: "ModifiedDate", Value: cars[i].ModifiedDate },
+                        { Name: "CountView", Value: cars[i].CountVisit },
+                        { Name: "Modify", Value: modify }
+                ]
+            };
+
+            list.push(row);
         }
-
-        var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
-
-        if (cars[i].IsBuy == 1) {
-            hrefModify = "/Car/EditCarBuying/" + cars[i].CarId;
-            image = "/images/noimage_buy.gif";
-        }
-
-
-        var title = cars[i].Title;
-
-        var isNew = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe đã sử dụng";
-        isNew += " (" + cars[i].Year + ")</div>";
-
-        var source = "<div class='car-info-source'>" + (cars[i].IsImport == true ? "Nhập khẩu" : "Trong nước") + "</div>";
-        var photo = "<div class='car-photo'>" + "<a href='" + href + "'><img title='" + title + "' src='" + image + "' alt='" + title + "'></a></div>";
-        var firm = "<div class='car-info-firm'>" + "<a href='" + hrefFirm + "'>" + cars[i].FirmName + "</a></div>";
-        
-        var car = isNew + source + firm + photo
-        var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";                
-
-        var status = "";
-        switch(cars[i].Status)
-        {
-            case 0: status = "Chờ duyệt <span class='glyphicon glyphicon-dashboard'></span>"; break;
-            case 1: status = "<font color='#0000ff'>Đang đăng <span class='glyphicon glyphicon-thumbs-up'></span></font>"; break;
-            case 2: status = "<font color='#ff8707'>Đã bán <span class='glyphicon glyphicon-usd'></span></font>"; break;
-            case 3: status = "<font color='#ff0000'>Không duyệt <span class='glyphicon glyphicon-thumbs-down'></span></font>"; break;
-            case 4: status = "<font color='#ff0000'>Hết hạn <span class='glyphicon glyphicon-thumbs-down'></span></font>"; break;
-
-        }
-        var saled = "";
-        if (cars[i].Status == 1) {
-            saled = "<a href='javascript:void(0);' onclick='return SaledCar(this, \"" + cars[i].CarId + "\");'><font color='#ff8707'>Đã bán<span class='glyphicon glyphicon-usd'></span></font></a>";
-        }
-
-        var edit = "<a href='" + hrefModify + "'>Sửa <span class='glyphicon glyphicon-pencil'></span></a>";
-        var remove = "<a href='javascript:void(0);' onclick='return DeleteCar(this, \"" + cars[i].CarId + "\");'><font color='#ff0000'>Xoá <span class='glyphicon glyphicon-remove'></span></font></a>";
-        var modify = "<div class='car-info'>" + saled + "<br/><br/>" + edit + "<br/><br/>" + remove + "</div>";
-
-        
-        
-        var row = {
-            Columns: [
-                    { Name: "Car", Value: car },
-                    { Name: "Title", Value: title},
-                    { Name: "Status", Value: status },
-                    { Name: "ModifiedDate", Value: cars[i].ModifiedDate },
-                    { Name: "CountView", Value: cars[i].CountVisit },
-                    { Name: "Modify", Value: modify }
-            ]
-        };
-
-        list.push(row);
     }
 
     return list;
 }
 
-var gridRenderMofify = function (gridId, data) {
+var gridRenderMofify = function (gridId, data, carStatus) {
 
     gridOptions =
               {
@@ -173,7 +173,7 @@ var gridRenderMofify = function (gridId, data) {
                   { HeaderText: "Chỉnh sửa", Width: 110, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
                   ],
                   gridId: gridId,
-                  bodyRows: decorateDataModify(data),
+                  bodyRows: decorateDataModify(data, carStatus),
                   scrollWidth: 0, //// Default is 24px
                   gridExpandHeight: 100,
                   showPager: true,
@@ -216,7 +216,9 @@ function customGrid(gridId) {
 }
 
 function reRenderAfterPaged(gridId) {    
-    customGrid(gridId);    
+    customGrid(gridId);
+    $(".col_header").css("top", 30);
+    $(".grid-container").css("top", 30);
     return false;
 }
 

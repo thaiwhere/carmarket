@@ -407,7 +407,7 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
-        public JsonResult Yours(CarSearchingYours criteria)
+        public JsonResult CarActive(CarSearchingYours criteria)
         {
             List<YourCarModel> listCars = new List<YourCarModel>();
             try
@@ -423,14 +423,14 @@ namespace CarSite.Controllers
             }
             catch (Exception ex)
             {
-                LogService.Error("Yours - " + ex.Message, ex);
+                LogService.Error("CarActive - " + ex.Message, ex);
             }
 
             return Json(listCars);
         }
 
         [HttpPost]
-        public JsonResult YoursExpired(CarSearchingYoursExpired criteria)
+        public JsonResult CarExpired(CarSearchingYoursExpired criteria)
         {
             List<YourCarModel> listCars = new List<YourCarModel>();
             try
@@ -446,7 +446,7 @@ namespace CarSite.Controllers
             }
             catch (Exception ex)
             {
-                LogService.Error("YoursExpired - " + ex.Message, ex);
+                LogService.Error("CarExpired - " + ex.Message, ex);
             }
 
             return Json(listCars);

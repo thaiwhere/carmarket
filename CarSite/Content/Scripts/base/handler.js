@@ -150,24 +150,44 @@
 
             var CarDetail = new Car.CarDetail();
             CarDetail.showSimilarPriceCarsList(carDetailId, carDetailPrice);
+        }); 
+
+        $("#car_showing").click(function () {
+            handler.inActiveTab($("#div-car-yours"));
+            $("#car_showing").addClass("tabactive");
+            $(".freegrid").hide();
+            $("#gridCarShowing").show();                        
         });
 
-        $("#your_car").click(function () {
+        $("#car_waiting").click(function () {
             handler.inActiveTab($("#div-car-yours"));
-            $("#gridYourCars").show();
-            $("#gridYourCarsExpired").hide();
-            $("#your_car").addClass("tabactive");
+            $("#car_waiting").addClass("tabactive");
+            $(".freegrid").hide();
+            $("#gridCarWaiting").show();
         });
 
-        $("#your_car_expired").click(function () {
+        $("#car_saled").click(function () {
             handler.inActiveTab($("#div-car-yours"));
-            $("#gridYourCarsExpired").show();
-            $("#gridYourCars").hide();
-            $("#your_car_expired").addClass("tabactive");
+            $("#car_saled").addClass("tabactive");
+            $(".freegrid").hide();
+            $("#gridCarSaled").show();
+        });
+      
+        $("#car_notAllow").click(function () {
+            handler.inActiveTab($("#div-car-yours"));
+            $("#car_notAllow").addClass("tabactive");
+            $(".freegrid").hide();
+            $("#gridCarNotAllow").show();
+        });
 
-            var SearchingCar = new Car.SearchingCar();            
-            SearchingCar.YoursExpired("/Car/YoursExpired", criteria);
-
+        $("#car_expired").click(function () {
+            handler.inActiveTab($("#div-car-yours"));
+            $("#car_expired").addClass("tabactive");
+            $(".freegrid").hide();
+            $("#gridCarExpired").show();
+            
+            var SearchingCar = new Car.SearchingCar();
+            SearchingCar.CarExpired("/Car/CarExpired", criteria);
         });
 
         $("#car_detail_info_basic_tab").click(function () {
