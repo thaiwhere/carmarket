@@ -32,7 +32,8 @@ namespace CarSite.Controllers
         {            
             var criteria = new CarSearchingDetalCriteria
             {
-                CarId = id
+                CarId = id,
+                UserId = HttpContext.Session["UserId"] != null ? int.Parse(HttpContext.Session["UserId"].ToString()) : 0
             };
            
             CarViewModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);

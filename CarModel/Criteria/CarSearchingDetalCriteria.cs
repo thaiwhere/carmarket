@@ -13,7 +13,9 @@ namespace Car.Model.Criteria
     /// </summary>
     public class CarSearchingDetalCriteria : CriteriaBase
     {       
-        public int CarId { get; set; }        
+        public int CarId { get; set; }
+
+        public int UserId { get; set; }
 
         /// <summary>
         /// Gets Setting Key.
