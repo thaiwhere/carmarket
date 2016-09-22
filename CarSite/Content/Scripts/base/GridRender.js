@@ -86,8 +86,9 @@ var gridRender = function (gridId, data) {
                 }
             };
     }
-    
-    $("#" + gridId).PagerGrid(gridOptions);        
+       
+    $("#" + gridId).PagerGrid(gridOptions);
+    //customGrid(gridId);
 };
 
 function decorateDataModify(cars, carStatus) {
@@ -193,7 +194,7 @@ function customGrid(gridId) {
     var gridObj = $("#" + gridId);
     gridObj.find($(".free-cell")).remove();
 
-    if (!shrinkGrid) {
+    if (!shrinkGrid) {        
         var width = gridObj.width() + 30;
         //gridObj.width(gridObj.width() + 10);
         $("#grid-pager-top").width(width);
@@ -202,13 +203,13 @@ function customGrid(gridId) {
         gridObj.find(".grid-container").width(width);
     }
     else {
-        var width = gridObj.width() - 45;
-        var width2 = width + 20;
-        gridObj.width(width);
-        $("#grid-pager-top").width(width2);
-        $("#grid-pager-bottom").width(width2);
-        $(".col_header").width(width2);
-        gridObj.find(".grid-container").width(width2);
+        var width = gridObj.width() - 20;        
+        gridObj.width(width-20);
+        $("#grid-pager-top").width(width);
+        $("#grid-pager-bottom").width(width);
+        $(".col_header").width(width);
+        gridObj.find(".grid-container").width(width);
+        gridObj.find(".content-container").width(width);        
         $(".car-info-user").css("maxWidth", 140);
     }
 
