@@ -49,6 +49,7 @@
     <Compile Include="Criteria\CarEditCriteria.cs" />
     <Compile Include="Criteria\CarBuyingInsertCriteria.cs" />
     <Compile Include="Criteria\CarSearchingByText.cs" />
+    <Compile Include="Criteria\CarBuySearchingDetailCriteria.cs" />
     <Compile Include="Criteria\CarVisitedCriteria.cs" />
     <Compile Include="Criteria\ContactCriteria.cs" />
     <Compile Include="Criteria\CarInsertCriteria.cs" />

@@ -47,6 +47,25 @@ namespace CarSite.Controllers
             }
         }
 
+        public ActionResult CarBuyDetail(int id = 0)
+        {
+            var criteria = new CarBuySearchingDetailCriteria
+            {
+                CarId = id,
+                UserId = HttpContext.Session["UserId"] != null ? int.Parse(HttpContext.Session["UserId"].ToString()) : 0
+            };
+
+            CarViewModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
+            if (carDetail != null)
+            {
+                return View("~/Views/Car/CarBuyDetail.cshtml", carDetail);
+            }
+            else
+            {
+                return View("~/Views/Car/CarNoDetail.cshtml");
+            }
+        }
+
         public ActionResult UploadFiles()
         {
             return View("~/Views/Shared/UploadFiles.cshtml");
@@ -104,8 +123,7 @@ namespace CarSite.Controllers
                 UserId = int.Parse(HttpContext.Session["UserId"].ToString())
             };
 
-            var carInfo = CarService.GetCarBuyEditInfo(criteria);
-            carInfo.Images = this.GetListImages(id);
+            var carInfo = CarService.GetCarBuyEditInfo(criteria);            
 
             if (carInfo != null)
             {

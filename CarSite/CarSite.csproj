@@ -541,6 +541,7 @@
     <Content Include="Views\Car\CarDetailInfo.cshtml" />
     <Content Include="Views\Car\CarNoDetail.cshtml" />
     <Content Include="Views\Car\CarEditNoPermission.cshtml" />
+    <Content Include="Views\Car\CarBuyDetail.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

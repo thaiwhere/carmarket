@@ -99,6 +99,11 @@ function decorateDataModify(cars, carStatus) {
         if (cars[i].Status == carStatus) {
 
             var href = "/Car/CarDetail/" + cars[i].CarId;
+            if (cars[i].IsBuy == true)
+            {
+                href = "/Car/CarBuyDetail/" + cars[i].CarId;
+            }
+
             var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
             var hrefModify = "/Car/Edit/" + cars[i].CarId;
             if (cars[i].IsBuy == 1) {
