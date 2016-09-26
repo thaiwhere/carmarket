@@ -388,7 +388,6 @@
     <Content Include="Content\scripts\lib\jquery\jquery-1.9.1.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery-ui-1.9.2.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.cookie.js" />
-    <Content Include="Content\scripts\base\SearchingHandler.js" />
     <Content Include="Content\scripts\CarDetail.js" />
     <Content Include="Content\scripts\base\GridRender.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.extensions.js" />

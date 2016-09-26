@@ -26,6 +26,37 @@
     });
 }
 
+function RedirectAfterDeleted()
+{    
+    switch (tabYourCars)
+    {
+        case "car_showing": handler.inActiveTab($("#div-car-yours"));
+                            $("#car_showing").addClass("tabactive");
+                            $(".freegrid").hide();
+                            $("#gridCarShowing").show(); break;
+                
+        case "car_waiting": handler.inActiveTab($("#div-car-yours"));
+                            $("#car_waiting").addClass("tabactive");
+                            $(".freegrid").hide();
+                            $("#gridCarWaiting").show(); break;
+
+        case "car_saled": handler.inActiveTab($("#div-car-yours"));
+                            $("#car_saled").addClass("tabactive");
+                            $(".freegrid").hide();
+                            $("#gridCarSaled").show(); break;
+
+        case "car_notAllow": handler.inActiveTab($("#div-car-yours"));
+                            $("#car_notAllow").addClass("tabactive");
+                            $(".freegrid").hide();
+                            $("#gridCarNotAllow").show(); break;
+
+        case "car_expired": handler.inActiveTab($("#div-car-yours"));
+                            $("#car_expired").addClass("tabactive");
+                            $(".freegrid").hide();
+                            $("#gridCarExpired").show(); break;
+    }
+}
+
 function SaledCar(element, carId) {
     common.ShowTitleConfirmMessage("Xe đã bán", "Bạn muốn thông báo xe đã bán?", function () {
         var criteria = { CarId: carId };

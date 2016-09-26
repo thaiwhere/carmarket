@@ -47,6 +47,8 @@ Car.SearchingCar = function () {
 
                 $(".freegrid").hide();
                 $("#gridCarShowing").show();
+
+                RedirectAfterDeleted();
             },
             error: function (xhr) {
                 common.HandleAjaxError(xhr);
