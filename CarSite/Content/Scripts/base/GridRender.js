@@ -145,7 +145,9 @@ function decorateDataModify(cars, carStatus) {
             }
 
             var edit = "<a href='" + hrefModify + "'><span class='glyphicon glyphicon-pencil'></span> Sửa</a>";
-            var remove = "<a href='javascript:void(0);' onclick='return DeleteCar(this, \"" + cars[i].CarId + "\");'><font color='#ff0000'><span class='glyphicon glyphicon-remove'></span> Xoá</font></a>";
+
+            var remove = "<a href='javascript:void(0);' onclick='return DeleteCar(this, \"" + cars[i].CarId + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-remove'></span> Xoá</font></a>";            
+
             var modify = "<div class='car-info' style='margin-left:20px' >" + saled + "<br/><br/>" + edit + "<br/><br/>" + remove + "</div>";
 
             var row = {

@@ -487,7 +487,10 @@ namespace CarSite.Controllers
 
                 if (result > 0)
                 {
-                    RemoveFolderName(criteria.CarId);
+                    if (criteria.IsBuy == false)
+                    {
+                        RemoveFolderName(criteria.CarId);
+                    }
                 }
 
             }

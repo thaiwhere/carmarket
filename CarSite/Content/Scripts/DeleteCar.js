@@ -1,6 +1,6 @@
-﻿function DeleteCar(element, carId) {
+﻿function DeleteCar(element, carId, isBuy) {
     common.ShowTitleConfirmMessage("Xoá tin", "Bạn muốn xoá tin này?", function () {
-        var criteria = { CarId: carId };
+        var criteria = { CarId: carId, IsBuy: isBuy };
 
         $.ajax({
             type: 'POST',
@@ -9,10 +9,10 @@
             url: '/Car/DeleteCar',
             data: JSON.stringify(criteria),
             success: function (result) {
-                if (result > 0) {                    
+                if (result > 0) {
                     common.ShowInfoMessage("Tin đã được xoá thành công", function () { $(":button").prop('disabled', 'disabled'); }, function () { setTimeout(function () { location.href = '/car/yours'; }, 1000) });
                 }
-                else if(result == 0){
+                else if (result == 0) {
                     common.ShowErrorMessage('Bạn không có quyền xoá tin đăng này!');
                 }
                 else {
@@ -23,7 +23,7 @@
                 common.ShowErrorMessage('Lỗi xoá tin');
             }
         });
-    });    
+    });
 }
 
 function SaledCar(element, carId) {

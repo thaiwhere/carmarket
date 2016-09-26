@@ -6,7 +6,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[get_Car_Buy_Detail]
+ALTER PROCEDURE [dbo].[get_Car_Buy_Detail]
 	 @CarId int	 ,
 	 @UserId int = 0
 AS
@@ -49,13 +49,13 @@ BEGIN
 		Convert(varchar(10), c.CreatedDate,120)  as CreatedDate,
 		ISNULL(c.CountVisit,0) as CountVisit
 	from [dbo].[CarForBuy] c with(nolock)
-	inner join [Type] t with (nolock) on t.TypeId = c.TypeId		
-	inner join Province p with(nolock) on p.ProvinceId = c.ProvinceId
-	inner join [User] u  with(nolock) on u.UserId = c.UserId
-	inner join ExteriorColor ex with (nolock) on ex.[ExteriorColorId] = c.ExteriorColorId
-	inner join InteriorColor ic with (nolock) on ic.InteriorColorId = c.InteriorColorId
-	inner join WheelDrive w with (nolock) on w.WheelDriveId = c.WheelDriveId
-	inner join Fuel with (nolock) on Fuel.FuelId = c.FuelId
+	left join [Type] t with (nolock) on t.TypeId = c.TypeId		
+	left join Province p with(nolock) on p.ProvinceId = c.ProvinceId
+	left join [User] u  with(nolock) on u.UserId = c.UserId
+	left join ExteriorColor ex with (nolock) on ex.[ExteriorColorId] = c.ExteriorColorId
+	left join InteriorColor ic with (nolock) on ic.InteriorColorId = c.InteriorColorId
+	left join WheelDrive w with (nolock) on w.WheelDriveId = c.WheelDriveId
+	left join Fuel with (nolock) on Fuel.FuelId = c.FuelId
 	Where c.CarId = @CarId and 	(@UserId > 0  OR (	c.Status = 1 and ExpiredDate >= GETDATE()) )
 	
 END
