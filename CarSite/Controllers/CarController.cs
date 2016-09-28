@@ -224,7 +224,7 @@ namespace CarSite.Controllers
 
                 var criteria = new CarInsertCriteria
                 {
-                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),                    
                     Title = carInsertEntity.Title,
                     Firm = carInsertEntity.Firm,
                     Model = carInsertEntity.Model,
@@ -327,7 +327,7 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
-        public JsonResult BuyCar(CarBuyingEntity carBuyEntity)
+        public JsonResult InsertCarBuy(CarBuyingEntity carBuyEntity)
         {
             var carBuyId = 0;
 
@@ -340,7 +340,7 @@ namespace CarSite.Controllers
 
                 var criteria = new CarBuyingInsertCriteria
                 {
-                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),                    
                     Title = carBuyEntity.Title,
                     Firm = carBuyEntity.Firm,
                     Model = carBuyEntity.Model,

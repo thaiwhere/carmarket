@@ -318,7 +318,7 @@ var AddCarHandler = {
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
-            url: "/Car/BuyCar",
+            url: "/Car/InsertCarBuy",
             data: JSON.stringify(criteria),
             success: function (result) {
 

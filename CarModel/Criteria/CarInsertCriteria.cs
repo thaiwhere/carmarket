@@ -14,6 +14,8 @@ namespace Car.Model.Criteria
     {
         public int UserId { get; set; }
 
+        public string Code { get; set; }
+
         public string Title { get; set; }
         
         public string Firm { get; set; }
