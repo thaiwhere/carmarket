@@ -45,7 +45,7 @@ BEGIN
 		Fuel.Name as Fuel,
 		c.FuelSystem,
 		w.Name as WheelDrive,
-		'M_' + convert(varchar(10), c.CarId) as Code,		
+		c.Code,		
 		Convert(varchar(10), c.CreatedDate,120)  as CreatedDate,
 		ISNULL(c.CountVisit,0) as CountVisit
 	from [dbo].[CarForBuy] c with(nolock)
