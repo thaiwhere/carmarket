@@ -2,18 +2,16 @@
 
     EditCarHandler.bindingEvents();
 
+    EditCarHandler.initData();
+    EditCarHandler.handlerElements();
+
     if (typeof (_isBuy) !== 'undefined' && _isBuy == true) {
         EditCarHandler.renderDataForBuying();
     }
     else {
         EditCarHandler.renderData();
-    }
-
-    EditCarHandler.initData();
-    EditCarHandler.handlerElements();
-
-    EditCarHandler.loadImages(_images, _carPath);
-
+        EditCarHandler.loadImages(_images, _carPath);
+    }    
 });
 
 var jqXHRData;

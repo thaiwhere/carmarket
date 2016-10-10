@@ -7,7 +7,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 ALTER PROCEDURE [dbo].[get_Car_Buy_Edit_Info]
-	 @CarId int	 
+	 @CarId int	 ,
+	 @UserId int
 AS
 
 /*
@@ -49,6 +50,6 @@ BEGIN
 		Convert(varchar(10), c.CreatedDate,120)  as CreatedDate
 	from [dbo].[CarForBuy] c with(nolock)		
 	inner join [User] u  with(nolock) on u.UserId = c.UserId		
-	Where c.CarId = @CarId
+	Where c.CarId = @CarId and c.UserId = @UserId
 	
 END

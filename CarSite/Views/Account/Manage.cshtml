@@ -7,18 +7,17 @@
     ViewBag.Title = "Thay đổi thông tin";
 }
 
-<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
-<br />
-
 @section Styles{
 
     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />
 }
 
-<h4><span style="margin-left:20px;font-style:italic;">Bạn đang đăng nhập với <strong>@User.Identity.GetUserName()</strong></span></h4>
-
+<h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
 <hr />
+
+<h4><span class="title-des">Bạn đang đăng nhập với <strong>@User.Identity.GetUserName()</strong>.</span></h4>
+<br />
 
 <div class="row">
     <div class="col-md-12">
@@ -29,7 +28,7 @@
                 @Html.Partial("_ChangePasswordPartial")
 
                 <div class="form-group">
-                    <label for="Tel" class="col-sm-4 control-label">Số điện thoại </label>
+                    <label for="Tel" class="col-sm-5 control-label">Số điện thoại </label>
                     <div class="col-sm-7">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-phone fa-fw"></i></span>
@@ -39,7 +38,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="Email" class="col-sm-4 control-label">Email</label>
+                    <label for="Email" class="col-sm-5 control-label">Email</label>
                     <div class="col-sm-7">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
@@ -50,7 +49,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="Address" class="col-sm-4 control-label">Địa chỉ</label>
+                    <label for="Address" class="col-sm-5 control-label">Địa chỉ</label>
                     <div class="col-sm-7">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-inbox fa-fw"></i></span>
@@ -60,7 +59,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <div class="col-sm-4"></div>
+                    <div class="col-sm-5"></div>
                     <div class="col-sm-5">
                         <button type="submit" class="btn btn-primary btn-lg">Cập nhật</button>
                     </div>

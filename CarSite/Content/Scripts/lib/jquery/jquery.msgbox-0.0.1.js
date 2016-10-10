@@ -1,4 +1,4 @@
-/*
+﻿/*
 * msgBox - jQuery Plugin
 * msgBox is a jQuery plugin that makes managing notifications easier than ever
 *
@@ -52,10 +52,10 @@
                 // HTML templates
                 tpl: {
                     closeBtn: '<a href="javascript:;" class="msgbox-close"></a>',
-                    okBtn: '<a href="javascript:;" class="msgbox-btn ok">OK</a>',
-                    cancelBtn: '<a href="javascript:;" class="msgbox-btn cancel">Cancel</a>',
-                    yesBtn: '<a href="javascript:;" class="msgbox-btn yes">Yes</a>',
-                    noBtn: '<a href="javascript:;" class="msgbox-btn no">No</a>',
+                    okBtn: '<a href="javascript:;" class="msgbox-btn ok">Đồng ý</a>',
+                    cancelBtn: '<a href="javascript:;" class="msgbox-btn cancel">Bỏ qua</a>',
+                    yesBtn: '<a href="javascript:;" class="msgbox-btn yes">Có</a>',
+                    noBtn: '<a href="javascript:;" class="msgbox-btn no">Không</a>',
                     textbox: '<input type="text" class="msgbox-txt" />'
                 },
 
@@ -261,6 +261,31 @@
             var _this = this,
                 $this = _this.target,
                 header = $('<div class="msgbox-header">Confirmation</div>'),
+                cmdBtns = '<div class="msgbox-btn-wrap">' + _this.options.tpl.okBtn + ' ' + _this.options.tpl.cancelBtn + '</div>';
+
+            _this.show(msg, $.extend(options, { type: 'confirm' }));
+            _this.target.append(cmdBtns);
+
+            if (options.header) {
+                $(_this.options.tpl.closeBtn).appendTo(header).click(function () { _this.close(); });
+                _this.target.prepend(header);
+            }
+
+            clearTimeout(_this.timeout);
+
+            $this.find('.ok').click(function () {
+                _this.close();
+                if ($.isFunction(callback)) callback.apply($this.get(0), []);
+            }).focus();
+
+            $this.find('.cancel').click(function () { _this.close(); });
+        },
+
+        titleConfirm: function (title, msg, callback, options) {
+            this.checkDomExistence();
+            var _this = this,
+                $this = _this.target,
+                header = $('<div class="msgbox-header">' + title + '</div>'),
                 cmdBtns = '<div class="msgbox-btn-wrap">' + _this.options.tpl.okBtn + ' ' + _this.options.tpl.cancelBtn + '</div>';
 
             _this.show(msg, $.extend(options, { type: 'confirm' }));

@@ -39,3 +39,33 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.title{
+    font-family: 'OswaldVNF',Tahoma;
+    color:#1260ab;           
+}
+
+.title-des{
+    margin-left:20px;
+    font-style:italic;
+    color:#1260ab;
+}
+
+hr{    
+    background-color: #1260ab !important;
+    height:1px !important;
+}
+
+.form-horizontal .control-label{
+    /*color:#1260ab;*/
+}
+
+.grid-container a{
+    color:#1260ab !important;
+    font-size:15px;
+}
+
+label{      
+    color:rgb(34, 34, 34);
+    font:14px/30px "Open Sans";    
+}

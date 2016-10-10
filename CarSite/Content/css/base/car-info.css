@@ -80,12 +80,21 @@
 .car-detail-section.info span{        
     float: left;    
     padding: .2em .6em .3em;    
-    text-align: left;    
+    text-align: left;   
+    color:rgb(34, 34, 34);
+    font:14px/30px "Open Sans";     
 }
 
 .car-detail-section.title{
     margin:5px 0px;
     line-height: 30px;
+    font-size:15px;
+}
+
+.car-detail-section.desc{
+    margin:5px 0px;
+    line-height: 30px;
+    font-size:14px;
 }
 
 .car-detail-section img {
@@ -142,10 +151,10 @@
 }
 .car-price{
     float: left;
-    width: 100px;
+    width: 120px;
     height: 30px;
     text-align: left;
-    color: chocolate;
+    color: #eee;
     background-color: #4db748;
     font: bold 14px/23px 'Arial';    
     border-radius: 3px;
@@ -173,6 +182,15 @@
      padding-left: 10px;
      white-space: nowrap;
    
+}
+
+.car-contact-code{
+    float: none;    
+    font-style: italic;
+    color:#ff0068;
+    margin-top:15px;
+    width: 100%;
+    font-weight:bold
 }
 
 .car-contact-date{
@@ -251,8 +269,7 @@
 .car-label-detail{
     padding: 0.2em .2em .2em .2em;
     font-weight:bold;    
-    float:left;
-    /*color:#0035FF;*/
+    float:left;    
 }
 
 #div_car_detail_similar{

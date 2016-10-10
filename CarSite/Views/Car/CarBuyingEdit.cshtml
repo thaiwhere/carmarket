@@ -5,8 +5,7 @@
     ViewBag.Title = "Sửa tin mua xe";    
 }
 
-<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
-
+<h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
 
 @Html.AntiForgeryToken()
 
@@ -14,7 +13,7 @@
 
 <hr />
 
-<div id="divCarEdit">
+<div id="divCarEdit" class="uploadCar">
 
     <div class="form-horizontal car-insert-description">
         @Html.LabelFor(model => model.Title, new { @class = "control-label" })

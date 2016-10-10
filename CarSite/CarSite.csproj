@@ -388,7 +388,6 @@
     <Content Include="Content\scripts\lib\jquery\jquery-1.9.1.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery-ui-1.9.2.min.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.cookie.js" />
-    <Content Include="Content\scripts\base\SearchingHandler.js" />
     <Content Include="Content\scripts\CarDetail.js" />
     <Content Include="Content\scripts\base\GridRender.js" />
     <Content Include="Content\scripts\lib\jquery\jquery.extensions.js" />
@@ -539,6 +538,9 @@
     <Content Include="Views\Shared\Slider.cshtml" />
     <Content Include="Views\Shared\DeviceId.cshtml" />
     <Content Include="Views\Car\CarDetailInfo.cshtml" />
+    <Content Include="Views\Car\CarNoDetail.cshtml" />
+    <Content Include="Views\Car\CarEditNoPermission.cshtml" />
+    <Content Include="Views\Car\CarBuyDetail.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

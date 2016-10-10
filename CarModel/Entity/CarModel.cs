@@ -30,6 +30,8 @@ namespace Car.Model.Entity
         public string Fuel { get; set; }//Hệ thống nhiên liệu             
 
         public short IsBuy { get; set; }
+
+        public byte Status { get; set; }
     }
      
 }

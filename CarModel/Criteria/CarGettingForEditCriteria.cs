@@ -13,6 +13,8 @@ namespace Car.Model.Criteria
     public class CarGettingForEditCriteria : CriteriaBase
     {       
         public int CarId { get; set; }
+
+        public int UserId { get; set; }
       
         /// <summary>
         /// Gets Setting Key.

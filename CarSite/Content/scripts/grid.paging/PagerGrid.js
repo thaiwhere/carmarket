@@ -68,7 +68,7 @@
                 opts.pagerOption = Pager.Grid.List[PagerGrid.tableContentId].pagerOption;
                 Pager.Grid.Helper.UpdateSortInforAfterShowHideColumns(opts, Pager.Grid.List[PagerGrid.tableContentId].sortOption);
                 //PagerGrid.RenderGrid();
-                PagerGrid.RenderShowHideColumns(false);
+                //PagerGrid.RenderShowHideColumns(false);
                 return PagerGrid.GetjQueryInstance();
             });
         },
@@ -298,7 +298,8 @@
             }
 
 
-            html += me.RenderBody(me.RenderHeader()) + footer;
+            //html += me.RenderBody(me.RenderHeader()) + footer;
+            html += me.RenderBody('') + footer;
             if (me.gridObject) {
                 me.gridObject.innerHTML = html;
             }
@@ -1363,6 +1364,12 @@
                     return;
                 }
 
+                if (options.customGrid && options.customGrid === true) {
+                    if (options.pagerOption.customSelectCallBack !== undefined) {
+                        options.pagerOption.customSelectCallBack(options.gridId);
+                    }
+                }
+                
                 if (options.customPager && options.customPager === true) {
                     pagerOption =
                     {

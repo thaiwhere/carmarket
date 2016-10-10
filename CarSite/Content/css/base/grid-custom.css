@@ -12,27 +12,36 @@
 }
 
 #grid-pager-bottom{
-    top:1770px !important;
+    top:1840px  !important;
 }
 
 #gridCarSimilarModel, #gridCarSimilarPrice{
     margin-top:-5px;
-    height:1800px !important;
+    height:1820px !important;
 }
 
-#gridYourCars, #gridYourCarsExpired{
+.grid-container .freegrid{
     margin-top:-5px;
-    height:1800px !important;
+    height:1870px !important;
 }
 
-#gridSearchingCar{
-    /*margin-left:0px;
-    width:766px !important;
-    height:1860px !important;*/
-    height:1800px !important;
-}
+/*#gridSearchingCar{
+    
+    height:1820px !important;
+}*/
 
 /*.grid-container
 {
     height:1805px !important;
 }*/
+
+.freegrid .grid-container table thead th
+{
+    background: #3c5ea5;
+    background: -moz-linear-gradient(#3c5ea5, #3c5ea5) #3c5ea5;
+    background: -webkit-linear-gradient(#3c5ea5, #3c5ea5) #3c5ea5;
+    color: #fff;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}

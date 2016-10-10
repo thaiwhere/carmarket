@@ -5,16 +5,14 @@
     ViewBag.Title = "Sửa tin bán xe";    
 }
 
-<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
-
+<h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
+<hr />
 
 @Html.AntiForgeryToken()
 
 @Html.ValidationSummary(true)
 
-<hr />
-
-<div id="divCarEdit">
+<div id="divCarEdit" class="uploadCar">
 
     <div class="form-horizontal car-insert-description">
         @Html.LabelFor(model => model.Title, new { @class = "control-label" })

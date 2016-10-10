@@ -48,6 +48,9 @@ Car.CarDetail = function () {
         $("#gridCarSimilarPrice").hide();
         
         handler.showResultSearching();
+
+        $("#car_detail_price").html(common.ShowVietnameseCurrency(carDetailPrice));
+
         $this.showSimilarModelCarsList(carDetailId, carDetailModel);
     };    
 }

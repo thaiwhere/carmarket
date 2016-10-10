@@ -59,6 +59,8 @@ namespace Car.Model.Entity
         
         public string Address { get; set; }
 
+        public string Code { get; set; }
+
         public string CreatedDate { get; set; }
 
         public int CountVisit { get; set; }

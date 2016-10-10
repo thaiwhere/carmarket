@@ -5,25 +5,24 @@
     ViewBag.Title = "Đăng tin bán xe";
 }
 
-<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
-
+<h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
+<hr />
+<br />
 
 @Html.AntiForgeryToken()
 
 @Html.ValidationSummary(true)
 
-<hr />
+<div id="divCarInsert" class="uploadCar">
 
-<div id="divCarInsert">
-
-    <div class="form-horizontal car-insert-description">        
+    <div class="form-horizontal car-insert-description">
         @Html.LabelFor(model => model.Title, new { @class = "control-label" })
         @Html.EditorFor(model => model.Title)
         @Html.ValidationMessageFor(model => model.Title)
     </div>
 
     <div class="form-horizontal car-insert">
-      
+
         <div class="form-group">
             @Html.LabelFor(model => model.Firm, new { @class = "control-label col-md-4" })
             <div class="col-md-8">
@@ -163,7 +162,7 @@
                 @Html.EditorFor(model => model.CurrencyVN)
                 @Html.ValidationMessageFor(model => model.CurrencyVN)
 
-                <input type="text" id="carInsert_select_CurrencyVN" maxlength="5" >
+                <input type="text" id="carInsert_select_CurrencyVN" maxlength="5">
             </div>
         </div>
 
@@ -283,21 +282,19 @@
         </div>
     </div>
 
-    <div class="images">
-        @{ Html.RenderPartial("~/Views/Shared/UploadFiles.cshtml", null); }
+    <div style="margin-left:10px;">
+        <div class="images">
+            @{ Html.RenderPartial("~/Views/Shared/UploadFiles.cshtml", null); }
+        </div>
+
+        <br />
+
+        <button type="submit" id="uploadCar" class="btn btn-primary btn-lg">Đăng tin</button>
+        <br />
+        <br />
+        @Html.ActionLink("Trở về trang chủ", "Home/Index")
     </div>
-
-    <br />
-    
-    <button type="submit" id="uploadCar" class="btn btn-primary btn-lg">Đăng tin</button>
-
-</div>
-
-
-<div>
-    <br />
-    <br />
-    @Html.ActionLink("Trở về trang chủ", "Home/Index")
+   
 </div>
 
 @section Scripts

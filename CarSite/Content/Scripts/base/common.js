@@ -64,7 +64,19 @@
 
         callbackFunc = callbackFunc || function () { };
         domElements.divMsgBox.confirm(message, callbackFunc, options);
-    };  
+    };
+
+    $this.ShowTitleConfirmMessage = function (title, message, callbackFunc) {
+        var options = {
+            modal: true,
+            closeBtn: false,
+            header: true,
+            css: 'custom-confirm'
+        };
+
+        callbackFunc = callbackFunc || function () { };
+        domElements.divMsgBox.titleConfirm(title, message, callbackFunc, options);
+    };
 
     $this.ShowYesNoConfirmMessage = function (title, message, yesCallback, noCallback) {
         var options = {
@@ -239,6 +251,20 @@
 
     $this.FormatNumber = function (num) {
         return parseFloat(num).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+    };
+
+    $this.ShowVietnameseCurrency = function (number) {
+        var currency = number.toString();        
+        var length = currency.length;
+
+        if(length <=3)
+        {
+            return currency + " Triệu";
+        }
+        else {
+            var index = length - 3;
+            return currency.substring(0, index) + " Tỷ, " + currency.substring(index) + " Triệu";
+        }
     };
 
     $this.PreventChars = function (e) {

@@ -150,24 +150,51 @@
 
             var CarDetail = new Car.CarDetail();
             CarDetail.showSimilarPriceCarsList(carDetailId, carDetailPrice);
+        }); 
+
+        $("#car_showing").click(function () {
+            handler.inActiveTab($("#div-car-yours"));
+            $("#car_showing").addClass("tabactive");
+            $(".freegrid").hide();
+            $("#gridCarShowing").show();
+            $.cookie("tabYourCars", "car_showing", { path: '/' });            
         });
 
-        $("#your_car").click(function () {
+        $("#car_waiting").click(function () {
             handler.inActiveTab($("#div-car-yours"));
-            $("#gridYourCars").show();
-            $("#gridYourCarsExpired").hide();
-            $("#your_car").addClass("tabactive");
+            $("#car_waiting").addClass("tabactive");
+            $(".freegrid").hide();
+            $("#gridCarWaiting").show();
+            $.cookie("tabYourCars", "car_waiting", { path: '/' });            
         });
 
-        $("#your_car_expired").click(function () {
+        $("#car_saled").click(function () {
             handler.inActiveTab($("#div-car-yours"));
-            $("#gridYourCarsExpired").show();
-            $("#gridYourCars").hide();
-            $("#your_car_expired").addClass("tabactive");
+            $("#car_saled").addClass("tabactive");
+            $(".freegrid").hide();
+            $("#gridCarSaled").show();
+            $.cookie("tabYourCars", "car_saled", { path: '/' });            
+        });
+      
+        $("#car_notAllow").click(function () {
+            handler.inActiveTab($("#div-car-yours"));
+            $("#car_notAllow").addClass("tabactive");
+            $(".freegrid").hide();
+            $("#gridCarNotAllow").show();
+            $.cookie("tabYourCars", "car_notAllow", { path: '/' });            
+        });
 
-            var SearchingCar = new Car.SearchingCar();            
-            SearchingCar.YoursExpired("/Car/YoursExpired", criteria);
+        $("#car_expired").click(function () {
+            handler.inActiveTab($("#div-car-yours"));
+            $("#car_expired").addClass("tabactive");
+            $(".freegrid").hide();
+            $("#gridCarExpired").show();
+            $.cookie("tabYourCars", "car_expired", { path: '/' });
 
+            
+            
+            var SearchingCar = new Car.SearchingCar();
+            SearchingCar.CarExpired("/Car/CarExpired", criteria);
         });
 
         $("#car_detail_info_basic_tab").click(function () {

@@ -28,15 +28,42 @@ namespace CarSite.Controllers
             return View("~/Views/Car/SearchingCar.cshtml", criteria);
         }
         
-        public ActionResult CarDetail(int id = 1)
+        public ActionResult CarDetail(int id = 0)
         {            
             var criteria = new CarSearchingDetalCriteria
             {
-                CarId = id
+                CarId = id,
+                UserId = HttpContext.Session["UserId"] != null ? int.Parse(HttpContext.Session["UserId"].ToString()) : 0
             };
            
             CarViewModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
-            return View("~/Views/Car/CarDetail.cshtml", carDetail);
+            if (carDetail != null)
+            {
+                return View("~/Views/Car/CarDetail.cshtml", carDetail);
+            }
+            else
+            {
+                return View("~/Views/Car/CarNoDetail.cshtml");
+            }
+        }
+
+        public ActionResult CarBuyDetail(int id = 0)
+        {
+            var criteria = new CarBuySearchingDetailCriteria
+            {
+                CarId = id,
+                UserId = HttpContext.Session["UserId"] != null ? int.Parse(HttpContext.Session["UserId"].ToString()) : 0
+            };
+           
+            CarViewModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
+            if (carDetail != null)
+            {
+                return View("~/Views/Car/CarBuyDetail.cshtml", carDetail);
+            }
+            else
+            {
+                return View("~/Views/Car/CarNoDetail.cshtml");
+            }
         }
 
         public ActionResult UploadFiles()
@@ -56,7 +83,7 @@ namespace CarSite.Controllers
         }
 
         [Authorize]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
             if (HttpContext.Session["UserId"] == null)
             {
@@ -65,17 +92,25 @@ namespace CarSite.Controllers
 
             var criteria = new CarGettingForEditCriteria
             {
-                CarId = id
+                CarId = id,
+                UserId = int.Parse(HttpContext.Session["UserId"].ToString())
             };
 
-            var carInfo = CarService.GetCarEditInfo(criteria);
-            carInfo.Images = this.GetListImages(id);
+            var carInfo = CarService.GetCarEditInfo(criteria);            
 
-            return View("~/Views/Car/CarEdit.cshtml", carInfo);
+            if (carInfo != null)
+            {
+                carInfo.Images = this.GetListImages(id);
+                return View("~/Views/Car/CarEdit.cshtml", carInfo);
+            }
+            else
+            {
+                return View("~/Views/Car/CarEditNoPermission.cshtml");
+            }
         }
 
         [Authorize]
-        public ActionResult EditCarBuying(int id)
+        public ActionResult EditCarBuying(int id = 0)
         {
             if (HttpContext.Session["UserId"] == null)
             {
@@ -84,13 +119,20 @@ namespace CarSite.Controllers
 
             var criteria = new CarBuyingGettingForEditCriteria
             {
-                CarId = id
+                CarId = id,
+                UserId = int.Parse(HttpContext.Session["UserId"].ToString())
             };
 
-            var carInfo = CarService.GetCarBuyEditInfo(criteria);
-            carInfo.Images = this.GetListImages(id);
+            var carInfo = CarService.GetCarBuyEditInfo(criteria);            
 
-            return View("~/Views/Car/CarBuyingEdit.cshtml", carInfo);
+            if (carInfo != null)
+            {
+                return View("~/Views/Car/CarBuyingEdit.cshtml", carInfo);
+            }
+            else
+            {
+                return View("~/Views/Car/CarNoDetail.cshtml");
+            }
         }
 
         [Authorize]
@@ -122,49 +164,49 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult SearchingCars(CarSearchingCriteria criteria)
         {            
-            var listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            var listCars = CarService.SearchingCars<CarModel>(criteria).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsByFirmModelProvince(CarSearchingFirmModelCriteria criteria)
         {
-            var listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            var listCars = CarService.SearchingCars < CarModel>(criteria).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsForYou(CarSearchingForYouCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars <CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsNewOld(CarSearchingNewOldCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsImportDomestic(CarSearchingImportDomesticCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars <CarModel>(criteria).ToList<CarModel>();
             return Json(listCars);
         }        
                 
         [HttpPost]
         public JsonResult SearchingCarsSimilarModel(CarSearchingSimilarModelCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsSimilarPrice(CarSearchingSimilarPriceCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
@@ -182,7 +224,7 @@ namespace CarSite.Controllers
 
                 var criteria = new CarInsertCriteria
                 {
-                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),                    
                     Title = carInsertEntity.Title,
                     Firm = carInsertEntity.Firm,
                     Model = carInsertEntity.Model,
@@ -285,7 +327,7 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
-        public JsonResult BuyCar(CarBuyingEntity carBuyEntity)
+        public JsonResult InsertCarBuy(CarBuyingEntity carBuyEntity)
         {
             var carBuyId = 0;
 
@@ -298,7 +340,7 @@ namespace CarSite.Controllers
 
                 var criteria = new CarBuyingInsertCriteria
                 {
-                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),                    
                     Title = carBuyEntity.Title,
                     Firm = carBuyEntity.Firm,
                     Model = carBuyEntity.Model,
@@ -384,9 +426,9 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
-        public JsonResult Yours(CarSearchingYours criteria)
+        public JsonResult CarActive(CarSearchingYours criteria)
         {
-            List<CarModel> listCars = new List<CarModel>();
+            List<YourCarModel> listCars = new List<YourCarModel>();
             try
             {
                 if (HttpContext.Session["UserId"] == null)
@@ -396,20 +438,20 @@ namespace CarSite.Controllers
 
                 criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
 
-                listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+                listCars = CarService.SearchingCars <YourCarModel>(criteria, AppSettings.IsGetFromCache).ToList<YourCarModel>();
             }
             catch (Exception ex)
             {
-                LogService.Error("Yours - " + ex.Message, ex);
+                LogService.Error("CarActive - " + ex.Message, ex);
             }
 
             return Json(listCars);
         }
 
         [HttpPost]
-        public JsonResult YoursExpired(CarSearchingYoursExpired criteria)
+        public JsonResult CarExpired(CarSearchingYoursExpired criteria)
         {
-            List<CarModel> listCars = new List<CarModel>();
+            List<YourCarModel> listCars = new List<YourCarModel>();
             try
             {
                 if (HttpContext.Session["UserId"] == null)
@@ -419,11 +461,11 @@ namespace CarSite.Controllers
 
                 criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
 
-                listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+                listCars = CarService.SearchingCars<YourCarModel>(criteria, AppSettings.IsGetFromCache).ToList<YourCarModel>();
             }
             catch (Exception ex)
             {
-                LogService.Error("YoursExpired - " + ex.Message, ex);
+                LogService.Error("CarExpired - " + ex.Message, ex);
             }
 
             return Json(listCars);
@@ -432,7 +474,7 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult DeleteCar(CarDeleteCriteria criteria)
         {
-            var carId = 0;
+            var result = 0;
             try
             {
                 if (HttpContext.Session["UserId"] == null)
@@ -440,11 +482,15 @@ namespace CarSite.Controllers
                     return Json(-1);
                 }
 
-                carId = CarService.DeleteCar(criteria);
+                criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
+                result = CarService.DeleteCar(criteria);
 
-                if (carId > 0)
+                if (result > 0)
                 {
-                    RemoveFolderName(carId);
+                    if (criteria.IsBuy == false)
+                    {
+                        RemoveFolderName(criteria.CarId);
+                    }
                 }
 
             }
@@ -453,7 +499,29 @@ namespace CarSite.Controllers
                 LogService.Error("DeleteCar - " + ex.Message, ex);
             }
 
-            return Json(carId);
+            return Json(result);
+        }
+
+        [HttpPost]
+        public JsonResult SaledCar(CarSaledCriteria criteria)
+        {
+            var result = 0;
+            try
+            {
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
+                result = CarService.SaledCar(criteria);                
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("SaledCar - " + ex.Message, ex);
+            }
+
+            return Json(result);
         }
 
         public JsonResult SearchingCarsByText(string text)
@@ -462,7 +530,7 @@ namespace CarSite.Controllers
             try
             {
                 var criteria = new CarSearchingByText { Text = text };
-                listCars = CarService.SearchingCars(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+                listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             }
             catch (Exception ex)
             {

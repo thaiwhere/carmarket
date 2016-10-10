@@ -5,8 +5,7 @@
     ViewBag.Title = "Đăng tin mua xe";
 }
 
-<h2>&nbsp;&nbsp;@ViewBag.Title</h2>
-
+<h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
 
 @Html.AntiForgeryToken()
 
@@ -14,7 +13,7 @@
 
 <hr />
 
-<div id="divCarInsert">
+<div id="divCarInsert" class="uploadCar">
 
     <div class="form-horizontal car-insert-description">
         @Html.LabelFor(model => model.Title, new { @class = "control-label" })
@@ -163,8 +162,8 @@
             <div class="col-md-8">
                 @Html.EditorFor(model => model.PriceFromVN)
                 @Html.ValidationMessageFor(model => model.PriceFromVN)
-                
-                <div style="float:left">                    
+
+                <div style="float:left">
                     <select id="select_price_from">
                         <option value="0" selected>Từ giá</option>
                         <option value="100">100 Triệu</option>
@@ -187,7 +186,7 @@
 
                 @Html.EditorFor(model => model.PriceToVN)
                 @Html.ValidationMessageFor(model => model.PriceToVN)
-                
+
                 <div style="float:left">
                     <label>&nbsp;&nbsp;---></label>
                     <select id="select_price_to">
@@ -317,23 +316,20 @@
             @Html.TextAreaFor(model => model.Description, new { cols = 25, row = 10 })
             @Html.ValidationMessageFor(model => model.Description)
         </div>
-    </div>  
+    </div>
 
-    <br />
+    <div style="margin-left:10px;">
+        <br />
+        <button type="submit" id="buyCar" class="btn btn-primary btn-lg">Đăng tin</button>
+        <br />
+        <br />
+        @Html.ActionLink("Trở về trang chủ", "Home/Index")
+    </div>
 
-    <input type="submit" id="buyCar" value="Đăng tin" class="buttonUpload" />
-
-</div>
-
-
-<div>
-    <br />
-    <br />
-    @Html.ActionLink("Trở về trang chủ", "Home/Index")
 </div>
 
 @section Scripts
-{    
+{
     <script>
         var _isBuy = true;
         handler.showResultSearching();

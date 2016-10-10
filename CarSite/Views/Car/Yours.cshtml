@@ -7,25 +7,39 @@
 
 }
 
-<h2>Tin đăng cuả bạn</h2>
+<h2 class="title">@ViewBag.Title</h2>
 
+<div style="float:left;margin-left:220px;font-weight:bold"><a href="/car/insert">+ Đăng tin bán xe</a></div>
+<div style="float:left;margin-left:20px;font-weight:bold"><a href="/car/buy">+ Đăng tin mua xe</a></div>
+
+<div style="float:right"><a href="/account/manage">Thay đổi thông tin</a></div>
+<div style="float:right"><a href="/account/changepass">Hộp thư</a>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+
+<br />
+<hr />
 
 <div id="div-car-yours" class="div-car-tab">
     <ul class="ul-car-tab">
-        <li id="your_car" class="tabactive"><a href="javascript:void(null);" title="Các xe khác cùng model">Tin còn hiệu lực</a></li>
-        <li id="your_car_expired" class=""><a href="javascript:void(null);" title="Các xe khác có mức giá xấp xỉ (± 10%)">Tin hết hạn</a></li>
+        <li id="car_showing" class="tabactive"><a href="javascript:void(null);" title="Tin đang đăng">Tin đang đăng</a></li>
+        <li id="car_waiting" class=""><a href="javascript:void(null);" title="Tin chờ duyệt">Tin chờ duyệt</a></li>
+        <li id="car_saled" class=""><a href="javascript:void(null);" title="Xe đã bán">Xe đã bán</a></li>                           
+        <li id="car_notAllow" class=""><a href="javascript:void(null);" title="Tin không duyệt">Tin không duyệt</a></li>        
+        <li id="car_expired" class=""><a href="javascript:void(null);" title="Tin hết hạn">Tin hết hạn</a></li>     
     </ul>
 </div>
 
 <div class="grid-container">
-    <div id="gridYourCars" class="freegrid"></div>
-    <div id="gridYourCarsExpired" class="freegrid"></div>
+    <div id="gridCarShowing" class="freegrid"></div>
+    <div id="gridCarWaiting" class="freegrid"></div>
+    <div id="gridCarSaled" class="freegrid"></div>  
+    <div id="gridCarNotAllow" class="freegrid"></div>      
+    <div id="gridCarExpired" class="freegrid"></div>    
 </div>           
 
 @section Scripts
-{        
-    <script src="~/Content/scripts/SearchingCar.js"></script>
-    <script src="~/Content/scripts/DeleteCar.js"></script>
+{   
+    <script src="~/Content/scripts/DeleteCar.js"></script>        
+    <script src="~/Content/scripts/SearchingCar.js"></script>     
     
     <script>        
 
@@ -37,9 +51,7 @@
         };
 
         var SearchingCar = new Car.SearchingCar();
-        SearchingCar.Yours("/Car/Yours", criteria);        
-
-        $("#gridYourCarsExpired").hide();
+        SearchingCar.CarActive("/Car/CarActive", criteria);        
        
     </script>
 

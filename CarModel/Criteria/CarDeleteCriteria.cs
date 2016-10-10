@@ -12,7 +12,13 @@ namespace Car.Model.Criteria
     /// </summary>
     public class CarDeleteCriteria : CriteriaBase
     {
-        public int CarId { get; set; }               
+        public int CarId { get; set; }
+
+        public int UserId { get; set; }
+
+        public bool IsBuy { get; set; }
+
+        public bool Result { get; set; }
 
         /// <summary>
         /// Gets Setting Key.

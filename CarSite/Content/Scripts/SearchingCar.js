@@ -31,13 +31,47 @@ Car.SearchingCar = function () {
         getListCar("gridSearchingCar", searchingUrl, criteria, callback);
     }
 
-    $this.Yours = function (searchingUrl, criteria) {
-        var callback = gridRenderMofify;
-        getListCar("gridYourCars", searchingUrl, criteria, callback);
+    $this.CarActive = function (searchingUrl, criteria) {
+        
+        $.ajax({
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            url: searchingUrl,
+            data: JSON.stringify(criteria),
+            success: function (result) {
+                gridRenderMofify("gridCarShowing", result, 1);
+                gridRenderMofify("gridCarWaiting", result, 0);
+                gridRenderMofify("gridCarSaled", result, 2);
+                gridRenderMofify("gridCarNotAllow", result, 3);
+
+                $(".freegrid").hide();
+                $("#gridCarShowing").show();
+
+                RedirectAfterDeleted();
+            },
+            error: function (xhr) {
+                common.HandleAjaxError(xhr);
+            }
+        });
     }
 
-    $this.YoursExpired = function (searchingUrl, criteria) {
-        var callback = gridRenderMofify;
-        getListCar("gridYourCarsExpired", searchingUrl, criteria, callback);
+    $this.CarExpired = function (searchingUrl, criteria) {
+        //var callback = gridRenderMofify;
+        //getListCar("gridCarExpired", searchingUrl, criteria, callback);
+
+        $.ajax({
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            url: searchingUrl,
+            data: JSON.stringify(criteria),
+            success: function (result) {
+                gridRenderMofify("gridCarExpired", result, 4);
+            },
+            error: function (xhr) {
+                common.HandleAjaxError(xhr);
+            }
+        });
     }
 }

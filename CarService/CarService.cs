@@ -13,12 +13,12 @@ namespace Car.Service
     /// </summary>
     public static class CarService
     {
-        public static IEnumerable<CarModel> SearchingCars(CriteriaBase criteria, bool isGetFromCache = false)
+        public static IEnumerable<T> SearchingCars<T>(CriteriaBase criteria, bool isGetFromCache = false)
         {
             var carId = string.Empty;
             var cacheKey = string.Empty;
             ICache cache = null;            
-            IEnumerable<CarModel> cars = null;
+            IEnumerable<T> cars = null;
                         
             try
             {
@@ -32,14 +32,14 @@ namespace Car.Service
                 {
                     cache = CacheManager.GetInstance();
                     cacheKey = criteria.GetSettingKey() + carId;
-                    cars = cache.GetCache<IEnumerable<CarModel>>(cacheKey);
+                    cars = cache.GetCache<IEnumerable<T>>(cacheKey);
                 }
 
                 if (cars == null)
                 {
                     using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
                     {                        
-                        cars = obj.Query<CarModel>(param);
+                        cars = obj.Query<T>(param);
 
                         if (isGetFromCache && cache != null)
                         {
@@ -48,12 +48,12 @@ namespace Car.Service
                     }
                 }
 
-                return cars;
+                return cars ?? new List<T>();
             }
             catch (Exception ex)
             {                
                 LogService.Error("SearchingCars - " + ex.Message, ex);
-                return new List<CarModel>();
+                return new List<T>();
             }            
         }
 
@@ -169,9 +169,35 @@ namespace Car.Service
                 var param = criteria.GetSpParams();
                 obj.ExecuteNonQuery(param);
 
-                var carId = obj.GetParameterValue("carid");
+                var result = obj.GetParameterValue("result");
 
-                return (carId is DBNull) ? 0 : Convert.ToInt32(carId);
+                return (result is DBNull) ? 0 : Convert.ToInt32(result);
+            }
+        }
+
+        public static int SaledCar(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                obj.ExecuteNonQuery(param);
+
+                var result = obj.GetParameterValue("result");
+
+                return (result is DBNull) ? 0 : Convert.ToInt32(result);
+            }
+        }
+
+        public static long VisitCar(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                obj.ExecuteNonQuery(param);
+
+                var countVisit = obj.GetParameterValue("countvisit");
+
+                return (countVisit is DBNull) ? 0 : Convert.ToInt64(countVisit);
             }
         }
 

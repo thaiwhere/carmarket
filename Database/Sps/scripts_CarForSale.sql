@@ -1,5 +1,7 @@
 USE [CARWEB]
 GO
 
-ALTER TABLE [dbo].[CarForSale]
-	ADD CountVisit bigint
+	
+	UPdate [dbo].[CarForSale]	
+	set code = 'B' + cast(Carid as varchar) + '@' + Model
+
