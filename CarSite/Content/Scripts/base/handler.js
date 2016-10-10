@@ -165,8 +165,7 @@
             $("#car_waiting").addClass("tabactive");
             $(".freegrid").hide();
             $("#gridCarWaiting").show();
-            $.cookie("tabYourCars", "car_waiting", { path: '/' });
-            alert($.cookie("tabYourCars"));
+            $.cookie("tabYourCars", "car_waiting", { path: '/' });            
         });
 
         $("#car_saled").click(function () {
