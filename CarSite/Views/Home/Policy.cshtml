@@ -5,27 +5,10 @@
 
 <h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
 
-@section Styles{
-
-    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />
-}
-
-
 @{ Html.RenderPartial("~/Views/Home/Company.cshtml", null); }
 
 <div style="padding-left:20px;line-height:18px;color:#555;">
-    <p>
-        Cảm ơn thành viên đã quan tâm đến website thương mại điện tử  <a href="http://xegiadinhviet.com">xegiadinhviet.com</a>. Website thương mại điện tử  <a href="http://xegiadinhviet.com">xegiadinhviet.com</a> là nơi phục vụ hỗ trợ nhu cầu mua bán trực tuyến chuyên về thị trường ô tô bao gồm : Đăng tin rao bán ô tô cá nhân, môi giới và các salon ô tô,giới thiệu về các salon/showroom ô tô, đăng tin cần mua ô tô …
-    </p>
-    <p>
-        Mục tiêu của Website thương mại điện tử <a href="http://xegiadinhviet.com">xegiadinhviet.com</a> hướng tới sẽ là cầu nối thương mại tin cậy nhanh chóng hiệu quả giữa người bán và người mua, giữa doanh nghiệp với doanh nghiệp
-    </p>
-    <p>
-        Để website thương mại điện tử <a href="http://xegiadinhviet.com">xegiadinhviet.com</a> hoạt động hiệu quả, luôn là người bạn đồng hành bảo vệc quyền lợi cho người mua cũng như người bán. Website thương mại điện tử <a href="http://xegiadinhviet.com">xegiadinhviet.com</a> có những quy định hoạt động mong các thành viên tuân thủ nghiêm túc những quy định của website thương mại điện tử  <a href="http://xegiadinhviet.com">xegiadinhviet.com</a>  .
-    </p>
-    <p> Xin chân thành cảm ơn !</p>
-    <br />
+  
     <br /> <b> I.　Hoạt động và  đảm bảo an toàn giao dịch của wesite thương mại điện tử  <a href="http://xegiadinhviet.com.com">xegiadinhviet.com</a></b>
     <br />
     <br /> <i> A) Hoạt động của wesite thương mại điện tử <a href="http://xegiadinhviet.com.com">xegiadinhviet.com</a></i>
@@ -101,54 +84,3 @@
     <br />Trong trường hợp phải thay đổi nội dung quy định để phù hợp với thực tiễn họat động của wesite thương mại điện tử <a href="http://xegiadinhviet.com">xegiadinhviet.com</a>  thì ban quản trị sẽ gửi email đến các thành viên biết.
     <br />
 </div>
-
-
-@section Scripts{
-
-    <script async="" src="~/Content/scripts/recaptcha/recaptcha__en.js"></script>
-    <script src="~/Content/scripts/lib/bootstrapValidator.min.js"></script>
-
-    <script src="~/Content/scripts/recaptcha/api.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            var frm = $('#contactForm');
-            frm.bootstrapValidator({
-                fields: {
-                    Name: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Your name is required'
-                            }
-                        }
-                    },
-                    Email: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Your email is required'
-                            },
-                            emailAddress: {
-                                message: 'Your email is not valid'
-                            }
-                        }
-                    },
-                    Message: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Your message is required'
-                            }
-                        }
-                    }
-                }
-            })
-            .on('success.form.bv', function (e) {
-                e.preventDefault();
-                $('#contactForm').hide();
-                $('#status').html("Sending form, please wait...");
-                $('#status').html("Thank you, we've received your message.");
-            });
-        });
-
-        handler.showResultSearching();
-    </script>
-}

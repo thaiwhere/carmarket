@@ -20,10 +20,12 @@ namespace CarSite.Controllers
 
             return View(cars);
         }
-        
-        public ActionResult About()
-        {            
-            return View();
+                
+        public ActionResult Introduce()
+        {
+            ViewBag.Message = "Introuduce";
+
+            return View("~/Views/Home/Introduce.cshtml");
         }
         
         public ActionResult Contact()
@@ -33,19 +35,28 @@ namespace CarSite.Controllers
 
         public ActionResult Guide()
         {
-            ViewBag.Message = "Your Guide page.";
+            ViewBag.Message = "Guide";
 
-            return View();
+            return View("~/Views/Home/Guide.cshtml");
         }
+
         public ActionResult Policy()
         {
-            ViewBag.Message = "Your Activities Policy page.";
+            ViewBag.Message = "Policy";
 
-            return View();
+            return View("~/Views/Home/Policy.cshtml");
         }
+
+        public ActionResult Security()
+        {
+            ViewBag.Message = "Security";
+
+            return View("~/Views/Home/Security.cshtml");
+        }
+
         public ActionResult Salon()
         {
-            return View();
+            return View("~/Views/Home/Salon.cshtml");
         }
         
         [HttpPost]

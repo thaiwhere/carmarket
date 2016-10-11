@@ -5,12 +5,6 @@
 
 <h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
 
-@section Styles{
-
-    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />
-}
-
 @{ Html.RenderPartial("~/Views/Home/Company.cshtml", null); }
 
 <div style="padding-left:20px;line-height:18px;color:#555;">
@@ -68,53 +62,3 @@
 
     </div>
 </div>
-
-@section Scripts{
-
-    <script async="" src="~/Content/scripts/recaptcha/recaptcha__en.js"></script>
-    <script src="~/Content/scripts/lib/bootstrapValidator.min.js"></script>
-
-    <script src="~/Content/scripts/recaptcha/api.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            var frm = $('#contactForm');
-            frm.bootstrapValidator({
-                fields: {
-                    Name: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Your name is required'
-                            }
-                        }
-                    },
-                    Email: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Your email is required'
-                            },
-                            emailAddress: {
-                                message: 'Your email is not valid'
-                            }
-                        }
-                    },
-                    Message: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Your message is required'
-                            }
-                        }
-                    }
-                }
-            })
-            .on('success.form.bv', function (e) {
-                e.preventDefault();
-                $('#contactForm').hide();
-                $('#status').html("Sending form, please wait...");
-                $('#status').html("Thank you, we've received your message.");
-            });
-        });
-
-        handler.showResultSearching();
-    </script>
-}
