@@ -90,7 +90,7 @@
     margin-top:20px;
 	clear:both;
 	width:990px;	
-	height:130px;
+	height:160px;
 	background:#163050;
 	margin-bottom:10px;       
     border:1px solid #1260ab;
@@ -126,5 +126,10 @@
 	color:#ffffff;
 	line-height:18px;
     font-size:12px;
+}
+
+.f-copyright a
+{	
+	color:rgba(168, 183, 51, 0.67);
 }
 

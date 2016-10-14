@@ -307,6 +307,7 @@
     <Content Include="Content\images\common\expand.png" />
     <Content Include="Content\images\common\logo.gif" />
     <Content Include="Content\images\common\loading.gif" />
+    <Content Include="Content\images\common\logo.png" />
     <Content Include="Content\images\common\new.jpg" />
     <Content Include="Content\images\common\old.jpg" />
     <Content Include="Content\images\common\people.png" />
@@ -316,6 +317,13 @@
     <Content Include="Content\images\common\star.png" />
     <Content Include="Content\images\common\tab.png" />
     <Content Include="Content\images\common\user-alt-v2.png" />
+    <Content Include="Content\images\guide\Dangky.png" />
+    <Content Include="Content\images\guide\dangnhap.png" />
+    <Content Include="Content\images\guide\O6Dangtin_banxe2.png" />
+    <Content Include="Content\images\guide\O6Dangtin_banxe_2.png" />
+    <Content Include="Content\images\guide\Tindangcuaban.png" />
+    <Content Include="Content\images\guide\Tinhethan.png" />
+    <Content Include="Content\images\guide\Tin_hieuluc.png" />
     <Content Include="Content\images\panel_left\01.jpg" />
     <Content Include="Content\images\panel_left\02.jpg" />
     <Content Include="Content\images\panel_left\03.jpg" />

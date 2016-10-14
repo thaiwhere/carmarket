@@ -104,7 +104,7 @@ namespace CarSite.Controllers
             string subject = AppSettings.DomainName + " - Liện hệ từ khách hàng " + contact.Name;
             
             string message = string.Join(null,
-                "Chúng tôi đã nhận được thông tin liên hệ từ khách hàng <b>{0}</b> SĐT({1}) ",
+                "Chúng tôi đã nhận được thông tin liên hệ từ khách hàng <b>{0}</b> ({1}) ",
                 "<br/><br/>----------------------------------------- Nội dung liên hệ -----------------------------------------<br/>", 
                 "{2}",
                 "<br/>---------------------------------------------------------------------------------------------------------<br/><br/>",
