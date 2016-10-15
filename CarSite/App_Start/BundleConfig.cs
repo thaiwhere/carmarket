@@ -8,6 +8,11 @@ namespace CarSite
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Clear();
+            bundles.ResetAll();
+
+            BundleTable.EnableOptimizations = false;
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(                        
                         "~/Content/scripts/lib/jquery/jquery-1.9.1.min.js",
                         "~/Content/scripts/lib/jquery/jquery-ui-1.9.2.min.js",
