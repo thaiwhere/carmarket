@@ -148,7 +148,18 @@ function decorateDataModify(cars, carStatus) {
 
             var remove = "<a href='javascript:void(0);' onclick='return DeleteCar(this, \"" + cars[i].CarId + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-remove'></span> Xoá</font></a>";            
 
-            var modify = "<div class='car-info' style='margin-left:20px' >" + saled + "<br/><br/>" + edit + "<br/><br/>" + remove + "</div>";
+            var modify = "";
+            
+            if (IsAdmin == "True")
+            {
+                var approve = "<a href='javascript:void(0);' onclick='return ApproveCar(this, \"" + cars[i].CarId + "\"," + cars[i].IsBuy + ");'><font color='#0000ff'><span class='glyphicon glyphicon-thumbs-up'></span> Duyệt</font></a>";
+                var disApprove = "<a href='javascript:void(0);' onclick='return DisApproveCar(this, \"" + cars[i].CarId + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-thumbs-down'></span> KO duyệt</font></a>";
+
+                modify = "<div class='car-info' style='margin-left:20px' >" + approve + "<br/><br/>" + disApprove + "<br/>" + "</div>";
+            }
+            else {
+                modify = "<div class='car-info' style='margin-left:20px' >" + saled + "<br/><br/>" + edit + "<br/><br/>" + remove + "</div>";
+            }
 
             var row = {
                 Columns: [

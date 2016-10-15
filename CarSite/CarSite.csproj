@@ -364,6 +364,7 @@
     <Content Include="Content\images\team\pic6.jpg" />
     <Content Include="Content\images\team\pic7.jpg" />
     <Content Include="Content\images\team\pic8.jpg" />
+    <Content Include="Content\scripts\ApproveCar.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Base64.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Extensions.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Hex.js" />

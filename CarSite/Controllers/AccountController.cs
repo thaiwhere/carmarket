@@ -61,6 +61,11 @@ namespace CarSite.Controllers
                         {
                             var userLogin = userValid.Single();
                             
+                            if(username.Equals("admin"))
+                            {
+                                HttpContext.Session["IsAdmin"] = true;
+                            }
+
                             FormsAuthentication.SetAuthCookie(username, false);
                             HttpContext.Session["UserId"] = userLogin.UserId.ToString();
 
@@ -325,6 +330,9 @@ namespace CarSite.Controllers
 
         public ActionResult LogOff()
         {
+            HttpContext.Session["UserId"] = null;
+            HttpContext.Session["IsAdmin"] = null;
+
             FormsAuthentication.SignOut();
 
             return RedirectToAction("Index", "Home");

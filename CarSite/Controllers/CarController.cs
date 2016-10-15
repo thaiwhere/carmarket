@@ -143,6 +143,15 @@ namespace CarSite.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
+            if(HttpContext.Session["IsAdmin"] != null && bool.Parse(HttpContext.Session["IsAdmin"].ToString()) == true)
+            {
+                ViewBag.IsAdmin = true;
+            }
+            else
+            {
+                ViewBag.IsAdmin = false;
+            }
+
             return View("~/Views/Car/Yours.cshtml");
         }
 
@@ -543,6 +552,58 @@ namespace CarSite.Controllers
         public long VisitCar(CarVisitedCriteria criteria)
         {
             return CarService.VisitCar(criteria);         
+        }
+
+        [HttpPost]
+        public JsonResult ApproveCar(ApproveCarCriteria criteria)
+        {
+            var result = 0;
+            try
+            {
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                if (HttpContext.Session["IsAdmin"] != null && bool.Parse(HttpContext.Session["IsAdmin"].ToString()) == true)
+                {
+                    criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
+                    result = CarService.ApproveCar(criteria);                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("ApproveCar - " + ex.Message, ex);
+            }
+
+            return Json(result);
+        }
+
+        [HttpPost]
+        public JsonResult DisApproveCar(DisApproveCarCriteria criteria)
+        {
+            var result = 0;
+            try
+            {
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                if (HttpContext.Session["IsAdmin"] != null && bool.Parse(HttpContext.Session["IsAdmin"].ToString()) == true)
+                {
+                    criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
+                    result = CarService.DisApproveCar(criteria);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("DisApproveCar - " + ex.Message, ex);
+            }
+
+            return Json(result);
         }
 
         #endregion

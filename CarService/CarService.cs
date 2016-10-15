@@ -200,6 +200,31 @@ namespace Car.Service
                 return (countVisit is DBNull) ? 0 : Convert.ToInt64(countVisit);
             }
         }
-        
+
+        public static int ApproveCar(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                obj.ExecuteNonQuery(param);
+
+                var result = obj.GetParameterValue("result");
+
+                return (result is DBNull) ? 0 : Convert.ToInt32(result);
+            }
+        }
+
+        public static int DisApproveCar(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                obj.ExecuteNonQuery(param);
+
+                var result = obj.GetParameterValue("result");
+
+                return (result is DBNull) ? 0 : Convert.ToInt32(result);
+            }
+        }
     }
 }
