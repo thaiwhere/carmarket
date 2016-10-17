@@ -164,7 +164,13 @@ namespace CarSite.Controllers
             }
 
             return View("~/Views/Car/CarBuyingInsert.cshtml");
+        }
+
+        public ActionResult CarForBuy()
+        {           
+            return View("~/Views/Car/CarForBuy.cshtml");
         }        
+        
 
         #endregion
 
@@ -604,6 +610,13 @@ namespace CarSite.Controllers
             }
 
             return Json(result);
+        }
+        
+        [HttpPost]
+        public JsonResult SearchingCarForBuy(SearchingCarForBuyCriteria criteria)
+        {
+            var listCars = CarService.SearchingCars<CarModel>(criteria).ToList<CarModel>();
+            return Json(listCars);
         }
 
         #endregion

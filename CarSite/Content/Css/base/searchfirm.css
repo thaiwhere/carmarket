@@ -129,3 +129,12 @@ legend {
 .old-label-searching{
     color:#FFAA2A !important;
 }
+
+#div_searching_tab_car_detail{
+    margin-left:5px;
+    color:#FFAA2A;
+}
+
+#div_searching_tab_car_detail a{
+    color:#FFAA2A;
+}

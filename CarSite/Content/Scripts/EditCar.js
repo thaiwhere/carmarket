@@ -1,8 +1,7 @@
 ﻿$(function () {
 
     EditCarHandler.bindingEvents();
-
-    EditCarHandler.initData();
+    
     EditCarHandler.handlerElements();
 
     if (typeof (_isBuy) !== 'undefined' && _isBuy == true) {
@@ -11,7 +10,10 @@
     else {
         EditCarHandler.renderData();
         EditCarHandler.loadImages(_images, _carPath);
-    }    
+    }
+
+    EditCarHandler.bindingData();
+
 });
 
 var jqXHRData;
@@ -65,7 +67,7 @@ var EditCarHandler = {
         $("#dropzoneForm").append(divImage);
     },
 
-    initData: function () {
+    bindingData: function () {
         $("#carInsert_select_firm").val($("#Firm").val())
         RenderFactory.renderModels($("#Firm").val(), '#carInsert_select_model');
 

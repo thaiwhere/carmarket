@@ -512,6 +512,7 @@
     <Content Include="Views\Shared\Footer.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Car\CarForBuy.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

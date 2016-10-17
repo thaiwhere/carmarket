@@ -70,5 +70,28 @@
 
     @RenderSection("Scripts", required: false)
 
+    <script>
+
+        $(".nav li").click(function () {
+            $('.nav li').removeClass('active');
+            $(this).addClass('active');
+
+            var id = $(this).attr("id");
+            $.cookie("menuIndex", id, { path: '/' });
+        });
+
+        var menuIndex = $.cookie("menuIndex");
+        if (typeof (menuIndex) != "undefined") {
+            $('.nav li').removeClass('active');
+            $("#" + menuIndex).addClass('active');
+        }
+        else {
+            var id = "menu_index";
+            $("#" + id).addClass('active');
+            $.cookie("menuIndex", id, { path: '/' });
+        }
+       
+    </script>
+
 </body>
 </html>

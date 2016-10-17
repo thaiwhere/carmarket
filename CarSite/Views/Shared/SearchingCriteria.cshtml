@@ -24,6 +24,18 @@
     }
 </script>
 
+<div id="div_searching_tab_car_detail">
+    <a href="/home/index">Trang chủ</a> >> <a href="/car/SearchingCars?firm=@Model.Firm">@Model.Firm</a>
+    @if(!string.IsNullOrEmpty(@Model.Firm) && !string.IsNullOrEmpty(@Model.Model))
+    { 
+        <span>>></span> <a href="/car/SearchingCars?firm=@Model.Firm&model=@Model.Model">@Model.Model</a>
+    }
+    @if (!string.IsNullOrEmpty(@Model.Title))
+    {
+        <span>>></span> @Model.Title
+    }
+    
+</div>
 
 <div id="div_searching_tab" class="div-car-tab">
     <ul class="ul-car-tab">
@@ -33,15 +45,6 @@
         <li id="car_old" class=""><a href="javascript:void(null);" title="Xe đã sử dụng">Xe đã dùng</a></li>
         <li id="car_import" class=""><a href="javascript:void(null);" title="Xe nhập khẩu">Xe  nhập khẩu</a></li>
         <li id="car_domestic" class=""><a href="javascript:void(null);" title="Xe trong nước">Xe trong nước</a></li>
-    </ul>    
-</div>
-
-<div id="div_searching_tab_car_detail" class="div-car-tab" style="display:none">
-    <ul class="ul-car-detail-tab">        
-        <li>
-            <a href="/home/index">Trang chủ</a> >> <a href="/car/SearchingCars?firm=@Model.Firm">@Model.Firm</a> >> <a href="/car/SearchingCars?firm=@Model.Firm&model=@Model.Model">@Model.Model</a>
-            >> @Model.Title
-        </li>
     </ul>
 </div>
 

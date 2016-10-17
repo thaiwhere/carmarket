@@ -1,14 +1,16 @@
 ﻿@using Microsoft.AspNet.Identity
 
 <ul id="menu" class="nav nav-pills">
-    <li class="active"><a href="~/home/index">Trang Chủ</a></li>    
-    <li><a href="~/home/salon">Salon Ôtô</a></li>
-    <li><a href="~/car/insert">Bán Ôtô</a></li>
-    <li><a href="~/car/buy">Cần mua</a></li>
-    <li><a href="~/home/contact">Liên Hệ</a></li>
+    <li id="menu_index"><a href="~/home/index">Trang Chủ</a></li>    
+    <li id="menu_carforbuy"><a href="~/car/carforbuy">Tin mua Ôtô</a></li>
+    <li id="menu_salon"><a href="~/home/salon">Salon Ôtô</a></li>        
     @if (Request.IsAuthenticated)
     {
-        <li><a href="~/car/yours">Quản lý đăng tin</a></li>
+        <li id="menu_yours"><a href="~/car/yours">Quản lý đăng tin</a></li>
+    }
+    else
+    {
+        <li id="menu_yours"><a href="~/car/yours">Đăng tin</a></li>
     }
 
 </ul>

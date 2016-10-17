@@ -10,7 +10,7 @@
 
 <div id="div-car-list" class="car_list_box">
     
-    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml", new Car.Model.Entity.CarViewModel()); }
+    @{ Html.RenderPartial("~/Views/Shared/SearchingCriteria.cshtml", new Car.Model.Entity.CarViewModel { Firm = @Model.FirmName, Model = @Model.Model }); }
         
     <div class="grid-container">
         <div id="gridSearchingCar" class="freegrid"></div>

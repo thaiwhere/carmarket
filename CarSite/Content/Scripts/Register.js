@@ -100,7 +100,7 @@
                             location.href = result.returnUrl;
                         }
                         else {
-                            location.href = "/car/insert";
+                            location.href = "/car/yours";
                         }
                     }, 3000);
                 }
