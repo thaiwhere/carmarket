@@ -15,26 +15,15 @@
     top:1840px  !important;
 }
 
-#gridCarSimilarModel, #gridCarSimilarPrice{
-    margin-top:-5px;
+#gridCarSimilarModel, #gridCarSimilarPrice{    
     height:1820px !important;
+    width:100% !important;
     margin-left:10px;
 }
 
-.grid-container .freegrid{
-    margin-top:-5px;
+.grid-container .freegrid{    
     height:1870px !important;
 }
-
-/*#gridSearchingCar{
-    
-    height:1820px !important;
-}*/
-
-/*.grid-container
-{
-    height:1805px !important;
-}*/
 
 .freegrid .grid-container table thead th
 {

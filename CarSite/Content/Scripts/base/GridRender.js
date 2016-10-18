@@ -213,12 +213,10 @@ function customGrid(gridId) {
     gridObj.find($(".free-cell")).remove();
 
     if (!shrinkGrid) {        
-        var width = gridObj.width() + 30;
-        //gridObj.width(gridObj.width() + 10);
-        $("#grid-pager-top").width(width);
-        $("#grid-pager-bottom").width(width);
+        var width = gridObj.width() + 30;        
         $(".col_header").width(width);
         gridObj.find(".grid-container").width(width);
+        gridObj.find(".content-container").width(width);
     }
     else {
         var width = gridObj.width() - 20;        
