@@ -9,6 +9,8 @@
     <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />
 }
 
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 <h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
 <hr />
 
@@ -27,8 +29,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
                         <input type="text" id="UserName" name="UserName" class="form-control" placeholder="* Nhập Tên đăng nhập" data-bv-field="UserName">
-                    </div>
-                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="UserName" data-bv-result="NOT_VALIDATED" style="display: none;">Nhập Tên đăng nhập</small>
+                    </div>                    
                 </div>
             </div>
 
@@ -38,8 +39,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
                         <input type="password" id="Password" name="Password" maxlength="20" class="form-control" placeholder="* Nhập Mật khẩu" data-bv-field="Password">
-                    </div>
-                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="Password" data-bv-result="NOT_VALIDATED" style="display: none;">Nhập Mật khẩu</small>
+                    </div>                    
                 </div>
             </div>
 
@@ -49,8 +49,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
                         <input type="password" id="ConfirmPassword" name="ConfirmPassword" maxlength="20" class="form-control" placeholder="* Nhập xác nhận Mật khẩu" data-bv-field="ConfirmPassword">
-                    </div>
-                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="ConfirmPassword" data-bv-result="NOT_VALIDATED" style="display: none;">Nhập xác nhận Mật khẩu</small>
+                    </div>                    
                 </div>
             </div>
 
@@ -60,8 +59,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-phone fa-fw"></i></span>
                         <input type="text" id="Tel" name="Tel" maxlength="20" class="form-control" placeholder="* Nhập số điện thoại" data-bv-field="Tel">
-                    </div>
-                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="Tel" data-bv-result="NOT_VALIDATED" style="display: none;">Nhập số điện thoại</small>
+                    </div>                    
                 </div>
             </div>
 
@@ -71,9 +69,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
                         <input type="text" id="Email" name="Email" maxlength="20" class="form-control" placeholder="* Nhập Email" data-bv-field="Email">                        
-                    </div>
-                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="Email" data-bv-result="NOT_VALIDATED" style="display: none;">Nhập Email</small>
-                    <small class="help-block" data-bv-validator="emailAddress" data-bv-for="Email" data-bv-result="NOT_VALIDATED" style="display: none;">Email không hợp lệ</small>
+                    </div>                    
                 </div>
             </div>
 
@@ -88,11 +84,23 @@
             </div>
 
             <div class="form-group">
+                <label for="Agree" class="col-sm-4 control-label"></label>
+                <div class="col-sm-7">
+                    <div class="input-group">
+                        <input type="checkbox" id="Agree" name="Agree" placeholder="Nhập địa chỉ" data-bv-field="Agree">
+                        <i>Tôi đồng ý với <a href="/home/security" style="color: #1469eb; cursor: pointer">Chính sách bảo mật </a> và <a href="/home/policy" style="color: #1469eb; cursor: pointer">Qui chế hoạt động</a> của Xegiadinhviet.com</i>
+                    </div>
+                </div>
+            </div>
+         
+            <div class="form-group">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-7">
                     <small id="status" class="help-block" style="color: red; display: none;"></small>
                 </div>
             </div>
+            
+            <div class="g-recaptcha" data-sitekey="6LeKqAkUAAAAALY_xoFUNWtKlvTaU7TiVcSgdXMf"></div>
 
             <div class="form-group">
                 <div class="col-sm-4"></div>
@@ -110,7 +118,7 @@
 @section Scripts {
 
     @*<script async="" src="~/Content/scripts/recaptcha/recaptcha__en.js"></script>*@
-    <script src="~/Content/scripts/lib/bootstrapValidator.min.js"></script>
+    <script src="~/Content/scripts/lib/bootstrapValidator.min.js"></script>    
     @*<script src="~/Content/scripts/recaptcha/api.js"></script>*@
 
     <script src="~/Content/scripts/Register.js"></script>

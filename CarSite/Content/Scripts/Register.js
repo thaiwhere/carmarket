@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {    
+﻿$(document).ready(function () {      
     var frm = $('#registerForm');
     frm.bootstrapValidator({
         fields: {
@@ -56,6 +56,13 @@
                     }
                 }
             },
+            Agree: {                
+                validators: {
+                    notEmpty: {
+                        message: '(Vui lòng check vào bạn đã đọc các điều khoản)'
+                    }
+                }
+            }
 
         }
     })

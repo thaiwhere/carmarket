@@ -155,11 +155,11 @@ namespace CarSite.Controllers
                                     return Json(new { userId = registedUser.UserId.ToString(), returnUrl = string.Empty });
                                 }
                                 
-                            }
-                            else
-                            {
-                                return Json(new { userId = 0, returnUrl = string.Empty });
-                            }
+                            }                          
+                        }
+                        else
+                        {
+                            return Json(new { userId = 0, returnUrl = string.Empty });
                         }
                     }
                 }
