@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {      
+﻿$(document).ready(function () {   
     var frm = $('#registerForm');
     frm.bootstrapValidator({
         fields: {
@@ -76,7 +76,8 @@
             Tel: $("#Tel").val(),
             Email: $("#Email").val(),
             Address: $("#Address").val(),
-            returnURL: $("#returnURLId").data("value")
+            returnURL: $("#returnURLId").data("value"),
+            encodedResponse: $("#g-recaptcha-response").val()
         };
 
         var token = $('[name=__RequestVerificationToken]').val();
@@ -120,6 +121,7 @@
                     bv.updateStatus('UserName', 'INVALID', 'callback');
                 }
                 else {
+                    console.log(result.userId);
                     $('#status').html('Lỗi đăng ký. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
                 }
             },

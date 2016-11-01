@@ -113,54 +113,64 @@ namespace CarSite.Controllers
         [AllowAnonymous]
         //[ValidateAntiForgeryToken]
         [ValidateAntiForgeryTokenOnAllPosts]
-        public JsonResult Register(RegisterViewModel model, string returnUrl = "")
+        public JsonResult Register(RegisterViewModel model, string returnUrl = "", string encodedResponse = "")
         {            
             if (ModelState.IsValid)
             {
                 try
-                {
-                    using (CARWEBEntities entities = new CARWEBEntities())
-                    {                        
-                        bool userValid = entities.Users.Any(user => user.UserName == model.UserName) == false;
+                {                    
+                    bool IsCaptchaValid = (ReCaptcha.Validate(encodedResponse) == "True" ? true : false);
 
-                        if (userValid)                        
+                    if (IsCaptchaValid)
+                    {
+                        using (CARWEBEntities entities = new CARWEBEntities())
                         {
-                            User user = new Models.User() { 
-                                UserName = model.UserName, 
-                                Password = EncryptionHelper.Encrypt(model.Password), 
-                                Roles = "user",
-                                Tel = model.Tel,
-                                Email = model.Email,
-                                Address = model.Address,
-                                CreatedDate = DateTime.Now,
-                                IsActive = true
-                            };
+                            bool userValid = entities.Users.Any(user => user.UserName == model.UserName) == false;
 
-                            entities.Users.Add(user);                                                        
-
-                            if (entities.SaveChanges() > 0)
+                            if (userValid)
                             {
-                                var registedUser = entities.Users.Select(u => u).Where(u => u.UserName.Equals(model.UserName)).First();
-
-                                FormsAuthentication.SetAuthCookie(user.UserName, false);
-                                HttpContext.Session["UserId"] = registedUser.UserId.ToString();
-
-                                if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                                User user = new Models.User()
                                 {
-                                    return Json(new { userId = registedUser.UserId.ToString(), returnUrl = returnUrl} );
-                                }
-                                else
+                                    UserName = model.UserName,
+                                    Password = EncryptionHelper.Encrypt(model.Password),
+                                    Roles = "user",
+                                    Tel = model.Tel,
+                                    Email = model.Email,
+                                    Address = model.Address,
+                                    CreatedDate = DateTime.Now,
+                                    IsActive = true
+                                };
+
+                                entities.Users.Add(user);
+
+                                if (entities.SaveChanges() > 0)
                                 {
-                                    return Json(new { userId = registedUser.UserId.ToString(), returnUrl = string.Empty });
+                                    var registedUser = entities.Users.Select(u => u).Where(u => u.UserName.Equals(model.UserName)).First();
+
+                                    FormsAuthentication.SetAuthCookie(user.UserName, false);
+                                    HttpContext.Session["UserId"] = registedUser.UserId.ToString();
+
+                                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                                    && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                                    {
+                                        return Json(new { userId = registedUser.UserId.ToString(), returnUrl = returnUrl });
+                                    }
+                                    else
+                                    {
+                                        return Json(new { userId = registedUser.UserId.ToString(), returnUrl = string.Empty });
+                                    }
+
                                 }
-                                
-                            }                          
+                            }
+                            else
+                            {
+                                return Json(new { userId = 0, returnUrl = string.Empty });
+                            }
                         }
-                        else
-                        {
-                            return Json(new { userId = 0, returnUrl = string.Empty });
-                        }
+                    }
+                    else
+                    {
+                        return Json(new { userId = -2, returnUrl = string.Empty });
                     }
                 }
                 catch(Exception ex)

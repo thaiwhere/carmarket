@@ -219,6 +219,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ReCaptcha.cs" />
     <Compile Include="ValidateAntiForgeryTokenOnAllPosts.cs" />
   </ItemGroup>
   <ItemGroup>
