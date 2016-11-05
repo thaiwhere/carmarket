@@ -11,7 +11,6 @@
     background-color:#428bca;
 }
 
-/*Login*/
 #logo {
     float: left;
     background: transparent url(../../Images/common/logo.png) repeat-x scroll 864px -31px;
@@ -19,6 +18,14 @@
     height: 100px;    
     border-radius:5px;
     text-indent: -999px;
+}
+
+#logo_text {
+    float: left;
+    background: transparent url(../../Images/common/logo_text.png) repeat-x scroll 770px -13px;
+    width: 300px;
+    height: 100px;            
+    margin-left:20px;    
 }
 
 /*Search*/
