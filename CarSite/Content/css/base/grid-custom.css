@@ -21,8 +21,12 @@
     margin-left:10px;
 }
 
-.grid-container .freegrid{    
+.grid-container .freegrid {    
     height:1870px !important;
+}
+
+.freegrid .grid-container {    
+    height:1870px !important;    
 }
 
 .freegrid .grid-container table thead th
