@@ -120,9 +120,9 @@
                     var bv = $form.data('bootstrapValidator');
                     bv.updateStatus('UserName', 'INVALID', 'callback');
                 }
-                else {
+                else if (result.userId == -2) {
                     console.log(result.userId);
-                    $('#status').html('Lỗi đăng ký. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                    $('#status').html('Sai Captcha. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
                 }
             },
             error: function (x, h, r) {
