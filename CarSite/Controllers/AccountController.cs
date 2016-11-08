@@ -44,45 +44,54 @@ namespace CarSite.Controllers
         [AllowAnonymous]
         //[ValidateAntiForgeryToken]
         [ValidateAntiForgeryTokenOnAllPosts]
-        public JsonResult Login(LoginViewModel model, string returnUrl = "")
+        public JsonResult Login(LoginViewModel model, string returnUrl = "", string encodedResponse = "")
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    using (CARWEBEntities entities = new CARWEBEntities())
+                    bool IsCaptchaValid = (ReCaptcha.Validate(encodedResponse) == "True" ? true : false);
+
+                    if (IsCaptchaValid)
                     {
-                        string username = model.UserName;
-                        string password = EncryptionHelper.Encrypt(model.Password);
-
-                        var userValid = entities.Users.Where(user => user.UserName == username && user.Password == password);                        
-                        
-                        if (userValid.Count() > 0)
+                        using (CARWEBEntities entities = new CARWEBEntities())
                         {
-                            var userLogin = userValid.Single();
-                            
-                            if(username.Equals("admin"))
-                            {
-                                HttpContext.Session["IsAdmin"] = true;
-                            }
+                            string username = model.UserName;
+                            string password = EncryptionHelper.Encrypt(model.Password);
 
-                            FormsAuthentication.SetAuthCookie(username, false);
-                            HttpContext.Session["UserId"] = userLogin.UserId.ToString();
+                            var userValid = entities.Users.Where(user => user.UserName == username && user.Password == password);
 
-                            if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                            && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                            if (userValid.Count() > 0)
                             {
-                                return Json(new { userId = userLogin.UserId.ToString(), returnUrl = returnUrl });
+                                var userLogin = userValid.Single();
+
+                                if (username.Equals("admin"))
+                                {
+                                    HttpContext.Session["IsAdmin"] = true;
+                                }
+
+                                FormsAuthentication.SetAuthCookie(username, false);
+                                HttpContext.Session["UserId"] = userLogin.UserId.ToString();
+
+                                if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                                {
+                                    return Json(new { userId = userLogin.UserId.ToString(), returnUrl = returnUrl });
+                                }
+                                else
+                                {
+                                    return Json(new { userId = userLogin.UserId.ToString(), returnUrl = string.Empty });
+                                }
+
                             }
-                            else
-                            {
-                                return Json(new { userId = userLogin.UserId.ToString(), returnUrl = string.Empty });
-                            }
-                                
-                       }                       
+                        }
+                    }
+                    else
+                    {
+                        return Json(new { userId = -2, returnUrl = string.Empty });
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     LogService.Error("Login - " + ex.Message, ex);
                 }

@@ -48,7 +48,7 @@ namespace CarSite.Models
         [Display(Name = "Mật khẩu")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Nhớ tôi?")]
         public bool RememberMe { get; set; }
     }
 

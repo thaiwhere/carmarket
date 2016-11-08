@@ -12,7 +12,7 @@
 }
 
 #grid-pager-bottom{
-    top:1840px  !important;
+    top:1908px  !important;
 }
 
 #gridCarSimilarModel, #gridCarSimilarPrice{    
@@ -22,11 +22,11 @@
 }
 
 .grid-container .freegrid {    
-    height:1870px !important;
+    height:1940px !important;
 }
 
 .freegrid .grid-container {    
-    height:1870px !important;    
+    height:1940px !important;
 }
 
 .freegrid .grid-container table thead th

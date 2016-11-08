@@ -35,7 +35,8 @@
             UserName: $("#UserName").val(),
             Password: $("#Password").val(),
             RememberMe: $("#RememberMe").val(),
-            returnURL: $("#returnURLId").data("value")
+            returnURL: $("#returnURLId").data("value"),
+            encodedResponse: $("#g-recaptcha-response").val()
         };
 
         var token = $('[name=__RequestVerificationToken]').val();
@@ -65,6 +66,9 @@
                     else {
                         location.href = "/car/yours";
                     }
+                }
+                else if (result.userId == -2) {                 
+                    $('#status').html('Sai Captcha. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
                 }
                 else {
                     $("#status").hide();
