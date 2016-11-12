@@ -22,7 +22,7 @@
                         message: 'Mật khẩu phải có ít nhất 6 ký tự'
                     },
                     callback: {
-                        message: "hoặc Mật khẩu không chính xác."
+                        message: "Tên đăng nhập hoặc Mật khẩu không chính xác."
                     }
                 }
             }
@@ -75,9 +75,10 @@
 
                     var $form = $(e.target);
                     var bv = $form.data('bootstrapValidator');
-                    bv.updateStatus('UserName', 'INVALID', 'callback');
+                    //bv.updateStatus('UserName', 'INVALID', 'callback');
                     bv.updateStatus('Password', 'INVALID', 'callback');
                     $("#UserName").focus();
+                    grecaptcha.reset();
                 }
             },
             error: function (x, h, r) {

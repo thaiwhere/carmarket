@@ -123,6 +123,7 @@
                 else if (result.userId == -2) {
                     console.log(result.userId);
                     $('#status').html('Sai Captcha. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                    grecaptcha.reset();
                 }
             },
             error: function (x, h, r) {
