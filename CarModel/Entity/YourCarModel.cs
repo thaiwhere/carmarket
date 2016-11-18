@@ -9,7 +9,10 @@ namespace Car.Model.Entity
     public class YourCarModel
     {
         public int CarId { get; set; }
+        
         public int UserId { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
 
         public bool IsNew { get; set; }
         public bool IsImport { get; set; }

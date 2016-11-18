@@ -159,6 +159,9 @@ namespace CarSite.Controllers
                                     FormsAuthentication.SetAuthCookie(user.UserName, false);
                                     HttpContext.Session["UserId"] = registedUser.UserId.ToString();
 
+                                    var contact = new Contact { Name = model.UserName, Email = model.Email };
+                                    Proxy.SendEmail(contact, "Thành viên", "Bạn đã trở thành thành viên <b>xegiadinhviet.com</b>, nơi đăng tin mua, bán, thuê xe <b>HOÀN TOÀN MIỄN PHÍ</b>. <br/> Tên truy cập: " + model.UserName + ", Mật khẩu: " + model.Password);
+
                                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                                     && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                                     {
@@ -168,7 +171,6 @@ namespace CarSite.Controllers
                                     {
                                         return Json(new { userId = registedUser.UserId.ToString(), returnUrl = string.Empty });
                                     }
-
                                 }
                             }
                             else

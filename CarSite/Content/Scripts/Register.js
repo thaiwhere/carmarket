@@ -5,7 +5,7 @@
             UserName: {
                 validators: {
                     notEmpty: {
-                        message: 'Nhập Họ và tên'
+                        message: 'Tên đăng nhập không dấu và khoảng trắng'
                     },
                     callback: {
                         message: "Tên truy cập đã tồn tại, vui lòng chọn tên khác."
@@ -70,7 +70,7 @@
         e.preventDefault();        
 
         var userInfo = {
-            UserName: $("#UserName").val(),
+            UserName: $("#UserName").val().trim(),
             Password: $("#Password").val(),
             ConfirmPassword: $("#ConfirmPassword").val(),
             Tel: $("#Tel").val(),

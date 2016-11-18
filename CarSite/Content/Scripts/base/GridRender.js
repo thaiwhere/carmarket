@@ -152,8 +152,8 @@ function decorateDataModify(cars, carStatus) {
             
             if (IsAdmin == "True")
             {
-                var approve = "<a href='javascript:void(0);' onclick='return ApproveCar(this, \"" + cars[i].CarId + "\"," + cars[i].IsBuy + ");'><font color='#0000ff'><span class='glyphicon glyphicon-thumbs-up'></span> Duyệt</font></a>";
-                var disApprove = "<a href='javascript:void(0);' onclick='return DisApproveCar(this, \"" + cars[i].CarId + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-thumbs-down'></span> KO duyệt</font></a>";
+                var approve = "<a href='javascript:void(0);' onclick='return ApproveCar(this, \"" + cars[i].CarId + "\",\"" + cars[i].UserName + "\",\"" + cars[i].Email + "\"," + cars[i].IsBuy + ");'><font color='#0000ff'><span class='glyphicon glyphicon-thumbs-up'></span> Duyệt</font></a>";
+                var disApprove = "<a href='javascript:void(0);' onclick='return DisApproveCar(this, \"" + cars[i].CarId + "\",\"" + cars[i].UserName + "\",\"" + cars[i].Email + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-thumbs-down'></span> KO duyệt</font></a>";
 
                 modify = "<div class='car-info' style='margin-left:20px' >" + approve + "<br/><br/>" + disApprove + "<br/>" + "</div>";
             }

@@ -574,7 +574,13 @@ namespace CarSite.Controllers
                 if (HttpContext.Session["IsAdmin"] != null && bool.Parse(HttpContext.Session["IsAdmin"].ToString()) == true)
                 {
                     criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
-                    result = CarService.ApproveCar(criteria);                    
+                    result = CarService.ApproveCar(criteria);
+                    if (result == 1)
+                    {
+                        var contact = new Contact { Name = criteria.UserName, Email = criteria.Email };
+                        var carDetail = "<a href=\"http://www.xegiadinhviet.com/car/cardetail/" + criteria.CarId + "\">" +"http://www.xegiadinhviet.com/car/cardetail/" + criteria.CarId + "</a>";
+                        Proxy.SendEmail(contact, "Duyệt tin", "Tin đăng cuả Bạn đã đuợc duyệt -> " + carDetail);
+                    }
                 }
 
             }
@@ -601,6 +607,11 @@ namespace CarSite.Controllers
                 {
                     criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
                     result = CarService.DisApproveCar(criteria);
+                    if (result == 1)
+                    {
+                        var contact = new Contact { Name = criteria.UserName, Email = criteria.Email };
+                        Proxy.SendEmail(contact, "Duyệt tin", "Tin đăng đã đuợc duyệt");
+                    }
                 }
 
             }
@@ -732,7 +743,7 @@ namespace CarSite.Controllers
 
             return images;
         }
-
+        
         #endregion
     }
 }

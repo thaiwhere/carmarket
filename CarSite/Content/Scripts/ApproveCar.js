@@ -1,6 +1,6 @@
-﻿function ApproveCar(element, carId, isBuy) {
+﻿function ApproveCar(element, carId, username, email, isBuy) {
     common.ShowTitleConfirmMessage("Xoá tin", "Bạn muốn duyệt (approve) tin này?", function () {
-        var criteria = { CarId: carId, IsBuy: isBuy };
+        var criteria = { CarId: carId, UserName: username, Email: email, IsBuy: isBuy };
 
         $.ajax({
             type: 'POST',
@@ -26,9 +26,9 @@
     });
 }
 
-function DisApproveCar(element, carId, isBuy) {
+function DisApproveCar(element, carId, username, email, isBuy) {
     common.ShowTitleConfirmMessage("Xoá tin", "Bạn muốn từ chối (disapprove) tin này?", function () {
-        var criteria = { CarId: carId, IsBuy: isBuy };
+        var criteria = { CarId: carId, UseName: username, Email: email, IsBuy: isBuy };
 
         $.ajax({
             type: 'POST',

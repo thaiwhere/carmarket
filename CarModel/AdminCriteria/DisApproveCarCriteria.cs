@@ -12,9 +12,15 @@ namespace Car.Model.Criteria
     /// </summary>
     public class DisApproveCarCriteria : CriteriaBase
     {
+        public int CarId { get; set; }
+
         public int UserId { get; set; }
 
-        public int CarId { get; set; }
+        [SpParam(Ignored = true)]
+        public string UserName { get; set; }
+
+        [SpParam(Ignored = true)]
+        public string Email { get; set; }
 
         public bool IsBuy { get; set; }
 
