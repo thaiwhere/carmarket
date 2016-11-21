@@ -26,7 +26,7 @@ Car.CarDetail = function () {
     };
 
     $this.showSimilarModelCarsList = function (carId, model) {        
-        var callback = gridRender;
+        var callback = isMobile ? gridRenderSmartphone : gridRender;
         var searchingUrl = "/Car/SearchingCarsSimilarModel";
         var criteria = { CarId: carId, Model: model, ItemsPerPage: ItemsPerPage, CurrentPageIndex: 0 };
 
@@ -34,7 +34,7 @@ Car.CarDetail = function () {
     };
 
     $this.showSimilarPriceCarsList = function (carId, price) {
-        var callback = gridRender;
+        var callback = isMobile ? gridRenderSmartphone : gridRender;
         var searchingUrl = "/Car/SearchingCarsSimilarPrice";
         var criteria = { CarId: carId, Price: price, ItemsPerPage: ItemsPerPage, CurrentPageIndex: 0 };
 

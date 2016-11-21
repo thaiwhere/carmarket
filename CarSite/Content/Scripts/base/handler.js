@@ -1,10 +1,10 @@
 ﻿var handler = {
     expandDivCenter: function () {
-        $("#div-center").removeClass("narrow-div-center").addClass("div-center-searching");
+        //$("#div-center").removeClass("narrow-div-center").addClass("div-center-searching");
     },
 
     collapseDivCenter: function () {
-        $("#div-center").removeClass("div-center-searching").addClass("narrow-div-center");
+        //$("#div-center").removeClass("div-center-searching").addClass("narrow-div-center");
     },
 
     hideDivLeft: function () {
@@ -56,7 +56,7 @@
     },
 
     showHomePage: function () {
-        shrinkGrid = true;
+        shrinkGrid = false;
         handler.showDivRight();
         handler.collapseDivCenter();
     },
@@ -64,7 +64,7 @@
     redirectSearching: function (index) {
         $.cookie("tabIndex", index, { path: '/' });
         if (index == 0) {
-            shrinkGrid = true;
+            shrinkGrid = false;
             handler.showSearchCarFirm();            
         }
         else {

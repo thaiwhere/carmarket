@@ -27,7 +27,7 @@ Car.SearchingCar = function () {
 
     $this.Searching= function(searchingUrl, criteria)
     {
-        var callback = gridRender;
+        var callback = isMobile ? gridRenderSmartphone : gridRender;
         getListCar("gridSearchingCar", searchingUrl, criteria, callback);
     }
 

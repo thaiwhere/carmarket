@@ -91,6 +91,32 @@ var gridRender = function (gridId, data) {
     //customGrid(gridId);
 };
 
+var gridRenderSmartphone = function (gridId, data) {
+    gridOptions =
+            {
+                columns: [
+                { HeaderText: "Xe", Width: 135, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Mô tả", Width: 200, Name: "Description", HeaderAlign: "center", CellAlign: "center" },
+                { HeaderText: "Thông tin", Width: 150, Name: "Info", HeaderAlign: "center", CellAlign: "center" }
+                ],
+                gridId: gridId,
+                bodyRows: decorateData(data),
+                //scrollWidth: 0, //// Default is 24px
+                gridExpandHeight: 100,
+                showPager: true,
+                customGrid: true,
+                pagerOption: {
+                    itemsPerPage: 10,
+                    currentPage: 0,
+                    showDetail: true,
+                    customSelectCallBack: reRenderAfterPaged
+                }
+            };
+
+    $("#" + gridId).PagerGrid(gridOptions);
+    customGridSmartphone(gridId);
+};
+
 function decorateDataModify(cars, carStatus) {
     var list = [];
 
@@ -230,6 +256,17 @@ function customGrid(gridId) {
     }
 
     $(".grid-container").height("100%");
+}
+
+function customGridSmartphone(gridId) {
+    var gridObj = $("#" + gridId);
+    gridObj.width(500);
+    
+    var width = gridObj.width();
+    
+    gridObj.find(".grid-container").width(width);
+    gridObj.find(".content-container").width(width);
+    
 }
 
 function reRenderAfterPaged(gridId) {    

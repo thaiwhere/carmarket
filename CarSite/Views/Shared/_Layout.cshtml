@@ -18,15 +18,23 @@
     @Scripts.Render("~/bundles/jquery")
 
     @RenderSection("Styles", required: false)
+    <script>        
+        function is_touch_device() {
+            return 'ontouchstart' in window        // works on most browsers
+                || navigator.maxTouchPoints;       // works on IE10/11 and Surface
+        };
 
+        var isMobile = is_touch_device();
+    </script>
+    
 </head>
 
 <body>    
-    <div id="div-parent">
+    <div id="div-parent" class="div-parent">
         <div id="div-header">
             <a id="logo" href="http://xegiadinhviet.com" title="oto, mua ban oto">                
             </a>
-            <a id="logo_text" href="http://xegiadinhviet.com" title="oto, mua ban oto">                
+            <a id="logo_text" class="logo-text" href="http://xegiadinhviet.com" title="oto, mua ban oto">                
             </a>
             <div id="div-support">
                <div id="div-login" style="width:100%">
@@ -61,15 +69,15 @@
                 </div>                
          
             </div>
-            <div id="div-center" class="narrow-div-center">
+            <div id="div-center" class="div-center-searching">
                 @RenderBody()
             </div>
-            <div id="div-right">
+            @*<div id="div-right">
                 @{ Html.RenderPartial("~/Views/Shared/Slider.cshtml"); }
                 @{ Html.RenderPartial("~/Views/Shared/ShowRoom.cshtml"); }                
-            </div>
+            </div>*@
         </div>
-        <div id="div-footer">
+        <div id="div-footer" class="div-footer" >
            @{ Html.RenderPartial("~/Views/Shared/Footer.cshtml"); }
         </div>
     </div>
@@ -77,6 +85,20 @@
     @Scripts.Render("~/bundles/js")
 
     @RenderSection("Scripts", required: false)
+
+    <script>       
+        if (isMobile) {
+            $("#logo").hide();
+            $("#logo_text").removeClass("logo-text").addClass("logo-text-smartphone");
+            //$("#div-right").hide();
+            $("#div-parent").removeClass("div-parent").addClass("div-parent-smartphone");
+            $("#div-center").removeClass("div-center-searching").addClass("narrow-div-center-smartphone");
+            $("#div-footer").removeClass("div-footer").addClass("div-footer-smartphone");
+
+            $("#panel_left > a > img").css("width", "132");
+            $("#panel_left > a > img").css("height", "132");
+        }
+    </script>
 
     <script>
 

@@ -115,11 +115,15 @@ legend {
 }
 
 .div-center-searching{
-    width:796px;
+    width:796px;    
 }
 
 .narrow-div-center{    
     width:563px;      
+}
+
+.narrow-div-center-smartphone{    
+    width:500px;      
 }
 
 .new-label-searching{
