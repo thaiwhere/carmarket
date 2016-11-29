@@ -50,7 +50,7 @@ namespace CarSite.Controllers
             {
                 try
                 {
-                    bool IsCaptchaValid = (ReCaptcha.Validate(encodedResponse) == "True" ? true : false);
+                    bool IsCaptchaValid = true;//todo (ReCaptcha.Validate(encodedResponse) == "True" ? true : false);
 
                     if (IsCaptchaValid)
                     {
@@ -127,8 +127,8 @@ namespace CarSite.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {                    
-                    bool IsCaptchaValid = (ReCaptcha.Validate(encodedResponse) == "True" ? true : false);
+                {
+                    bool IsCaptchaValid = true;//todo (ReCaptcha.Validate(encodedResponse) == "True" ? true : false);
 
                     if (IsCaptchaValid)
                     {
