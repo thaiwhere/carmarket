@@ -20,15 +20,7 @@
     text-indent: -999px;
 }
 
-.logo-text {
-    float: left;
-    background: transparent url(../../Images/common/logo_text.png) repeat-x scroll 770px -13px;
-    width: 300px;
-    height: 100px;            
-    margin-left:20px;    
-}
-
-.logo-text-smartphone {
+#logo_text {
     float: left;
     background: transparent url(../../Images/common/logo_text_smartphone.png) repeat-x scroll 624px 0px;
     width: 160px;

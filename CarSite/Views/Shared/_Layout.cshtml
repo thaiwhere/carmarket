@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>@ViewBag.Title - Xe gia đình việt</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="keywords" content="ôtô 2018, oto 2018, bán xe, mua xe, thuê xe, đăng tin bán xe, đăng tin mua xe, đăng tin thuê xe, ôtô, bán ôtô, mua ôtô, thuê ôtô, đăng tin bán ôtô, đăng tin mua ôtô, đăng tin thuê ôtô">
+    <title>Xe gia đình việt - Ô tô, mua bán ô tô, xe hơi, ô tô nhập khẩu, ô tô cũ, ô tô đã qua sử dụng</title>
+    <meta charset="utf-8" />    
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">    
+    <meta name="keywords" content="oto, mua ban oto , mua oto,ban oto,o to,ô tô, ôtô, oto cu, oto da qua su dung, xe hoi, mua ban xe hoi, xe cu, oto nhap khau, xe nhap khau, mua bán ô tô, xe hơi, ô tô nhập khẩu, xe nhập khẩu, ôtô 2018, oto 2018, đăng tin ôtô, bán xe, mua xe, thuê xe, ôtô, bán ôtô, mua ôtô, thuê ôtô, xegiadinhviet, xe gia dinh">
+    <meta name="description" content="Đăng tin Miễn phí, Mua, Bán, Thuê Xe Ôtô, Website thong minh ve mua ban oto, oto cu, oto da qua su dung, oto moi, oto nhap khau, xe nhap khau, oto lap rap trong nuoc , ô tô nhập khẩu, xe nhập khẩu ...">
     <meta name="author" content="www.xegiadinhviet.com">
-    <meta name="description" content="Đăng tin Miễn phí Mua, Bán, Thuê Xe Ôtô - Xe bạn nên xem - Xe gia đình việt 2018">
     <meta name="revisit-after" content="1 days">
     <meta name="distribution" content="web">
     <meta http-equiv="refresh" content="600">    
@@ -17,88 +17,51 @@
 
     @Scripts.Render("~/bundles/jquery")
 
-    @RenderSection("Styles", required: false)
-    <script>        
-        function is_touch_device() {
-            return 'ontouchstart' in window        // works on most browsers
-                || navigator.maxTouchPoints;       // works on IE10/11 and Surface
-        };
-
-        var isMobile = is_touch_device();
-    </script>
+    @RenderSection("Styles", required: false)   
     
 </head>
 
 <body>    
-    <div id="div-parent" class="div-parent">
-        <div id="div-header">
-            <a id="logo" href="http://xegiadinhviet.com" title="oto, mua ban oto">                
+    <div id="div-parent" class="container-fluid">
+        <div id="div-header" class="row">
+            <a id="logo" href="http://xegiadinhviet.com" title="oto, mua ban oto">
             </a>
-            <a id="logo_text" class="logo-text" href="http://xegiadinhviet.com" title="oto, mua ban oto">                
+            <a id="logo_text" href="http://xegiadinhviet.com" title="oto, mua ban oto">
             </a>
-            <div id="div-support">
+            @*<div id="div-support">
                <div id="div-login" style="width:100%">
                     <ul>
                         <li><a href="/Account/Register/">Đăng ký</a></li>
-                        <li><a href="/Account/Login/" onclick="open_dialog('login-dlg','username1');return false;">Đăng nhập</a></li>                        
-                        <li class=""><a href="/Home/Guide">Hướng dẫn</a></li>                                                    
-                        <li class=""><a href="/Home/Contact">Liên hệ</a></li>                         
-                    </ul>                   
+                        <li><a href="/Account/Login/" onclick="open_dialog('login-dlg','username1');return false;">Đăng nhập</a></li>
+                        <li class=""><a href="/Home/Guide">Hướng dẫn</a></li>
+                        <li class=""><a href="/Home/Contact">Liên hệ</a></li>
+                    </ul>
                 </div>
                <div id="div-search">
                     @{ Html.RenderPartial("~/Views/Shared/Search.cshtml"); }
                 </div>
                 @if(System.Web.HttpContext.Current.Session["UserId"] !=null)
-                { 
+                {
                     <div id="div-user">
                         @Html.Partial("_LoginPartial")
                     </div>
                 }
-            </div>
-        </div>
-        <div id="div-menu">
-            @{ Html.RenderPartial("~/Views/Shared/Menu.cshtml"); }
-        </div>
-        <div id="div-content">
-            <div id="div-left" class="col-sm-2">
-                <div id="div-left-searching">
-                    @{ Html.RenderPartial("~/Views/Shared/CarList.cshtml"); }
-                </div>
-                <div id="div-left-advertise">
-                    @{ Html.RenderPartial("~/Views/Shared/PanelLeft.cshtml"); }
-                </div>                
-         
-            </div>
-            <div id="div-center" class="div-center-searching">
-                @RenderBody()
-            </div>
-            @*<div id="div-right">
-                @{ Html.RenderPartial("~/Views/Shared/Slider.cshtml"); }
-                @{ Html.RenderPartial("~/Views/Shared/ShowRoom.cshtml"); }                
             </div>*@
         </div>
-        <div id="div-footer" class="div-footer" >
-           @{ Html.RenderPartial("~/Views/Shared/Footer.cshtml"); }
+        <div id="div-menu" class="row">
+            @{ Html.RenderPartial("~/Views/Shared/Menu.cshtml"); }
+        </div>
+        <div id="div-content" class="row">
+            @RenderBody()
+        </div>
+        <div id="div-footer" class="row">
+            @{ Html.RenderPartial("~/Views/Shared/Footer.cshtml"); }
         </div>
     </div>
     
     @Scripts.Render("~/bundles/js")
 
     @RenderSection("Scripts", required: false)
-
-    <script>       
-        if (isMobile) {
-            $("#logo").hide();
-            $("#logo_text").removeClass("logo-text").addClass("logo-text-smartphone");
-            //$("#div-right").hide();
-            $("#div-parent").removeClass("div-parent").addClass("div-parent-smartphone");
-            $("#div-center").removeClass("div-center-searching").addClass("narrow-div-center-smartphone");
-            $("#div-footer").removeClass("div-footer").addClass("div-footer-smartphone");
-
-            $("#panel_left > a > img").css("width", "132");
-            $("#panel_left > a > img").css("height", "132");
-        }
-    </script>
 
     <script>
         (function (i, s, o, g, r, a, m) {
