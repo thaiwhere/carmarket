@@ -10,7 +10,7 @@ namespace Car.Framework
         {
             string from = companyHost.Email;
             string to = toEmail;
-            string companyEmail = companyHost.Email;                
+            string companyEmail = "xegiadinhviet@gmail.com";                
 
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
             mail.IsBodyHtml = true;

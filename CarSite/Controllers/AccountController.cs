@@ -160,7 +160,9 @@ namespace CarSite.Controllers
                                     HttpContext.Session["UserId"] = registedUser.UserId.ToString();
 
                                     var contact = new Contact { Name = model.UserName, Email = model.Email };
-                                    Proxy.SendEmail(contact, "Thành viên", "Bạn đã trở thành thành viên <b>xegiadinhviet.com</b>, nơi đăng tin mua, bán, thuê xe <b>HOÀN TOÀN MIỄN PHÍ</b>. <br/> Tên truy cập: " + model.UserName + ", Mật khẩu: " + model.Password);
+                                    Proxy.SendEmail(contact, "Thành viên", "Bạn đã trở thành thành viên <b>xegiadinhviet.com</b>, nơi đăng tin mua, bán, thuê xe <b>HOÀN TOÀN MIỄN PHÍ</b>. <br/> Tên truy cập: " 
+                                        + model.UserName + ", Mật khẩu: " + model.Password
+                                        + "<br/><br/> Click http://www.xegiadinhviet.com/car/insert để đăng tin miễn phí ");
 
                                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                                     && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
@@ -319,7 +321,7 @@ namespace CarSite.Controllers
                                 ,"<br/><br/>----------------------------------------------------------------------------------------------------<br/>"                                
                                 ,"<b>P/S: Đây là Email tự động. Xin đừng phản hồi qua email này </b>");
 
-                            string body = string.Format(message, userName, EncryptionHelper.Decrypt(userLogin.Password), AppSettings.DomainName, "http://www.xegiadinhviet/home/contact"); 
+                            string body = string.Format(message, userName, EncryptionHelper.Decrypt(userLogin.Password), AppSettings.DomainName, "http://www.xegiadinhviet.com/home/contact"); 
 
                             EmailUtility.SendEmail(companyHost, subject, body, userLogin.Email);
 
