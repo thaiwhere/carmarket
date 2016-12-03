@@ -28,7 +28,7 @@
 
 function DisApproveCar(element, carId, username, email, isBuy) {
     common.ShowTitleConfirmMessage("Xoá tin", "Bạn muốn từ chối (disapprove) tin này?", function () {
-        var criteria = { CarId: carId, UseName: username, Email: email, IsBuy: isBuy };
+        var criteria = { CarId: carId, UserName: username, Email: email, IsBuy: isBuy };
 
         $.ajax({
             type: 'POST',

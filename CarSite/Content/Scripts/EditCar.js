@@ -293,8 +293,8 @@ var EditCarHandler = {
     },
 
     validateData: function () {
-
-        return $("#Title").val() != "" && $("#Description").val() != "";
+        
+        return $("#Title").val() != "" && $("#CurrencyVN").val() != "" && $("#Description").val() != "";
     },
 
     editCar: function (carId) {

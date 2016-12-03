@@ -17,7 +17,10 @@ namespace Car.Framework
             mail.Subject = subject;
             mail.Body = body;
             mail.From = new MailAddress(from);
-            mail.To.Add(new MailAddress(to));
+            if (!string.IsNullOrEmpty(to))
+            {
+                mail.To.Add(new MailAddress(to));
+            }
             mail.To.Add(new MailAddress(companyEmail));
 
             SmtpClient smtp = new SmtpClient();

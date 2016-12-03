@@ -14,6 +14,8 @@ namespace CarSite.Controllers
 {
     public class CarController : Controller
     {
+
+        private static string approvalWaitting = "Tin đăng cuả Bạn đã sẽ đuợc duyệt trong vòng 24h";
         #region GET Methods
 
         public ActionResult SearchingCars(string firm = "", string model = "", string province = "")
@@ -269,6 +271,9 @@ namespace CarSite.Controllers
                 {
                     ChangeFolderName(carId);
                     ChangeFileName(carId);
+
+                    var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                    Proxy.SendEmail(contact, "Thông báo đăng tin", "Bạn đã đăng tin với tiêu đề <br /> <br />" + carInsertEntity.Title + "<br /> <br />" + approvalWaitting);
                 }
                 else
                 {
@@ -329,6 +334,9 @@ namespace CarSite.Controllers
                 {
                     CopyFileName(carEditEntity.CarId);
                     ChangeFileName(carEditEntity.CarId);
+
+                    var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                    Proxy.SendEmail(contact, "Thông báo sửa tin", "Bạn đã sửa tin với tiêu đề <br /> <br />" + carEditEntity.Title + "<br /> <br />" + approvalWaitting);
                 }
 
                 RemoveFolderName();
@@ -382,6 +390,12 @@ namespace CarSite.Controllers
 
                 carBuyId = CarService.InsertCar(criteria);
 
+                if (carBuyId > 0)
+                {                    
+                    var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                    Proxy.SendEmail(contact, "Thông báo đăng tin", "Bạn đã đăng tin với tiêu đề <br /> <br />" + carBuyEntity.Title + "<br /> <br />" + approvalWaitting);
+                }
+
             }
             catch(Exception ex)
             {
@@ -431,6 +445,12 @@ namespace CarSite.Controllers
                 };
 
                 error = CarService.EditCar(criteria);
+
+                if(error == 0)
+                {
+                    var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                    Proxy.SendEmail(contact, "Thông báo sửa tin", "Bạn đã sửa tin với tiêu đề <br /> <br />" + carEditEntity.Title + "<br /> <br />" + approvalWaitting);
+                }
             }
             catch (Exception ex)
             {
@@ -506,6 +526,9 @@ namespace CarSite.Controllers
                     {
                         RemoveFolderName(criteria.CarId);
                     }
+
+                    var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                    Proxy.SendEmail(contact, "Thông báo xoá tin", "Bạn đã xoá tin với Id= <br /> <br />" + criteria.CarId);
                 }
 
             }
@@ -609,9 +632,9 @@ namespace CarSite.Controllers
                     result = CarService.DisApproveCar(criteria);
                     if (result == 1)
                     {
-                        var contact = new Contact { Name = criteria.UserName, Email = criteria.Email };
-                        Proxy.SendEmail(contact, "Duyệt tin", "Tin đăng đã đuợc duyệt");
-                    }
+                        var contact = new Contact { Name = criteria.UserName, Email = criteria.Email };                        
+                        Proxy.SendEmail(contact, "Từ chối duyệt tin", "Tin đăng của bạn đã bị từ chối. Xin  liên hệ http://xegiadinhviet.com/Home/Contact");
+                    } 
                 }
 
             }

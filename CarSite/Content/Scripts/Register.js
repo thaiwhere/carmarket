@@ -46,16 +46,16 @@
                     }
                 }
             },
-            Email: {
-                validators: {
-                    notEmpty: {
-                        message: 'Nhập Email'
-                    },
-                    emailAddress: {
-                        message: "Email không hợp lệ"
-                    }
-                }
-            },
+            //Email: {
+            //    validators: {
+            //        notEmpty: {
+            //            message: 'Nhập Email'
+            //        },
+            //        emailAddress: {
+            //            message: "Email không hợp lệ"
+            //        }
+            //    }
+            //},
             Agree: {                
                 validators: {
                     notEmpty: {
