@@ -115,7 +115,7 @@ namespace CarSite.Controllers
                 "<br/><br/>----------------------------------------------------------------------------------------------------<br/>", 
                 "<b>P/S: Đây là Email tự động. Xin đừng phản hồi qua email này </b>");
 
-            string body = string.Format(message, contact.Name, phone, contact.Message, AppSettings.DomainName, "http://www.xegiadinhviet/home/contact"); 
+            string body = string.Format(message, contact.Name, phone, contact.Message, AppSettings.DomainName, "http://www.xegiadinhviet.com/home/contact"); 
 
             EmailUtility.SendEmail(companyHost, subject, body, contact.Email);
         }

@@ -25,7 +25,7 @@ namespace CarSite
 
             string phone = !string.IsNullOrEmpty(contact.Phone) ? " ( SĐT: " + contact.Phone + " )" : string.Empty;
 
-            string body = string.Format(message, contact.Name, phone, AppSettings.DomainName, "http://www.xegiadinhviet/home/contact");
+            string body = string.Format(message, contact.Name, phone, AppSettings.DomainName, "http://www.xegiadinhviet.com/home/contact");
 
             EmailUtility.SendEmail(companyHost, AppSettings.DomainName + " - " + subject, body, contact.Email);            
         }
