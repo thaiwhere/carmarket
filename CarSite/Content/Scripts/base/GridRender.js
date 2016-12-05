@@ -144,22 +144,21 @@ function decorateDataModify(cars, carStatus) {
                 saled = "<a href='javascript:void(0);' onclick='return SaledCar(this, \"" + cars[i].CarId + "\");'><font color='#ff8707'><span class='glyphicon glyphicon-usd'></span> Đã bán</font></a>";
             }
 
-            var edit = "<a href='" + hrefModify + "'><span class='glyphicon glyphicon-pencil'></span> Sửa</a>";
+            var edit = "<br/><br/><a href='" + hrefModify + "'><span class='glyphicon glyphicon-pencil'></span> Sửa</a>";
 
-            var remove = "<a href='javascript:void(0);' onclick='return DeleteCar(this, \"" + cars[i].CarId + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-remove'></span> Xoá</font></a>";            
+            var remove = "<br/><br/><a href='javascript:void(0);' onclick='return DeleteCar(this, \"" + cars[i].CarId + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-remove'></span> Xoá</font></a>";
 
-            var modify = "";
+            var modify = "<div class='car-info' style='margin-left:20px' >" + saled + edit + remove;
             
             if (IsAdmin == "True")
             {
-                var approve = "<a href='javascript:void(0);' onclick='return ApproveCar(this, \"" + cars[i].CarId + "\",\"" + cars[i].UserName + "\",\"" + cars[i].Email + "\"," + cars[i].IsBuy + ");'><font color='#0000ff'><span class='glyphicon glyphicon-thumbs-up'></span> Duyệt</font></a>";
-                var disApprove = "<a href='javascript:void(0);' onclick='return DisApproveCar(this, \"" + cars[i].CarId + "\",\"" + cars[i].UserName + "\",\"" + cars[i].Email + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-thumbs-down'></span> KO duyệt</font></a>";
+                var approve = "<br/><br/><a href='javascript:void(0);' onclick='return ApproveCar(this, \"" + cars[i].CarId + "\",\"" + cars[i].UserName + "\",\"" + cars[i].Email + "\"," + cars[i].IsBuy + ");'><font color='#0000ff'><span class='glyphicon glyphicon-thumbs-up'></span> Duyệt</font></a>";
+                var disApprove = "<br/><br/><a href='javascript:void(0);' onclick='return DisApproveCar(this, \"" + cars[i].CarId + "\",\"" + cars[i].UserName + "\",\"" + cars[i].Email + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-thumbs-down'></span> KO duyệt</font></a>";
 
-                modify = "<div class='car-info' style='margin-left:20px' >" + approve + "<br/><br/>" + disApprove + "<br/>" + "</div>";
-            }
-            else {
-                modify = "<div class='car-info' style='margin-left:20px' >" + saled + "<br/><br/>" + edit + "<br/><br/>" + remove + "</div>";
-            }
+                modify += approve + disApprove;
+            }            
+
+            modify += "</div>";
 
             var row = {
                 Columns: [
@@ -167,7 +166,7 @@ function decorateDataModify(cars, carStatus) {
                         { Name: "Title", Value: title },
                         { Name: "Status", Value: status },
                         { Name: "ModifiedDate", Value: cars[i].ModifiedDate },
-                        { Name: "CountView", Value: cars[i].CountVisit },
+                        //{ Name: "CountView", Value: cars[i].CountVisit },
                         { Name: "Modify", Value: modify }
                 ]
             };
@@ -188,7 +187,7 @@ var gridRenderMofify = function (gridId, data, carStatus) {
                   { HeaderText: "Tiêu đề", Width: 280, Name: "Title", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Trạng thái", Width: 100, Name: "Status", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Ngày cập nhật", Width: 100, Name: "ModifiedDate", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Luợt xem", Width: 70, Name: "CountView", HeaderAlign: "center", CellAlign: "center" },
+                  //{ HeaderText: "Luợt xem", Width: 70, Name: "CountView", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Chỉnh sửa", Width: 110, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
                   ],
                   gridId: gridId,

@@ -156,13 +156,17 @@ var EditCarHandler = {
            );
 
         $("#carInsert_select_CurrencyVN").change(
-                function () {
-                    $("#CurrencyVN").val(this.value);
+               function () {
+                   $("#CurrencyVN").val(this.value);
 
-                    var value = common.FormatNumber(this.value);
-                    $(this).val(value);
-                }
-           );
+                   //var value = common.FormatNumber(this.value);
+                   //$(this).val(value);
+               }
+          );
+
+        $("#carInsert_select_CurrencyVN").on("keydown", function (event) {
+            common.PreventChars(event);
+        });       
 
         $("#select_price_from").change(
                 function () {
@@ -201,10 +205,12 @@ var EditCarHandler = {
                   if (EditCarHandler.validateData()) {
                       EditCarHandler.editCar(_carId);
                   } else {                      
-                      common.ShowInfoMessage("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
-                      if($("#Title").val() == "")
-                      {
+                      common.ShowInfoMessage("Vui lòng nhập Tiêu đề, Giá và Thông tin mô tả ");                      
+                      if ($("#Title").val() == "") {
                           $("#Title").focus();
+                      }
+                      else if ($("#CurrencyVN").val() == "") {
+                          $("#CurrencyVN").focus();
                       }
                       else {
                           $("#Description").focus();
@@ -218,9 +224,12 @@ var EditCarHandler = {
                   if (EditCarHandler.validateData()) {
                       EditCarHandler.editCarBuying(_carId);
                   } else {
-                      common.ShowInfoMessage("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                      common.ShowInfoMessage("Vui lòng nhập Tiêu đề, Giá và Thông tin mô tả ");
                       if ($("#Title").val() == "") {
                           $("#Title").focus();
+                      }
+                      else if ($("#CurrencyVN").val() == "") {
+                          $("#CurrencyVN").focus();
                       }
                       else {
                           $("#Description").focus();
@@ -294,7 +303,7 @@ var EditCarHandler = {
 
     validateData: function () {
         
-        return $("#Title").val() != "" && $("#CurrencyVN").val() != "" && $("#Description").val() != "";
+        return $("#Title").val() != "" && $("#CurrencyVN").val() != "" && $("#CurrencyVN").val() != "0" && $("#Description").val() != "";
     },
 
     editCar: function (carId) {

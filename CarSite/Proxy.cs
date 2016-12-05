@@ -18,7 +18,7 @@ namespace CarSite
             string message = string.Join(null, "Xin chào <b>{0}</b> {1},"
                                , "<br /> <br /> ", content
                                , "<br /> <br />Vui lòng liên hệ <a href=\"{3}\">{2}</a> nếu cần thêm sự hỗ trợ."
-                               , "<br/><br/>Xin cảm ơn quí khách !"
+                               , "<br/><br/>Trân trọng cảm ơn !"
                                , "<br /> <br /><a href =\"http://www.xegiadinhviet.com\">xegiadinhviet.com</a>"
                                , "<br/><br/>----------------------------------------------------------------------------------------------------<br/>"
                                , "<b>P/S: Đây là Email tự động. Xin đừng phản hồi qua email này </b>");

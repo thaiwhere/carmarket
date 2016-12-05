@@ -336,7 +336,7 @@ namespace CarSite.Controllers
                     ChangeFileName(carEditEntity.CarId);
 
                     var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
-                    Proxy.SendEmail(contact, "Thông báo sửa tin", "Bạn đã sửa tin với tiêu đề <br /> <br />" + carEditEntity.Title + "<br /> <br />" + approvalWaitting);
+                    Proxy.SendEmail(contact, "Thông báo sửa tin", "Bạn đã sửa thông tin của tin đăng tiêu đề <br /> <br />" + carEditEntity.Title + "<br /> <br />" + approvalWaitting);
                 }
 
                 RemoveFolderName();
@@ -393,7 +393,7 @@ namespace CarSite.Controllers
                 if (carBuyId > 0)
                 {                    
                     var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
-                    Proxy.SendEmail(contact, "Thông báo đăng tin", "Bạn đã đăng tin với tiêu đề <br /> <br />" + carBuyEntity.Title + "<br /> <br />" + approvalWaitting);
+                    Proxy.SendEmail(contact, "Thông báo đăng tin", "Bạn đã sửa thông tin của tin đăng tiêu đề<br /> <br />" + carBuyEntity.Title + "<br /> <br />" + approvalWaitting);
                 }
 
             }
@@ -449,7 +449,7 @@ namespace CarSite.Controllers
                 if(error == 0)
                 {
                     var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
-                    Proxy.SendEmail(contact, "Thông báo sửa tin", "Bạn đã sửa tin với tiêu đề <br /> <br />" + carEditEntity.Title + "<br /> <br />" + approvalWaitting);
+                    Proxy.SendEmail(contact, "Thông báo sửa tin", "Bạn đã sửa thông tin của tin đăng tiêu đề<br /> <br />" + carEditEntity.Title + "<br /> <br />" + approvalWaitting);
                 }
             }
             catch (Exception ex)

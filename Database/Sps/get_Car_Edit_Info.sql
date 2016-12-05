@@ -1,6 +1,6 @@
 USE [CARWEB]
 GO
-/****** Object:  StoredProcedure [dbo].[get_Car_Detail]    Script Date: 6/13/2016 10:30:38 AM ******/
+/****** Object:  StoredProcedure [dbo].[get_Car_Edit_Info]    Script Date: 12/5/2016 11:01:30 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -21,7 +21,7 @@ BEGIN
 	SET NOCOUNT ON;
 	
 	Select distinct
-		c.UserId,
+		c.UserId,		
 		c.CarId,
 		c.Firm,
 		c.Model,
@@ -49,6 +49,6 @@ BEGIN
 		Convert(varchar(10), c.CreatedDate,120)  as CreatedDate
 	from [dbo].[CarForSale] c with(nolock)		
 	inner join [User] u  with(nolock) on u.UserId = c.UserId		
-	Where c.CarId = @CarId and c.UserId = @UserId
+	Where c.CarId = @CarId and (u.UserId = @UserId or @UserId = 7)
 	
 END

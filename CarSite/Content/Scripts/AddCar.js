@@ -244,7 +244,7 @@ var AddCarHandler = {
 
     validateData: function () {
 
-        return $("#Title").val() != "" && $("#CurrencyVN").val() != "" && $("#Description").val() != "";
+        return $("#Title").val() != "" && $("#CurrencyVN").val() != "" && $("#CurrencyVN").val() != "0" && $("#Description").val() != "";
     },
 
     insertCar: function () {
