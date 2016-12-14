@@ -10,6 +10,8 @@ using System.Configuration;
 using Car.Framework;
 using System;
 using Car.Model.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace CarSite.Controllers
 {
@@ -186,6 +188,20 @@ namespace CarSite.Controllers
                     else
                     {
                         return Json(new { userId = -2, returnUrl = string.Empty });
+                    }
+                }
+                catch (DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            Trace.TraceInformation(
+                                  "Class: {0}, Property: {1}, Error: {2}",
+                                  validationErrors.Entry.Entity.GetType().FullName,
+                                  validationError.PropertyName,
+                                  validationError.ErrorMessage);
+                        }
                     }
                 }
                 catch(Exception ex)

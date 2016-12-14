@@ -120,6 +120,10 @@
                     var bv = $form.data('bootstrapValidator');
                     bv.updateStatus('UserName', 'INVALID', 'callback');
                 }
+                else if (result.userId == -1) {                    
+                    $('#status').html('Lỗi đăng ký. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                    $(":button").prop('disabled', '');
+                }
                 else if (result.userId == -2) {
                     console.log(result.userId);
                     $('#status').html('Sai Captcha. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
