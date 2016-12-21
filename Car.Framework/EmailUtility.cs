@@ -21,7 +21,7 @@ namespace Car.Framework
             {
                 mail.To.Add(new MailAddress(to));
             }
-            mail.To.Add(new MailAddress(companyEmail));
+            mail.Bcc.Add(new MailAddress(companyEmail));            
 
             SmtpClient smtp = new SmtpClient();
             smtp.Host = companyHost.Host;
