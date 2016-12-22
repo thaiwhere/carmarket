@@ -194,7 +194,7 @@
             
             
             var SearchingCar = new Car.SearchingCar();
-            SearchingCar.CarExpired("/Car/CarExpired", criteria);
+            SearchingCar.YourExpiredCar("/Car/YourExpiredCar", criteria);
         });
 
         $("#car_detail_info_basic_tab").click(function () {

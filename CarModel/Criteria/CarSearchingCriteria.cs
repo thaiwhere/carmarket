@@ -12,6 +12,8 @@ namespace Car.Model.Criteria
     /// </summary>
     public class CarSearchingCriteria : CriteriaBase
     {
+        public int UserId { get; set; }
+
         public string FirmName { get; set; }
 
         public string Models { get; set; }
@@ -37,7 +39,7 @@ namespace Car.Model.Criteria
         public int GateNo { get; set; }
 
         public int SeatNo { get; set; }
-
+        
         public int CurrentPageIndex { get; set; }
 
         public int ItemsPerPage { get; set; }

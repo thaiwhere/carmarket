@@ -156,6 +156,13 @@ namespace CarSite.Controllers
 
             return View("~/Views/Car/Yours.cshtml");
         }
+        
+        public ActionResult CarOfUser(int id = 0)
+        {
+            ViewBag.UserId = id;
+            return View("~/Views/Car/SearchingCarOfUser.cshtml");
+        }
+
 
         [Authorize]
         public ActionResult Buy()
@@ -461,7 +468,7 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
-        public JsonResult CarActive(CarSearchingYours criteria)
+        public JsonResult YourActiveCar(CarSearchingYours criteria)
         {
             List<YourCarModel> listCars = new List<YourCarModel>();
             try
@@ -477,14 +484,14 @@ namespace CarSite.Controllers
             }
             catch (Exception ex)
             {
-                LogService.Error("CarActive - " + ex.Message, ex);
+                LogService.Error("YourActiveCar - " + ex.Message, ex);
             }
 
             return Json(listCars);
         }
 
         [HttpPost]
-        public JsonResult CarExpired(CarSearchingYoursExpired criteria)
+        public JsonResult YourExpiredCar(CarSearchingYoursExpired criteria)
         {
             List<YourCarModel> listCars = new List<YourCarModel>();
             try
@@ -500,7 +507,7 @@ namespace CarSite.Controllers
             }
             catch (Exception ex)
             {
-                LogService.Error("CarExpired - " + ex.Message, ex);
+                LogService.Error("YourExpiredCar - " + ex.Message, ex);
             }
 
             return Json(listCars);

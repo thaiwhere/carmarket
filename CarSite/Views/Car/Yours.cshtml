@@ -50,13 +50,13 @@
 
         handler.showResultSearching();
 
-        var criteria = {
+        var criteria = {            
             ItemsPerPage: ItemsPerPage,
             CurrentPageIndex: 0        
         };
 
         var SearchingCar = new Car.SearchingCar();
-        SearchingCar.CarActive("/Car/CarActive", criteria);        
+        SearchingCar.YourActiveCar("/Car/YourActiveCar", criteria);        
        
     </script>
 

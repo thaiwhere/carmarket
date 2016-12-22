@@ -6,6 +6,7 @@ function decorateData(cars) {
         var href = "/Car/CarDetail/" + cars[i].CarId;
         var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
         var hrefProvince = hrefFirm + "&province=" + cars[i].Province;
+        var hrefContact = "/Car/CarOfUser/" + cars[i].UserId;
 
         var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
         var title = cars[i].Title;
@@ -19,7 +20,7 @@ function decorateData(cars) {
         var km = "<div class='car-info-item'>Km: " + cars[i].Km + " (km)</div>";
         var gearBox = "<div class='car-info-item'>Hộp số: " + (cars[i].GearBox == 0 ? "Tự động" : "Số tay") + "</div>";
         var price_location = "<div class='car-info-price'>" + common.ShowVietnameseCurrency(cars[i].CurrencyVN) + "</div><div class='car-info-place'><a href='" + hrefProvince + "'>" + cars[i].Province + "</a></div>";
-        var contact = "<div class='car-info-item car-info-user'>" + cars[i].ContactName + "</div><div class='car-info-item car-info-tel'>" + cars[i].ContactTel + "</div>";
+        var contact = "<div class='car-info-item car-info-user'><a href='" + hrefContact + "'>" + cars[i].ContactName + "</a></div><div class='car-info-item car-info-tel'>" + cars[i].ContactTel + "</div>";
 
         var car = status + source + firm + photo
         var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";
@@ -150,7 +151,7 @@ function decorateDataModify(cars, carStatus) {
 
             var modify = "<div class='car-info' style='margin-left:20px' >" + saled + edit + remove;
             
-            if (IsAdmin == "True")
+            if (typeof(IsAdmin) != 'undefined' && IsAdmin == "True")
             {
                 var approve = "<br/><br/><a href='javascript:void(0);' onclick='return ApproveCar(this, \"" + cars[i].CarId + "\",\"" + cars[i].UserName + "\",\"" + cars[i].Email + "\"," + cars[i].IsBuy + ");'><font color='#0000ff'><span class='glyphicon glyphicon-thumbs-up'></span> Duyệt</font></a>";
                 var disApprove = "<br/><br/><a href='javascript:void(0);' onclick='return DisApproveCar(this, \"" + cars[i].CarId + "\",\"" + cars[i].UserName + "\",\"" + cars[i].Email + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-thumbs-down'></span> KO duyệt</font></a>";

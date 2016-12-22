@@ -515,6 +515,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Car\CarForBuy.cshtml" />
+    <Content Include="Views\Car\SearchingCarOfUser.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
