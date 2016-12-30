@@ -187,15 +187,15 @@ namespace CarSite.Controllers
 
         [HttpPost]
         public JsonResult SearchingCars(CarSearchingCriteria criteria)
-        {            
-            var listCars = CarService.SearchingCars<CarModel>(criteria).ToList<CarModel>();
+        {
+            var listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsByFirmModelProvince(CarSearchingFirmModelCriteria criteria)
         {
-            var listCars = CarService.SearchingCars < CarModel>(criteria).ToList<CarModel>();
+            var listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
@@ -209,14 +209,14 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult SearchingCarsNewOld(CarSearchingNewOldCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsImportDomestic(CarSearchingImportDomesticCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars <CarModel>(criteria).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }        
                 
@@ -656,7 +656,7 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult SearchingCarForBuy(SearchingCarForBuyCriteria criteria)
         {
-            var listCars = CarService.SearchingCars<CarModel>(criteria).ToList<CarModel>();
+            var listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
