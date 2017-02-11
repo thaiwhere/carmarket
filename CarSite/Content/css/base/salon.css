@@ -1,4 +1,11 @@
-﻿.salon-section{    
+﻿.list-salon{
+     border:1px solid #D6D6D6;
+    border-radius:5px 5px 0 0;
+    margin-left:10px;
+    margin-top:10px;
+}
+
+.salon-section{    
     float:left;
     width:50%; 
     height:300px;

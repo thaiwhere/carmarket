@@ -2,8 +2,9 @@
 
 <ul id="menu" class="nav nav-pills">
     <li id="menu_index"><a href="~/home/index">Trang Chủ</a></li>    
-    <li id="menu_carforbuy"><a href="~/car/carforbuy">Tin mua Ôtô</a></li>
+    @*<li id="menu_carforbuy"><a href="~/car/carforbuy">Tin mua Ôtô</a></li>*@
     <li id="menu_salon"><a href="~/home/salon">Salon Ôtô</a></li>        
+    <li id="menu_info"><a href="~/home/news">Tin tức Ôtô</a></li>        
     @if (Request.IsAuthenticated)
     {
         <li id="menu_yours"><a href="~/car/yours">Quản lý đăng tin</a></li>

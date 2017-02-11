@@ -58,7 +58,12 @@ namespace CarSite.Controllers
         {
             return View("~/Views/Home/Salon.cshtml");
         }
-        
+
+        public ActionResult News()
+        {
+            return View("~/Views/Home/News.cshtml");
+        }
+     
         [HttpPost]
         public JsonResult SendMessage(Contact contact)
         {          

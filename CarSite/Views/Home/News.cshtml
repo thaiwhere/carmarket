@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Tin tức Ôtô";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="list-news">
+
+    <div class="news-item item-normal-subtitle">
+        <a href="/news/index/1">
+            <img src="http://autopro56.mediacdn.vn/zoom/240_160/2017/hyundai-solaris-13-850x556-1486303427828-0-18-554-850-crop-1486303443787.jpg" alt="Sedan cỡ nhỏ Hyundai Accent 2018 lộ diện sớm" title="Sedan cỡ nhỏ Hyundai Accent 2018 lộ diện sớm" width="240" height="160">
+        </a>
+        <h2>
+            <a href="/news/index/1">Sedan cỡ nhỏ Hyundai Accent 2018 lộ diện sớm</a>
+        </h2>
+        <p class="date-time">
+            <a href="/home/news">
+                <b>Tin tức</b>
+            </a> | 10/02/2017 20:19
+        </p>
+        <p>Việc ra mắt mẫu sedan cỡ nhỏ Solaris 2018 tại thị trường Nga đã gián tiếp làm lộ thiết kế của Hyundai Accent thế hệ mới.</p>
+    </div>
+
+    <div class="news-item item-normal-subtitle">
+        <a href="/news/index/2" data-adr="l2-20170210172921511">
+            <img src="http://autopro56.mediacdn.vn/zoom/240_160/2017/photo1486722417062-1486722417363-0-0-400-600-crop-1486722485968.jpg" alt="Ô tô giảm giá trăm triệu: Năm mới háo hức mua xe" title="Ô tô giảm giá trăm triệu: Năm mới háo hức mua xe" width="240" height="160">
+        </a>      
+        <h2><a data-id="20170210172921511" data-linktype="newsdetail" href="/news/index/2" data-adr="l2-20170210172921511">Ô tô giảm giá trăm triệu: Năm mới háo hức mua xe</a></h2>
+        <p class="date-time"><a href="/tin-tuc.chn"><b>Tin tức</b></a> | 10/02/2017 17:29</p><p>Bước sang năm 2017, sau hơn 1 tháng chờ đợi, đã có doanh nghiệp ô tô đầu tiên công bố giảm giá xe nhập khẩu nguyên chiếc từ Thái Lan về Việt Nam, với mức giảm khoảng 7%.</p>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script>
+        $("#div-right").hide();
+        handler.expandDivCenter();
+    </script>
+}

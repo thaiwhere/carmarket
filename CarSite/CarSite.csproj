@@ -194,6 +194,7 @@
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -235,6 +236,7 @@
     </Content>
     <Content Include="Content\assets\icon-fonts\styles.css" />
     <Content Include="Content\css\animate.min.css" />
+    <Content Include="Content\css\base\news.css" />
     <Content Include="Content\css\base\car-insert.css" />
     <Content Include="Content\css\base\grid-custom.css" />
     <Content Include="Content\css\base\showroom.css" />
@@ -516,8 +518,13 @@
     </Content>
     <Content Include="Views\Car\CarForBuy.cshtml" />
     <Content Include="Views\Car\SearchingCarOfUser.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\News\news2.cshtml" />
+    <None Include="Views\News\news1.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\abc\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
