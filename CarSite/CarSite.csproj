@@ -328,24 +328,10 @@
     <Content Include="Content\images\guide\Tindangcuaban.png" />
     <Content Include="Content\images\guide\Tinhethan.png" />
     <Content Include="Content\images\guide\Tin_hieuluc.png" />
-    <Content Include="Content\images\panel_left\01.jpg" />
-    <Content Include="Content\images\panel_left\02.jpg" />
-    <Content Include="Content\images\panel_left\03.jpg" />
-    <Content Include="Content\images\panel_left\04.jpg" />
-    <Content Include="Content\images\panel_left\05.jpg" />
-    <Content Include="Content\images\panel_left\06.jpg" />
-    <Content Include="Content\images\panel_left\07.jpg" />
-    <Content Include="Content\images\panel_left\08.jpg" />
-    <Content Include="Content\images\panel_left\09.jpg" />
     <Content Include="Content\images\panel_left\1.jpg" />
-    <Content Include="Content\images\panel_left\10.jpg" />
-    <Content Include="Content\images\panel_left\11.jpg" />
-    <Content Include="Content\images\panel_left\12.jpg" />
     <Content Include="Content\images\panel_left\2.png" />
     <Content Include="Content\images\panel_left\3.gif" />
-    <Content Include="Content\images\panel_left\4.gif" />
     <Content Include="Content\images\panel_left\5.gif" />
-    <Content Include="Content\images\panel_left\6.jpg" />
     <Content Include="Content\images\panel_left\7.jpg" />
     <Content Include="Content\images\panel_left\8.jpg" />
     <Content Include="Content\images\slider\01.jpg" />
@@ -360,14 +346,6 @@
     <Content Include="Content\images\slider\10.jpg" />
     <Content Include="Content\images\spritemap%402x.png" />
     <Content Include="Content\images\spritemap.png" />
-    <Content Include="Content\images\team\pic1.jpg" />
-    <Content Include="Content\images\team\pic2.jpg" />
-    <Content Include="Content\images\team\pic3.jpg" />
-    <Content Include="Content\images\team\pic4.jpg" />
-    <Content Include="Content\images\team\pic5.jpg" />
-    <Content Include="Content\images\team\pic6.jpg" />
-    <Content Include="Content\images\team\pic7.jpg" />
-    <Content Include="Content\images\team\pic8.jpg" />
     <Content Include="Content\scripts\ApproveCar.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Base64.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Extensions.js" />
@@ -520,7 +498,7 @@
     <Content Include="Views\Car\SearchingCarOfUser.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\News\news2.cshtml" />
-    <None Include="Views\News\news1.cshtml" />
+    <Content Include="Views\News\news1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\abc\" />
