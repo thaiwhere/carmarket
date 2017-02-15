@@ -500,6 +500,7 @@
     <Content Include="Views\News\news2.cshtml" />
     <Content Include="Views\News\news1.cshtml" />
     <Content Include="Views\News\news3.cshtml" />
+    <Content Include="Views\News\news4.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
