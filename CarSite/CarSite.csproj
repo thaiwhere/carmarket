@@ -463,6 +463,11 @@
     <Content Include="Images\Cars_Showroom\06.jpg" />
     <Content Include="Images\Cars_Showroom\07.jpg" />
     <Content Include="Images\Cars_Showroom\08.jpg" />
+    <Content Include="Images\News\xegiadinhviet_banhxe.jpg" />
+    <Content Include="Images\News\xegiadinhviet_locdau.jpg" />
+    <Content Include="Images\News\xegiadinhviet_locgio.jpg" />
+    <Content Include="Images\News\xegiadinhviet_muxecu.jpg" />
+    <Content Include="Images\News\xegiadinhviet__xecu_thaydau.jpg" />
     <Content Include="Views\Account\RecoverPass.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -531,6 +536,7 @@
     <Content Include="Views\News\news4.cshtml" />
     <Content Include="Views\News\news5.cshtml" />
     <Content Include="Views\News\news6.cshtml" />
+    <Content Include="Views\News\news7.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

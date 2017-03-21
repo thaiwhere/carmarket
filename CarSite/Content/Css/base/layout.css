@@ -61,7 +61,8 @@
 }
 
 #div-center{
-    float:left;               
+    float:left;      
+    padding: 0 8px 0 8px;         
     /*border: solid 1px #c5c5c5;        */
     /*border-top:1px solid #428bca;          
     border-right:1px solid #428bca;     
