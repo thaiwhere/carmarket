@@ -360,6 +360,21 @@
     <Content Include="Content\images\spritemap%402x.png" />
     <Content Include="Content\images\spritemap.png" />
     <Content Include="Content\scripts\ApproveCar.js" />
+    <Content Include="Content\scripts\fancybox\blank.gif" />
+    <Content Include="Content\scripts\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Content\scripts\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\scripts\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\scripts\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Content\scripts\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\scripts\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="Content\scripts\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Content\scripts\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Content\scripts\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="Content\scripts\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Content\scripts\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Content\scripts\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\scripts\fancybox\jquery.fancybox.js" />
+    <Content Include="Content\scripts\fancybox\jquery.fancybox.pack.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Base64.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Extensions.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Hex.js" />
@@ -515,6 +530,7 @@
     <Content Include="Views\News\news3.cshtml" />
     <Content Include="Views\News\news4.cshtml" />
     <Content Include="Views\News\news5.cshtml" />
+    <Content Include="Views\News\news6.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
