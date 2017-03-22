@@ -10,20 +10,6 @@
     </style>
 
 }
-@section Scripts{
-
-    <script>
-        $(document).ready(function () {
-            $("tbody a").fancybox({
-                autoSize: false,
-                beforeLoad: function () {
-                    this.width = 600;
-                    this.height = 300;
-                }
-            });
-        })
-    </script>
-}
 
 <div class="news-details" style="margin-left:10px">
     <div class="block_col_480">
@@ -163,4 +149,25 @@
         </div>
     </div>
 </div>
+<br />
 (Nguồn: vnexpress.net)
+
+@section Scripts{
+    
+
+    <script>
+        $(document).ready(function () {
+            $("tbody a").fancybox({
+                autoSize: false,
+                beforeLoad: function () {
+                    this.width = 600;
+                    this.height = 300;
+                }
+            });
+        })
+
+        $("#div-right").hide();
+        handler.expandDivCenter();
+
+    </script>
+}
