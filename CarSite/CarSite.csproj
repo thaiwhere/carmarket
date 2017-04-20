@@ -248,6 +248,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\assets\icon-fonts\styles.css" />
+    <Content Include="Content\css\ajax\ajax-loader.css" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\base\news.css" />
     <Content Include="Content\css\base\car-insert.css" />
@@ -319,6 +320,7 @@
     <Content Include="Content\css\multiupload.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\images\common\address.png" />
+    <Content Include="Content\images\common\ajax-loader.gif" />
     <Content Include="Content\images\common\bar.gif" />
     <Content Include="Content\images\common\collapse.png" />
     <Content Include="Content\images\common\expand.png" />
