@@ -539,6 +539,7 @@
     <Content Include="Views\News\news5.cshtml" />
     <Content Include="Views\News\news6.cshtml" />
     <Content Include="Views\News\news7.cshtml" />
+    <Content Include="Views\News\news8.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
