@@ -20,10 +20,12 @@ namespace CarSite.Controllers
 
             return View(cars);
         }
-        
-        public ActionResult About()
-        {            
-            return View();
+                
+        public ActionResult Introduce()
+        {
+            ViewBag.Message = "Introuduce";
+
+            return View("~/Views/Home/Introduce.cshtml");
         }
         
         public ActionResult Contact()
@@ -33,21 +35,35 @@ namespace CarSite.Controllers
 
         public ActionResult Guide()
         {
-            ViewBag.Message = "Your Guide page.";
+            ViewBag.Message = "Guide";
 
-            return View();
+            return View("~/Views/Home/Guide.cshtml");
         }
+
         public ActionResult Policy()
         {
-            ViewBag.Message = "Your Activities Policy page.";
+            ViewBag.Message = "Policy";
 
-            return View();
+            return View("~/Views/Home/Policy.cshtml");
         }
+
+        public ActionResult Security()
+        {
+            ViewBag.Message = "Security";
+
+            return View("~/Views/Home/Security.cshtml");
+        }
+
         public ActionResult Salon()
         {
-            return View();
+            return View("~/Views/Home/Salon.cshtml");
         }
-        
+
+        public ActionResult News()
+        {
+            return View("~/Views/Home/News.cshtml");
+        }
+     
         [HttpPost]
         public JsonResult SendMessage(Contact contact)
         {          
@@ -80,33 +96,25 @@ namespace CarSite.Controllers
 
         private static void SendEmail(Contact contact)
         {
-            var companyHost = new CompanyHost
-            {
-                Email = AppSettings.SendEmailFrom,
-                Host = AppSettings.SendEmailHost,
-                Port = AppSettings.SendEmailPort,
-                SecurePass = AppSettings.SendEmailPass
-            };
-                                    
             string phone = !string.IsNullOrEmpty(contact.Phone) ? " ( SĐT: " + contact.Phone + " )" : string.Empty;
 
             string subject = AppSettings.DomainName + " - Liện hệ từ khách hàng " + contact.Name;
-            
+
             string message = string.Join(null,
-                "Chúng tôi đã nhận được thông tin liên hệ từ khách hàng <b>{0}</b> SĐT({1}) ",
-                "<br/><br/>----------------------------------------- Nội dung liên hệ -----------------------------------------<br/>", 
+                "Chúng tôi đã nhận được thông tin liên hệ từ Bạn <b>{0}</b> {1} ",
+                "<br/><br/>----------------------------------------- Nội dung liên hệ -----------------------------------------<br/>",
                 "{2}",
                 "<br/>---------------------------------------------------------------------------------------------------------<br/><br/>",
-                "Chúng tôi sẽ phản hồi sớm nhất cho quí khách.",
-                "<br /> <br />Vui lòng liên hệ {3} ({4}) nếu cần thêm sự hỗ trợ.",
-                "<br/><br/>Xin cảm ơn quí khách !",
+                "Chúng tôi sẽ phản hồi sớm nhất cho Bạn.",                
+                "<br /> <br />Vui lòng liên hệ <a href=\"{4}\">{3}</a> nếu cần thêm sự hỗ trợ.",
+                "<br/><br/>Trân trọng cảm ơn !",
                 "<br /> <br />http://www.xegiadinhviet.com",
-                "<br/><br/>----------------------------------------------------------------------------------------------------<br/>", 
+                "<br/><br/>----------------------------------------------------------------------------------------------------<br/>",                
                 "<b>P/S: Đây là Email tự động. Xin đừng phản hồi qua email này </b>");
 
-            string body = string.Format(message, contact.Name, phone, contact.Message, AppSettings.DomainName, "http://www.xegiadinhviet/home/contact"); 
+            string content = string.Format(message, contact.Name, phone, contact.Message, AppSettings.DomainName, "http://www.xegiadinhviet.com/home/contact");
 
-            EmailUtility.SendEmail(companyHost, subject, body, contact.Email);
+            Proxy.SendEmail(contact, subject, content);
         }
     }
 }

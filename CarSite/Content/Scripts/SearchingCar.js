@@ -8,12 +8,18 @@ Car.SearchingCar = function () {
 
         $.ajax({
             type: 'POST',
+            beforeSend: function () {
+                $('.ajax-loader').css("visibility", "visible");
+            },
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             url: searchingUrl,
             data: JSON.stringify(criteria),
             success: function (result) {
                 callback(gridId, result);
+            },
+            complete: function(){
+                $('.ajax-loader').css("visibility", "hidden");
             },
             error: function (xhr) {
                 common.HandleAjaxError(xhr);
@@ -31,7 +37,7 @@ Car.SearchingCar = function () {
         getListCar("gridSearchingCar", searchingUrl, criteria, callback);
     }
 
-    $this.CarActive = function (searchingUrl, criteria) {
+    $this.YourActiveCar = function (searchingUrl, criteria) {
         
         $.ajax({
             type: 'POST',
@@ -56,7 +62,7 @@ Car.SearchingCar = function () {
         });
     }
 
-    $this.CarExpired = function (searchingUrl, criteria) {
+    $this.YourExpiredCar = function (searchingUrl, criteria) {
         //var callback = gridRenderMofify;
         //getListCar("gridCarExpired", searchingUrl, criteria, callback);
 

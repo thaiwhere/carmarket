@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+
+}
+
+@model Car.Model.Criteria.CarSearchingYours
+
+<div id="div-car-list" class="car_list_box">
+            
+    <div class="grid-container">
+        <div id="gridSearchingCar" class="freegrid"></div>
+    </div>
+        
+</div>
+
+@section Scripts
+{       
+
+    <script src="~/Content/scripts/SearchingCar.js"></script>
+
+    <script>
+
+      handler.showResultSearching();
+
+        var criteria = {
+            UserId : '@ViewBag.UserId',
+            ItemsPerPage: ItemsPerPage,
+            CurrentPageIndex: 0
+        };
+
+        var SearchingCar = new Car.SearchingCar();
+        SearchingCar.Searching("/Car/SearchingCars", criteria);
+
+    </script>   
+    
+}

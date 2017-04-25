@@ -13,7 +13,7 @@
 <div style="float:left;margin-left:20px;font-weight:bold"><a href="/car/buy">+ Đăng tin mua xe</a></div>
 
 <div style="float:right"><a href="/account/manage">Thay đổi thông tin</a></div>
-<div style="float:right"><a href="/account/changepass">Hộp thư</a>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+@*<div style="float:right"><a href="/account/changepass">Hộp thư</a>&nbsp;&nbsp;|&nbsp;&nbsp;</div>*@
 
 <br />
 <hr />
@@ -38,20 +38,25 @@
 
 @section Scripts
 {   
+    <script>
+        var IsAdmin = '@ViewBag.IsAdmin';
+    </script>
+
     <script src="~/Content/scripts/DeleteCar.js"></script>        
+    <script src="~/Content/scripts/ApproveCar.js"></script>        
     <script src="~/Content/scripts/SearchingCar.js"></script>     
     
     <script>        
 
         handler.showResultSearching();
 
-        var criteria = {
+        var criteria = {            
             ItemsPerPage: ItemsPerPage,
             CurrentPageIndex: 0        
         };
 
         var SearchingCar = new Car.SearchingCar();
-        SearchingCar.CarActive("/Car/CarActive", criteria);        
+        SearchingCar.YourActiveCar("/Car/YourActiveCar", criteria);        
        
     </script>
 

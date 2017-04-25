@@ -1,11 +1,11 @@
-﻿$(document).ready(function () {    
+﻿$(document).ready(function () {   
     var frm = $('#registerForm');
     frm.bootstrapValidator({
         fields: {
             UserName: {
                 validators: {
                     notEmpty: {
-                        message: 'Nhập Họ và tên'
+                        message: 'Tên đăng nhập không dấu và khoảng trắng'
                     },
                     callback: {
                         message: "Tên truy cập đã tồn tại, vui lòng chọn tên khác."
@@ -46,16 +46,23 @@
                     }
                 }
             },
-            Email: {
+            //Email: {
+            //    validators: {
+            //        notEmpty: {
+            //            message: 'Nhập Email'
+            //        },
+            //        emailAddress: {
+            //            message: "Email không hợp lệ"
+            //        }
+            //    }
+            //},
+            Agree: {                
                 validators: {
                     notEmpty: {
-                        message: 'Nhập Email'
-                    },
-                    emailAddress: {
-                        message: "Email không hợp lệ"
+                        message: '(Vui lòng check vào bạn đã đọc các điều khoản)'
                     }
                 }
-            },
+            }
 
         }
     })
@@ -63,13 +70,14 @@
         e.preventDefault();        
 
         var userInfo = {
-            UserName: $("#UserName").val(),
+            UserName: $("#UserName").val().trim(),
             Password: $("#Password").val(),
             ConfirmPassword: $("#ConfirmPassword").val(),
             Tel: $("#Tel").val(),
             Email: $("#Email").val(),
             Address: $("#Address").val(),
-            returnURL: $("#returnURLId").data("value")
+            returnURL: $("#returnURLId").data("value"),
+            encodedResponse: $("#g-recaptcha-response").val()
         };
 
         var token = $('[name=__RequestVerificationToken]').val();
@@ -100,7 +108,7 @@
                             location.href = result.returnUrl;
                         }
                         else {
-                            location.href = "/car/insert";
+                            location.href = "/car/yours";
                         }
                     }, 3000);
                 }
@@ -112,8 +120,14 @@
                     var bv = $form.data('bootstrapValidator');
                     bv.updateStatus('UserName', 'INVALID', 'callback');
                 }
-                else {
+                else if (result.userId == -1) {                    
                     $('#status').html('Lỗi đăng ký. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                    $(":button").prop('disabled', '');
+                }
+                else if (result.userId == -2) {
+                    console.log(result.userId);
+                    $('#status').html('Sai Captcha. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
+                    grecaptcha.reset();
                 }
             },
             error: function (x, h, r) {

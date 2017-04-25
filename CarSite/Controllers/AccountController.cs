@@ -10,6 +10,8 @@ using System.Configuration;
 using Car.Framework;
 using System;
 using Car.Model.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace CarSite.Controllers
 {
@@ -44,40 +46,56 @@ namespace CarSite.Controllers
         [AllowAnonymous]
         //[ValidateAntiForgeryToken]
         [ValidateAntiForgeryTokenOnAllPosts]
-        public JsonResult Login(LoginViewModel model, string returnUrl = "")
+        public JsonResult Login(LoginViewModel model, string returnUrl = "", string encodedResponse = "")
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    using (CARWEBEntities entities = new CARWEBEntities())
+                    bool IsCaptchaValid = true;//todo (ReCaptcha.Validate(encodedResponse) == "True" ? true : false);
+
+                    if (IsCaptchaValid)
                     {
-                        string username = model.UserName;
-                        string password = EncryptionHelper.Encrypt(model.Password);
-
-                        var userValid = entities.Users.Where(user => user.UserName == username && user.Password == password);                        
-                        
-                        if (userValid.Count() > 0)
+                        using (CARWEBEntities entities = new CARWEBEntities())
                         {
-                            var userLogin = userValid.Single();
-                            
-                            FormsAuthentication.SetAuthCookie(username, false);
-                            HttpContext.Session["UserId"] = userLogin.UserId.ToString();
+                            string username = model.UserName;
+                            string password = EncryptionHelper.Encrypt(model.Password);
 
-                            if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                            && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                            var userValid = entities.Users.Where(user => user.UserName == username && user.Password == password);
+
+                            if (userValid.Count() > 0)
                             {
-                                return Json(new { userId = userLogin.UserId.ToString(), returnUrl = returnUrl });
+                                var userLogin = userValid.Single();
+
+                                if (username.Equals("admin"))
+                                {
+                                    HttpContext.Session["IsAdmin"] = true;
+                                }
+
+                                FormsAuthentication.SetAuthCookie(username, false);
+                                HttpContext.Session["UserId"] = userLogin.UserId.ToString();
+                                HttpContext.Session["UserName"] = userLogin.UserName;
+                                HttpContext.Session["Email"] = userLogin.Email;
+
+                                if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                                {
+                                    return Json(new { userId = userLogin.UserId.ToString(), returnUrl = returnUrl });
+                                }
+                                else
+                                {
+                                    return Json(new { userId = userLogin.UserId.ToString(), returnUrl = string.Empty });
+                                }
+
                             }
-                            else
-                            {
-                                return Json(new { userId = userLogin.UserId.ToString(), returnUrl = string.Empty });
-                            }
-                                
-                       }                       
+                        }
+                    }
+                    else
+                    {
+                        return Json(new { userId = -2, returnUrl = string.Empty });
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     LogService.Error("Login - " + ex.Message, ex);
                 }
@@ -108,53 +126,81 @@ namespace CarSite.Controllers
         [AllowAnonymous]
         //[ValidateAntiForgeryToken]
         [ValidateAntiForgeryTokenOnAllPosts]
-        public JsonResult Register(RegisterViewModel model, string returnUrl = "")
+        public JsonResult Register(RegisterViewModel model, string returnUrl = "", string encodedResponse = "")
         {            
             if (ModelState.IsValid)
             {
                 try
                 {
-                    using (CARWEBEntities entities = new CARWEBEntities())
-                    {                        
-                        bool userValid = entities.Users.Any(user => user.UserName == model.UserName) == false;
+                    bool IsCaptchaValid = true;//todo (ReCaptcha.Validate(encodedResponse) == "True" ? true : false);
 
-                        if (userValid)                        
+                    if (IsCaptchaValid)
+                    {
+                        using (CARWEBEntities entities = new CARWEBEntities())
                         {
-                            User user = new Models.User() { 
-                                UserName = model.UserName, 
-                                Password = EncryptionHelper.Encrypt(model.Password), 
-                                Roles = "user",
-                                Tel = model.Tel,
-                                Email = model.Email,
-                                Address = model.Address,
-                                CreatedDate = DateTime.Now,
-                                IsActive = true
-                            };
+                            bool userValid = entities.Users.Any(user => user.UserName == model.UserName) == false;
 
-                            entities.Users.Add(user);                                                        
-
-                            if (entities.SaveChanges() > 0)
+                            if (userValid)
                             {
-                                var registedUser = entities.Users.Select(u => u).Where(u => u.UserName.Equals(model.UserName)).First();
-
-                                FormsAuthentication.SetAuthCookie(user.UserName, false);
-                                HttpContext.Session["UserId"] = registedUser.UserId.ToString();
-
-                                if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                                User user = new Models.User()
                                 {
-                                    return Json(new { userId = registedUser.UserId.ToString(), returnUrl = returnUrl} );
-                                }
-                                else
+                                    UserName = model.UserName,
+                                    Password = EncryptionHelper.Encrypt(model.Password),
+                                    Roles = "user",
+                                    Tel = model.Tel,
+                                    Email = model.Email,
+                                    Address = model.Address,
+                                    CreatedDate = DateTime.Now,
+                                    IsActive = true
+                                };
+
+                                entities.Users.Add(user);
+
+                                if (entities.SaveChanges() > 0)
                                 {
-                                    return Json(new { userId = registedUser.UserId.ToString(), returnUrl = string.Empty });
+                                    var registedUser = entities.Users.Select(u => u).Where(u => u.UserName.Equals(model.UserName)).First();
+
+                                    FormsAuthentication.SetAuthCookie(user.UserName, false);
+                                    HttpContext.Session["UserId"] = registedUser.UserId.ToString();
+
+                                    var contact = new Contact { Name = model.UserName, Email = model.Email };
+                                    var content = string.Format("Bạn đã trở thành thành viên <b>xegiadinhviet.com</b>, nơi đăng tin mua, bán, thuê xe <b>HOÀN TOÀN MIỄN PHÍ</b>. <br/><br/> Tên truy cập: {0}, Mật khẩu: {1} <br/><br/> Click {2} để đăng tin miễn phí", model.UserName, model.Password, "<a href =\"http://www.xegiadinhviet.com/car/insert\">Đăng tin</a>");
+
+                                    Proxy.SendEmail(contact, "Thành viên", content);
+
+                                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                                    && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                                    {
+                                        return Json(new { userId = registedUser.UserId.ToString(), returnUrl = returnUrl });
+                                    }
+                                    else
+                                    {
+                                        return Json(new { userId = registedUser.UserId.ToString(), returnUrl = string.Empty });
+                                    }
                                 }
-                                
                             }
                             else
                             {
                                 return Json(new { userId = 0, returnUrl = string.Empty });
                             }
+                        }
+                    }
+                    else
+                    {
+                        return Json(new { userId = -2, returnUrl = string.Empty });
+                    }
+                }
+                catch (DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            Trace.TraceInformation(
+                                  "Class: {0}, Property: {1}, Error: {2}",
+                                  validationErrors.Entry.Entity.GetType().FullName,
+                                  validationError.PropertyName,
+                                  validationError.ErrorMessage);
                         }
                     }
                 }
@@ -221,6 +267,10 @@ namespace CarSite.Controllers
 
                             if (entities.SaveChanges() > 0)
                             {
+                                var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = model.Email };
+                                var content = string.Format("Bạn đã thay đổi tài khoản: Tên đăng nhập = {0}, Mật khẩu = {1}, Số điện thoại = {2}, Email ={3}, Địa chỉ = {4}", HttpContext.Session["UserName"].ToString(), model.NewPassword, model.Tel, model.Email, model.Address);
+                                Proxy.SendEmail(contact, "Thông báo thay đổi tài khoản", content);
+
                                 return Json(new { userId = userId, returnUrl = string.Empty });
                             }                            
                         }
@@ -275,27 +325,9 @@ namespace CarSite.Controllers
                         if (userValid.Count() > 0)
                         {
                             var userLogin = userValid.First();
-
-                            var companyHost = new CompanyHost
-                            {
-                                Email = AppSettings.SendEmailFrom,
-                                Host = AppSettings.SendEmailHost,
-                                Port = AppSettings.SendEmailPort,
-                                SecurePass = AppSettings.SendEmailPass
-                            };                          
                             
-                            string subject = AppSettings.DomainName + " - Phục hồi mật khẩu - Khách hàng: " + userName;
-
-                            string message = string.Join(null, "Xin chào {0}, <br /> <br /> Mật khẩu cuả quý khách là <b>{1}</b>"
-                                ,"<br /> <br />Vui lòng liên hệ {2} ({3}) nếu cần thêm sự hỗ trợ."
-                                ,"<br/><br/>Xin cảm ơn quí khách !"
-                                ,"<br /> <br />http://www.xegiadinhviet.com"
-                                ,"<br/><br/>----------------------------------------------------------------------------------------------------<br/>"                                
-                                ,"<b>P/S: Đây là Email tự động. Xin đừng phản hồi qua email này </b>");
-
-                            string body = string.Format(message, userName, EncryptionHelper.Decrypt(userLogin.Password), AppSettings.DomainName, "http://www.xegiadinhviet/home/contact"); 
-
-                            EmailUtility.SendEmail(companyHost, subject, body, userLogin.Email);
+                            var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                            Proxy.SendEmail(contact, "Thông báo mật khẩu Khách hàng: " + userName, "Mật khẩu cuả quý khách là : " + EncryptionHelper.Decrypt(userLogin.Password));                            
 
                             if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                                 && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
@@ -325,6 +357,9 @@ namespace CarSite.Controllers
 
         public ActionResult LogOff()
         {
+            HttpContext.Session["UserId"] = null;
+            HttpContext.Session["IsAdmin"] = null;
+
             FormsAuthentication.SignOut();
 
             return RedirectToAction("Index", "Home");

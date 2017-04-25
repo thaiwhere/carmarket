@@ -10,7 +10,7 @@ namespace CarSite
     {
         public static string DomainName
         {
-            get { return "XeGiaDinhViet"; }
+            get { return "Xegiadinhviet.com"; }
         }
 
         public static string SendEmailHost

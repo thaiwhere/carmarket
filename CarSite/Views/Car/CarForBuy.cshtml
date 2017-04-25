@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Tin mua Ôtô";
+}
+
+@section Styles{
+
+}
+
+<h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
+
+<div id="div-car-list" class="car_list_box">
+                
+    <div class="grid-container">
+        <div id="gridSearchingCar" class="freegrid"></div>
+    </div>
+        
+</div>
+
+@section Scripts
+{       
+
+    <script src="~/Content/scripts/SearchingCar.js"></script>
+
+    <script>   
+                        
+        handler.showResultSearching();
+      
+        var searchingUrl = "/Car/SearchingCarForBuy";
+
+        var criteria = {
+            ItemsPerPage: ItemsPerPage,
+            CurrentPageIndex: 0            
+        };
+
+        var SearchingCar = new Car.SearchingCar();
+        SearchingCar.Searching(searchingUrl, criteria);
+        
+        handler.inActiveTab($("#div_searching_tab"));
+
+    </script>   
+    
+}

@@ -22,7 +22,7 @@
                         message: 'Mật khẩu phải có ít nhất 6 ký tự'
                     },
                     callback: {
-                        message: "hoặc Mật khẩu không chính xác."
+                        message: "Tên đăng nhập hoặc Mật khẩu không chính xác."
                     }
                 }
             }
@@ -35,7 +35,8 @@
             UserName: $("#UserName").val(),
             Password: $("#Password").val(),
             RememberMe: $("#RememberMe").val(),
-            returnURL: $("#returnURLId").data("value")
+            returnURL: $("#returnURLId").data("value"),
+            encodedResponse: $("#g-recaptcha-response").val()
         };
 
         var token = $('[name=__RequestVerificationToken]').val();
@@ -63,17 +64,21 @@
                         location.href = result.returnUrl;
                     }
                     else {
-                        location.href = "/car/insert";
+                        location.href = "/car/yours";
                     }
+                }
+                else if (result.userId == -2) {                 
+                    $('#status').html('Sai Captcha. Vui lòng thử lại hoặc Liên hệ với chúng tôi');
                 }
                 else {
                     $("#status").hide();
 
                     var $form = $(e.target);
                     var bv = $form.data('bootstrapValidator');
-                    bv.updateStatus('UserName', 'INVALID', 'callback');
+                    //bv.updateStatus('UserName', 'INVALID', 'callback');
                     bv.updateStatus('Password', 'INVALID', 'callback');
                     $("#UserName").focus();
+                    grecaptcha.reset();
                 }
             },
             error: function (x, h, r) {

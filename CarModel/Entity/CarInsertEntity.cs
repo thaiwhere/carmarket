@@ -9,7 +9,7 @@ namespace Car.Model.Entity
     public class CarInsertEntity
     {
         public int UserId { get; set; }
-
+        
         [DisplayName("Tiêu đề (*)")]
         public string Title { get; set; }
 
@@ -28,7 +28,7 @@ namespace Car.Model.Entity
         [DisplayName("Kiểu dáng")]
         public string TypeId { get; set; }
 
-        [DisplayName("Giá (Triệu)")]
+        [DisplayName("Giá [Triệu] (*)")]
         public double CurrencyVN { get; set; }
                 
         [DisplayName("Năm sản xuất")]

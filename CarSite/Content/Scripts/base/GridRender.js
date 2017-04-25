@@ -6,6 +6,7 @@ function decorateData(cars) {
         var href = "/Car/CarDetail/" + cars[i].CarId;
         var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
         var hrefProvince = hrefFirm + "&province=" + cars[i].Province;
+        var hrefContact = "/Car/CarOfUser/" + cars[i].UserId;
 
         var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
         var title = cars[i].Title;
@@ -19,7 +20,7 @@ function decorateData(cars) {
         var km = "<div class='car-info-item'>Km: " + cars[i].Km + " (km)</div>";
         var gearBox = "<div class='car-info-item'>Hộp số: " + (cars[i].GearBox == 0 ? "Tự động" : "Số tay") + "</div>";
         var price_location = "<div class='car-info-price'>" + common.ShowVietnameseCurrency(cars[i].CurrencyVN) + "</div><div class='car-info-place'><a href='" + hrefProvince + "'>" + cars[i].Province + "</a></div>";
-        var contact = "<div class='car-info-item car-info-user'>" + cars[i].ContactName + "</div><div class='car-info-item car-info-tel'>" + cars[i].ContactTel + "</div>";
+        var contact = "<div class='car-info-item car-info-user'><a href='" + hrefContact + "'>" + cars[i].ContactName + "</a></div><div class='car-info-item car-info-tel'>" + cars[i].ContactTel + "</div>";
 
         var car = status + source + firm + photo
         var title = "<div class='car-des-title'><a href='" + href + "'>" + title + "</a></div>";
@@ -144,11 +145,21 @@ function decorateDataModify(cars, carStatus) {
                 saled = "<a href='javascript:void(0);' onclick='return SaledCar(this, \"" + cars[i].CarId + "\");'><font color='#ff8707'><span class='glyphicon glyphicon-usd'></span> Đã bán</font></a>";
             }
 
-            var edit = "<a href='" + hrefModify + "'><span class='glyphicon glyphicon-pencil'></span> Sửa</a>";
+            var edit = "<br/><br/><a href='" + hrefModify + "'><span class='glyphicon glyphicon-pencil'></span> Sửa</a>";
 
-            var remove = "<a href='javascript:void(0);' onclick='return DeleteCar(this, \"" + cars[i].CarId + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-remove'></span> Xoá</font></a>";            
+            var remove = "<br/><br/><a href='javascript:void(0);' onclick='return DeleteCar(this, \"" + cars[i].CarId + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-remove'></span> Xoá</font></a>";
 
-            var modify = "<div class='car-info' style='margin-left:20px' >" + saled + "<br/><br/>" + edit + "<br/><br/>" + remove + "</div>";
+            var modify = "<div class='car-info' style='margin-left:20px' >" + saled + edit + remove;
+            
+            if (typeof(IsAdmin) != 'undefined' && IsAdmin == "True")
+            {
+                var approve = "<br/><br/><a href='javascript:void(0);' onclick='return ApproveCar(this, \"" + cars[i].CarId + "\",\"" + cars[i].UserName + "\",\"" + cars[i].Email + "\"," + cars[i].IsBuy + ");'><font color='#0000ff'><span class='glyphicon glyphicon-thumbs-up'></span> Duyệt</font></a>";
+                var disApprove = "<br/><br/><a href='javascript:void(0);' onclick='return DisApproveCar(this, \"" + cars[i].CarId + "\",\"" + cars[i].UserName + "\",\"" + cars[i].Email + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-thumbs-down'></span> KO duyệt</font></a>";
+
+                modify += approve + disApprove;
+            }            
+
+            modify += "</div>";
 
             var row = {
                 Columns: [
@@ -156,7 +167,7 @@ function decorateDataModify(cars, carStatus) {
                         { Name: "Title", Value: title },
                         { Name: "Status", Value: status },
                         { Name: "ModifiedDate", Value: cars[i].ModifiedDate },
-                        { Name: "CountView", Value: cars[i].CountVisit },
+                        //{ Name: "CountView", Value: cars[i].CountVisit },
                         { Name: "Modify", Value: modify }
                 ]
             };
@@ -177,7 +188,7 @@ var gridRenderMofify = function (gridId, data, carStatus) {
                   { HeaderText: "Tiêu đề", Width: 280, Name: "Title", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Trạng thái", Width: 100, Name: "Status", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Ngày cập nhật", Width: 100, Name: "ModifiedDate", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Luợt xem", Width: 70, Name: "CountView", HeaderAlign: "center", CellAlign: "center" },
+                  //{ HeaderText: "Luợt xem", Width: 70, Name: "CountView", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Chỉnh sửa", Width: 110, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
                   ],
                   gridId: gridId,
@@ -202,12 +213,10 @@ function customGrid(gridId) {
     gridObj.find($(".free-cell")).remove();
 
     if (!shrinkGrid) {        
-        var width = gridObj.width() + 30;
-        //gridObj.width(gridObj.width() + 10);
-        $("#grid-pager-top").width(width);
-        $("#grid-pager-bottom").width(width);
+        var width = gridObj.width() + 30;        
         $(".col_header").width(width);
         gridObj.find(".grid-container").width(width);
+        gridObj.find(".content-container").width(width);
     }
     else {
         var width = gridObj.width() - 20;        

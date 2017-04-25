@@ -147,9 +147,12 @@ var AddCarHandler = {
                    if (AddCarHandler.validateData()) {
                        AddCarHandler.insertCar();
                    } else {
-                       common.ShowInfoMessage("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                       common.ShowInfoMessage("Vui lòng nhập Tiêu đề, Giá và Thông tin mô tả ");
                        if ($("#Title").val() == "") {
                            $("#Title").focus();
+                       }
+                       else if ($("#CurrencyVN").val() == "") {
+                           $("#CurrencyVN").focus();
                        }
                        else {
                            $("#Description").focus();
@@ -163,9 +166,12 @@ var AddCarHandler = {
                  if (AddCarHandler.validateData()) {
                      AddCarHandler.insertCarBuying();
                  } else {
-                     common.ShowInfoMessage("Vui lòng nhập Tiêu đề và Thông tin mô tả ");
+                     common.ShowInfoMessage("Vui lòng nhập Tiêu đề, Giá và Thông tin mô tả ");
                      if ($("#Title").val() == "") {
                          $("#Title").focus();
+                     }
+                     else if ($("#CurrencyVN").val() == "") {
+                         $("#CurrencyVN").focus();
                      }
                      else {
                          $("#Description").focus();
@@ -238,7 +244,7 @@ var AddCarHandler = {
 
     validateData: function () {
 
-        return $("#Title").val() != "" && $("#Description").val() != "";       
+        return $("#Title").val() != "" && $("#CurrencyVN").val() != "" && $("#CurrencyVN").val() != "0" && $("#Description").val() != "";
     },
 
     insertCar: function () {

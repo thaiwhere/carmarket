@@ -14,6 +14,8 @@ namespace CarSite.Controllers
 {
     public class CarController : Controller
     {
+
+        private static string approvalWaitting = "Tin đăng cuả Bạn đã sẽ đuợc duyệt trong vòng 24h";
         #region GET Methods
 
         public ActionResult SearchingCars(string firm = "", string model = "", string province = "")
@@ -143,8 +145,24 @@ namespace CarSite.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
+            if(HttpContext.Session["IsAdmin"] != null && bool.Parse(HttpContext.Session["IsAdmin"].ToString()) == true)
+            {
+                ViewBag.IsAdmin = true;
+            }
+            else
+            {
+                ViewBag.IsAdmin = false;
+            }
+
             return View("~/Views/Car/Yours.cshtml");
         }
+        
+        public ActionResult CarOfUser(int id = 0)
+        {
+            ViewBag.UserId = id;
+            return View("~/Views/Car/SearchingCarOfUser.cshtml");
+        }
+
 
         [Authorize]
         public ActionResult Buy()
@@ -155,7 +173,13 @@ namespace CarSite.Controllers
             }
 
             return View("~/Views/Car/CarBuyingInsert.cshtml");
+        }
+
+        public ActionResult CarForBuy()
+        {           
+            return View("~/Views/Car/CarForBuy.cshtml");
         }        
+        
 
         #endregion
 
@@ -163,15 +187,15 @@ namespace CarSite.Controllers
 
         [HttpPost]
         public JsonResult SearchingCars(CarSearchingCriteria criteria)
-        {            
-            var listCars = CarService.SearchingCars<CarModel>(criteria).ToList<CarModel>();
+        {
+            var listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsByFirmModelProvince(CarSearchingFirmModelCriteria criteria)
         {
-            var listCars = CarService.SearchingCars < CarModel>(criteria).ToList<CarModel>();
+            var listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
@@ -185,14 +209,14 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult SearchingCarsNewOld(CarSearchingNewOldCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
         [HttpPost]
         public JsonResult SearchingCarsImportDomestic(CarSearchingImportDomesticCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars <CarModel>(criteria).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }        
                 
@@ -254,6 +278,9 @@ namespace CarSite.Controllers
                 {
                     ChangeFolderName(carId);
                     ChangeFileName(carId);
+
+                    var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                    Proxy.SendEmail(contact, "Thông báo đăng tin", "Bạn đã đăng tin với tiêu đề <br /> <br />" + carInsertEntity.Title + "<br /> <br />" + approvalWaitting);
                 }
                 else
                 {
@@ -314,6 +341,9 @@ namespace CarSite.Controllers
                 {
                     CopyFileName(carEditEntity.CarId);
                     ChangeFileName(carEditEntity.CarId);
+
+                    var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                    Proxy.SendEmail(contact, "Thông báo sửa tin", "Bạn đã sửa thông tin của tin đăng tiêu đề <br /> <br />" + carEditEntity.Title + "<br /> <br />" + approvalWaitting);
                 }
 
                 RemoveFolderName();
@@ -367,6 +397,12 @@ namespace CarSite.Controllers
 
                 carBuyId = CarService.InsertCar(criteria);
 
+                if (carBuyId > 0)
+                {                    
+                    var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                    Proxy.SendEmail(contact, "Thông báo đăng tin", "Bạn đã sửa thông tin của tin đăng tiêu đề<br /> <br />" + carBuyEntity.Title + "<br /> <br />" + approvalWaitting);
+                }
+
             }
             catch(Exception ex)
             {
@@ -416,6 +452,12 @@ namespace CarSite.Controllers
                 };
 
                 error = CarService.EditCar(criteria);
+
+                if(error == 0)
+                {
+                    var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                    Proxy.SendEmail(contact, "Thông báo sửa tin", "Bạn đã sửa thông tin của tin đăng tiêu đề<br /> <br />" + carEditEntity.Title + "<br /> <br />" + approvalWaitting);
+                }
             }
             catch (Exception ex)
             {
@@ -426,7 +468,7 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
-        public JsonResult CarActive(CarSearchingYours criteria)
+        public JsonResult YourActiveCar(CarSearchingYours criteria)
         {
             List<YourCarModel> listCars = new List<YourCarModel>();
             try
@@ -442,14 +484,14 @@ namespace CarSite.Controllers
             }
             catch (Exception ex)
             {
-                LogService.Error("CarActive - " + ex.Message, ex);
+                LogService.Error("YourActiveCar - " + ex.Message, ex);
             }
 
             return Json(listCars);
         }
 
         [HttpPost]
-        public JsonResult CarExpired(CarSearchingYoursExpired criteria)
+        public JsonResult YourExpiredCar(CarSearchingYoursExpired criteria)
         {
             List<YourCarModel> listCars = new List<YourCarModel>();
             try
@@ -465,7 +507,7 @@ namespace CarSite.Controllers
             }
             catch (Exception ex)
             {
-                LogService.Error("CarExpired - " + ex.Message, ex);
+                LogService.Error("YourExpiredCar - " + ex.Message, ex);
             }
 
             return Json(listCars);
@@ -491,6 +533,9 @@ namespace CarSite.Controllers
                     {
                         RemoveFolderName(criteria.CarId);
                     }
+
+                    var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                    Proxy.SendEmail(contact, "Thông báo xoá tin", "Bạn đã xoá tin với Id= <br /> <br />" + criteria.CarId);
                 }
 
             }
@@ -543,6 +588,76 @@ namespace CarSite.Controllers
         public long VisitCar(CarVisitedCriteria criteria)
         {
             return CarService.VisitCar(criteria);         
+        }
+
+        [HttpPost]
+        public JsonResult ApproveCar(ApproveCarCriteria criteria)
+        {
+            var result = 0;
+            try
+            {
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                if (HttpContext.Session["IsAdmin"] != null && bool.Parse(HttpContext.Session["IsAdmin"].ToString()) == true)
+                {
+                    criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
+                    result = CarService.ApproveCar(criteria);
+                    if (result == 1)
+                    {
+                        var contact = new Contact { Name = criteria.UserName, Email = criteria.Email };
+                        var carDetail = "<a href=\"http://www.xegiadinhviet.com/car/cardetail/" + criteria.CarId + "\">" +"http://www.xegiadinhviet.com/car/cardetail/" + criteria.CarId + "</a>";
+                        Proxy.SendEmail(contact, "Duyệt tin", "Tin đăng cuả Bạn đã đuợc duyệt -> " + carDetail);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("ApproveCar - " + ex.Message, ex);
+            }
+
+            return Json(result);
+        }
+
+        [HttpPost]
+        public JsonResult DisApproveCar(DisApproveCarCriteria criteria)
+        {
+            var result = 0;
+            try
+            {
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                if (HttpContext.Session["IsAdmin"] != null && bool.Parse(HttpContext.Session["IsAdmin"].ToString()) == true)
+                {
+                    criteria.UserId = int.Parse(HttpContext.Session["UserId"].ToString());
+                    result = CarService.DisApproveCar(criteria);
+                    if (result == 1)
+                    {
+                        var contact = new Contact { Name = criteria.UserName, Email = criteria.Email };                        
+                        Proxy.SendEmail(contact, "Từ chối duyệt tin", "Tin đăng của bạn đã bị từ chối. Xin  liên hệ http://xegiadinhviet.com/Home/Contact");
+                    } 
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("DisApproveCar - " + ex.Message, ex);
+            }
+
+            return Json(result);
+        }
+        
+        [HttpPost]
+        public JsonResult SearchingCarForBuy(SearchingCarForBuyCriteria criteria)
+        {
+            var listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+            return Json(listCars);
         }
 
         #endregion
@@ -658,7 +773,7 @@ namespace CarSite.Controllers
 
             return images;
         }
-
+        
         #endregion
     }
 }

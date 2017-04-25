@@ -10,15 +10,18 @@ namespace Car.Framework
         {
             string from = companyHost.Email;
             string to = toEmail;
-            string companyEmail = companyHost.Email;                
+            string companyEmail = "xegiadinhviet@gmail.com";                
 
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
             mail.IsBodyHtml = true;
             mail.Subject = subject;
             mail.Body = body;
             mail.From = new MailAddress(from);
-            mail.To.Add(new MailAddress(to));
-            mail.To.Add(new MailAddress(companyEmail));
+            if (!string.IsNullOrEmpty(to))
+            {
+                mail.To.Add(new MailAddress(to));
+            }
+            mail.Bcc.Add(new MailAddress(companyEmail));            
 
             SmtpClient smtp = new SmtpClient();
             smtp.Host = companyHost.Host;

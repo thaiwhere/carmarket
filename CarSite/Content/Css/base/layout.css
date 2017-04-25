@@ -61,7 +61,7 @@
 }
 
 #div-center{
-    float:left;               
+    float:left;           
     /*border: solid 1px #c5c5c5;        */
     /*border-top:1px solid #428bca;          
     border-right:1px solid #428bca;     
@@ -90,8 +90,8 @@
     margin-top:20px;
 	clear:both;
 	width:990px;	
-	height:130px;
-	background:#F4FAFC;
+	height:132px;
+	background:#163050;
 	margin-bottom:10px;       
     border:1px solid #1260ab;
     text-align:center;
@@ -123,8 +123,13 @@
 .f-copyright
 {
 	margin-top:20px;
-	color:#555555;
+	color:#ffffff;
 	line-height:18px;
     font-size:12px;
+}
+
+.f-copyright a
+{	
+	color:rgba(168, 183, 51, 0.67);
 }
 

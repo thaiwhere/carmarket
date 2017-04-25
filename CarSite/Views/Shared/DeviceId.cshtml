@@ -1,48 +1,43 @@
 ﻿@model Car.Model.Entity.CarViewModel
 
-<input type="hidden" id="deviceId" />
-<input type="hidden" id="deviceCode" />
-<input id="detecas-analysis" type="hidden" name="detecas-analysis" value="{}" />
 
-<script>var Detecas = {};</script> 
-
-<script src="//sc.detecas.com/di/activator.ashx" type="text/javascript" async=""></script>
-<script src="~/Content/scripts/lib/ScriptsUtility/Detecas.JSON.js"></script>
-<script src="~/Content/scripts/lib/ScriptsUtility/Detecas.Base64.js"></script>
-<script src="~/Content/scripts/lib/ScriptsUtility/Detecas.Rc4.js"></script>
-<script src="~/Content/scripts/lib/ScriptsUtility/Detecas.Hex.js"></script>
+<script src="~/Content/scripts/lib/ScriptsUtility/evercookie.js"></script>
 
 <script type="text/javascript">
 
-    (function (json, base64, rc4, hex) {
+    function S4() {
+        return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
+    }
+    
+    (function () {
         setTimeout(function () {
-            var deviceIdInput = document.getElementById('deviceId');
-            var deviceCodeInput = document.getElementById('deviceCode');
+ 
+            var ec = new evercookie();
+            ec.get("__di", function(value) { 
 
-            var collectedDeviceInfo = document.getElementById('__di').value;
+                if(value == "" || typeof(value) == 'undefined' || (typeof(value) !== 'undefined' && value.length > 32))
+                {                
+                    var guid = (S4() + S4() + S4() + S4() + S4() + S4() + S4() + S4()).toLowerCase();                    
+                    value = guid;                    
+                    ec.set("__di", value);
+                }            
+                               
+                $.ajax({
+                    type: "POST",
+                    url: "/Car/VisitCar",
+                    data: JSON.stringify({ DeviceId: value, CarId: @Model.CarId }),
+                    contentType: "application/json; charset=utf-8",                    
+                    async: true,
+                    success: function (result) {
+                        //$("#countvisit").html(result);
+                    },
+                    error: function (x, h, r) {                        
+                    }
+                });
 
-            collectedDeviceInfo = base64.decode(collectedDeviceInfo);
-            collectedDeviceInfo = json.parse(collectedDeviceInfo);
-            var deviceId = collectedDeviceInfo.deviceId;
-            deviceIdInput.value = deviceId;
-            var deviceCode = collectedDeviceInfo.deviceCode;
-            deviceCodeInput.value = deviceCode;
-
-            $.ajax({
-                type: "POST",
-                url: "/Car/VisitCar",
-                data: JSON.stringify({ DeviceId: $("#deviceId").val(), CarId: @Model.CarId }),
-                contentType: "application/json; charset=utf-8",
-                cache: false,
-                async: true,
-                success: function (result) {
-                    $("#countvisit").html(result);
-                },
-                error: function (x, h, r) {
-                }
             });
 
         }, 3000);
 
-        })(Detecas.JSON, Detecas.Base64, Detecas.Rc4, Detecas.Hex);
+        })();
 </script>

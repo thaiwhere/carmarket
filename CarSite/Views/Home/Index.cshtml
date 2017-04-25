@@ -1,10 +1,17 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Đăng tin miễn phí";
 }
 
 @section Styles{
 
+    <link href="~/Content/css/ajax/ajax-loader.css" rel="stylesheet" />   
+
 }
+
+<div class="ajax-loader">
+    <img src="~/Content/images/common/ajax-loader.gif" class="img-responsive" />
+</div>
 
 <div id="div-car-list" class="car_list_box">
 
@@ -23,7 +30,7 @@
     <script src="~/Content/scripts/SearchingCar.js"></script>
 
     <script>
-        
+        $("#div_searching_tab_car_detail").hide();
         handler.showHomePage();
 
         var searchingUrl = "/Car/SearchingCarsForYou";

@@ -5,12 +5,6 @@
 
 <h2 class="title">&nbsp;&nbsp;@ViewBag.Title</h2>
 
-@section Styles{
-
-    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Content/css/bootstrapValidator.min.css" rel="stylesheet" />
-}
-
 @{ Html.RenderPartial("~/Views/Home/Company.cshtml", null); }
 
 <div style="padding-left:20px;line-height:18px;color:#555;">
@@ -28,7 +22,7 @@
 </div>
 <div class="guide-section">
     <div class="guide-photo">
-        <img src="~/Images/Cars_4/Dangky.png" width="350" height="220" />
+        <img src="~/content/images/guide/Dangky.png" width="350" height="220" />
     </div>
 </div>
 <div style="padding-left:20px;line-height:18px;color:#555;">
@@ -36,7 +30,7 @@
 </div>
 <div class="guide-section">
     <div class="guide-photo">
-        <img src="~/Images/Cars_4/dangnhap.png" width="350" height="220" />
+        <img src="~/content/images/guide/dangnhap.png" width="350" height="220" />
     </div>
 
 </div>
@@ -45,18 +39,18 @@
 </div>
 <div class="guide-section">
     <div class="guide-photo">
-        <img src="~/Images/Cars_4/Tindangcuaban.png" width="350" height="220" />
+        <img src="~/content/images/guide/Tindangcuaban.png" width="350" height="220" />
     </div>
 </div>
 <div class="guide-section">
     <div class="guide-photo">
         @*<img src="~/Images/Cars_4/Tinhieuluc.png" width="750" height="220" />*@
-        <img src="~/Images/Cars_4/Tin_hieuluc.png" width="750" height="220" />
+        <img src="~/content/images/guide/Tin_hieuluc.png" width="750" height="220" />
     </div>
 </div>
 <div class="guide-section">
     <div class="guide-photo">
-        <img src="~/Images/Cars_4/Tinhethan.png" width="750" height="220" />
+        <img src="~/content/images/guide/Tinhethan.png" width="750" height="220" />
     </div>
 </div>
 <div style="padding-left:20px;line-height:18px;color:#555;">
@@ -64,57 +58,7 @@
 </div>
 <div class="guide-section">
     <div class="guide-photo">
-        <img src="~/Images/Cars_4/O6Dangtin_banxe_2.png" width="750" height="220" />
+        <img src="~/content/images/guide/O6Dangtin_banxe_2.png" width="750" height="220" />
 
     </div>
 </div>
-
-@section Scripts{
-
-    <script async="" src="~/Content/scripts/recaptcha/recaptcha__en.js"></script>
-    <script src="~/Content/scripts/lib/bootstrapValidator.min.js"></script>
-
-    <script src="~/Content/scripts/recaptcha/api.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            var frm = $('#contactForm');
-            frm.bootstrapValidator({
-                fields: {
-                    Name: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Your name is required'
-                            }
-                        }
-                    },
-                    Email: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Your email is required'
-                            },
-                            emailAddress: {
-                                message: 'Your email is not valid'
-                            }
-                        }
-                    },
-                    Message: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Your message is required'
-                            }
-                        }
-                    }
-                }
-            })
-            .on('success.form.bv', function (e) {
-                e.preventDefault();
-                $('#contactForm').hide();
-                $('#status').html("Sending form, please wait...");
-                $('#status').html("Thank you, we've received your message.");
-            });
-        });
-
-        handler.showResultSearching();
-    </script>
-}

@@ -39,6 +39,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.1.8.2\lib\net45\Glimpse.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -194,6 +206,8 @@
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -218,7 +232,9 @@
       <DependentUpon>User.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ReCaptcha.cs" />
     <Compile Include="ValidateAntiForgeryTokenOnAllPosts.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -232,7 +248,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\assets\icon-fonts\styles.css" />
+    <Content Include="Content\css\ajax\ajax-loader.css" />
     <Content Include="Content\css\animate.min.css" />
+    <Content Include="Content\css\base\news.css" />
     <Content Include="Content\css\base\car-insert.css" />
     <Content Include="Content\css\base\grid-custom.css" />
     <Content Include="Content\css\base\showroom.css" />
@@ -302,11 +320,13 @@
     <Content Include="Content\css\multiupload.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\images\common\address.png" />
+    <Content Include="Content\images\common\ajax-loader.gif" />
     <Content Include="Content\images\common\bar.gif" />
     <Content Include="Content\images\common\collapse.png" />
     <Content Include="Content\images\common\expand.png" />
     <Content Include="Content\images\common\logo.gif" />
     <Content Include="Content\images\common\loading.gif" />
+    <Content Include="Content\images\common\logo.png" />
     <Content Include="Content\images\common\new.jpg" />
     <Content Include="Content\images\common\old.jpg" />
     <Content Include="Content\images\common\people.png" />
@@ -316,24 +336,17 @@
     <Content Include="Content\images\common\star.png" />
     <Content Include="Content\images\common\tab.png" />
     <Content Include="Content\images\common\user-alt-v2.png" />
-    <Content Include="Content\images\panel_left\01.jpg" />
-    <Content Include="Content\images\panel_left\02.jpg" />
-    <Content Include="Content\images\panel_left\03.jpg" />
-    <Content Include="Content\images\panel_left\04.jpg" />
-    <Content Include="Content\images\panel_left\05.jpg" />
-    <Content Include="Content\images\panel_left\06.jpg" />
-    <Content Include="Content\images\panel_left\07.jpg" />
-    <Content Include="Content\images\panel_left\08.jpg" />
-    <Content Include="Content\images\panel_left\09.jpg" />
+    <Content Include="Content\images\guide\Dangky.png" />
+    <Content Include="Content\images\guide\dangnhap.png" />
+    <Content Include="Content\images\guide\O6Dangtin_banxe2.png" />
+    <Content Include="Content\images\guide\O6Dangtin_banxe_2.png" />
+    <Content Include="Content\images\guide\Tindangcuaban.png" />
+    <Content Include="Content\images\guide\Tinhethan.png" />
+    <Content Include="Content\images\guide\Tin_hieuluc.png" />
     <Content Include="Content\images\panel_left\1.jpg" />
-    <Content Include="Content\images\panel_left\10.jpg" />
-    <Content Include="Content\images\panel_left\11.jpg" />
-    <Content Include="Content\images\panel_left\12.jpg" />
     <Content Include="Content\images\panel_left\2.png" />
     <Content Include="Content\images\panel_left\3.gif" />
-    <Content Include="Content\images\panel_left\4.gif" />
     <Content Include="Content\images\panel_left\5.gif" />
-    <Content Include="Content\images\panel_left\6.jpg" />
     <Content Include="Content\images\panel_left\7.jpg" />
     <Content Include="Content\images\panel_left\8.jpg" />
     <Content Include="Content\images\slider\01.jpg" />
@@ -348,14 +361,22 @@
     <Content Include="Content\images\slider\10.jpg" />
     <Content Include="Content\images\spritemap%402x.png" />
     <Content Include="Content\images\spritemap.png" />
-    <Content Include="Content\images\team\pic1.jpg" />
-    <Content Include="Content\images\team\pic2.jpg" />
-    <Content Include="Content\images\team\pic3.jpg" />
-    <Content Include="Content\images\team\pic4.jpg" />
-    <Content Include="Content\images\team\pic5.jpg" />
-    <Content Include="Content\images\team\pic6.jpg" />
-    <Content Include="Content\images\team\pic7.jpg" />
-    <Content Include="Content\images\team\pic8.jpg" />
+    <Content Include="Content\scripts\ApproveCar.js" />
+    <Content Include="Content\scripts\fancybox\blank.gif" />
+    <Content Include="Content\scripts\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Content\scripts\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\scripts\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\scripts\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Content\scripts\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\scripts\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="Content\scripts\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Content\scripts\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Content\scripts\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="Content\scripts\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Content\scripts\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Content\scripts\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\scripts\fancybox\jquery.fancybox.js" />
+    <Content Include="Content\scripts\fancybox\jquery.fancybox.pack.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Base64.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Extensions.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Hex.js" />
@@ -444,6 +465,11 @@
     <Content Include="Images\Cars_Showroom\06.jpg" />
     <Content Include="Images\Cars_Showroom\07.jpg" />
     <Content Include="Images\Cars_Showroom\08.jpg" />
+    <Content Include="Images\News\xegiadinhviet_banhxe.jpg" />
+    <Content Include="Images\News\xegiadinhviet_locdau.jpg" />
+    <Content Include="Images\News\xegiadinhviet_locgio.jpg" />
+    <Content Include="Images\News\xegiadinhviet_muxecu.jpg" />
+    <Content Include="Images\News\xegiadinhviet__xecu_thaydau.jpg" />
     <Content Include="Views\Account\RecoverPass.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -458,7 +484,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -499,6 +524,21 @@
     <Content Include="Views\Car\CarEditNoPermission.cshtml" />
     <Content Include="Views\Car\CarBuyDetail.cshtml" />
     <None Include="Properties\PublishProfiles\CarSite.pubxml" />
+    <Content Include="Views\Home\Security.cshtml" />
+    <Content Include="Views\Home\Introduce.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Car\CarForBuy.cshtml" />
+    <Content Include="Views\Car\SearchingCarOfUser.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\News\news2.cshtml" />
+    <Content Include="Views\News\news1.cshtml" />
+    <Content Include="Views\News\news3.cshtml" />
+    <Content Include="Views\News\news4.cshtml" />
+    <Content Include="Views\News\news5.cshtml" />
+    <Content Include="Views\News\news6.cshtml" />
+    <Content Include="Views\News\news7.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
