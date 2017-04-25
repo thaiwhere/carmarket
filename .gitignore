@@ -4,7 +4,7 @@ _ReSharper.*
 *.pdb
 bin/
 obj/
-packages/
+/packages
 logs/
 Web.config
 CarSite/Web.config
