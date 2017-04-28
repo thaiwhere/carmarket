@@ -325,8 +325,9 @@ namespace CarSite.Controllers
                         if (userValid.Count() > 0)
                         {
                             var userLogin = userValid.First();
-                            
-                            var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                                                        
+                            var contact = new Contact { Name = userLogin.UserName, Email = userLogin.Email };
+
                             Proxy.SendEmail(contact, "Thông báo mật khẩu Khách hàng: " + userName, "Mật khẩu cuả quý khách là : " + EncryptionHelper.Decrypt(userLogin.Password));                            
 
                             if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
