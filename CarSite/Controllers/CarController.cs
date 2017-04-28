@@ -710,11 +710,13 @@ namespace CarSite.Controllers
             bool isExists = System.IO.Directory.Exists(destDirName);
             if (isExists)
             {
-                var index = 1;
+                var destinationFilename = string.Empty;
+                var compressedJPG = string.Empty;
+                var index = 1;                
                 foreach (var file in System.IO.Directory.EnumerateFiles(destDirName))
                 {                    
-                    var destinationFilename = string.Format("{0}\\{1}", destDirName, index + ".jpg");
-
+                    destinationFilename = string.Format("{0}\\{1}", destDirName, index + ".jpg");
+                    
                     if (!file.Equals(destinationFilename))
                     {
                         if (System.IO.File.Exists(destinationFilename))
@@ -722,12 +724,19 @@ namespace CarSite.Controllers
                             System.IO.File.Delete(destinationFilename);
                         }
 
-                        System.IO.File.Move(file, destinationFilename);                        
+                        compressImage(file, destinationFilename);
+
+                        System.IO.File.Delete(file);
                     }
 
                     index++;
                 }
             }
+        }
+
+        private void compressImage(string originalJPG, string compressedJPG)
+        {
+            JpegCompression.VaryQualityLevel(originalJPG, compressedJPG);
         }
 
         private void CopyFileName(int carId)
