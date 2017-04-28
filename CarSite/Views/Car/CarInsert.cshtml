@@ -19,11 +19,6 @@
 
 @Html.ValidationSummary(true)
 
-<div class="ajax-loader">
-    <img src="~/Content/images/common/ajax-loader.gif" class="img-responsive" />
-</div>
-
-
 <div id="divCarInsert" class="uploadCar">
 
     <div class="form-horizontal car-insert-description">
@@ -299,6 +294,10 @@
         </div>
 
         <br />
+
+        <div class="ajax-loader">
+            <img src="~/Content/images/common/ajax-loader.gif" class="img-responsive" />
+        </div>
 
         <button type="submit" id="uploadCar" class="btn btn-primary btn-lg">Đăng tin</button>
         <br />

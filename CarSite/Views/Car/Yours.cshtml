@@ -5,6 +5,8 @@
 
 @section Styles{
 
+    <link href="~/Content/css/ajax/ajax-loader.css" rel="stylesheet" />
+
 }
 
 <h2 class="title">@ViewBag.Title</h2>
@@ -27,6 +29,11 @@
         <li id="car_expired" class=""><a href="javascript:void(null);" title="Tin hết hạn">Tin hết hạn</a></li>     
     </ul>
 </div>
+
+<div class="ajax-loader">
+    <img src="~/Content/images/common/ajax-loader.gif" class="img-responsive" />
+</div>
+
 
 <div class="grid-container">
     <div id="gridCarShowing" class="freegrid"></div>
