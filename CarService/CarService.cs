@@ -13,9 +13,8 @@ namespace Car.Service
     /// </summary>
     public static class CarService
     {
-        public static IEnumerable<T> SearchingCars<T>(CriteriaBase criteria, bool isGetFromCache = false)
-        {
-            var carId = string.Empty;
+        public static IEnumerable<T> SearchingCarsForYou<T>(CriteriaBase criteria, bool isGetFromCache = false)
+        {            
             var cacheKey = string.Empty;
             ICache cache = null;            
             IEnumerable<T> cars = null;
@@ -23,15 +22,11 @@ namespace Car.Service
             try
             {
                 var param = criteria.GetSpParams();
-                if (param["carid"] != null)
-                {
-                    carId = param["carid"].ToString();
-                }
-
-                if (isGetFromCache && !string.IsNullOrEmpty(carId))
+         
+                if (isGetFromCache)
                 {
                     cache = CacheManager.GetInstance();
-                    cacheKey = criteria.GetSettingKey() + carId;
+                    cacheKey = criteria.GetSettingKey() + "SearchingCarsForYou";
                     cars = cache.GetCache<IEnumerable<T>>(cacheKey);
                 }
 
@@ -51,10 +46,54 @@ namespace Car.Service
                 return cars ?? new List<T>();
             }
             catch (Exception ex)
-            {                
-                LogService.Error("SearchingCars - " + ex.Message, ex);
+            {
+                LogService.Error("SearchingCarsForYou - " + ex.Message, ex);
                 return new List<T>();
             }            
+        }
+
+        public static IEnumerable<T> SearchingCars<T>(CriteriaBase criteria, bool isGetFromCache = false)
+        {
+            var carId = string.Empty;
+            var cacheKey = string.Empty;
+            ICache cache = null;
+            IEnumerable<T> cars = null;
+
+            try
+            {
+                var param = criteria.GetSpParams();
+                if (param["carid"] != null)
+                {
+                    carId = param["carid"].ToString();
+                }
+
+                if (isGetFromCache && !string.IsNullOrEmpty(carId))
+                {
+                    cache = CacheManager.GetInstance();
+                    cacheKey = criteria.GetSettingKey() + carId;
+                    cars = cache.GetCache<IEnumerable<T>>(cacheKey);
+                }
+
+                if (cars == null)
+                {
+                    using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+                    {
+                        cars = obj.Query<T>(param);
+
+                        if (isGetFromCache && cache != null)
+                        {
+                            cache.SetCache(cacheKey, cars);
+                        }
+                    }
+                }
+
+                return cars ?? new List<T>();
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("SearchingCars - " + ex.Message, ex);
+                return new List<T>();
+            }
         }
 
         public static CarViewModel SearchingCarDetail(CriteriaBase criteria, bool isGetFromCache = false)

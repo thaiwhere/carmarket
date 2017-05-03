@@ -202,7 +202,7 @@ namespace CarSite.Controllers
         [HttpPost]
         public JsonResult SearchingCarsForYou(CarSearchingForYouCriteria criteria)
         {
-            List<CarModel> listCars = CarService.SearchingCars <CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+            List<CarModel> listCars = CarService.SearchingCarsForYou<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
         }
 
