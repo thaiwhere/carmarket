@@ -275,6 +275,10 @@ var AddCarHandler = {
         
         $.ajax({
             type: 'POST',
+            beforeSend: function () {
+                $("#uploadCar").prop("disabled", true);
+                $('.ajax-loader').css("visibility", "visible");
+            },
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             url: "/Car/InsertCar",
@@ -286,6 +290,10 @@ var AddCarHandler = {
                 else {
                     common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
                 }                
+            },
+            complete: function () {
+                $('.ajax-loader').css("visibility", "hidden");
+                $("#uploadCar").prop("disabled", false);
             },
             error: function (xhr) {
                 common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");

@@ -4,6 +4,9 @@
 
         $.ajax({
             type: 'POST',
+            beforeSend: function () {                
+                $('.ajax-loader').css("visibility", "visible");
+            },
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             url: '/Car/DeleteCar',
@@ -18,6 +21,9 @@
                 else {
                     common.ShowErrorMessage('Lỗi xoá tin');
                 }
+            },
+            complete: function () {
+                $('.ajax-loader').css("visibility", "hidden");                
             },
             error: function (xhr) {
                 common.ShowErrorMessage('Lỗi xoá tin');

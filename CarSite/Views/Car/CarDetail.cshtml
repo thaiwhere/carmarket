@@ -27,7 +27,7 @@
             </div>
 
             <div class="car-detail-section desc">
-                @Model.Description
+                @Model.Description.Replace("&lt;br /&gt;", "<br />")
             </div>
 
         </div>
