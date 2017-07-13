@@ -150,9 +150,9 @@ function decorateDataModify(cars, carStatus) {
             var remove = "<br/><br/><a href='javascript:void(0);' onclick='return DeleteCar(this, \"" + cars[i].CarId + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-remove'></span> Xoá</font></a>";
 
             var modify = "<div class='car-info' style='margin-left:20px' >" + saled + edit + remove;
-            
+                        
             if (typeof(IsAdmin) != 'undefined' && IsAdmin == "True")
-            {
+            {                
                 var approve = "<br/><br/><a href='javascript:void(0);' onclick='return ApproveCar(this, \"" + cars[i].CarId + "\",\"" + cars[i].UserName + "\",\"" + cars[i].Email + "\"," + cars[i].IsBuy + ");'><font color='#0000ff'><span class='glyphicon glyphicon-thumbs-up'></span> Duyệt</font></a>";
                 var disApprove = "<br/><br/><a href='javascript:void(0);' onclick='return DisApproveCar(this, \"" + cars[i].CarId + "\",\"" + cars[i].UserName + "\",\"" + cars[i].Email + "\"," + cars[i].IsBuy + ");'><font color='#ff0000'><span class='glyphicon glyphicon-thumbs-down'></span> KO duyệt</font></a>";
 
@@ -185,11 +185,11 @@ var gridRenderMofify = function (gridId, data, carStatus) {
               {
                   columns: [
                   { HeaderText: "Xe", Width: 150, Name: "Car", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Tiêu đề", Width: 280, Name: "Title", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Trạng thái", Width: 100, Name: "Status", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Tiêu đề", Width: 250, Name: "Title", HeaderAlign: "center", CellAlign: "center" },
+                  { HeaderText: "Trạng thái", Width: 80, Name: "Status", HeaderAlign: "center", CellAlign: "center" },
                   { HeaderText: "Ngày cập nhật", Width: 100, Name: "ModifiedDate", HeaderAlign: "center", CellAlign: "center" },
                   //{ HeaderText: "Luợt xem", Width: 70, Name: "CountView", HeaderAlign: "center", CellAlign: "center" },
-                  { HeaderText: "Chỉnh sửa", Width: 110, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
+                  { HeaderText: "Chỉnh sửa", Width: 160, Name: "Modify", HeaderAlign: "center", CellAlign: "center" }
                   ],
                   gridId: gridId,
                   bodyRows: decorateDataModify(data, carStatus),

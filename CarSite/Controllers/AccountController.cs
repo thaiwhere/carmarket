@@ -67,7 +67,7 @@ namespace CarSite.Controllers
                             {
                                 var userLogin = userValid.Single();
 
-                                if (username.Equals("admin"))
+                                if (username.ToLower().Equals("admin"))
                                 {
                                     HttpContext.Session["IsAdmin"] = true;
                                 }
