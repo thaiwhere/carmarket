@@ -335,6 +335,10 @@ var EditCarHandler = {
 
         $.ajax({
             type: 'POST',
+            beforeSend: function () {
+                $("#uploadCar").prop("disabled", true);
+                $('.ajax-loader').css("visibility", "visible");
+            },
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             url: "/Car/EditCar",
@@ -345,6 +349,10 @@ var EditCarHandler = {
                 } else {
                     common.ShowErrorMessage("Lỗi sưả tin, vui lòng thử lại !");
                 }
+            },
+            complete: function () {
+                $('.ajax-loader').css("visibility", "hidden");
+                $("#uploadCar").prop("disabled", false);
             },
             error: function (xhr) {
                 common.ShowErrorMessage("Lỗi sưả tin, vui lòng thử lại !");                
@@ -382,6 +390,10 @@ var EditCarHandler = {
 
         $.ajax({
             type: 'POST',
+            beforeSend: function () {
+                $("#uploadCar").prop("disabled", true);
+                $('.ajax-loader').css("visibility", "visible");
+            },
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             url: "/Car/EditCarBuying",
@@ -395,6 +407,10 @@ var EditCarHandler = {
                     common.ShowErrorMessage("Lỗi sưả tin, vui lòng thử lại !");
                 }
 
+            },
+            complete: function () {
+                $('.ajax-loader').css("visibility", "hidden");
+                $("#uploadCar").prop("disabled", false);
             },
             error: function (xhr) {
                 common.ShowErrorMessage("Lỗi sưả tin, vui lòng thử lại !");
