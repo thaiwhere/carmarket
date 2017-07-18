@@ -1,4 +1,4 @@
-﻿var shrinkGrid = true;
+﻿var shrinkGrid = false;
 //var searchingUrl = $.cookie("searchingUrl") || "";
 var ItemsPerPage = 20;
 

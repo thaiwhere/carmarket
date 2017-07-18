@@ -28,7 +28,7 @@ Car.SearchingCar = function () {
     }
 
     $this.Initialize = function () {                
-        handler.hideDivRight();
+        //handler.hideDivRight();
     };
 
     $this.Searching= function(searchingUrl, criteria)

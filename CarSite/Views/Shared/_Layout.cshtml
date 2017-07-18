@@ -63,7 +63,8 @@
                 <div id="div-left-searching">
                     @{ Html.RenderPartial("~/Views/Shared/CarList.cshtml"); }
                 </div>
-                <div id="div-left-advertise">
+                <div id="div-left-advertise">                    
+                    @{ Html.RenderPartial("~/Views/Shared/Slider.cshtml"); }                    
                     @{ Html.RenderPartial("~/Views/Shared/PanelLeft.cshtml"); }
                 </div>                
          
@@ -72,8 +73,8 @@
                 @RenderBody()
             </div>
             <div id="div-right">
-                @{ Html.RenderPartial("~/Views/Shared/Slider.cshtml"); }
-                @{ Html.RenderPartial("~/Views/Shared/ShowRoom.cshtml"); }                
+                @*@{ Html.RenderPartial("~/Views/Shared/Slider.cshtml"); }
+                @{ Html.RenderPartial("~/Views/Shared/ShowRoom.cshtml"); }*@                
             </div>
         </div>
         <div id="div-footer">

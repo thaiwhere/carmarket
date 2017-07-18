@@ -119,7 +119,8 @@ legend {
 }
 
 .narrow-div-center{    
-    width:563px;      
+    /*width:563px;*/      
+    width:796px;
 }
 
 .new-label-searching{

@@ -50,21 +50,21 @@
     },
 
     showResultSearching:function(){
-        shrinkGrid = false;        
-        handler.hideDivRight();
-        handler.expandDivCenter();
+        //shrinkGrid = false;        
+        //handler.hideDivRight();
+        //handler.expandDivCenter();
     },
 
     showHomePage: function () {
-        shrinkGrid = true;
-        handler.showDivRight();
-        handler.collapseDivCenter();
+        //shrinkGrid = true;
+        //handler.showDivRight();
+        //handler.collapseDivCenter();
     },
 
     redirectSearching: function (index) {
         $.cookie("tabIndex", index, { path: '/' });
         if (index == 0) {
-            shrinkGrid = true;
+            //shrinkGrid = true;
             handler.showSearchCarFirm();            
         }
         else {
