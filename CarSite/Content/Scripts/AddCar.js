@@ -179,6 +179,25 @@ var AddCarHandler = {
                  }
              }
          );
+
+        $("#uploadCarHire").click(
+              function () {
+                  if (AddCarHandler.validateData()) {
+                      AddCarHandler.insertCarHire();
+                  } else {
+                      common.ShowInfoMessage("Vui lòng nhập Tiêu đề, Giá và Thông tin mô tả ");
+                      if ($("#Title").val() == "") {
+                          $("#Title").focus();
+                      }
+                      else if ($("#CurrencyVN").val() == "") {
+                          $("#CurrencyVN").focus();
+                      }
+                      else {
+                          $("#Description").focus();
+                      }
+                  }
+              }
+          );
     },
 
     renderData: function () {
@@ -348,7 +367,61 @@ var AddCarHandler = {
                 common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
             }
         });
-    }    
+    },
+
+    insertCarHire: function () {
+
+    var criteria = {
+        Title: $("#Title").val(),
+        Firm: $("#Firm").val(),
+        Model: $("#Model").val(),
+        IsNew: $("#IsNew").is(":checked"),
+        IsImport: $("#IsImport").is(":checked"),
+        TypeId: $("#TypeId").val(),
+        CurrencyVN: $("#CurrencyVN").val(),
+        Year: $("#Year").val(),
+        Km: $("#Km").val(),
+        Description: $("#Description").val(),
+
+        ProvinceId: $("#ProvinceId").val(),
+        SeatNo: $("#SeatNo").val(),
+        GateNo: $("#GateNo").val(),
+        ExteriorColorId: $("#ExteriorColorId").val(),
+        InteriorColorId: $("#InteriorColorId").val(),
+        FuelConsumption: $("#FuelConsumption").val(),
+        FuelId: $("#FuelId").val(),
+        FuelSystem: $("#FuelSystem").val(),
+        GearBox: $("#GearBox").val(),
+        WheelDriveId: $("#WheelDriveId").val()
+    };
+        
+        $.ajax({
+            type: 'POST',
+            beforeSend: function () {
+                $("#uploadCar").prop("disabled", true);
+                $('.ajax-loader').css("visibility", "visible");
+            },
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            url: "/Car/InsertCarHire",
+            data: JSON.stringify(criteria),
+            success: function (result) {
+                if (result >= 0) {
+                    common.ShowYesNoConfirmMessage("Đăng tin", "Tiếp tục đăng tin?", function () { location.href = '/car/insert'; }, function () { location.href = '/car/yours'; });
+                }
+                else {
+                    common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
+                }                
+            },
+            complete: function () {
+                $('.ajax-loader').css("visibility", "hidden");
+                $("#uploadCar").prop("disabled", false);
+            },
+            error: function (xhr) {
+                common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
+            }
+        });
+    }
     
 }
 

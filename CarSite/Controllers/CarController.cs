@@ -175,12 +175,22 @@ namespace CarSite.Controllers
             return View("~/Views/Car/CarBuyingInsert.cshtml");
         }
 
-        public ActionResult CarForBuy()
-        {           
-            return View("~/Views/Car/CarForBuy.cshtml");
-        }        
-        
+        //public ActionResult CarForBuy()
+        //{           
+        //    return View("~/Views/Car/CarForBuy.cshtml");
+        //}
 
+        [Authorize]
+        public ActionResult Hire()
+        {
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return RedirectToAction("Login", "Account", new { returnUrl = "/Car/Hire" });
+            }
+
+            return View("~/Views/Car/CarHire.cshtml");
+        }
+       
         #endregion
 
         #region POST Methods
@@ -218,8 +228,15 @@ namespace CarSite.Controllers
         {
             List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
-        }        
-                
+        }
+
+        [HttpPost]
+        public JsonResult SearchingCarsHire(CarSearchingHireCriteria criteria)
+        {
+            List<CarModel> listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
+            return Json(listCars);
+        }    
+
         [HttpPost]
         public JsonResult SearchingCarsSimilarModel(CarSearchingSimilarModelCriteria criteria)
         {
@@ -529,7 +546,7 @@ namespace CarSite.Controllers
 
                 if (result > 0)
                 {
-                    if (criteria.IsBuy == false)
+                    if (criteria.IsBuy == 1)
                     {
                         RemoveFolderName(criteria.CarId);
                     }
@@ -658,6 +675,68 @@ namespace CarSite.Controllers
         {
             var listCars = CarService.SearchingCars<CarModel>(criteria, AppSettings.IsGetFromCache).ToList<CarModel>();
             return Json(listCars);
+        }
+
+        [HttpPost]
+        public JsonResult InsertCarHire(CarHireEntity carInsertEntity)
+        {
+            var carId = 0;
+
+            try
+            {
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                var criteria = new CarHireCriteria
+                {
+                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                    Title = carInsertEntity.Title,
+                    Firm = carInsertEntity.Firm,
+                    Model = carInsertEntity.Model,
+                    IsNew = carInsertEntity.IsNew,
+                    IsImport = carInsertEntity.IsImport,
+                    TypeId = carInsertEntity.TypeId,
+                    CurrencyVN = carInsertEntity.CurrencyVN,
+                    Year = carInsertEntity.Year,
+                    Km = carInsertEntity.Km,
+                    Description = carInsertEntity.Description,
+                    ProvinceId = carInsertEntity.ProvinceId,
+                    SeatNo = carInsertEntity.SeatNo,
+                    GateNo = carInsertEntity.GateNo,
+                    ExteriorColorId = carInsertEntity.ExteriorColorId,
+                    InteriorColorId = carInsertEntity.InteriorColorId,
+                    FuelConsumption = carInsertEntity.FuelConsumption,
+                    FuelId = carInsertEntity.FuelId,
+                    FuelSystem = carInsertEntity.FuelSystem,
+                    GearBox = carInsertEntity.GearBox,
+                    WheelDriveId = carInsertEntity.WheelDriveId,
+                    CreatedDate = DateTime.Now.ToShortDateString()
+                };
+
+                carId = CarService.InsertCar(criteria);
+
+                if (carId > 0)
+                {
+                    ChangeFolderName(carId);
+                    ChangeFileName(carId);
+
+                    var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                    Proxy.SendEmail(contact, "Thông báo đăng tin", "Bạn đã đăng tin với tiêu đề <br /> <br />" + carInsertEntity.Title + "<br /> <br />" + approvalWaitting);
+                }
+                else
+                {
+                    RemoveFolderName();
+                }
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("InsertCar - " + ex.Message, ex);
+            }
+
+            return Json(carId);
+
         }
 
         #endregion

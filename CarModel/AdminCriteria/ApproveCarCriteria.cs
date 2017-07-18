@@ -22,7 +22,7 @@ namespace Car.Model.Criteria
         [SpParam(Ignored = true)]
         public string Email { get; set; }
 
-        public bool IsBuy { get; set; }
+        public short IsBuy { get; set; }
 
         public bool Result { get; set; }
 

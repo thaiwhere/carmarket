@@ -10,15 +10,11 @@ namespace Car.Model.Criteria
     /// <summary>
     /// 
     /// </summary>
-    public class CarDeleteCriteria : CriteriaBase
-    {
-        public int CarId { get; set; }
+    public class CarSearchingHireCriteria : CriteriaBase
+    {               
+        public int CurrentPageIndex { get; set; }
 
-        public int UserId { get; set; }
-
-        public short IsBuy { get; set; }
-        
-        public bool Result { get; set; }
+        public int ItemsPerPage { get; set; }
 
         /// <summary>
         /// Gets Setting Key.
@@ -26,7 +22,7 @@ namespace Car.Model.Criteria
         /// <returns>Setting key of the criteria.</returns>
         public override string GetSettingKey()
         {
-            return "delete_car";
+            return "get_Hire_Cars";
         }
 
 

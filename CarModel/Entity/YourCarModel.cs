@@ -21,7 +21,7 @@ namespace Car.Model.Entity
         public string FirmName { get; set; }        
         public string Title { get; set; }
         
-        public short IsBuy { get; set; }
+        public short IsBuy { get; set; }        
         public byte Status { get; set; }
 
         public string ModifiedDate { get; set; }

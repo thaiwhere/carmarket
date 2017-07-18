@@ -45,6 +45,7 @@
                 case "3": $("#car_old").addClass("tabactive"); break;
                 case "4": $("#car_import").addClass("tabactive"); break;
                 case "5": $("#car_domestic").addClass("tabactive"); break;
+                case "6": $("#car_hire").addClass("tabactive"); break;
             }
         }
     },
@@ -95,6 +96,9 @@
                     searchingUrl = "/Car/SearchingCarsImportDomestic";
                     criteria.IsImport = 0;
                     break;
+                case 6:
+                    searchingUrl = "/Car/SearchingCarsHire";                    
+                    break;
             }
            
             SearchingCar.Searching(searchingUrl, criteria);
@@ -133,6 +137,11 @@
         $("#car_domestic").click(function () {
             handler.redirectSearching(5);
             $("#car_domestic").addClass("tabactive");
+        });
+
+        $("#car_hire").click(function () {
+            handler.redirectSearching(6);
+            $("#car_hire").addClass("tabactive");
         });
 
         $("#car_similar_model").click(function () {

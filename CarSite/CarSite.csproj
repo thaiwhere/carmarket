@@ -542,6 +542,7 @@
     <Content Include="Views\News\news7.cshtml" />
     <Content Include="Views\News\news8.cshtml" />
     <Content Include="Views\News\news9.cshtml" />
+    <Content Include="Views\Car\CarHire.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

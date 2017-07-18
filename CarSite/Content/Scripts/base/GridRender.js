@@ -100,16 +100,24 @@ function decorateDataModify(cars, carStatus) {
         if (cars[i].Status == carStatus) {
 
             var href = "/Car/CarDetail/" + cars[i].CarId;
-            if (cars[i].IsBuy == true)
+            if (cars[i].IsBuy == 1)
             {
                 href = "/Car/CarBuyDetail/" + cars[i].CarId;
             }
+            else if (cars[i].IsBuy == 2) {
+                href = "/Car/CarHireDetail/" + cars[i].CarId;
+            }
 
             var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
+
             var hrefModify = "/Car/Edit/" + cars[i].CarId;
             if (cars[i].IsBuy == 1) {
                 hrefModify = "/Car/EditCarBuying/" + cars[i].CarId;
             }
+            else if (cars[i].IsBuy == 2) {
+                href = "/Car/EditCarHire/" + cars[i].CarId;
+            }
+
 
             var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
 
