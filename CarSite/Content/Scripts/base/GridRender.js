@@ -3,15 +3,28 @@ function decorateData(cars) {
     var list = [];
 
     for (var i = 0; i < cars.length; i++) {
+
         var href = "/Car/CarDetail/" + cars[i].CarId;
+        if (cars[i].IsBuy == 1) {
+            href = "/Car/CarBuyDetail/" + cars[i].CarId;
+        }
+        else if (cars[i].IsBuy == 2) {
+            href = "/Car/CarHireDetail/" + cars[i].CarId;
+        }
+
         var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
         var hrefProvince = hrefFirm + "&province=" + cars[i].Province;
         var hrefContact = "/Car/CarOfUser/" + cars[i].UserId;
 
         var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
         var title = cars[i].Title;
-
         var status = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe đã sử dụng";
+
+        if (cars[i].IsBuy == 2)
+        {
+            image = "/Images/Cars_Hire_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
+            status = "<div class='car-info-status-hire'>" + "Xe cho thuê";
+        }
         status += " (" + cars[i].Year + ")</div>";
 
         var source = "<div class='car-info-source'>" + (cars[i].IsImport == true ? "Nhập khẩu" : "Trong nước") + "</div>";
@@ -111,25 +124,26 @@ function decorateDataModify(cars, carStatus) {
             var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
 
             var hrefModify = "/Car/Edit/" + cars[i].CarId;
+
             if (cars[i].IsBuy == 1) {
                 hrefModify = "/Car/EditCarBuying/" + cars[i].CarId;
             }
             else if (cars[i].IsBuy == 2) {
-                href = "/Car/EditCarHire/" + cars[i].CarId;
+                hrefModify = "/Car/EditCarHire/" + cars[i].CarId;
             }
 
-
-            var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
+            var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";            
+            var title = cars[i].Title;
+            var isNew = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe đã sử dụng";
 
             if (cars[i].IsBuy == 1) {
-                hrefModify = "/Car/EditCarBuying/" + cars[i].CarId;
                 image = "/images/noimage_buy.gif";
             }
 
-
-            var title = cars[i].Title;
-
-            var isNew = cars[i].IsNew == true ? "<div class='car-info-status-new'>" + "Xe mới" : "<div class='car-info-status-old'>" + "Xe đã sử dụng";
+            if (cars[i].IsBuy == 2) {
+                image = "/Images/Cars_Hire_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
+                isNew = "<div class='car-info-status-hire'>" + "Xe cho thuê";
+            }
             isNew += " (" + cars[i].Year + ")</div>";
 
             var source = "<div class='car-info-source'>" + (cars[i].IsImport == true ? "Nhập khẩu" : "Trong nước") + "</div>";

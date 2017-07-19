@@ -12,14 +12,17 @@
     <Setting Key="get_Import_Domestic_Cars" SpName="get_Import_Domestic_Cars" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_Similar_Model_Cars" SpName="get_Similar_Model_Cars" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_Similar_Price_Cars" SpName="get_Similar_Price_Cars" DbName="CarHome.Database" Plain="1"></Setting>
-    <Setting Key="get_Car_Detail" SpName="get_Car_Detail" DbName="CarHome.Database" Plain="1"></Setting>
-    <Setting Key="get_Car_Buy_Detail" SpName="get_Car_Buy_Detail" DbName="CarHome.Database" Plain="1"></Setting>    
-    <Setting Key="get_Car_Edit_Info" SpName="get_Car_Edit_Info" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="get_Car_Detail" SpName="get_Car_Detail" DbName="CarHome.Database" Plain="1"></Setting>    
+    <Setting Key="get_Car_Buy_Detail" SpName="get_Car_Buy_Detail" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="get_Car_Hire_Detail" SpName="get_Car_Hire_Detail" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="get_Car_Edit_Info" SpName="get_Car_Edit_Info" DbName="CarHome.Database" Plain="1"></Setting>    
+    <Setting Key="get_Car_Hire_Edit_Info" SpName="get_Car_Hire_Edit_Info" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_Car_Buy_Edit_Info" SpName="get_Car_Buy_Edit_Info" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_YourCars" SpName="get_YourCars" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_YourCarsExpired" SpName="get_YourCarsExpired" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="delete_car" SpName="delete_car" DbName="CarHome.Database" Plain="1"></Setting>    
     <Setting Key="edit_car" SpName="edit_car" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="edit_car_hire" SpName="edit_car_hire" DbName="CarHome.Database" Plain="1"></Setting>    
     <Setting Key="Car_Buying_Insert" SpName="Car_Buying_Insert" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="Car_Buying_Edit" SpName="Car_Buying_Edit" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="Contact_Insert" SpName="Contact_Insert" DbName="CarHome.Database" Plain="1"></Setting>    

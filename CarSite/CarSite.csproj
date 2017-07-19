@@ -327,6 +327,7 @@
     <Content Include="Content\images\common\logo.gif" />
     <Content Include="Content\images\common\loading.gif" />
     <Content Include="Content\images\common\logo.png" />
+    <Content Include="Content\images\common\logo_text.png" />
     <Content Include="Content\images\common\new.jpg" />
     <Content Include="Content\images\common\old.jpg" />
     <Content Include="Content\images\common\people.png" />
@@ -542,7 +543,10 @@
     <Content Include="Views\News\news7.cshtml" />
     <Content Include="Views\News\news8.cshtml" />
     <Content Include="Views\News\news9.cshtml" />
-    <Content Include="Views\Car\CarHire.cshtml" />
+    <Content Include="Views\Car\CarHireInsert.cshtml" />
+    <Content Include="Views\Car\CarHireEdit.cshtml" />
+    <Content Include="Views\Car\CarHireDetail.cshtml" />
+    <Content Include="Views\Car\CarHireDetailImages.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

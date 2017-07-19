@@ -49,6 +49,25 @@ namespace CarSite.Controllers
             }
         }
 
+        public ActionResult CarHireDetail(int id = 0)
+        {
+            var criteria = new CarHireDetailSearchingCriteria
+            {
+                CarId = id,
+                UserId = HttpContext.Session["UserId"] != null ? int.Parse(HttpContext.Session["UserId"].ToString()) : 0
+            };
+           
+            CarViewModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
+            if (carDetail != null)
+            {
+                return View("~/Views/Car/CarHireDetail.cshtml", carDetail);
+            }
+            else
+            {
+                return View("~/Views/Car/CarNoDetail.cshtml");
+            }
+        }
+        
         public ActionResult CarBuyDetail(int id = 0)
         {
             var criteria = new CarBuySearchingDetailCriteria
@@ -188,9 +207,36 @@ namespace CarSite.Controllers
                 return RedirectToAction("Login", "Account", new { returnUrl = "/Car/Hire" });
             }
 
-            return View("~/Views/Car/CarHire.cshtml");
+            return View("~/Views/Car/CarHireInsert.cshtml");
         }
-       
+
+        [Authorize]
+        public ActionResult EditCarHire(int id = 0)
+        {
+            if (HttpContext.Session["UserId"] == null)
+            {
+                return RedirectToAction("Login", "Account", new { returnUrl = "/Car/EditCarHire" });
+            }
+
+            var criteria = new CarHireGettingForEditCriteria
+            {
+                CarId = id,
+                UserId = int.Parse(HttpContext.Session["UserId"].ToString())
+            };
+
+            var carInfo = CarService.GetCarHireEditInfo(criteria);
+
+            if (carInfo != null)
+            {
+                carInfo.Images = this.GetListImages(id, true);
+                return View("~/Views/Car/CarHireEdit.cshtml", carInfo);
+            }
+            else
+            {
+                return View("~/Views/Car/CarEditNoPermission.cshtml");
+            }
+        }
+
         #endregion
 
         #region POST Methods
@@ -485,6 +531,66 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
+        public JsonResult EditCarHire(CarEditEntity carEditEntity)
+        {
+            var error = 0;
+
+            try
+            {
+                if (HttpContext.Session["UserId"] == null)
+                {
+                    return Json(-1);
+                }
+
+                var criteria = new CarHireEditCriteria
+                {
+                    UserId = int.Parse(HttpContext.Session["UserId"].ToString()),
+                    CarId = carEditEntity.CarId,
+                    Title = carEditEntity.Title,
+                    Firm = carEditEntity.Firm,
+                    Model = carEditEntity.Model,
+                    IsNew = carEditEntity.IsNew,
+                    IsImport = carEditEntity.IsImport,
+                    TypeId = carEditEntity.TypeId,
+                    CurrencyVN = carEditEntity.CurrencyVN,
+                    Year = carEditEntity.Year,
+                    Km = carEditEntity.Km,
+                    Description = carEditEntity.Description,
+                    ProvinceId = carEditEntity.ProvinceId,
+                    SeatNo = carEditEntity.SeatNo,
+                    GateNo = carEditEntity.GateNo,
+                    ExteriorColorId = carEditEntity.ExteriorColorId,
+                    InteriorColorId = carEditEntity.InteriorColorId,
+                    FuelConsumption = carEditEntity.FuelConsumption,
+                    FuelId = carEditEntity.FuelId,
+                    FuelSystem = carEditEntity.FuelSystem,
+                    GearBox = carEditEntity.GearBox,
+                    WheelDriveId = carEditEntity.WheelDriveId,
+                    ModifiedDate = DateTime.Now.ToShortDateString()
+                };
+
+                error = CarService.EditCar(criteria);
+
+                if (error == 0)
+                {
+                    CopyFileName(carEditEntity.CarId, true);
+                    ChangeFileName(carEditEntity.CarId, true);
+
+                    var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
+                    Proxy.SendEmail(contact, "Thông báo sửa tin", "Bạn đã sửa thông tin của tin đăng tiêu đề <br /> <br />" + carEditEntity.Title + "<br /> <br />" + approvalWaitting);
+                }
+
+                RemoveFolderName(0, true);
+
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("EditCar - " + ex.Message, ex);
+            }
+            return Json(error);
+        }
+
+        [HttpPost]
         public JsonResult YourActiveCar(CarSearchingYours criteria)
         {
             List<YourCarModel> listCars = new List<YourCarModel>();
@@ -719,15 +825,15 @@ namespace CarSite.Controllers
 
                 if (carId > 0)
                 {
-                    ChangeFolderName(carId);
-                    ChangeFileName(carId);
+                    ChangeFolderName(carId, true);
+                    ChangeFileName(carId, true);
 
                     var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
                     Proxy.SendEmail(contact, "Thông báo đăng tin", "Bạn đã đăng tin với tiêu đề <br /> <br />" + carInsertEntity.Title + "<br /> <br />" + approvalWaitting);
                 }
                 else
                 {
-                    RemoveFolderName();
+                    RemoveFolderName(carId, true);
                 }
             }
             catch (Exception ex)
@@ -743,11 +849,14 @@ namespace CarSite.Controllers
 
         #region Utilities
 
-        private void RemoveFolderName(int carId = 0)
+        private void RemoveFolderName(int carId = 0, bool isHire = false)
         {
+            var subPath = isHire ? "Cars_Hire_" : "Cars_";
+
             var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
 
-            string sourceDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString());
+            string sourceDirName = System.IO.Path.Combine(originalDirectory.ToString(), subPath + HttpContext.Session["UserId"].ToString());
+                        
             if (carId > 0)
             {
                 sourceDirName += "_" + carId;
@@ -760,13 +869,15 @@ namespace CarSite.Controllers
             }
         }
 
-        private void ChangeFolderName(int carId)
+        private void ChangeFolderName(int carId, bool isHire = false)
         {
+            var subPath = isHire ? "Cars_Hire_" : "Cars_";
+
             var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
 
             string sourceDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString());
 
-            string destDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString() + "_" + carId);
+            string destDirName = System.IO.Path.Combine(originalDirectory.ToString(), subPath + HttpContext.Session["UserId"].ToString() + "_" + carId);
 
             bool isExists = System.IO.Directory.Exists(sourceDirName);
             if (isExists)
@@ -780,11 +891,13 @@ namespace CarSite.Controllers
             }
         }
 
-        private void ChangeFileName(int carId)
+        private void ChangeFileName(int carId, bool isHire = false)
         {
+            var subPath = isHire ? "Cars_Hire_" : "Cars_";
+
             var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
 
-            string destDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString() + "_" + carId);
+            string destDirName = System.IO.Path.Combine(originalDirectory.ToString(), subPath + HttpContext.Session["UserId"].ToString() + "_" + carId);
 
             bool isExists = System.IO.Directory.Exists(destDirName);
             if (isExists)
@@ -818,13 +931,15 @@ namespace CarSite.Controllers
             JpegCompression.VaryQualityLevel(originalJPG, compressedJPG);
         }
 
-        private void CopyFileName(int carId)
+        private void CopyFileName(int carId, bool isHire = false)
         {
+            var subPath = isHire ? "Cars_Hire_" : "Cars_";
+
             var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
 
             string sourceDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString());
 
-            string destDirName = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString() + "_" + carId);
+            string destDirName = System.IO.Path.Combine(originalDirectory.ToString(), subPath + HttpContext.Session["UserId"].ToString() + "_" + carId);
 
             bool isExists = System.IO.Directory.Exists(sourceDirName);
             if (isExists)
@@ -841,13 +956,15 @@ namespace CarSite.Controllers
             }
         }
 
-        private string GetListImages(int carId)
+        private string GetListImages(int carId, bool isHire = false)
         {
+            var subPath = isHire ? "Cars_Hire_" : "Cars_";
+
             string images = string.Empty;
 
             var originalDirectory = new DirectoryInfo(string.Format("{0}Images", Server.MapPath(@"\")));
             
-            string path = System.IO.Path.Combine(originalDirectory.ToString(), "Cars_" + HttpContext.Session["UserId"].ToString() + "_" + carId);
+            string path = System.IO.Path.Combine(originalDirectory.ToString(), subPath + HttpContext.Session["UserId"].ToString() + "_" + carId);
 
             bool isExists = System.IO.Directory.Exists(path);
             if (isExists)

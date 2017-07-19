@@ -46,6 +46,8 @@
     <Compile Include="AdminCriteria\ApproveCarCriteria.cs" />
     <Compile Include="Criteria\CarBuyingEditCriteria.cs" />
     <Compile Include="Criteria\CarBuyingGettingForEditCriteria.cs" />
+    <Compile Include="Criteria\CarHireGettingForEditCriteria.cs" />
+    <Compile Include="Criteria\CarHireEditCriteria.cs" />
     <Compile Include="Criteria\CarHireCriteria.cs" />
     <Compile Include="Criteria\CarSaledCriteria.cs" />
     <Compile Include="Criteria\CarGettingForEditCriteria.cs" />
@@ -53,6 +55,7 @@
     <Compile Include="Criteria\CarBuyingInsertCriteria.cs" />
     <Compile Include="Criteria\CarSearchingByText.cs" />
     <Compile Include="Criteria\CarBuySearchingDetailCriteria.cs" />
+    <Compile Include="Criteria\CarHireDetailSearchingCriteria.cs" />
     <Compile Include="Criteria\CarSearchingHireCriteria.cs" />
     <Compile Include="Criteria\SearchingCarForBuyCriteria.cs" />
     <Compile Include="Criteria\CarVisitedCriteria.cs" />
@@ -73,6 +76,7 @@
     <Compile Include="Criteria\CarSearchingForYouCriteria.cs" />
     <Compile Include="Criteria\CarSearchingCriteria.cs" />
     <Compile Include="Entity\CarBuyingEntity.cs" />
+    <Compile Include="Entity\CarHireEditEntity.cs" />
     <Compile Include="Entity\CarEditEntity.cs" />
     <Compile Include="Entity\CarHireEntity.cs" />
     <Compile Include="Entity\CarInsertEntity.cs" />

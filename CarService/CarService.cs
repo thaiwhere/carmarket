@@ -157,6 +157,23 @@ namespace Car.Service
             }
         }
 
+        public static CarHireEditEntity GetCarHireEditInfo(CriteriaBase criteria)
+        {
+            try
+            {
+                using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+                {
+                    var param = criteria.GetSpParams();
+                    return obj.QueryEntity<CarHireEditEntity>(param);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogService.Error("GetCarEditInfo - " + ex.Message, ex);
+                return new CarHireEditEntity();
+            }
+        }
+
         public static CarBuyingEntity GetCarBuyEditInfo(CriteriaBase criteria)
         {
             try
