@@ -109,7 +109,7 @@
 }
 
 .car-info-user{
-    background:  url('../../Images/common/people.png') no-repeat left; 
+    background:  url('../Content/Images/common/people.png') no-repeat left; 
     padding-left: 25px;    
     font: 14px/21px 'Arial';
     color: #222;
@@ -120,7 +120,7 @@
 }
 
 .car-info-tel{
-    background:  url('../../Images/common/phone.png') no-repeat left;
+    background:  url('../Content/Images/common/phone.png') no-repeat left;
     padding-left: 25px;    
     font: 14px/21px 'Arial';
     color: #222;
@@ -146,7 +146,7 @@
 }
 
 .status-icon{
-    background:  url('../../Images/common/new.jpg') no-repeat left;    
+    background:  url('../Content/Images/common/new.jpg') no-repeat left;    
     float: left;            
     margin-top:-5px;    
     width:50px;

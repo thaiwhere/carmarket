@@ -36,7 +36,7 @@
 .div-car-tab ul.ul-car-tab li a {
     display: block;
     float: left;
-    background: #eeeeee url(../../Images/common/tab.png) repeat-x scroll center center;
+    background: #eeeeee url(../Content/Images/common/tab.png) repeat-x scroll center center;
     border: 1px solid #dedede;
     margin: 0 auto;
     text-decoration: none;
@@ -47,7 +47,7 @@
 .div-car-tab ul.ul-car-detail-tab li{
     display: block;
     float: left;
-    background: #eeeeee url(../../Images/common/tab.png) repeat-x scroll center center;
+    background: #eeeeee url(../Content/Images/common/tab.png) repeat-x scroll center center;
     border: 1px solid #dedede;
     margin: 0 auto;
     text-decoration: none;
@@ -216,7 +216,7 @@
 
 .car-contact-user
 {
-	background: url('../../Images/common/people.png') no-repeat left;
+	background: url('../Content/Images/common/people.png') no-repeat left;
     padding-left: 25px;
     float: left;
     width: 100%;
@@ -228,7 +228,7 @@
 }
 
 .car-contact-tel{
-    background: url('../../Images/common/phone.png') no-repeat left;
+    background: url('../Content/Images/common/phone.png') no-repeat left;
     padding-left: 25px;
     float: left;
     width: 100%;
@@ -240,7 +240,7 @@
 }
 
 .car-contact-address{
-    background: url('../../Images/common/address.png') no-repeat left;
+    background: url('../Content/Images/common/address.png') no-repeat left;
     padding-left: 25px;
     float: left;
     width: 100%;

@@ -11,7 +11,7 @@ namespace CarSite
             bundles.Clear();
             bundles.ResetAll();
 
-            BundleTable.EnableOptimizations = false;
+            BundleTable.EnableOptimizations = true;
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Content/scripts/lib/jquery/jquery-1.9.1.min.js",

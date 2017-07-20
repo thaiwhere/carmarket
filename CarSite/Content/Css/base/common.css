@@ -13,7 +13,7 @@
 
 #logo {
     float: left;
-    background: transparent url(../../Images/common/logo.png) repeat-x scroll 864px -31px;
+    background: transparent url(../Content/Images/common/logo.png) repeat-x scroll 864px -31px;
     width: 289px;
     height: 100px;    
     border-radius:5px;
@@ -22,7 +22,7 @@
 
 #logo_text {
     float: left;
-    background: transparent url(../../Images/common/logo_text.png) repeat-x scroll 770px -13px;
+    background: transparent url(../Content/Images/common/logo_text.png) repeat-x scroll 770px -13px;
     width: 300px;
     height: 100px;            
     margin-left:20px;    
@@ -33,7 +33,7 @@
     float: left;
     height: 30px;
     background-color: #FCEDC4;
-    background: transparent url(../../Images/common/bar.gif) scroll -0px -80px;
+    background: transparent url(../Content/Images/common/bar.gif) scroll -0px -80px;
     width: 100%;
 }
 
@@ -43,7 +43,7 @@
 
 .btn-search{    
     float: right;
-    background: transparent url(../../Images/common/searching.png) repeat-x scroll -0px -3px;
+    background: transparent url(../Content/Images/common/searching.png) repeat-x scroll -0px -3px;
     width: 81px;
     height: 28px;
 }
