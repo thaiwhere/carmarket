@@ -28,8 +28,8 @@
 }
 .numberlist ul li.sep
 {
-     background: url(images/seperations.png) right 4px no-repeat;
-    }
+     background: url(../Content/css/grid.paging/images/seperations.png) right 4px no-repeat;
+}
 .numberlist ul li.last
 {
     background: none !important;

@@ -29,7 +29,7 @@
             <div class="car-detail-section desc">
                 @if (!string.IsNullOrEmpty(Model.Description))
                 {
-                    Model.Description.Replace("&lt;br /&gt;", "<br />");
+                    @Model.Description.Replace("&lt;br /&gt;", "<br />");
                 }
             </div>
 
