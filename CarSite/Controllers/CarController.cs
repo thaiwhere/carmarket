@@ -15,7 +15,7 @@ namespace CarSite.Controllers
     public class CarController : Controller
     {
 
-        private static string approvalWaitting = "Tin đăng cuả Bạn đã sẽ đuợc duyệt trong vòng 24h";
+        private static string approvalWaitting = "Tin đăng cuả Bạn sẽ đuợc duyệt trong vòng 24h";
         #region GET Methods
 
         public ActionResult SearchingCars(string firm = "", string model = "", string province = "")
@@ -406,7 +406,7 @@ namespace CarSite.Controllers
                     ChangeFileName(carEditEntity.CarId);
 
                     var contact = new Contact { Name = HttpContext.Session["UserName"].ToString(), Email = HttpContext.Session["Email"].ToString() };
-                    Proxy.SendEmail(contact, "Thông báo sửa tin", "Bạn đã sửa thông tin của tin đăng tiêu đề <br /> <br />" + carEditEntity.Title + "<br /> <br />" + approvalWaitting);
+                    Proxy.SendEmail(contact, "Thông báo sửa tin", "Bạn đã sửa tin đăng với tiêu đề <br /> <br />" + carEditEntity.Title + "<br /> <br />" + approvalWaitting);
                 }
 
                 RemoveFolderName();
@@ -732,7 +732,7 @@ namespace CarSite.Controllers
                     {
                         var contact = new Contact { Name = criteria.UserName, Email = criteria.Email };
                         var carDetail = "<a href=\"http://www.xegiadinhviet.com/car/cardetail/" + criteria.CarId + "\">" +"http://www.xegiadinhviet.com/car/cardetail/" + criteria.CarId + "</a>";
-                        Proxy.SendEmail(contact, "Duyệt tin", "Tin đăng cuả Bạn đã đuợc duyệt -> " + carDetail);
+                        Proxy.SendEmail(contact, "Thông báo duyệt tin", "Tin đăng cuả Bạn đã đuợc duyệt -> " + carDetail);
                     }
                 }
 
