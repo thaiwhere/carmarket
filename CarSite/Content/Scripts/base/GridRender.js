@@ -218,7 +218,7 @@ var gridRenderMofify = function (gridId, data, carStatus) {
                   scrollWidth: 0, //// Default is 24px
                   gridExpandHeight: 100,
                   showPager: true,
-                  customGrid: true,
+                  //customGrid: true,
                   pagerOption: {
                       itemsPerPage: 10,
                       currentPage: 0,
@@ -255,14 +255,14 @@ function customGrid(gridId) {
 }
 
 function reRenderAfterPaged(gridId) {    
-    customGrid(gridId);
+    //customGrid(gridId);
     $(".col_header").css("top", 30);
     $(".grid-container").css("top", 30);
     return false;
 }
 
 function reRenderGridModifyAfterPaged(gridId) {
-    customGrid(gridId);    
+    //customGrid(gridId);    
     $(".col_header").css("top", 30);
     $(".grid-container").css("top", 30);
 

@@ -1,5 +1,6 @@
 ﻿.freegrid{
     /*margin-left:10px;*/
+    width: 100% !important;
 }
 
 .numberlist{
@@ -9,10 +10,12 @@
 
 #grid-pager-top{
     top:0px !important;
+    width:100% !important;
 }
 
 #grid-pager-bottom{
     top:1908px  !important;
+    width:100% !important;
 }
 
 #gridCarSimilarModel, #gridCarSimilarPrice{    
@@ -27,6 +30,7 @@
 
 .freegrid .grid-container {    
     height:1940px !important;
+    width: 103% !important;
 }
 
 .freegrid .grid-container table thead th
@@ -38,4 +42,8 @@
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
+}
+
+.content-container{
+    width:100% !important;
 }

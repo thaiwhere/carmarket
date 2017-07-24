@@ -2396,7 +2396,7 @@
             //gridWidth = isScrollX ? gridWidth : (tblWidth + bar);
 
             o.css("width", gridWidth + "px");
-            o.find(".content-container").css("width", gridWidth + "px");
+            //o.find(".content-container").css("width", gridWidth + "px");
             o.find(".col_header_content").css("width", gridWidth + "px");
             container.css("width", gridWidth + "px");
             xscrollbar.css("width", (gridWidth - freezeWidth - bar - (options.padding) * 2 - 1) + "px");
