@@ -2,19 +2,18 @@
 function decorateData(cars) {
     var list = [];
 
-    for (var i = 0; i < cars.length; i++) {
-
-        var href = "/Car/CarDetail/" + cars[i].CarId;
+    for (var i = 0; i < cars.length; i++) {        
+        var href = "/car/detail/" + cars[i].GenerateSlug;
         if (cars[i].IsBuy == 1) {
-            href = "/Car/CarBuyDetail/" + cars[i].CarId;
+            href = "/car/buydetail/" + cars[i].GenerateSlug;
         }
         else if (cars[i].IsBuy == 2) {
-            href = "/Car/CarHireDetail/" + cars[i].CarId;
+            href = "/car/hiredetail/" + cars[i].GenerateSlug;
         }
 
-        var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
-        var hrefProvince = hrefFirm + "&province=" + cars[i].Province;
-        var hrefContact = "/Car/CarOfUser/" + cars[i].UserId;
+        var hrefFirm = "/firm/" + cars[i].FirmName;
+        var hrefProvince = hrefFirm + "/" + cars[i].Province;
+        var hrefContact = "/car/member/" + cars[i].UserId;
 
         var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";
         var title = cars[i].Title;
@@ -112,24 +111,24 @@ function decorateDataModify(cars, carStatus) {
 
         if (cars[i].Status == carStatus) {
 
-            var href = "/Car/CarDetail/" + cars[i].CarId;
+            var href = "/car/detail/" + cars[i].GenerateSlug;
             if (cars[i].IsBuy == 1)
             {
-                href = "/Car/CarBuyDetail/" + cars[i].CarId;
+                href = "/car/buydetail/" + cars[i].GenerateSlug;
             }
             else if (cars[i].IsBuy == 2) {
-                href = "/Car/CarHireDetail/" + cars[i].CarId;
+                href = "/car/hiredetail/" + cars[i].GenerateSlug;
             }
 
-            var hrefFirm = "/car/SearchingCars?firm=" + cars[i].FirmName;
-
-            var hrefModify = "/Car/Edit/" + cars[i].CarId;
+            var hrefFirm = "/firm/" + cars[i].FirmName;            
+            
+            var hrefModify = "/car/edit/" + cars[i].CarId;
 
             if (cars[i].IsBuy == 1) {
-                hrefModify = "/Car/EditCarBuying/" + cars[i].CarId;
+                hrefModify = "/car/EditCarBuying/" + cars[i].CarId;
             }
             else if (cars[i].IsBuy == 2) {
-                hrefModify = "/Car/EditCarHire/" + cars[i].CarId;
+                hrefModify = "/car/EditHireCar/" + cars[i].CarId;
             }
 
             var image = "/Images/Cars_" + cars[i].UserId + "_" + cars[i].CarId + "/1.jpg";            

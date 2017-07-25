@@ -4,10 +4,10 @@
         <div id="currencyVNdetail"></div>
     </div>
     <div class="car-location">
-        <a href="/Car/SearchingCars?firm=@Model.Firm&province=@Model.Province">@Model.Province</a>
+        <a href="/firm/@Model.Firm/@Model.Province">@Model.Province</a>
     </div>
     <div class="car-contact-user">
-        <a href="/Car/CarOfUser/@Model.UserId">@Model.ContactName</a>
+        <a href="/car/member/@Model.UserId">@Model.ContactName</a>
     </div>
     <div class="car-contact-tel">
         @Model.ContactTel

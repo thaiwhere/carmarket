@@ -83,7 +83,7 @@
     <Compile Include="Entity\YourCarModel.cs" />
     <Compile Include="Entity\CompanyHost.cs" />
     <Compile Include="Entity\Contact.cs" />
-    <Compile Include="Entity\CarViewModel.cs" />
+    <Compile Include="Entity\CarDetailModel.cs" />
     <Compile Include="Entity\CarModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

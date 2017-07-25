@@ -1,4 +1,4 @@
-﻿@model Car.Model.Entity.CarViewModel
+﻿@model Car.Model.Entity.CarDetailModel
 
 <script>
     function SearchingCarByCriteria() {
@@ -25,10 +25,10 @@
 </script>
 
 <div id="div_searching_tab_car_detail">
-    <a href="/home/index">Trang chủ</a> >> <a href="/car/SearchingCars?firm=@Model.Firm">@Model.Firm</a>
+    <a href="/home">Trang chủ</a> >> <a href="/firm/@Model.Firm">@Model.Firm</a>
     @if(!string.IsNullOrEmpty(@Model.Firm) && !string.IsNullOrEmpty(@Model.Model))
     { 
-        <span>>></span> <a href="/car/SearchingCars?firm=@Model.Firm&model=@Model.Model">@Model.Model</a>
+        <span>>></span> <a href="/model/@Model.Firm/@Model.Model">@Model.Model</a>
     }
     @if (!string.IsNullOrEmpty(@Model.Title))
     {

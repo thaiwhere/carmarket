@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Car.Model.Entity
 {
-    public class CarViewModel
+    public class CarDetailModel
     {
         public int UserId { get; set; }
 

@@ -96,12 +96,12 @@ namespace Car.Service
             }
         }
 
-        public static CarViewModel SearchingCarDetail(CriteriaBase criteria, bool isGetFromCache = false)
+        public static CarDetailModel SearchingCarDetail(CriteriaBase criteria, bool isGetFromCache = false)
         {            
             var carId = string.Empty;
             var cacheKey = string.Empty;
             ICache cache = null;
-            CarViewModel carViewModel = null;
+            CarDetailModel carViewModel = null;
 
             try
             {
@@ -115,14 +115,14 @@ namespace Car.Service
                 {
                     cache = CacheManager.GetInstance();
                     cacheKey = criteria.GetSettingKey() + carId;                    
-                    carViewModel = cache.GetCache<CarViewModel>(cacheKey);
+                    carViewModel = cache.GetCache<CarDetailModel>(cacheKey);
                 }
 
                 if (carViewModel == null)
                 {
                     using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
                     {                        
-                        carViewModel = obj.QueryEntity<CarViewModel>(param);
+                        carViewModel = obj.QueryEntity<CarDetailModel>(param);
 
                         if (isGetFromCache && cache != null)
                         {
@@ -136,7 +136,7 @@ namespace Car.Service
             catch (Exception ex)
             {
                 LogService.Error("SearchingCarDetail - " + ex.Message, ex);
-                return new CarViewModel();
+                return new CarDetailModel();
             }                       
         }
 

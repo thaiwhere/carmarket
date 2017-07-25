@@ -88,7 +88,7 @@
                             location.href = result.returnUrl;
                         }
                         else {
-                            location.href = "/home/index";
+                            location.href = "/home";
                         }
                     }, 3000);                    
                 }

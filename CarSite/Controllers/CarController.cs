@@ -17,20 +17,32 @@ namespace CarSite.Controllers
 
         private static string approvalWaitting = "Tin đăng cuả Bạn sẽ đuợc duyệt trong vòng 24h";
         #region GET Methods
-
-        public ActionResult SearchingCars(string firm = "", string model = "", string province = "")
+        
+        public ActionResult Model(string firm = "", string model = "")
         {
             CarSearchingFirmModelProvinceCriteria criteria = new CarSearchingFirmModelProvinceCriteria
             {
                 FirmName = firm,
                 Model = model,
+                Province = string.Empty
+            };
+
+            return View("~/Views/Car/SearchingCar.cshtml", criteria);
+        }
+
+        public ActionResult Firm(string firm = "", string province = "")
+        {
+            CarSearchingFirmModelProvinceCriteria criteria = new CarSearchingFirmModelProvinceCriteria
+            {
+                FirmName = firm,
+                Model = string.Empty,
                 Province = province
             };
-            
+
             return View("~/Views/Car/SearchingCar.cshtml", criteria);
         }
         
-        public ActionResult CarDetail(int id = 0)
+        public ActionResult Detail(int id = 0)
         {            
             var criteria = new CarSearchingDetalCriteria
             {
@@ -38,7 +50,7 @@ namespace CarSite.Controllers
                 UserId = HttpContext.Session["UserId"] != null ? int.Parse(HttpContext.Session["UserId"].ToString()) : 0
             };
            
-            CarViewModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
+            CarDetailModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
             if (carDetail != null)
             {
                 return View("~/Views/Car/CarDetail.cshtml", carDetail);
@@ -49,7 +61,7 @@ namespace CarSite.Controllers
             }
         }
 
-        public ActionResult CarHireDetail(int id = 0)
+        public ActionResult HireDetail(int id = 0)
         {
             var criteria = new CarHireDetailSearchingCriteria
             {
@@ -57,7 +69,7 @@ namespace CarSite.Controllers
                 UserId = HttpContext.Session["UserId"] != null ? int.Parse(HttpContext.Session["UserId"].ToString()) : 0
             };
            
-            CarViewModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
+            CarDetailModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
             if (carDetail != null)
             {
                 return View("~/Views/Car/CarHireDetail.cshtml", carDetail);
@@ -68,7 +80,7 @@ namespace CarSite.Controllers
             }
         }
         
-        public ActionResult CarBuyDetail(int id = 0)
+        public ActionResult BuyDetail(int id = 0)
         {
             var criteria = new CarBuySearchingDetailCriteria
             {
@@ -76,7 +88,7 @@ namespace CarSite.Controllers
                 UserId = HttpContext.Session["UserId"] != null ? int.Parse(HttpContext.Session["UserId"].ToString()) : 0
             };
            
-            CarViewModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
+            CarDetailModel carDetail = CarService.SearchingCarDetail(criteria, AppSettings.IsGetFromCache);
             if (carDetail != null)
             {
                 return View("~/Views/Car/CarBuyDetail.cshtml", carDetail);
@@ -176,12 +188,11 @@ namespace CarSite.Controllers
             return View("~/Views/Car/Yours.cshtml");
         }
         
-        public ActionResult CarOfUser(int id = 0)
+        public ActionResult Member(int id = 0)
         {
             ViewBag.UserId = id;
             return View("~/Views/Car/SearchingCarOfUser.cshtml");
         }
-
 
         [Authorize]
         public ActionResult Buy()
@@ -211,7 +222,7 @@ namespace CarSite.Controllers
         }
 
         [Authorize]
-        public ActionResult EditCarHire(int id = 0)
+        public ActionResult EditHireCar(int id = 0)
         {
             if (HttpContext.Session["UserId"] == null)
             {
@@ -476,7 +487,7 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
-        public JsonResult EditCarBuying(CarBuyingEntity carEditEntity)
+        public JsonResult BuyEdit(CarBuyingEntity carEditEntity)
         {
             var error = 0;
             try
@@ -531,7 +542,7 @@ namespace CarSite.Controllers
         }
 
         [HttpPost]
-        public JsonResult EditCarHire(CarEditEntity carEditEntity)
+        public JsonResult HireEdit(CarEditEntity carEditEntity)
         {
             var error = 0;
 
@@ -731,7 +742,7 @@ namespace CarSite.Controllers
                     if (result == 1)
                     {
                         var contact = new Contact { Name = criteria.UserName, Email = criteria.Email };
-                        var carDetail = "<a href=\"http://www.xegiadinhviet.com/car/cardetail/" + criteria.CarId + "\">" +"http://www.xegiadinhviet.com/car/cardetail/" + criteria.CarId + "</a>";
+                        var carDetail = "<a href=\"http://www.xegiadinhviet.com/car/detail/" + criteria.CarId + "\">" +"http://www.xegiadinhviet.com/car/detail/" + criteria.CarId + "</a>";
                         Proxy.SendEmail(contact, "Thông báo duyệt tin", "Tin đăng cuả Bạn đã đuợc duyệt -> " + carDetail);
                     }
                 }
@@ -763,7 +774,7 @@ namespace CarSite.Controllers
                     if (result == 1)
                     {
                         var contact = new Contact { Name = criteria.UserName, Email = criteria.Email };                        
-                        Proxy.SendEmail(contact, "Từ chối duyệt tin", "Tin đăng của bạn đã bị từ chối. Xin  liên hệ http://xegiadinhviet.com/Home/Contact");
+                        Proxy.SendEmail(contact, "Từ chối duyệt tin", "Tin đăng của bạn đã bị từ chối. Xin  liên hệ http://xegiadinhviet.com/home/contact");
                     } 
                 }
 
