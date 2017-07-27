@@ -33,7 +33,7 @@ namespace CarSite
             {
                 string idValue = id.ToString();
 
-                var regex = new Regex(@"^(?<id>\d+).*$");
+                var regex = new Regex(@"[a-z]*-(?<id>\d+)$");
                 var match = regex.Match(idValue);
 
                 if (match.Success)
