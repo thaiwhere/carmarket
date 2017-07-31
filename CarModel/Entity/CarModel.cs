@@ -40,7 +40,7 @@ namespace Car.Model.Entity
         {
             get
             {
-                string phrase = string.Format("oto-{0}-{1}-{2}-{3}-{4}", FirmName, Model, IsImport ? "nhapkhau" : "trongnuoc", ContactName, CarId);
+                string phrase = string.Format("oto-{0}-{1}-{2}-{3}-{4}", FirmName, Model, IsImport ? "nhapkhau" : "trongnuoc", Year, CarId);
 
                 string str = RemoveAccent(phrase).ToLower();
                 // invalid chars           
