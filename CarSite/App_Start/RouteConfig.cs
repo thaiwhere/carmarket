@@ -21,6 +21,10 @@ namespace CarSite
             new RouteValueDictionary(new { controller = "Car", action = "HireDetail" }),
             new MvcRouteHandler()));
 
+            routes.Add("News", new SeoFriendlyRoute("news/{id}",
+            new RouteValueDictionary(new { controller = "News", action = "Index" }),
+            new MvcRouteHandler()));
+
             routes.MapRoute(
                 name: "SearchingModel",
                 url: "model/{firm}/{model}",
@@ -31,13 +35,7 @@ namespace CarSite
                 name: "SearchingFirm",
                 url: "firm/{firm}/{province}",
                 defaults: new { controller = "Car", action = "Firm", firm = UrlParameter.Optional, province = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-              name: "News",
-              url: "news/{id}",
-              defaults: new { controller = "News", action = "Index", id = UrlParameter.Optional }
-          );
+            );            
 
             routes.MapRoute(
                 name: "Home",
