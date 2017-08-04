@@ -124,7 +124,7 @@ namespace Car.Service
                     {                        
                         carViewModel = obj.QueryEntity<CarDetailModel>(param);
 
-                        if (isGetFromCache && cache != null)
+                        if (isGetFromCache && cache != null && carViewModel != null)
                         {
                             cache.SetCache(cacheKey, carViewModel);
                         }
@@ -134,7 +134,7 @@ namespace Car.Service
                 return carViewModel;
             }
             catch (Exception ex)
-            {
+            {                
                 LogService.Error("SearchingCarDetail - " + ex.Message, ex);
                 return new CarDetailModel();
             }                       
