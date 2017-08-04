@@ -226,7 +226,7 @@ namespace CarSite.Controllers
         {
             if (HttpContext.Session["UserId"] == null)
             {
-                return RedirectToAction("Login", "Account", new { returnUrl = "/Car/EditCarHire" });
+                return RedirectToAction("Login", "Account", new { returnUrl = "/Car/EditHireCar" });
             }
 
             var criteria = new CarHireGettingForEditCriteria

@@ -416,7 +416,7 @@ var EditCarHandler = {
             },
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
-            url: "/Car/EditCarBuying",
+            url: "/Car/BuyEdit",
             data: JSON.stringify(criteria),
             success: function (error) {
                 if (error <= 0) {                    
@@ -473,7 +473,7 @@ var EditCarHandler = {
             },
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
-            url: "/Car/EditCarHire",
+            url: "/Car/HireEdit",
             data: JSON.stringify(criteria),
             success: function (error) {
                 if (error <= 0) {

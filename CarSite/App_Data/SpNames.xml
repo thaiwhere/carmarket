@@ -5,8 +5,7 @@
     <Setting Key="Car_Searching_Firm_Model" SpName="Car_Searching_Firm_Model" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="Car_Searching_Firm_Model_Province" SpName="Car_Searching_Firm_Model_Province" DbName="CarHome.Database" Plain="1"></Setting>    
     <Setting Key="Car_Searching_For_You" SpName="Car_Searching_For_You" DbName="CarHome.Database" Plain="1"></Setting>
-    <Setting Key="Car_Inserting" SpName="Car_Inserting" DbName="CarHome.Database" Plain="1"></Setting>
-    <Setting Key="get_New_Import_Cars" SpName="get_New_Import_Cars" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="Car_Inserting" SpName="Car_Inserting" DbName="CarHome.Database" Plain="1"></Setting>    
     <Setting Key="Car_Searching_Like_Model" SpName="Car_Searching_Like_Model" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_New_Old_Cars" SpName="get_New_Old_Cars" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="get_Import_Domestic_Cars" SpName="get_Import_Domestic_Cars" DbName="CarHome.Database" Plain="1"></Setting>
