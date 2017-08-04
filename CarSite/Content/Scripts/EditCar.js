@@ -200,7 +200,7 @@ var EditCarHandler = {
               }
          );
 
-        $("#uploadCar").click(
+        $("#editCar").click(
               function () {
                   if (EditCarHandler.validateData()) {
                       EditCarHandler.editCar(_carId);
@@ -356,7 +356,7 @@ var EditCarHandler = {
         $.ajax({
             type: 'POST',
             beforeSend: function () {
-                $("#uploadCar").prop("disabled", true);
+                $("#editCar").prop("disabled", true);
                 $('.ajax-loader').css("visibility", "visible");
             },
             contentType: 'application/json; charset=utf-8',
@@ -372,7 +372,7 @@ var EditCarHandler = {
             },
             complete: function () {
                 $('.ajax-loader').css("visibility", "hidden");
-                $("#uploadCar").prop("disabled", false);
+                $("#editCar").prop("disabled", false);
             },
             error: function (xhr) {
                 common.ShowErrorMessage("Lỗi sưả tin, vui lòng thử lại !");                
@@ -411,7 +411,7 @@ var EditCarHandler = {
         $.ajax({
             type: 'POST',
             beforeSend: function () {
-                $("#uploadCar").prop("disabled", true);
+                $("#editCar").prop("disabled", true);
                 $('.ajax-loader').css("visibility", "visible");
             },
             contentType: 'application/json; charset=utf-8',
@@ -430,7 +430,7 @@ var EditCarHandler = {
             },
             complete: function () {
                 $('.ajax-loader').css("visibility", "hidden");
-                $("#uploadCar").prop("disabled", false);
+                $("#editCar").prop("disabled", false);
             },
             error: function (xhr) {
                 common.ShowErrorMessage("Lỗi sưả tin, vui lòng thử lại !");
@@ -468,7 +468,7 @@ var EditCarHandler = {
         $.ajax({
             type: 'POST',
             beforeSend: function () {
-                $("#uploadCar").prop("disabled", true);
+                $("#editCar").prop("disabled", true);
                 $('.ajax-loader').css("visibility", "visible");
             },
             contentType: 'application/json; charset=utf-8',
@@ -484,7 +484,7 @@ var EditCarHandler = {
             },
             complete: function () {
                 $('.ajax-loader').css("visibility", "hidden");
-                $("#uploadCar").prop("disabled", false);
+                $("#editCar").prop("disabled", false);
             },
             error: function (xhr) {
                 common.ShowErrorMessage("Lỗi sưả tin, vui lòng thử lại !");                

@@ -296,7 +296,7 @@
         <img src="~/Content/images/common/ajax-loader.gif" class="img-responsive" />
     </div>
 
-    <button type="submit" id="uploadCar" class="btn btn-primary btn-lg">Sửa tin</button>
+    <button type="submit" id="editCar" class="btn btn-primary btn-lg">Sửa tin</button>
 
     <br />
     <br />
@@ -313,6 +313,6 @@
         handler.showResultSearching();
     </script>
 
-    <script src="~/Content/scripts/EditCar.js"></script>
+    @Scripts.Render("~/bundles/add_edit_car")
 }
 

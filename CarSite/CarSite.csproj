@@ -390,6 +390,7 @@
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Rc4.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.Sha1.js" />
     <Content Include="Content\scripts\lib\ScriptsUtility\Detecas.ua-parser-js.js" />
+    <Content Include="Content\scripts\lib\ScriptsUtility\evercookie.js" />
     <Content Include="Content\scripts\RecoverPass.js" />
     <Content Include="Content\scripts\Login.js" />
     <Content Include="Content\scripts\Manage.js" />

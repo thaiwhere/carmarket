@@ -161,7 +161,7 @@ var AddCarHandler = {
                }
            );
 
-        $("#buyCar").click(
+        $("#uploadBuyingCar").click(
              function () {
                  if (AddCarHandler.validateData()) {
                      AddCarHandler.insertCarBuying();
@@ -349,6 +349,10 @@ var AddCarHandler = {
         
         $.ajax({
             type: 'POST',
+            beforeSend: function () {
+                $("#uploadBuyingCar").prop("disabled", true);
+                $('.ajax-loader').css("visibility", "visible");
+            },
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             url: "/Car/InsertCarBuy",
@@ -362,6 +366,10 @@ var AddCarHandler = {
                 else {
                     common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
                 }
+            },
+            complete: function () {
+                $('.ajax-loader').css("visibility", "hidden");
+                $("#uploadBuyingCar").prop("disabled", false);
             },
             error: function (xhr) {
                 common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");
@@ -415,7 +423,7 @@ var AddCarHandler = {
             },
             complete: function () {
                 $('.ajax-loader').css("visibility", "hidden");
-                $("#uploadCar").prop("disabled", false);
+                $("#uploadCarHire").prop("disabled", false);
             },
             error: function (xhr) {
                 common.ShowErrorMessage("Lỗi đăng tin, vui lòng thử lại !");

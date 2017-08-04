@@ -150,7 +150,7 @@
 </script>
 
 @section Scripts
-{
-    <script src="~/Content/scripts/CarDetail.js"></script>
-    <script src="~/Content/scripts/SearchingCar.js"></script>
+{    
+    @Scripts.Render("~/bundles/cardetail")
+    @Scripts.Render("~/bundles/searchingcar")
 }

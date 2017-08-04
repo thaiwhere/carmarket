@@ -49,10 +49,9 @@
     <script>
         var IsAdmin = '@ViewBag.IsAdmin';
     </script>
-
-    <script src="~/Content/scripts/DeleteCar.js"></script>        
-    <script src="~/Content/scripts/ApproveCar.js"></script>        
-    <script src="~/Content/scripts/SearchingCar.js"></script>     
+    
+    @Scripts.Render("~/bundles/approve_del_car")
+    @Scripts.Render("~/bundles/searchingcar")
     
     <script>        
 

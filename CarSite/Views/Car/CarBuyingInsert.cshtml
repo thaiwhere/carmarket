@@ -319,8 +319,11 @@
     </div>
 
     <div style="margin-left:10px;">
+        <div class="ajax-loader">
+            <img src="~/Content/images/common/ajax-loader.gif" class="img-responsive" />
+        </div>
         <br />
-        <button type="submit" id="buyCar" class="btn btn-primary btn-lg">Đăng tin</button>
+        <button type="submit" id="uploadBuyingCar" class="btn btn-primary btn-lg">Đăng tin</button>
         <br />
         <br />
         @Html.ActionLink("Trở về trang chủ", "Home/Index")
@@ -335,6 +338,6 @@
         handler.showResultSearching();
     </script>
 
-    <script src="~/Content/scripts/AddCar.js"></script>
+    @Scripts.Render("~/bundles/add_edit_car")
 }
 

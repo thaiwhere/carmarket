@@ -29,12 +29,34 @@ namespace CarSite
                         "~/Content/scripts/lib/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
+                      "~/Content/scripts/Index.js",
                       "~/Content/scripts/lib/bootstrap.min.js",
                 //"~/Content/scripts/bootstrap-dropdownhover.js",
                       "~/Content/scripts/lib/respond.js",
                       "~/Content/scripts/grid.paging/*.js",
                       "~/Content/scripts/base/*.js",
                       "~/Content/scripts/fancybox/jquery.fancybox.pack.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/add_edit_car").Include(
+                     "~/Content/scripts/AddCar.js",                     
+                     "~/Content/scripts/EditCar.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/approve_del_car").Include(                     
+                     "~/Content/scripts/DeleteCar.js",                     
+                     "~/Content/scripts/ApproveCar.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/searchingcar").Include(                                          
+                     "~/Content/scripts/SearchingCar.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/cardetail").Include(
+                     "~/Content/scripts/CarDetail.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/member").Include(
+                     "~/Content/scripts/Login.js",
+                     "~/Content/scripts/Contact.js",
+                     "~/Content/scripts/Manage.js",
+                     "~/Content/scripts/Register.js",
+                     "~/Content/scripts/RecoverPass.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/Content/Css/base/*.css",
