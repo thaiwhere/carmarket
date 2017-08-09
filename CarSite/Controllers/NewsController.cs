@@ -14,5 +14,12 @@ namespace CarSite.Controllers
         {
             return View("~/Views/News/news" + id + ".cshtml");
         }
+
+        //
+        // GET: /Page/
+        public ActionResult Page(int id)
+        {
+            return View("~/Views/Home/News/Page" + id + ".cshtml");
+        }
 	}
 }

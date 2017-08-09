@@ -61,7 +61,7 @@ namespace CarSite.Controllers
 
         public ActionResult News()
         {
-            return View("~/Views/Home/News.cshtml");
+            return View("~/Views/Home/News/Page1.cshtml");
         }
      
         [HttpPost]

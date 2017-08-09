@@ -537,7 +537,6 @@
     </Content>
     <Content Include="Views\Car\CarForBuy.cshtml" />
     <Content Include="Views\Car\SearchingCarOfUser.cshtml" />
-    <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\News\news2.cshtml" />
     <Content Include="Views\News\news1.cshtml" />
     <Content Include="Views\News\news3.cshtml" />
@@ -552,6 +551,9 @@
     <Content Include="Views\Car\CarHireDetail.cshtml" />
     <Content Include="Views\Car\CarHireDetailImages.cshtml" />
     <Content Include="Views\News\news10.cshtml" />
+    <Content Include="Views\Home\News\Page1.cshtml" />
+    <Content Include="Views\Home\News\Page2.cshtml" />
+    <Content Include="Views\News\news11.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
