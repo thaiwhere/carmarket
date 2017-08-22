@@ -29,23 +29,30 @@
     font-weight:bold;
     color: #ffffff;
     text-decoration: none;
-    background-color: #428bca;
+    background-color: #337ab7;                
 }
 
 .dropdown > a
 {
-    margin-left:-15px !important;
-    width:188px !important;
+    margin-left:35px !important;
+    width:136px !important;    
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
-    left: 131px;    
+    left: 130px;    
     top: -3px;    
 }
 
 .dropdown-menu > li > a:hover {    
-    color:white !important;
+    color:#ffffff !important;
     background-color:#337ab7 !important;
 }
 
+.img-menu-left {
+    width: 36px;
+    float: left;
+    height: 36px;
+    margin-right: 5px;
+    /* display: none; */
+}

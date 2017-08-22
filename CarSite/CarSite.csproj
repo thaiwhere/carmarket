@@ -339,6 +339,16 @@
     <Content Include="Content\images\common\star.png" />
     <Content Include="Content\images\common\tab.png" />
     <Content Include="Content\images\common\user-alt-v2.png" />
+    <Content Include="Content\images\firm\32-32-chevrolet.jpg" />
+    <Content Include="Content\images\firm\32-32-ford.png" />
+    <Content Include="Content\images\firm\32-32-honda.jpg" />
+    <Content Include="Content\images\firm\32-32-hyundai.jpg" />
+    <Content Include="Content\images\firm\32-32-kIA.jpg" />
+    <Content Include="Content\images\firm\32-32-mazda.gif" />
+    <Content Include="Content\images\firm\32-32-mitsubishi.jpg" />
+    <Content Include="Content\images\firm\32-32-nissan.gif" />
+    <Content Include="Content\images\firm\32-32-suzuki.png" />
+    <Content Include="Content\images\firm\32-32-toyota.png" />
     <Content Include="Content\images\guide\Dangky.png" />
     <Content Include="Content\images\guide\dangnhap.png" />
     <Content Include="Content\images\guide\O6Dangtin_banxe2.png" />
