@@ -43,7 +43,7 @@
     float:left;
     margin-top:1px;
     margin-bottom:2px;
-    background-color:#374B64; 
+    background-color:#445862; 
     border-radius:5px;
     border: solid 1px #c5c5c5;        
     width:100%
@@ -51,7 +51,7 @@
 
 #div-left{
     float:left;
-    background-color:#374B64;             
+    background-color:#445862;             
     border-top-left-radius:5px;            
     border-bottom-left-radius:5px;
     border: solid 1px #c5c5c5;        

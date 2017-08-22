@@ -17,7 +17,7 @@
 
 .dropdown-menu li{
     float:left;
-    width:110px;    
+    width:110px;        
 }
 
 .dropdown-menu {
@@ -34,18 +34,26 @@
 
 .dropdown > a
 {
-    margin-left:35px !important;
-    width:136px !important;    
+    margin-left:-15px !important;
+    width:188px !important;        
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
     left: 130px;    
-    top: -3px;    
+    top: -3px;        
+    background-color:#445862;             
+    border-top-left-radius:5px;            
+    border-bottom-left-radius:5px;
+    border: solid 1px #c5c5c5;
+}
+
+.dropdown-menu > li > a{    
+    color:#ffffff !important;    
 }
 
 .dropdown-menu > li > a:hover {    
-    color:#ffffff !important;
+    font-weight:bold;    
     background-color:#337ab7 !important;
 }
 
@@ -54,5 +62,5 @@
     float: left;
     height: 36px;
     margin-right: 5px;
-    /* display: none; */
+    margin-top:-8px;
 }
