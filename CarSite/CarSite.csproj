@@ -564,6 +564,7 @@
     <Content Include="Views\Home\News\Page1.cshtml" />
     <Content Include="Views\Home\News\Page2.cshtml" />
     <Content Include="Views\News\news11.cshtml" />
+    <Content Include="Views\News\news12.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
