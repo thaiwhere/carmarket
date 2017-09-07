@@ -37,8 +37,10 @@ namespace CarSite
                       "~/Content/scripts/base/*.js",
                       "~/Content/scripts/fancybox/jquery.fancybox.pack.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/add_edit_car").Include(
-                     "~/Content/scripts/AddCar.js",                     
+            bundles.Add(new ScriptBundle("~/bundles/add_car").Include(
+                     "~/Content/scripts/AddCar.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/edit_car").Include(                     
                      "~/Content/scripts/EditCar.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/approve_del_car").Include(                     
