@@ -63,6 +63,11 @@ namespace CarSite.Controllers
         {
             return View("~/Views/Home/News/Page1.cshtml");
         }
+
+        public ActionResult Society()
+        {
+            return View("~/Views/Home/Society/SocietyPage1.cshtml");
+        }
      
         [HttpPost]
         public JsonResult SendMessage(Contact contact)

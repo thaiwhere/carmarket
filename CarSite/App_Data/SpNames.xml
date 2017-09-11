@@ -26,7 +26,8 @@
     <Setting Key="Car_Buying_Edit" SpName="Car_Buying_Edit" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="Contact_Insert" SpName="Contact_Insert" DbName="CarHome.Database" Plain="1"></Setting>    
     <Setting Key="Car_Searching_By_Text" SpName="Car_Searching_By_Text" DbName="CarHome.Database" Plain="1"></Setting>
-    <Setting Key="Car_Visited" SpName="Car_Visited" DbName="CarHome.Database" Plain="1"></Setting>    
+    <Setting Key="Car_Visited" SpName="Car_Visited" DbName="CarHome.Database" Plain="1"></Setting>
+    <Setting Key="News_Visited" SpName="News_Visited" DbName="CarHome.Database" Plain="1"></Setting>    
     <Setting Key="car_saled" SpName="car_saled" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="Car_Approve" SpName="Car_Approve" DbName="CarHome.Database" Plain="1"></Setting>
     <Setting Key="Car_DisApprove" SpName="Car_DisApprove" DbName="CarHome.Database" Plain="1"></Setting>

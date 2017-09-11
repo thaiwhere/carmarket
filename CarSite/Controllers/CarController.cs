@@ -724,6 +724,11 @@ namespace CarSite.Controllers
             return CarService.VisitCar(criteria);         
         }
 
+        public long VisitNews(NewsVisistedCriteria criteria)
+        {
+            return CarService.VisitNews(criteria);
+        }
+
         [HttpPost]
         public JsonResult ApproveCar(ApproveCarCriteria criteria)
         {

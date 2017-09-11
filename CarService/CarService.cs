@@ -257,6 +257,19 @@ namespace Car.Service
             }
         }
 
+        public static long VisitNews(CriteriaBase criteria)
+        {
+            using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))
+            {
+                var param = criteria.GetSpParams();
+                obj.ExecuteNonQuery(param);
+
+                var visistCount = obj.GetParameterValue("visistcount");
+
+                return (visistCount is DBNull) ? 0 : Convert.ToInt64(visistCount);
+            }
+        }
+
         public static int ApproveCar(CriteriaBase criteria)
         {
             using (ObjectDb obj = new ObjectDb(criteria.GetSettingKey()))

@@ -207,6 +207,7 @@
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SocietyController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
@@ -566,6 +567,9 @@
     <Content Include="Views\News\news11.cshtml" />
     <Content Include="Views\News\news12.cshtml" />
     <Content Include="Views\News\news13.cshtml" />
+    <Content Include="Views\Home\Society\SocietyPage1.cshtml" />
+    <Content Include="Views\Society\Society1.cshtml" />
+    <Content Include="Views\Shared\VisistNews.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -25,6 +25,10 @@ namespace CarSite
             new RouteValueDictionary(new { controller = "News", action = "Index" }),
             new MvcRouteHandler()));
 
+            routes.Add("Society", new SeoFriendlyRoute("society/{id}",
+            new RouteValueDictionary(new { controller = "Society", action = "Index" }),
+            new MvcRouteHandler()));
+
             routes.MapRoute(
                 name: "SearchingModel",
                 url: "model/{firm}/{model}",

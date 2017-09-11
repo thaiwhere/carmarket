@@ -1,0 +1,41 @@
+﻿
+<script src="~/Content/scripts/lib/ScriptsUtility/evercookie.js"></script>
+
+<script type="text/javascript">
+
+    function S4() {
+        return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
+    }
+    
+    (function () {
+        setTimeout(function () {
+ 
+            var ec = new evercookie();
+            ec.get("__di", function(value) { 
+
+                if(value == "" || typeof(value) == 'undefined' || (typeof(value) !== 'undefined' && value.length > 32))
+                {                
+                    var guid = (S4() + S4() + S4() + S4() + S4() + S4() + S4() + S4()).toLowerCase();                    
+                    value = guid;                    
+                    ec.set("__di", value);
+                }            
+                               
+                $.ajax({
+                    type: "POST",
+                    url: "/Car/VisitNews",
+                    data: JSON.stringify({ DeviceId: value, Id: '@ViewBag.NewsId', IsNews: '@ViewBag.IsNews' }),
+                    contentType: "application/json; charset=utf-8",                    
+                    async: true,
+                    success: function (result) {
+                        //$("#countvisit").html(result);
+                    },
+                    error: function (x, h, r) {                        
+                    }
+                });
+
+            });
+
+        }, 3000);
+
+        })();
+</script>
