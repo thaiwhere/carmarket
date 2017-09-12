@@ -35,13 +35,13 @@
                         if (img.Name.Equals("1.jpg"))
                         {
                             <div class="item active">
-                                <img src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" />
+                                <img src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" alt="@Model.GenerateSlug" />
                             </div>
                         }
                         else
                         {
                             <div class="item">
-                                <img src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" />
+                                <img src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" alt="@Model.GenerateSlug" />
                             </div>
                         }
                     }
@@ -49,14 +49,14 @@
                 else
                 {
                     <div class="item active">
-                        <img src="@Url.Content(String.Format("/Images/noimage.gif"))" />
+                        <img src="@Url.Content(String.Format("/Images/noimage.gif"))" alt="@Model.GenerateSlug" />
                     </div>
                 }
             }
             else
             {
                 <div class="item active">
-                    <img src="@Url.Content(String.Format("/Images/noimage.gif"))" />
+                    <img src="@Url.Content(String.Format("/Images/noimage.gif"))" alt="@Model.GenerateSlug" />
                 </div>
             }
         </div>
@@ -84,7 +84,7 @@
                 {
                     var img = new FileInfo(imgPath);
                     <a href="javascript:void(@index)">
-                        <img onclick="change_img(@index);" src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" />
+                        <img onclick="change_img(@index);" src="@Url.Content(String.Format(imagesPath + "/{0}", img.Name))" alt="@Model.GenerateSlug" />
                     </a>
 
                     index++;
@@ -93,7 +93,7 @@
             else
             {
                 <a href="javascript:void(0)">                    
-                    <img src="@Url.Content(String.Format("/Images/noimage.gif"))" />
+                    <img src="@Url.Content(String.Format("/Images/noimage.gif"))" alt="@Model.GenerateSlug" />
                 </a>
             }
         </span>
