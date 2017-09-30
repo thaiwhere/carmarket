@@ -8,3 +8,5 @@ obj/
 logs/
 Web.config
 CarSite/Web.config
+/.vs/CarHome/v15/sqlite3/storage.ide
+/.vs/config/applicationhost.config
