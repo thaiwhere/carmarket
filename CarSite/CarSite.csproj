@@ -573,6 +573,7 @@
     <Content Include="Views\Society\Society1.cshtml" />
     <Content Include="Views\Shared\VisistNews.cshtml" />
     <Content Include="Views\News\news14.cshtml" />
+    <Content Include="Views\Society\Society2.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
