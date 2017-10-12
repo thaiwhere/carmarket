@@ -363,7 +363,7 @@ namespace CarSite.Controllers
             }
             catch(Exception ex)
             {
-                LogService.Error("InsertCar - " + ex.Message, ex);
+                LogService.Error("InsertCar - " + ex.Message + "," + ex.InnerException.Message + "," + ex.StackTrace, ex);
             }
 
             return Json(carId);
