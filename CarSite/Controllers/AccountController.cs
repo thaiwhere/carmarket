@@ -166,7 +166,14 @@ namespace CarSite.Controllers
                                     var contact = new Contact { Name = model.UserName, Email = model.Email };
                                     var content = string.Format("Bạn đã trở thành thành viên <b>xegiadinhviet.com</b>, nơi đăng tin mua, bán, thuê xe <b>HOÀN TOÀN MIỄN PHÍ</b>. <br/><br/> Tên truy cập: {0}, Mật khẩu: {1} <br/><br/> Click {2} để đăng tin miễn phí", model.UserName, model.Password, "<a href =\"http://www.xegiadinhviet.com/car/insert\">Đăng tin</a>");
 
-                                    Proxy.SendEmail(contact, "Thành viên", content);
+                                    try
+                                    {
+                                        Proxy.SendEmail(contact, "Thành viên", content);
+                                    }
+                                    catch(Exception ex)
+                                    {
+                                        LogService.Error("Register - " + ex.Message, ex);
+                                    }
 
                                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                                     && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
