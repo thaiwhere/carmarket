@@ -574,6 +574,8 @@
     <Content Include="Views\Shared\VisistNews.cshtml" />
     <Content Include="Views\News\news14.cshtml" />
     <Content Include="Views\Society\Society2.cshtml" />
+    <Content Include="Views\Society\Society3.cshtml" />
+    <Content Include="Views\Society\Society4.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
