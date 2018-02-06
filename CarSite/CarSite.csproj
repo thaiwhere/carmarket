@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -359,6 +360,8 @@
     <Content Include="Content\images\guide\Tin_hieuluc.png" />
     <Content Include="Content\images\news\news13_1.jpg" />
     <Content Include="Content\images\news\news13_2.jpg" />
+    <Content Include="Content\images\news\society_5.jpg" />
+    <Content Include="Content\images\news\society_5_2.jpg" />
     <Content Include="Content\images\panel_left\1.jpg" />
     <Content Include="Content\images\panel_left\2.png" />
     <Content Include="Content\images\panel_left\3.gif" />
@@ -577,6 +580,7 @@
     <Content Include="Views\Society\Society3.cshtml" />
     <Content Include="Views\Society\Society4.cshtml" />
     <Content Include="Views\News\news15.cshtml" />
+    <Content Include="Views\Society\Society5.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
