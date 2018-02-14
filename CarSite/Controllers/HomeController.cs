@@ -110,12 +110,7 @@ namespace CarSite.Controllers
                 "<br/><br/>----------------------------------------- Nội dung liên hệ -----------------------------------------<br/>",
                 "{2}",
                 "<br/>---------------------------------------------------------------------------------------------------------<br/><br/>",
-                "Chúng tôi sẽ phản hồi sớm nhất cho Bạn.",                
-                "<br /> <br />Vui lòng liên hệ <a href=\"{4}\">{3}</a> nếu cần thêm sự hỗ trợ.",
-                "<br/><br/>Trân trọng cảm ơn !",
-                "<br /> <br />http://www.xegiadinhviet.com",
-                "<br/><br/>----------------------------------------------------------------------------------------------------<br/>",                
-                "<b>P/S: Đây là Email tự động. Xin đừng phản hồi qua email này </b>");
+                "Chúng tôi sẽ phản hồi sớm nhất cho Bạn.");
 
             string content = string.Format(message, contact.Name, phone, contact.Message, AppSettings.DomainName, "http://www.xegiadinhviet.com/home/contact");
 
