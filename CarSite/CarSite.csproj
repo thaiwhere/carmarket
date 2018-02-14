@@ -358,6 +358,7 @@
     <Content Include="Content\images\guide\Tindangcuaban.png" />
     <Content Include="Content\images\guide\Tinhethan.png" />
     <Content Include="Content\images\guide\Tin_hieuluc.png" />
+    <Content Include="Content\images\news\celerio.jpg" />
     <Content Include="Content\images\news\news13_1.jpg" />
     <Content Include="Content\images\news\news13_2.jpg" />
     <Content Include="Content\images\news\society_5.jpg" />
@@ -581,6 +582,7 @@
     <Content Include="Views\Society\Society4.cshtml" />
     <Content Include="Views\News\news15.cshtml" />
     <Content Include="Views\Society\Society5.cshtml" />
+    <Content Include="Views\News\news16.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
