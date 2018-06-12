@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Nữ 'Ninja' bị xe tông vì bật xi-nhan nhưng không thèm nhìn đường";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.NewsId = 7;
+    ViewBag.IsNews = 0;
+}
+
+@{ Html.RenderPartial("~/Views/Shared/VisistNews.cshtml"); }
+
+<div class="news-details" style="margin-left:10px">
+
+    <div class="title_news">
+        <h2 id="title-h1">
+            Nữ 'Ninja' bị xe tông vì bật xi-nhan nhưng không thèm nhìn đường                     
+        </h2>
+    </div>
+    <div class="clear">
+    </div>
+
+    <div>
+        
+        <h3 class="description">Người phụ nữ mặc áo chống nắng chạy xe máy, tạt đầu ôtô bị tông ngã, nằm đau đớn dưới đường.</h3>
+
+        <article class="content_detail fck_detail width_common block_ads_connect">
+            <p class="Normal">
+                Vụ tai nạn xảy ra chiều 2/6 ở Đắk Lắk. Người phụ nữ bịt khẩu trang, mặc áo chống nắng chạy xe máy, bật xi-nhan sang đường nhưng không quan sát. Người này tạt đầu ôtô và bị tông ngã sõng soài, nằm đau đớn trên đường. Sau đó, tài xế ôtô và người dân vội đến đỡ người phụ nữ dậy, dìu vào lề đường.
+            </p>
+
+            <iframe width="785" height="545" src="https://v.vnecdn.net/vnexpress/video/web/mp4/2018/06/04/nu-ninja-di-xe-may-bat-xi-nhan-nhung-khong-quan-sat-bi-oto-t-1528107526.mp4"></iframe>
+
+        </article>
+
+    </div>
+
+</div>
+
+<div style="margin-top:900px" >(Nguồn: vnexpress.net)</div>
+@section Scripts{
+    <script>
+        //$("#div-right").hide();
+        //handler.expandDivCenter();
+    </script>
+}
